@@ -8,8 +8,8 @@ $name: ".currencies-bar";
   align-items: center;
   justify-content: space-between;
   padding: em(8.67) em(8.67) em(8.67) em(20.81);
-  border-radius: em(69.4);
   background-color: var(--color-surface-accent);
+  border-radius: em(69.4);
 
   &__label {
     font-size: em(15.6);
@@ -22,8 +22,8 @@ $name: ".currencies-bar";
     --list-padding: #{em(8.67)};
 
     border: em(0.87) solid var(--color-border);
-    border-radius: em(47.7);
     background-color: var(--color-bg);
+    border-radius: em(47.7);
   }
 
   &__icon {

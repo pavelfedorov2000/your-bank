@@ -20,16 +20,16 @@ $name: ".button";
 // Block: button (Figma "Button")
 #{$name} {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: var(--button-justify);
-  flex-shrink: 0;
   padding: var(--button-padding);
-  border-radius: var(--button-radius);
-  background-color: var(--button-bg);
-  box-shadow: var(--button-shadow);
   color: var(--button-color);
   font-size: var(--button-font-size);
   white-space: nowrap;
+  background-color: var(--button-bg);
+  border-radius: var(--button-radius);
+  box-shadow: var(--button-shadow);
   transition: opacity var(--transition), background-color var(--transition), color var(--transition);
 
   &:hover:not(:disabled) {

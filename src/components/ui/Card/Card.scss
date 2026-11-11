@@ -18,14 +18,14 @@ $name: ".card";
 // Block: card (frame of job / FAQ / feature / press release / benefit cards).
 // The mixed block must not set these properties directly — only the --card-* vars (no order fights between blocks).
 #{$name} {
-  position: relative;
   display: var(--card-display);
   flex-direction: column;
   gap: var(--card-gap);
+  position: relative;
   height: 100%; // fills its grid cell: cards in a row are equal
   padding: var(--card-padding);
-  border-radius: var(--card-radius);
   background: var(--card-bg);
+  border-radius: var(--card-radius);
 
   @include image-border(var(--card-border), var(--card-border-width));
 

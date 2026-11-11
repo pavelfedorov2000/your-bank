@@ -8,8 +8,8 @@ $name: ".hero-widget-income";
   align-items: center;
   gap: em(8.67);
   padding: em(13.87) em(17.34);
-  border-radius: em(10.4);
   background-color: var(--color-surface-accent);
+  border-radius: em(10.4);
 
   &__icon-circle {
     @include icon-circle;

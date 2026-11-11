@@ -7,28 +7,28 @@ $name: ".simple-hero";
 // Mobile: one column — photo, then content pulled up over its bottom edge.
 // From sm: 3 columns — content spans 1–2, photo spans 2–3, column 2 is the overlap (Figma: 174 / 260px).
 #{$name} {
-  position: relative;
   display: grid;
+  position: relative;
   overflow: hidden; // clips the dots in the top-right corner
-  border-radius: 20px;
   background-color: var(--color-surface);
+  border-radius: 20px;
 
-  @include responsive(padding, (14px, null, 40px, 50px));
   @include responsive(grid-template-columns, (null, null, 484fr 174fr 541fr, 531fr 260fr 708fr));
+  @include responsive(padding, (14px, null, 40px, 50px));
 
   // Layers: dots (behind) → photo → content
   &__content {
-    position: relative;
-    z-index: 2;
     display: flex;
     flex-direction: column;
     align-self: start;
+    position: relative;
+    z-index: 2;
     background-color: var(--color-bg);
 
-    @include responsive(grid-row, (2, null, 1));
     @include responsive(grid-column, (1, null, #{1} / #{3}));
-    @include responsive(margin-top, (-41px, null, 0));
+    @include responsive(grid-row, (2, null, 1));
     @include responsive(gap, (14px, 20px, null, 23px));
+    @include responsive(margin-top, (-41px, null, 0));
     @include responsive(padding, (24px, null, 60px, 80px));
     @include responsive(text-align, (center, null, left));
     @include responsive(border-radius, (20px, null, 20px 0 60px 20px, 20px 0 80px 20px));
@@ -65,8 +65,8 @@ $name: ".simple-hero";
     height: 100%;
     border-radius: 16px;
 
-    @include responsive(aspect-ratio, (#{329} / #{253}, null, #{715} / #{568}, #{968} / #{716}));
     @include responsive(grid-column, (1, null, #{2} / #{4}));
+    @include responsive(aspect-ratio, (#{329} / #{253}, null, #{715} / #{568}, #{968} / #{716}));
   }
 
   // Behind the photo: visible only around it, as in the design
@@ -76,9 +76,9 @@ $name: ".simple-hero";
     position: absolute;
     top: 0;
     right: 0;
-    pointer-events: none;
     aspect-ratio: #{960} / #{1010};
     background: url("@images/decor/simple-hero-dots.webp") center / contain no-repeat;
+    pointer-events: none;
 
     @include responsive(width, (189px, 317px, null, 480px));
   }

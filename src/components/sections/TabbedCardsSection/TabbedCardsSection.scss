@@ -26,10 +26,10 @@ $name: ".tabbed-cards";
     @include responsive(gap, (20px, null, null, 30px));
 
     & + & {
-      @include responsive(border-top, (1px solid var(--color-border), null, none));
-      @include responsive(border-left, (none, null, 1px solid var(--color-border)));
       @include responsive(padding-top, (30px, null, 0));
       @include responsive(padding-left, (0, null, 30px, 50px));
+      @include responsive(border-top, (1px solid var(--color-border), null, none));
+      @include responsive(border-left, (none, null, 1px solid var(--color-border)));
     }
   }
 

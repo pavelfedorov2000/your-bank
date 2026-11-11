@@ -69,11 +69,11 @@ $name: ".typography";
   // Pill written in its own weight (--typography-weight from content.json)
   &__weight {
     display: inline-flex;
-    border-radius: var(--radius-pill);
-    background-color: var(--color-surface);
-    box-shadow: inset 0 0 0 1px var(--color-border);
     color: var(--color-text-muted);
     font-weight: var(--typography-weight);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-pill);
+    box-shadow: inset 0 0 0 1px var(--color-border);
 
     @include responsive(padding, (8px 16px, 10px 20px, null, 14px 24px));
     @include responsive(font-size, (14px, 16px, 18px, 20px));
@@ -114,11 +114,11 @@ $name: ".typography";
   &__char {
     display: grid;
     place-items: center;
-    border-radius: 10px;
-    background-color: var(--color-surface);
-    box-shadow: inset 0 0 0 1px var(--color-border);
     color: var(--color-text-muted);
     font-weight: 500;
+    background-color: var(--color-surface);
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 1px var(--color-border);
 
     @include responsive(min-width, (40px, 48px, null, 54px));
     @include responsive(height, (42px, 50px, null, 56px));

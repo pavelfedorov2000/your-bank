@@ -9,8 +9,8 @@ $name: ".section-intro";
 
   @include responsive(flex-direction, (column, null, row));
   @include responsive(align-items, (center, null, flex-end));
-  @include responsive(text-align, (center, null, left));
   @include responsive(gap, (20px, null, 100px, 300px));
+  @include responsive(text-align, (center, null, left));
 
   // Mix with text-block (default gap)
   &__text {

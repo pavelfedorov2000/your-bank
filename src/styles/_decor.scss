@@ -17,11 +17,11 @@
     position: absolute;
     inset: 0;
     padding: $width;
-    border-radius: inherit;
     background: $image;
-    pointer-events: none;
+    border-radius: inherit;
     mask:
       linear-gradient(#000 0 0) content-box exclude,
       linear-gradient(#000 0 0);
+    pointer-events: none;
   }
 }

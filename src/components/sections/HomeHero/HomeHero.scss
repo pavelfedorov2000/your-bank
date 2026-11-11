@@ -5,13 +5,13 @@ $name: ".hero-section";
 
 // Block: hero-section (Home "Hero Section")
 #{$name} {
-  position: relative;
   display: flex;
+  position: relative;
 
   @include responsive(flex-direction, (column, null, row));
+  @include responsive(align-items, (center, null, flex-start));
   // content is capped (max-width below), the widget stays on the right
   @include responsive(justify-content, (null, null, space-between));
-  @include responsive(align-items, (center, null, flex-start));
   @include responsive(gap, (80px, null, 100px, 120px));
   // Added to the layout offset (30 / 50 / 53): header → hero content is 50 / 90 / 153 as in the design
   @include responsive(padding-top, (20px, 40px, null, 100px));
@@ -21,11 +21,11 @@ $name: ".hero-section";
   &::before {
     content: "";
     position: absolute;
-    z-index: -1;
     left: calc(50% - 50vw - var(--dots-offset));
-    pointer-events: none;
+    z-index: -1;
     aspect-ratio: #{759} / #{611};
     background: url("@images/decor/hero-dots.webp") center / contain no-repeat;
+    pointer-events: none;
 
     @include responsive(--dots-offset, (33px, 49px, null, 69px));
     @include responsive(top, (-170px, -240px, null, -310px));
@@ -41,9 +41,9 @@ $name: ".hero-section";
     gap: var(--content-gap);
 
     @include responsive(--content-gap, (8px, 10px, null, 14px));
+    @include responsive(align-items, (center, flex-start));
     // Figma: text column is 650px on Laptop, 826px on Desktop
     @include responsive(max-width, (none, 650px, null, 826px));
-    @include responsive(align-items, (center, flex-start));
     @include responsive(text-align, (center, left));
   }
 
@@ -59,8 +59,8 @@ $name: ".hero-section";
   }
 
   &__description {
-    color: var(--color-text-soft);
     margin-bottom: calc(var(--space-after) - var(--content-gap));
+    color: var(--color-text-soft);
     @include text-body;
 
     @include responsive(--space-after, (30px, 40px, null, 50px));

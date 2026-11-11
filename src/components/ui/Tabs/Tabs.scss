@@ -30,9 +30,9 @@ $name: ".tabs";
 
     @include responsive(flex-direction, (row, null, column));
     @include responsive(gap, (20px, null, null, 24px));
+    @include responsive(overflow-x, (auto, null, initial));
     @include responsive(padding, (20px, null, 30px, 50px));
     @include responsive(border-radius, (10px, null, null, 12px));
-    @include responsive(overflow-x, (auto, null, initial));
 
     #{$name}__item {
       --button-shadow: inset 0 0 0 1px var(--color-border);

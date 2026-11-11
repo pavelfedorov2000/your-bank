@@ -38,8 +38,8 @@ $name: ".assets";
   &__caption {
     display: flex;
     align-items: center;
-    gap: 6px;
     align-self: stretch;
+    gap: 6px;
     height: 22px;
     border-inline: 1px solid #333333;
     color: var(--color-text-muted);
@@ -66,10 +66,10 @@ $name: ".assets";
   }
 
   &__design {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     &:not(:first-child)::before {
       content: "";

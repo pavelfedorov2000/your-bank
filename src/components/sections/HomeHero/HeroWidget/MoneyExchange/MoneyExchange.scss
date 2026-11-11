@@ -21,8 +21,8 @@ $name: ".money-exchange";
     overflow: hidden;
     margin-top: em(7.8);
     border: em(0.87) solid var(--color-border);
-    border-radius: em(10.4);
     background-color: var(--color-border);
+    border-radius: em(10.4);
   }
 
   &__currency {
@@ -56,8 +56,8 @@ $name: ".money-exchange";
 
   &__amount {
     padding: em(26) em(17.34);
-    background-color: var(--color-surface);
     font-weight: 500;
+    background-color: var(--color-surface);
   }
 
   // Mix with button (no color modifier): look via --button-* variables, sizes in em like the whole widget

@@ -7,11 +7,11 @@ $name: ".input";
   display: flex;
   align-items: center;
   gap: 10px;
-  border-radius: var(--radius-pill);
   background-color: var(--color-bg);
+  border-radius: var(--radius-pill);
   box-shadow: inset 0 0 0 1px var(--color-border);
-  cursor: text;
   transition: box-shadow var(--transition);
+  cursor: text;
 
   @include responsive(padding, (16px, 20px, null, 24px));
   @include responsive(font-size, (16px, null, null, 18px));
@@ -25,11 +25,11 @@ $name: ".input";
     min-width: 0;
     padding: 0;
     border: none;
-    outline: none;
-    background: none;
     color: var(--color-text);
     font: inherit;
     font-weight: 300;
+    background: none;
+    outline: none;
 
     &::placeholder {
       color: var(--color-text-placeholder);

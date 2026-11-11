@@ -19,10 +19,10 @@ $name: ".stats-list";
 
     // Divider between the items: horizontal on mobile, vertical from sm
     & + & {
-      @include responsive(border-top, (1px solid var(--color-border), none));
-      @include responsive(border-left, (none, 1px solid var(--color-border)));
       @include responsive(padding-top, (30px, 0));
       @include responsive(padding-left, (0, 30px, null, 50px));
+      @include responsive(border-top, (1px solid var(--color-border), none));
+      @include responsive(border-left, (none, 1px solid var(--color-border)));
     }
   }
 

@@ -13,9 +13,9 @@ $list-defaults: (
 
 @each $prop, $value in $list-defaults {
   @property --list-#{$prop} {
-    syntax: "*";
     inherits: false;
     initial-value: $value;
+    syntax: "*";
   }
 }
 
@@ -32,7 +32,7 @@ $list-defaults: (
   display: var(--list-display);
   flex-direction: var(--list-flex-direction);
   gap: var(--list-gap);
-  list-style: var(--list-style);
   margin: var(--list-margin);
   padding: var(--list-padding);
+  list-style: var(--list-style);
 }

@@ -7,14 +7,14 @@ $name: ".slider-controls";
 // vertically centered and pushed to the sides; the slider keeps room for them with its own side paddings.
 #{$name} {
   display: flex;
-  pointer-events: none; // the overlay row must not block the slides between the arrows
+  pointer-events: none; @include responsive(justify-content, (center, space-between));
+  @include responsive(gap, (20px, 0));
+  // the overlay row must not block the slides between the arrows
 
   @include responsive(position, (static, absolute));
   @include responsive(inset-inline, (auto, 0));
   @include responsive(top, (auto, 50%));
   @include responsive(transform, (none, translateY(-50%)));
-  @include responsive(justify-content, (center, space-between));
-  @include responsive(gap, (20px, 0));
   @include responsive(margin-top, (30px, 0));
 
   // Mix with button (ButtonMods.Icon, no color modifier): look via --button-* variables

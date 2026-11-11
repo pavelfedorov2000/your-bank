@@ -57,8 +57,8 @@ $name: ".benefits";
       content: "";
       position: absolute;
       top: 0;
-      bottom: 0;
       right: calc(var(--gap-x) / -2);
+      bottom: 0;
       width: 1px;
       background: dashes(to bottom);
     }

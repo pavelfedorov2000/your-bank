@@ -6,15 +6,15 @@ $name: ".badge";
 #{$name} {
   display: inline-flex;
   align-items: center;
-  border-radius: 61px;
-  background-color: var(--color-surface-alt);
   font-weight: 300;
+  background-color: var(--color-surface-alt);
+  border-radius: 61px;
 
-  // 24px line box at 12 / 14 / 18px font (same as the icon height on desktop)
-  @include responsive(line-height, (2, 1.71, null, 1.33));
   @include responsive(gap, (4px, null, null, 6px));
   @include responsive(padding, (8px 16px 8px 8px, null, null, 10px 20px 10px 12px));
   @include responsive(font-size, (12px, 14px, null, 18px));
+  // 24px line box at 12 / 14 / 18px font (same as the icon height on desktop)
+  @include responsive(line-height, (2, 1.71, null, 1.33));
 
   &__icon {
     color: var(--color-accent);

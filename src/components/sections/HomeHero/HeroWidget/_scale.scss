@@ -11,9 +11,9 @@
   display: inline-flex;
   flex-shrink: 0;
   padding: em(8.67);
-  border-radius: 50%;
-  background-color: var(--color-accent);
   color: var(--color-text-inverse);
+  background-color: var(--color-accent);
+  border-radius: 50%;
 }
 
 // Card titles: "Your Transactions", "Money Exchange"

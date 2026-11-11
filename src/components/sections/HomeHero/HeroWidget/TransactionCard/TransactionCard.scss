@@ -9,8 +9,8 @@ $name: ".transaction-card";
   justify-content: space-between;
   padding: em(13.87) em(20.81);
   border: em(0.87) solid var(--color-border);
-  border-radius: em(10.4);
   background-color: var(--color-surface);
+  border-radius: em(10.4);
 
   &__info {
     display: flex;

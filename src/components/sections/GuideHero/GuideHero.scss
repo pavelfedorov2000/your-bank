@@ -13,15 +13,15 @@ $overlay-desktop: linear-gradient(90deg, #232d07 0%, rgb(30 33 20 / 0.9) 45%, rg
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  border-radius: 20px;
   background:
     var(--guide-hero-overlay),
     url("@images/decor/guide-hero.webp") right center / auto 100% no-repeat,
     var(--color-surface);
+  border-radius: 20px;
 
   @include responsive(--guide-hero-overlay, ($overlay-mobile, $overlay-desktop));
-  @include responsive(min-height, (320px, 380px, 440px, 547px));
   @include responsive(gap, (14px, 16px, null, 20px));
+  @include responsive(min-height, (320px, 380px, 440px, 547px));
   @include responsive(padding, (40px 24px, 60px 40px, 60px, 80px 120px));
 
   &__head {
@@ -42,14 +42,14 @@ $overlay-desktop: linear-gradient(90deg, #232d07 0%, rgb(30 33 20 / 0.9) 45%, rg
 
   // Pill with a leading line (Figma "By Produce UI")
   &__author {
-    position: relative;
     display: inline-flex;
     align-items: center;
-    border-radius: var(--radius-pill);
-    background-color: var(--color-surface-alt);
-    box-shadow: inset 0 0 0 1px #37373e;
+    position: relative;
     text-decoration: underline;
     text-underline-offset: 0.15em;
+    background-color: var(--color-surface-alt);
+    border-radius: var(--radius-pill);
+    box-shadow: inset 0 0 0 1px #37373e;
     transition: color 0.2s;
 
     @include responsive(margin-left, (0, 41px));

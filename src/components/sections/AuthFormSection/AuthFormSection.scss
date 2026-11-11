@@ -24,9 +24,9 @@ $name: ".auth-form";
     position: absolute;
     top: 0;
     right: 0;
-    pointer-events: none;
     aspect-ratio: #{650} / #{684};
     background: url("@images/decor/auth-dots.webp") center / contain no-repeat;
+    pointer-events: none;
 
     @include responsive(width, (159px, 243px, null, 325px));
   }

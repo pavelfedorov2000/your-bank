@@ -10,9 +10,9 @@ $name: ".socials";
 
   &__link {
     display: flex;
-    border-radius: 50%;
-    background-color: var(--color-accent);
     color: var(--color-text-inverse);
+    background-color: var(--color-accent);
+    border-radius: 50%;
 
     @include responsive(padding, (12px, null, null, 14px));
   }

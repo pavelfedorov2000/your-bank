@@ -10,9 +10,9 @@ $name: ".not-found";
       radial-gradient(50% 45% at 50% 30%, rgb(202 255 51 / 0.08) 0%, transparent 100%),
       var(--color-surface);
     --card-border: linear-gradient(135deg, rgb(202 255 51 / 0.3) 0%, var(--color-border) 25%);
+    align-items: center;
 
     overflow: hidden;
-    align-items: center;
     text-align: center;
 
     @include responsive(--card-radius, (16px, null, null, 20px));
@@ -26,9 +26,9 @@ $name: ".not-found";
     position: absolute;
     top: 0;
     left: 0;
-    pointer-events: none;
     aspect-ratio: #{283} / #{298};
     background: url("@images/decor/cta-dots.webp") center / contain no-repeat;
+    pointer-events: none;
 
     @include responsive(width, (151px, 192px, null, 283px));
   }
@@ -36,11 +36,11 @@ $name: ".not-found";
   // Big error code: lime fading down into the panel
   &__code {
     position: relative;
+    color: transparent;
     font-weight: 700;
     line-height: 0.9;
     letter-spacing: -0.04em;
     background: linear-gradient(180deg, var(--color-accent) 0%, rgb(202 255 51 / 0.05) 100%) text;
-    color: transparent;
 
     @include responsive(font-size, (120px, 180px, null, 240px));
   }

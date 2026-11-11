@@ -30,6 +30,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Lint styles
+        run: npm run lint:styles
+
       # Gatsby cache between runs: faster builds
       - uses: actions/cache@v4
         with:

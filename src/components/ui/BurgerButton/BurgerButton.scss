@@ -3,9 +3,9 @@ $name: ".burger-button";
 #{$name} {
   padding: 6px 14px;
   border: none;
-  border-radius: var(--radius-pill);
-  background-color: var(--color-accent);
   color: var(--color-icon-inverse);
+  background-color: var(--color-accent);
+  border-radius: var(--radius-pill);
   cursor: pointer;
 
   &__icon {
