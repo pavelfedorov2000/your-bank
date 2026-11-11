@@ -4,9 +4,6 @@ $name: ".use-cases";
 
 // Block: use-cases (Home "Use Cases")
 #{$name} {
-  // Intro → content: bigger than the default --section-gap
-  @include responsive(--section-gap, (60px, null, null, 80px));
-
   &__groups {
     display: flex;
     flex-direction: column;

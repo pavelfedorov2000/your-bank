@@ -5,7 +5,7 @@ import { List } from "@components/ui";
 import { SectionIntro } from "@components/content";
 import MissionVisionItem from "./MissionVisionItem";
 
-import { GENERAL_MODS } from "@box/constants";
+import { GENERAL_MODS, SectionMods } from "@box/constants";
 
 import "./MissionVisionSection.scss";
 
@@ -17,7 +17,7 @@ type Props = {
 
 /** About "Mission & Vision": intro + subsections (Mission, Vision) with the photo on alternating sides. */
 const MissionVisionSection: FC<Props> = ({ data: { intro, items } }) => (
-  <Section className={mainClass}>
+  <Section className={mainClass} mods={[SectionMods.Large]}>
     <SectionIntro data={intro} />
 
     <List

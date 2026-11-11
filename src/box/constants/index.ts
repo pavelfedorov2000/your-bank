@@ -2,6 +2,7 @@ export { GENERAL_MODS } from "./mods";
 export { ELEMENT_IDS, type TElementId } from "./element-ids";
 export { ButtonMods } from "./buttons";
 export { CardMods } from "./card";
+export { SectionMods } from "./section";
 export { TitleVariants } from "./titles";
 export { NavMenuMods } from "./nav-menu";
 export { SLIDER_BREAKPOINTS, SWIPER_CONTROLS_ARIA_LABELS } from "./slider";

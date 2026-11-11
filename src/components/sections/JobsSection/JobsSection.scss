@@ -4,8 +4,6 @@ $name: ".job-cards";
 
 // Block: job-cards (Careers "Job Openings")
 #{$name} {
-  @include responsive(--section-gap, (60px, null, null, 80px));
-
   &__grid {
     --list-display: grid;
 

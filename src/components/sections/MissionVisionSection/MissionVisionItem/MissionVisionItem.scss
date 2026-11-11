@@ -11,9 +11,9 @@ $name: ".mission-vision-item";
 
   display: flex;
 
-  @include responsive(--content-offset, (30px, 40px, null, 50px));
-  @include responsive(flex-direction, (column, row));
-  @include responsive(align-items, (stretch, center));
+  @include responsive(--content-offset, (30px, null, 40px, 50px));
+  @include responsive(flex-direction, (column, null, row));
+  @include responsive(align-items, (null, null, center));
 
   // Figma "Image Container": grain + dark fade to the left + lime glow, dots pattern, photo on top
   // Top corners are shared by the frame and the photo inside it
@@ -29,7 +29,7 @@ $name: ".mission-vision-item";
     box-shadow: inset 0 0 0 1px var(--color-border);
 
     @include noise-surface;
-    @include responsive(width, (100%, 42.6%, null, 41.6%));
+    @include responsive(width, (100%, null, 42.6%, 41.6%));
     @include responsive(aspect-ratio, (#{358} / #{329}, #{545} / #{500}, null, #{664} / #{621}));
     @include responsive(padding, (20px 20px 0, 60px 60px 0));
     @include responsive(border-radius, (var(--media-radius) var(--media-radius) 0 0, var(--media-radius) var(--media-radius) 20px 20px));
@@ -43,9 +43,9 @@ $name: ".mission-vision-item";
     aspect-ratio: #{1204} / #{1268};
     background: url("@images/decor/mission-vision-dots.webp") center / contain no-repeat;
 
-    @include responsive(top, (-42px, -14px, null, -7px));
-    @include responsive(left, (-4.7%, 4.2%, null, 4.7%));
-    @include responsive(width, (109.5%, 91.7%, null, 90.7%));
+    @include responsive(top, (-42px, null, -14px, -7px));
+    @include responsive(left, (-4.7%, null, 4.2%, 4.7%));
+    @include responsive(width, (109.5%, null, 91.7%, 90.7%));
   }
 
   &__image {
@@ -61,9 +61,9 @@ $name: ".mission-vision-item";
     border-top: var(--accent-line);
     padding-top: var(--content-offset);
 
-    @include responsive(text-align, (center, left));
+    @include responsive(text-align, (center, null, left));
 
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-lg) {
       border-top: 0;
       border-left: var(--accent-line);
       padding-top: 0;
@@ -79,10 +79,10 @@ $name: ".mission-vision-item";
   }
 
   &--reversed {
-    @include responsive(flex-direction, (column, row-reverse));
+    @include responsive(flex-direction, (column, null, row-reverse));
 
     #{$name}__content {
-      @media (min-width: $screen-sm) {
+      @media (min-width: $screen-lg) {
         border-left: 0;
         border-right: var(--accent-line);
         padding-left: 0;

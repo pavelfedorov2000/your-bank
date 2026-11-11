@@ -4,7 +4,7 @@ import { Section } from "@components/layout";
 import { IconBadge, Button, Title, List } from "@components/ui";
 import { SectionIntro, StatsList, TextBlock } from "@components/content";
 
-import { ButtonMods, TitleVariants } from "@box/constants";
+import { ButtonMods, TitleVariants, SectionMods } from "@box/constants";
 
 import "./UseCasesSection.scss";
 
@@ -16,7 +16,7 @@ type Props = {
 
 /** "Use Cases" — two groups (individuals / business): panel with case cards + text with stats. */
 const UseCasesSection: FC<Props> = ({ data: { intro, groups } }) => (
-  <Section className={mainClass}>
+  <Section className={mainClass} mods={[SectionMods.Large]}>
     <SectionIntro data={intro} />
 
     <div className={`${mainClass}__groups`}>

@@ -9,8 +9,6 @@ $name: ".benefits";
 
 // Block: benefits (Careers "Our Benefits")
 #{$name} {
-  @include responsive(--section-gap, (60px, null, null, 80px));
-
   // Gaps hold the dividers in their middle; items read them too
   &__grid {
     --list-display: grid;
