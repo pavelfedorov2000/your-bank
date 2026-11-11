@@ -1,0 +1,34 @@
+@use "../scale" as *;
+
+$name: ".currencies-bar";
+
+// Block: currencies-bar ("Supported Currency" pill in the hero widget)
+#{$name} {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: em(8.67) em(8.67) em(8.67) em(20.81);
+  border-radius: em(69.4);
+  background-color: var(--color-surface-accent);
+
+  &__label {
+    font-size: em(15.6);
+  }
+
+  // List block is configured through its --list-* variables
+  &__list {
+    --list-flex-direction: row;
+    --list-gap: #{em(6.94)};
+    --list-padding: #{em(8.67)};
+
+    border: em(0.87) solid var(--color-border);
+    border-radius: em(47.7);
+    background-color: var(--color-bg);
+  }
+
+  &__icon {
+    --icon-size: #{em(34)};
+
+    color: var(--color-accent);
+  }
+}

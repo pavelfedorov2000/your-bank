@@ -1,0 +1,128 @@
+@use "@styles/mixins" as *;
+
+$name: ".typography";
+
+// Block: typography (design guide "🖍 Typography")
+#{$name} {
+  // Specimen card + weights card: one column, side by side from laptop (Figma 557 / 933)
+  &__top {
+    display: grid;
+
+    @include responsive(grid-template-columns, (null, null, minmax(0, 557fr) minmax(0, 933fr)));
+    @include responsive(gap, (16px, 20px, 24px, 30px));
+  }
+
+  // Mix with card
+  &__specimen-card {
+    align-items: center;
+    justify-content: center;
+
+    @include responsive(--card-padding, (24px 16px, 40px, null, 50px));
+  }
+
+  // "Lexend" between guide lines: ::before — top/bottom lines, ::after — left/right lines (em: scale with the font)
+  &__specimen {
+    position: relative;
+    padding: 0.52em 0.49em;
+    font-weight: 600;
+    line-height: 0.7;
+
+    @include responsive(font-size, (56px, 80px, null, 100px));
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      border: 0 solid #4c4c4c;
+      pointer-events: none;
+    }
+
+    &::before {
+      inset: 0.52em 0;
+      border-block-width: 1px;
+    }
+
+    &::after {
+      inset: 0 0.49em;
+      border-inline-width: 1px;
+    }
+  }
+
+  // Mix with card
+  &__weights-card {
+    justify-content: center;
+
+    @include responsive(--card-padding, (24px 16px, 40px, null, 50px));
+    @include responsive(--card-gap, (16px, 20px, null, 30px));
+    @include responsive(text-align, (center, null, left));
+  }
+
+  &__weights {
+    --list-flex-direction: row;
+    --list-gap: 10px;
+
+    flex-wrap: wrap;
+
+    @include responsive(justify-content, (center, null, flex-start));
+  }
+
+  // Pill written in its own weight (--typography-weight from content.json)
+  &__weight {
+    display: inline-flex;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-surface);
+    box-shadow: inset 0 0 0 1px var(--color-border);
+    color: var(--color-text-muted);
+    font-weight: var(--typography-weight);
+
+    @include responsive(padding, (8px 16px, 10px 20px, null, 14px 24px));
+    @include responsive(font-size, (14px, 16px, 18px, 20px));
+  }
+
+  // Mix with card
+  &__charsets-card {
+    @include responsive(--card-padding, (24px 16px, 40px, 60px, 80px));
+  }
+
+  // Groups divided by a dashed bar (Figma: 10px line, 6/6 dashes)
+  &__charsets {
+    --list-gap: var(--typography-charsets-gap);
+
+    @include responsive(--typography-charsets-gap, (30px, 40px, 50px, 60px));
+  }
+
+  &__charset {
+    display: flex;
+    flex-direction: column;
+
+    @include responsive(gap, (16px, 20px, null, 30px));
+
+    &:not(:first-child) {
+      padding-top: calc(var(--typography-charsets-gap) + 10px);
+      background: repeating-linear-gradient(90deg, var(--color-border) 0 6px, transparent 6px 12px) top / 100% 10px no-repeat;
+    }
+  }
+
+  &__chars {
+    --list-flex-direction: row;
+    --list-gap: 10px;
+
+    flex-wrap: wrap;
+  }
+
+  // One glyph tile (Figma: 54x56, radius 10)
+  &__char {
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background-color: var(--color-surface);
+    box-shadow: inset 0 0 0 1px var(--color-border);
+    color: var(--color-text-muted);
+    font-weight: 500;
+
+    @include responsive(min-width, (40px, 48px, null, 54px));
+    @include responsive(height, (42px, 50px, null, 56px));
+    @include responsive(padding-inline, (10px, 14px, null, 20px));
+    @include responsive(font-size, (16px, 18px, null, 20px));
+  }
+}

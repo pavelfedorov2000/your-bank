@@ -1,0 +1,20 @@
+@use "@styles/mixins" as *;
+
+$name: ".value-item";
+
+// Block: value-item (Careers "Our Values"), mixed with text-block
+#{$name} {
+  height: 100%;
+  border-left: 1px solid var(--color-accent);
+
+  @include responsive(--text-block-gap, (14px, 20px, null, 30px));
+  @include responsive(padding-left, (20px, 24px, null, 30px));
+
+  &__title {
+    color: var(--color-text-faded);
+    font-weight: 500;
+
+    @include responsive(font-size, (30px, 40px, null, 58px));
+  }
+
+}

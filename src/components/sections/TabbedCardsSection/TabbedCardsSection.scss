@@ -1,0 +1,41 @@
+@use "@styles/mixins" as *;
+
+$name: ".tabbed-cards";
+
+// Block: tabbed-cards (Home "Our Products")
+#{$name} {
+  // Intro → content: bigger than the default --section-gap
+  @include responsive(--section-gap, (60px, 80px, null, 100px));
+
+  &__list {
+    display: flex;
+
+    @include responsive(flex-direction, (column, null, row));
+    @include responsive(gap, (30px, null, null, 50px));
+    @include responsive(padding-inline, (10px, 60px, 0));
+  }
+
+  // 1px divider between items: horizontal on mobile, vertical from sm
+  &__item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    @include responsive(gap, (20px, null, null, 30px));
+
+    & + & {
+      @include responsive(border-top, (1px solid var(--color-border), null, none));
+      @include responsive(border-left, (none, null, 1px solid var(--color-border)));
+      @include responsive(padding-top, (30px, null, 0));
+      @include responsive(padding-left, (0, null, 30px, 50px));
+    }
+  }
+
+  // Mix with text-block
+  &__text {
+    @include responsive(--text-block-gap, (12px, null, null, 20px));
+  }
+
+}

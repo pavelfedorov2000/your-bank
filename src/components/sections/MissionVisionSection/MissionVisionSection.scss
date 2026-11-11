@@ -1,0 +1,17 @@
+@use "@styles/mixins" as *;
+
+$name: ".mission-vision";
+
+// Block: mission-vision (About "Mission & Vision")
+#{$name} {
+  @include responsive(--section-gap, (60px, null, null, 80px));
+
+  &__list {
+    @include responsive(--list-gap, (50px, 0));
+  }
+
+  // From sm the rows overlap vertically (negative spacing in Figma: −84 / −100px)
+  &__item + &__item {
+    @include responsive(margin-top, (0, -84px, null, -100px));
+  }
+}

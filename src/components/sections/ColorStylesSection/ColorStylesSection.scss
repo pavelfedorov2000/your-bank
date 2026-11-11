@@ -1,0 +1,15 @@
+@use "@styles/mixins" as *;
+
+$name: ".color-styles";
+
+// Block: color-styles (design guide "🎨 Color Styles")
+#{$name} {
+  // Mix with card (guide-block__panel): roomier than the other guide panels
+  &__panel {
+    @include responsive(--card-padding, (16px, 40px, 60px, 120px));
+  }
+
+  &__groups {
+    @include responsive(--list-gap, (40px, 50px, 60px, 80px));
+  }
+}

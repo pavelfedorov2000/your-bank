@@ -1,0 +1,69 @@
+@use "@styles/mixins" as *;
+@use "@styles/typography" as *;
+
+$name: ".job-card";
+
+// Block: job-card (Careers "Job Openings")
+// Card (surface)
+#{$name} {
+  --card-radius: 16px;
+
+  @include responsive(--card-gap, (30px, 40px, null, 50px));
+  @include responsive(--card-padding, (24px, 40px, null, 50px));
+
+  &__head,
+  &__details,
+  &__group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__head {
+    @include responsive(gap, (10px, null, null, 14px));
+  }
+
+  &__title {
+    font-weight: 600;
+    line-height: 1.5;
+
+    @include responsive(font-size, (20px, 24px, null, 30px));
+  }
+
+  &__details {
+    @include responsive(gap, (30px, 40px));
+  }
+
+  &__group {
+    @include responsive(gap, (10px, 16px, null, 20px));
+  }
+
+  &__subtitle {
+    font-weight: 600;
+    line-height: 1.5;
+
+    @include responsive(font-size, (18px, 20px, null, 24px));
+  }
+
+  &__about,
+  &__requirement {
+    @include text-description;
+  }
+
+  &__requirements {
+    @include responsive(--list-gap, (14px, null, null, 20px));
+  }
+
+  &__requirement {
+    display: flex;
+    align-items: center;
+
+    @include responsive(--icon-size, (20px, null, null, 24px));
+    @include responsive(gap, (8px, null, null, 10px));
+  }
+
+  // Pushed to the bottom when cards in a row are stretched
+  &__button {
+    align-self: flex-start;
+    margin-top: auto;
+  }
+}

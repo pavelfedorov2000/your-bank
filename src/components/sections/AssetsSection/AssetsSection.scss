@@ -1,0 +1,92 @@
+@use "@styles/mixins" as *;
+
+$name: ".assets";
+
+// Block: assets (design guide "🪄 Assets")
+#{$name} {
+  // Mix with card: "Logo" / "Abstract Designs" group
+  &__group {
+    @include responsive(--card-padding, (24px 16px, 40px, 60px, 80px));
+    @include responsive(--card-gap, (16px, 20px, null, 30px));
+    @include responsive(text-align, (center, null, left));
+  }
+
+  // Mix with card: framed area with the assets
+  &__showcase {
+    @include responsive(--card-padding, (30px 16px, 50px 30px, 60px 40px, 50px));
+  }
+
+  &__logos {
+    --list-display: grid;
+
+    @include responsive(--list-gap, (40px, 30px, 40px, 50px));
+    @include responsive(grid-template-columns, (null, repeat(3, minmax(0, 1fr))));
+    @include responsive(padding-block, (0, null, null, 30px));
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+    height: 100%;
+    margin: 0;
+  }
+
+  // ├──── For Desktop ────┤ : ticks are the inline borders, lines — ::before / ::after
+  &__caption {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    align-self: stretch;
+    height: 22px;
+    border-inline: 1px solid #333333;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+
+    @include responsive(font-size, (14px, null, 16px, 18px));
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: #333333;
+    }
+  }
+
+  // 2 per row, 4 in a row from laptop with dashed dividers (Figma: 10px, 6/6 dashes)
+  &__designs {
+    --list-display: grid;
+    --list-gap: var(--assets-designs-gap);
+
+    @include responsive(--assets-designs-gap, (24px, 30px, 50px, 100px));
+    @include responsive(grid-template-columns, (repeat(2, minmax(0, 1fr)), null, repeat(4, minmax(0, 1fr))));
+  }
+
+  &__design {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:not(:first-child)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(var(--assets-designs-gap) / -2 - 5px); // middle of the gap
+      width: 10px;
+      background: repeating-linear-gradient(180deg, var(--color-border) 0 6px, transparent 6px 12px);
+
+      @include responsive(display, (none, null, block));
+    }
+  }
+
+  &__design-image {
+    width: auto;
+
+    @include responsive(height, (110px, 160px, 150px, 200px));
+  }
+}

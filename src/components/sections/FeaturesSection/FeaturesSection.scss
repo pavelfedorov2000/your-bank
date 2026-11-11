@@ -1,0 +1,24 @@
+@use "@styles/mixins" as *;
+
+$name: ".features";
+
+// Block: features (Home "Our Features")
+#{$name} {
+  &__body {
+    display: flex;
+
+    @include responsive(flex-direction, (column, null, row));
+    @include responsive(align-items, (null, null, flex-start));
+    @include responsive(gap, (20px, null, null, 30px));
+  }
+
+  // List block is configured through its --list-* variables
+  &__list {
+    --list-display: grid;
+
+    flex: 1;
+
+    @include responsive(--list-gap, (20px, null, null, 30px));
+    @include responsive(grid-template-columns, (null, repeat(2, 1fr)));
+  }
+}

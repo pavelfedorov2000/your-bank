@@ -1,0 +1,38 @@
+@use "@styles/mixins" as *;
+@use "@styles/typography" as *;
+
+$name: ".benefit-card";
+
+// Defaults = "How We Protect You" cards; a parent overrides them (e.g. benefits__item)
+:root {
+  --benefit-card-radius: 20px;
+  --benefit-card-border: linear-gradient(var(--color-border), var(--color-border));
+}
+
+// Block: benefit-card (Careers "Our Benefits", Security "How We Protect You"), a Card (noise).
+// Public knobs for parents: --benefit-card-radius / -border / -gap, mapped to the card's vars.
+#{$name} {
+  --card-radius: var(--benefit-card-radius);
+  --card-border: var(--benefit-card-border);
+
+  @include responsive(--card-gap, (18px, 20px, null, 24px));
+  @include responsive(--card-padding, (24px, 40px, null, 50px));
+
+  &__head {
+    display: flex;
+    align-items: center;
+
+    @include responsive(gap, (10px, 14px, null, 20px));
+  }
+
+  &__title {
+    flex: 1;
+    font-weight: 400;
+
+    @include responsive(font-size, (18px, 20px, null, 24px));
+  }
+
+  &__description {
+    @include text-description;
+  }
+}

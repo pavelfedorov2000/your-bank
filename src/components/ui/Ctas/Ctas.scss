@@ -1,0 +1,23 @@
+@use "@styles/mixins" as *;
+
+$name: ".ctas";
+
+// Block: ctas (call-to-actions). Display / direction / gap come from the List block via its --list-* variables;
+// direction is set by the parent's element (e.g. header__ctas), column by default.
+// Alignment of the buttons across the list: center by default, stretch for full-width buttons (auth form).
+:root {
+  --ctas-align-items: center;
+}
+
+#{$name} {
+  flex-wrap: wrap;
+  align-items: var(--ctas-align-items);
+
+  @include responsive(--list-gap, (20px, null, null, 30px));
+
+  // Column: a stretched item stretches its button too
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+}

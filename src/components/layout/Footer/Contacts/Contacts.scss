@@ -1,0 +1,33 @@
+@use "@styles/mixins" as *;
+
+$name: ".contacts";
+
+// Block: contacts (email / phone / address with accent icons)
+#{$name} {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-style: normal;
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-text-soft);
+    transition: color var(--transition);
+
+    @include responsive(font-size, (14px, null, null, 18px));
+
+    &:hover {
+      color: var(--color-text);
+    }
+  }
+
+  &__icon {
+    color: var(--color-accent);
+
+    @include responsive(--icon-size, (20px, null, null, 24px));
+  }
+}

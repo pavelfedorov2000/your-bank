@@ -1,0 +1,16 @@
+@use "@styles/mixins" as *;
+
+$name: ".section";
+
+// Default space between the intro (heading) and the content of a section (Mobile / Laptop / Desktop).
+// A section block overrides it on itself: .faq { @include responsive(--section-gap, (…)); }
+:root {
+  @include responsive(--section-gap, (50px, 60px, null, 80px));
+}
+
+// Block: section (common structure of page sections)
+#{$name} {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+}

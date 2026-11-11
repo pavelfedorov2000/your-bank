@@ -1,0 +1,62 @@
+@use "@styles/mixins" as *;
+
+$name: ".color-group";
+
+// Block: color-group (palette group of the design guide)
+// --color-group-columns (swatches per row from tablet) and --color-group-swatch (swatch color) come inline from content.json.
+#{$name} {
+  display: grid;
+  align-items: center;
+
+  @include responsive(grid-template-columns, (null, null, minmax(0, 424fr) minmax(0, 957fr)));
+  @include responsive(gap, (20px, 24px, 40px, 59px));
+  @include responsive(text-align, (center, null, left));
+
+  // Mix with text-block
+  &__text {
+    @include responsive(--text-block-gap, (10px, 14px, null, 21px));
+  }
+
+  // Mix with card
+  &__panel {
+    @include responsive(--card-padding, (16px, 30px, 40px, 50px));
+  }
+
+  &__swatches {
+    --list-display: grid;
+
+    @include responsive(--list-gap, (10px, 16px, 20px, 27px));
+    @include responsive(grid-template-columns, (repeat(2, minmax(0, 1fr)), repeat(var(--color-group-columns), minmax(0, 1fr))));
+  }
+
+  // Tone on top, hex at the bottom right (Figma swatch: 107px, 3px #333 frame)
+  &__swatch {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: var(--color-group-swatch);
+    box-shadow: inset 0 0 0 3px #333333;
+    color: var(--color-text);
+    text-align: left;
+
+    @include responsive(min-height, (80px, 90px, 100px, 107px));
+    @include responsive(padding, (10px 12px, null, null, 12px 15px));
+
+    &--light {
+      color: #000000;
+    }
+  }
+
+  &__name {
+    @include responsive(font-size, (14px, null, null, 16px));
+  }
+
+  &__hex {
+    align-self: flex-end;
+    font-family: inherit;
+    text-transform: uppercase;
+
+    @include responsive(font-size, (12px, null, null, 14px));
+  }
+}

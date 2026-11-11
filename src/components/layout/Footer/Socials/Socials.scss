@@ -1,0 +1,23 @@
+@use "@styles/mixins" as *;
+
+$name: ".socials";
+
+// Block: socials (round social links). List block is configured through its --list-* variables.
+#{$name} {
+  --list-flex-direction: row;
+
+  @include responsive(--list-gap, (8px, null, null, 14px));
+
+  &__link {
+    display: flex;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    color: var(--color-text-inverse);
+
+    @include responsive(padding, (12px, null, null, 14px));
+  }
+
+  &__icon {
+    @include responsive(--icon-size, (20px, null, null, 24px));
+  }
+}

@@ -1,0 +1,37 @@
+@use "../scale" as *;
+
+$name: ".hero-widget-income";
+
+// Block: hero-widget-income ("Monthly Income" pill of the hero widget)
+#{$name} {
+  display: flex;
+  align-items: center;
+  gap: em(8.67);
+  padding: em(13.87) em(17.34);
+  border-radius: em(10.4);
+  background-color: var(--color-surface-accent);
+
+  &__icon-circle {
+    @include icon-circle;
+  }
+
+  &__icon {
+    --icon-size: #{em(20.81)};
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__value {
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  &__label {
+    color: var(--color-text-soft);
+    font-size: em(13.87);
+    font-weight: 300;
+  }
+}

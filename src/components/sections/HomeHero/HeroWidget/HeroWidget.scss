@@ -1,0 +1,62 @@
+@use "@styles/mixins" as *;
+@use "scale" as *;
+
+$name: ".hero-widget";
+
+// Block: hero-widget (decorative dashboard card on the right of the Home hero)
+#{$name} {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: em(515);
+  gap: em(26);
+  margin-bottom: em(82); // room for the "Supported Currency" bar below the card
+  padding: em(34.68);
+  border: em(0.87) solid transparent;
+  border-radius: em(10.4);
+  // background + border with lime glints in the top-right and bottom-left corners
+  background:
+    linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
+    linear-gradient(
+        to bottom left,
+        rgb(202 255 51 / 0.2) 0%,
+        rgb(202 255 51 / 0) 11%,
+        rgb(202 255 51 / 0) 92%,
+        rgb(202 255 51 / 0.2) 100%
+      )
+      border-box,
+    linear-gradient(var(--color-border), var(--color-border)) border-box;
+
+  @include responsive(font-size, (10.26px, 13.77px, null, 17.34px));
+  @include responsive(margin-right, (0, null, 120px, 136px));
+
+  // Arrows behind the card (decor, CSS background)
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    aspect-ratio: #{418} / #{383};
+    background: url("@images/decor/hero-arrows.svg") center / contain no-repeat;
+
+    @include responsive(left, (em(225), em(304), null, em(285)));
+    @include responsive(top, (em(-32), em(-8), null, em(10)));
+    @include responsive(width, (em(372), em(378), null, em(417)));
+  }
+
+  // Mix with hero-widget-income: floats over the top-left corner of the card
+  &__income {
+    position: absolute;
+    top: em(-43.4);
+    left: em(-60.7);
+  }
+
+  // Mix with currencies-bar: hangs below the card
+  &__currencies {
+    position: absolute;
+    top: em(637);
+    left: em(196.8);
+    width: em(370);
+  }
+}

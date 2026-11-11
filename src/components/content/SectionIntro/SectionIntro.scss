@@ -1,0 +1,20 @@
+@use "@styles/mixins" as *;
+
+$name: ".section-intro";
+
+// Block: section-intro (Figma "Text Container" + optional "Tabs")
+// Mobile: centered column. Laptop+: left aligned, actions pinned to the bottom right.
+#{$name} {
+  display: flex;
+
+  @include responsive(flex-direction, (column, null, row));
+  @include responsive(align-items, (center, null, flex-end));
+  @include responsive(text-align, (center, null, left));
+  @include responsive(gap, (20px, null, 100px, 300px));
+
+  // Mix with text-block (default gap)
+  &__text {
+    flex: 1;
+    max-width: 1296px; // Figma: text container leaves 300px free on the right
+  }
+}

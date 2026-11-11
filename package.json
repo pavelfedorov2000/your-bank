@@ -7,11 +7,17 @@
   "keywords": [
     "gatsby"
   ],
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
+    "build:gh-pages": "gatsby build --prefix-paths",
     "serve": "gatsby serve",
+    "serve:gh-pages": "gatsby serve --prefix-paths",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit"
   },
@@ -19,14 +25,20 @@
     "gatsby": "^5.14.6",
     "gatsby-plugin-sass": "^6.16.0",
     "gatsby-plugin-sitemap": "^6.16.0",
+    "gatsby-source-filesystem": "^5.16.0",
+    "gatsby-transformer-json": "^5.16.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.106.1"
+    "sass": "^1.106.1",
+    "swiper": "^14.3.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

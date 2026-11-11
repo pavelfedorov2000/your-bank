@@ -1,0 +1,104 @@
+@use "@styles/mixins" as *;
+
+$name: ".benefits";
+
+// Dashed divider of the design: 1px, dash 10 / gap 10, painted as a background image
+@function dashes($direction) {
+  @return repeating-linear-gradient($direction, var(--color-border) 0 10px, transparent 10px 20px);
+}
+
+// Block: benefits (Careers "Our Benefits")
+#{$name} {
+  @include responsive(--section-gap, (60px, null, null, 80px));
+
+  // Gaps hold the dividers in their middle; items read them too
+  &__grid {
+    --list-display: grid;
+    --list-gap: var(--gap-y) var(--gap-x);
+
+    @include responsive(--gap-x, (0, 60px, null, 100px));
+    @include responsive(--gap-y, (48px, 60px, null, 100px));
+    @include responsive(grid-template-columns, (null, null, repeat(2, 1fr)));
+  }
+
+  &__item {
+    // Corners alternate diagonally: big / small (mobile: big on top)
+    --benefit-card-border: linear-gradient(
+      to top left,
+      rgb(202 255 51 / 10%) 0%,
+      rgb(38 38 38 / 0%) 17%,
+      rgb(38 38 38 / 0%) 69%,
+      rgb(38 38 38 / 80%) 100%
+    );
+
+    position: relative;
+
+    @include responsive(--card-gap, (20px, 24px, null, 30px));
+    @include responsive(--radius-lg, (40px, null, null, 50px));
+    @include responsive(--radius-sm, (14px, null, null, 20px));
+    @include responsive(
+      --benefit-card-radius,
+      (
+        var(--radius-lg) var(--radius-lg) var(--radius-sm) var(--radius-sm),
+        var(--radius-lg) var(--radius-sm)
+      )
+    );
+
+    // Horizontal divider above every row but the first
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc(var(--gap-y) / -2);
+      left: 0;
+      height: 1px;
+      background: dashes(to right);
+    }
+
+    // Vertical divider between the columns
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: calc(var(--gap-x) / -2);
+      width: 1px;
+      background: dashes(to bottom);
+    }
+
+    @media (max-width: ($screen-lg - 1px)) {
+      &:first-child::before {
+        content: none;
+      }
+
+      &::before {
+        right: 0;
+      }
+
+      &::after {
+        content: none;
+      }
+    }
+
+    @media (min-width: $screen-lg) {
+      // Second diagonal: items 2, 3, 6, 7…
+      &:nth-child(4n + 2),
+      &:nth-child(4n + 3) {
+        --benefit-card-radius: var(--radius-sm) var(--radius-lg);
+      }
+
+      // Row divider is drawn once, by the left item, across both columns and the gap
+      &:nth-child(-n + 2)::before,
+      &:nth-child(even)::before {
+        content: none;
+      }
+
+      &::before {
+        width: calc(200% + var(--gap-x));
+      }
+
+      &:nth-child(even)::after {
+        content: none;
+      }
+    }
+  }
+}

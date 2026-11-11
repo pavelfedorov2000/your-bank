@@ -1,0 +1,80 @@
+@use "@styles/mixins" as *;
+
+$name: ".guide-hero";
+
+// Over the collage: mobile — darkened from the bottom up (the collage fills the banner), tablet+ — olive glow on the left
+$overlay-mobile: linear-gradient(0deg, rgb(30 35 18 / 0.92) 25%, rgb(30 35 18 / 0.45) 100%);
+$overlay-desktop: linear-gradient(90deg, #232d07 0%, rgb(30 33 20 / 0.9) 45%, rgb(28 28 28 / 0) 75%);
+
+// Block: guide-hero (Figma "Template Guide" banner)
+// The screens collage sits on the right (decor, CSS background), the text over the overlay.
+#{$name} {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+  background:
+    var(--guide-hero-overlay),
+    url("@images/decor/guide-hero.webp") right center / auto 100% no-repeat,
+    var(--color-surface);
+
+  @include responsive(--guide-hero-overlay, ($overlay-mobile, $overlay-desktop));
+  @include responsive(min-height, (320px, 380px, 440px, 547px));
+  @include responsive(gap, (14px, 16px, null, 20px));
+  @include responsive(padding, (40px 24px, 60px 40px, 60px, 80px 120px));
+
+  &__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @include responsive(gap, (16px 24px, 20px 24px, null, 24px));
+  }
+
+  &__title {
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+
+    @include responsive(font-size, (56px, 96px, 110px, 140px));
+  }
+
+  // Pill with a leading line (Figma "By Produce UI")
+  &__author {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-surface-alt);
+    box-shadow: inset 0 0 0 1px #37373e;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    transition: color 0.2s;
+
+    @include responsive(margin-left, (0, 41px));
+    @include responsive(padding, (8px 18px, 12px 22px, null, 18px 28px));
+    @include responsive(font-size, (16px, 20px, 24px, 30px));
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: 100%;
+      width: 41px;
+      height: 2px;
+      background-color: #646467;
+
+      @include responsive(display, (none, block));
+    }
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &__description {
+    color: var(--color-text-soft);
+
+    @include responsive(font-size, (18px, 26px, 30px, 38px));
+  }
+}

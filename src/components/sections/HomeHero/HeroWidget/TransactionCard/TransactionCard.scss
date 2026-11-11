@@ -1,0 +1,47 @@
+@use "../scale" as *;
+
+$name: ".transaction-card";
+
+// Block: transaction-card (one transaction in the hero widget)
+#{$name} {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: em(13.87) em(20.81);
+  border: em(0.87) solid var(--color-border);
+  border-radius: em(10.4);
+  background-color: var(--color-surface);
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: em(8.67);
+  }
+
+  &__icon-circle {
+    @include icon-circle;
+  }
+
+  &__icon {
+    --icon-size: #{em(20.81)};
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: em(15.6);
+    font-weight: 300;
+  }
+
+  &__name {
+    font-size: 1em;
+  }
+
+  &__amount {
+    font-size: em(20.81);
+    font-weight: 500;
+  }
+}

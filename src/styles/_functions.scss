@@ -1,0 +1,10 @@
+@use "sass:math";
+
+// Linear interpolation between two design points, clamped at both ends:
+// value is $min at viewport $from and $max at viewport $to.
+// fluid(16px, 80px, 390px, 1440px) -> 16px on mobile frame, 80px on laptop frame.
+@function fluid($min, $max, $from, $to) {
+  $slope: math.div($max - $min, $to - $from);
+  $base: $min - $slope * $from;
+  @return clamp(#{$min}, #{$base} + #{$slope * 100}vw, #{$max});
+}

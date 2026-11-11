@@ -1,0 +1,13 @@
+@use "@styles/mixins" as *;
+
+$name: ".press-release-cards";
+
+// Block: press-release-cards (About "Press Releases")
+#{$name} {
+  &__grid {
+    --list-display: grid;
+
+    @include responsive(--list-gap, (20px, null, null, 30px));
+    @include responsive(grid-template-columns, (null, null, repeat(2, 1fr)));
+  }
+}

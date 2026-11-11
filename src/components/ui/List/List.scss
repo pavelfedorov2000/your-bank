@@ -1,0 +1,38 @@
+$name: ".list";
+
+// --list-* are registered as non-inherited: a list nested in another list (meta-tags inside a card grid)
+// gets the defaults below, not the parent's settings. Override them on the .list element itself (mix class).
+$list-defaults: (
+  display: flex,
+  flex-direction: column,
+  gap: 0,
+  style: none,
+  margin: 0,
+  padding: 0,
+);
+
+@each $prop, $value in $list-defaults {
+  @property --list-#{$prop} {
+    syntax: "*";
+    inherits: false;
+    initial-value: $value;
+  }
+}
+
+:root {
+  --list-display: flex;
+  --list-flex-direction: column;
+  --list-gap: 0;
+  --list-style: none;
+  --list-margin: 0;
+  --list-padding: 0;
+}
+
+#{$name} {
+  display: var(--list-display);
+  flex-direction: var(--list-flex-direction);
+  gap: var(--list-gap);
+  list-style: var(--list-style);
+  margin: var(--list-margin);
+  padding: var(--list-padding);
+}

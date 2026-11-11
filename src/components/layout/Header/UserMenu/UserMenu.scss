@@ -1,0 +1,29 @@
+@use "@styles/mixins" as *;
+
+$name: ".user-menu";
+
+// Block: user-menu (header, logged in). Avatar matches the height of the small header buttons.
+#{$name} {
+  display: flex;
+  align-items: center;
+
+  @include responsive(gap, (12px, null, null, 16px));
+
+  &__avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background-color: var(--color-bg);
+    box-shadow: inset 0 0 0 1px var(--color-border);
+    color: var(--color-accent);
+    font-weight: 500;
+    user-select: none;
+
+    @include responsive(--size, (45px, null, null, 55px));
+    @include responsive(font-size, (14px, null, null, 18px));
+  }
+}

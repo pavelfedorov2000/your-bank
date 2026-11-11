@@ -1,0 +1,68 @@
+@use "@styles/mixins" as *;
+@use "@styles/typography" as *;
+
+$name: ".hero-section";
+
+// Block: hero-section (Home "Hero Section")
+#{$name} {
+  position: relative;
+  display: flex;
+
+  @include responsive(flex-direction, (column, null, row));
+  // content is capped (max-width below), the widget stays on the right
+  @include responsive(justify-content, (null, null, space-between));
+  @include responsive(align-items, (center, null, flex-start));
+  @include responsive(gap, (80px, null, 100px, 120px));
+  // Added to the layout offset (30 / 50 / 53): header → hero content is 50 / 90 / 153 as in the design
+  @include responsive(padding-top, (20px, 40px, null, 100px));
+
+  // Big dotted pattern in the top-left corner of the page (behind the header).
+  // left: viewport edge (hero is centered, so 50% - 50vw) + offset from the design.
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: calc(50% - 50vw - var(--dots-offset));
+    pointer-events: none;
+    aspect-ratio: #{759} / #{611};
+    background: url("@images/decor/hero-dots.webp") center / contain no-repeat;
+
+    @include responsive(--dots-offset, (33px, 49px, null, 69px));
+    @include responsive(top, (-170px, -240px, null, -310px));
+    @include responsive(width, (381px, 546px, null, 758px));
+  }
+
+  // Gap = the smallest space between the items (title → description).
+  // Bigger spaces: the item sets --space-after from the design, margin-bottom adds the rest to the gap.
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--content-gap);
+
+    @include responsive(--content-gap, (8px, 10px, null, 14px));
+    // Figma: text column is 650px on Laptop, 826px on Desktop
+    @include responsive(max-width, (none, 650px, null, 826px));
+    @include responsive(align-items, (center, flex-start));
+    @include responsive(text-align, (center, left));
+  }
+
+  // Mix with badge
+  &__badge {
+    margin-bottom: calc(var(--space-after) - var(--content-gap));
+
+    @include responsive(--space-after, (12px, 16px, null, 20px));
+  }
+
+  &__title {
+    white-space: pre-line; // line break after "YourBank" comes from content.json
+  }
+
+  &__description {
+    color: var(--color-text-soft);
+    margin-bottom: calc(var(--space-after) - var(--content-gap));
+    @include text-body;
+
+    @include responsive(--space-after, (30px, 40px, null, 50px));
+  }
+}

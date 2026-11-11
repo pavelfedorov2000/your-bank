@@ -1,0 +1,13 @@
+@use "@styles/mixins" as *;
+
+$name: ".values";
+
+// Block: values (Careers "Our Values")
+#{$name} {
+  &__grid {
+    --list-display: grid;
+
+    @include responsive(--list-gap, (50px, 60px, null, 80px));
+    @include responsive(grid-template-columns, (null, null, repeat(2, 1fr)));
+  }
+}

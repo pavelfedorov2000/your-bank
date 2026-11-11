@@ -1,0 +1,50 @@
+@use "@styles/mixins" as *;
+
+$name: ".icon-badge";
+
+// Sizes come from --icon-badge-* vars: the size mods set them, or (without a mod) a parent does.
+// Defaults = md.
+:root {
+  @include responsive(--icon-badge-padding, (8px, null, null, 10px));
+  @include responsive(--icon-badge-size, (48px, null, null, 58px));
+  @include responsive(--icon-badge-inner-padding, (12px, null, null, 14px));
+}
+
+// Block: icon-badge (Figma "Icon Container"): icon in two nested glowing circles
+#{$name} {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: var(--icon-badge-padding);
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgb(202 255 51 / 0.05) 0%, rgb(202 255 51 / 0) 100%);
+  color: var(--color-accent);
+
+  // Outer circle = padding; inner circle = --icon-badge-size, the icon fills it minus its padding
+  &__inner {
+    display: inline-flex;
+    width: var(--icon-badge-size);
+    height: var(--icon-badge-size);
+    padding: var(--icon-badge-inner-padding);
+    border-radius: 50%;
+    background: linear-gradient(180deg, rgb(202 255 51 / 0.1) 0%, rgb(202 255 51 / 0) 47%);
+    box-shadow: inset 0 1px 0 0 rgb(202 255 51 / 0.2);
+  }
+
+  &__icon {
+    --icon-size: 100%;
+  }
+
+  // Products (98px on desktop)
+  &--lg {
+    @include responsive(--icon-badge-padding, (8px, null, null, 12px));
+    @include responsive(--icon-badge-size, (56px, null, null, 74px));
+    @include responsive(--icon-badge-inner-padding, (14px, null, null, 20px));
+  }
+
+  // Use Cases cards (78px on desktop)
+  &--md {
+    @include responsive(--icon-badge-padding, (8px, null, null, 10px));
+    @include responsive(--icon-badge-size, (48px, null, null, 58px));
+    @include responsive(--icon-badge-inner-padding, (12px, null, null, 14px));
+  }
+}

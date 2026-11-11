@@ -1,0 +1,27 @@
+// Decorative surfaces from the design, shared by several blocks.
+
+// Figma "noise" surface (mission & vision photo frame, benefits cards, "How We Protect You" panel):
+// grain tile + dark fade towards the bottom-left + faint lime glow from the top-left.
+@mixin noise-surface {
+  background:
+    linear-gradient(148deg, rgb(202 255 51 / 5%) 0%, transparent 81%),
+    linear-gradient(229deg, var(--color-surface) 41%, transparent 100%),
+    url("@images/decor/noise.webp") 0 0 / 291px 218px;
+}
+
+// Border painted with any background image (gradient border) that keeps the border radius:
+// a 1px ring cut out of ::before with a mask. The block must be `position: relative`.
+@mixin image-border($image, $width: 1px) {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: $width;
+    border-radius: inherit;
+    background: $image;
+    pointer-events: none;
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
+  }
+}

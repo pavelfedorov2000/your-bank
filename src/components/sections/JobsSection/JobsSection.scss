@@ -1,0 +1,15 @@
+@use "@styles/mixins" as *;
+
+$name: ".job-cards";
+
+// Block: job-cards (Careers "Job Openings")
+#{$name} {
+  @include responsive(--section-gap, (60px, null, null, 80px));
+
+  &__grid {
+    --list-display: grid;
+
+    @include responsive(--list-gap, (20px, null, null, 30px));
+    @include responsive(grid-template-columns, (null, null, repeat(2, 1fr)));
+  }
+}

@@ -1,0 +1,97 @@
+@use "@styles/mixins" as *;
+
+$name: ".footer";
+
+// Block: footer (Figma "Footer Section"). Background spans the full width, content is in the container.
+#{$name} {
+  background-color: var(--color-surface);
+
+  @include responsive(padding, (50px 0 30px, 60px 0 30px, null, 100px 0 50px));
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+
+    @include responsive(gap, (30px, 40px, null, 50px));
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include responsive(gap, (24px, 40px, null, 50px));
+  }
+
+  // Mix with logo
+  &__logo {
+    @include responsive(height, (34px, null, null, 40px));
+  }
+
+  // Mix with contacts: between two 1px lines
+  &__contacts {
+    border-block: 1px solid var(--color-border);
+
+    @include responsive(padding-block, (30px, 40px, null, 50px));
+  }
+
+  // Figma: from sm one pill — socials | copyright | legal links (space-between).
+  // Mobile: a card with copyright and legal links, the socials overlap its top edge.
+  &__bottom {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-bg);
+    box-shadow: inset 0 0 0 1px var(--color-border);
+    color: var(--color-text-muted);
+    font-weight: 300;
+
+    @include responsive(flex-direction, (column, row));
+    @include responsive(justify-content, (null, space-between));
+    @include responsive(gap, (20px, 30px));
+    // mobile: room for the socials sticking out 20px above the card
+    @include responsive(margin-top, (20px, 0));
+    @include responsive(padding, (50px 24px 30px, 12px 24px 12px 12px, null, 16px 30px 16px 16px));
+    @include responsive(border-radius, (12px, var(--radius-pill)));
+    @include responsive(font-size, (14px, null, null, 18px));
+  }
+
+  // Mix with socials: mobile — centered on the top edge of the card (44px buttons: 20px above, 24px over it)
+  &__socials {
+    @include responsive(position, (absolute, static));
+    @include responsive(top, (-20px, auto));
+    @include responsive(left, (50%, auto));
+    @include responsive(transform, (translateX(-50%), none));
+  }
+
+  &__copyright {
+    text-align: center;
+  }
+
+  // List block is configured through its --list-* variables
+  &__legal {
+    --list-flex-direction: row;
+
+    align-items: center;
+
+    @include responsive(--list-gap, (8px, null, null, 12px));
+  }
+
+  &__legal-item + &__legal-item {
+    display: flex;
+    align-items: center;
+
+    @include responsive(gap, (8px, null, null, 12px));
+
+    &::before {
+      content: "";
+      align-self: stretch;
+      width: 1px;
+      background-color: var(--color-text-muted);
+    }
+  }
+
+  &__legal-link:hover {
+    color: var(--color-text);
+  }
+}

@@ -1,0 +1,125 @@
+@use "@styles/mixins" as *;
+
+$name: ".auth-form";
+
+// Block: auth-form (Login / Sign Up)
+#{$name} {
+  // Card frame: panel over a dark geometric picture, dots in the top-right corner
+  &__panel {
+    --card-bg: url("@images/decor/auth-bg.webp") center / cover, var(--color-surface);
+
+    overflow: hidden;
+    width: 100%;
+    margin-inline: auto;
+
+    @include responsive(--card-radius, (16px, null, null, 20px));
+    @include responsive(--card-padding, (30px, null, 80px 200px, 100px 150px));
+    @include responsive(--card-gap, (40px, 60px, null, 80px));
+    @include responsive(max-width, (null, 1064px, null, 1326px));
+  }
+
+  // Dots in the top-right corner (decor, CSS background; ::before of the card is its border)
+  &__panel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    pointer-events: none;
+    aspect-ratio: #{650} / #{684};
+    background: url("@images/decor/auth-dots.webp") center / contain no-repeat;
+
+    @include responsive(width, (159px, 243px, null, 325px));
+  }
+
+  // Mix with text-block
+  &__head {
+    --text-block-line-height: 1.25;
+
+    text-align: center;
+
+    @include responsive(--text-block-gap, (10px, 16px, null, 20px));
+  }
+
+  &__title {
+    line-height: 1.25;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include responsive(gap, (24px, 30px, null, 40px));
+  }
+
+  &__fields {
+    display: grid;
+    align-self: stretch;
+
+    @include responsive(grid-template-columns, (null, repeat(2, 1fr)));
+    @include responsive(gap, (20px, 24px, null, 30px));
+  }
+
+  // Login / sign up failure (not in the design)
+  &__error {
+    color: var(--color-error);
+    text-align: center;
+
+    @include responsive(font-size, (14px, null, null, 16px));
+  }
+
+  &__forgot {
+    text-decoration: underline;
+
+    @include responsive(--button-font-size, (14px, 16px, null, 18px));
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+
+    @include responsive(max-width, (none, 404px, null, 518px));
+  }
+
+  &__ctas {
+    --ctas-align-items: stretch;
+
+    --list-gap: 24px;
+  }
+
+  // "Or Continue with" between two lines
+  &__divider {
+    display: flex;
+    align-items: center;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+
+    @include responsive(gap, (16px, null, null, 20px));
+    @include responsive(font-size, (14px, null, null, 18px));
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: currentColor;
+    }
+  }
+
+  &__socials {
+    --list-flex-direction: row;
+
+    justify-content: center;
+
+    @include responsive(--list-gap, (20px, null, null, 24px));
+  }
+
+  // Social login button: icon badge 68 / 94px, icon 24 / 30px (sizes of the badge via its vars)
+  &__social {
+    @include responsive(--icon-badge-padding, (8px, null, null, 12px));
+    @include responsive(--icon-badge-size, (52px, null, null, 70px));
+    @include responsive(--icon-badge-inner-padding, (14px, null, null, 20px));
+  }
+}

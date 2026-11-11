@@ -1,0 +1,23 @@
+@use "@styles/mixins" as *;
+@use "@styles/typography" as *;
+
+$name: ".text-block";
+
+// Defaults: the most common pair (section intros, use cases, mission & vision)
+:root {
+  --text-block-line-height: 1.5;
+
+  @include responsive(--text-block-gap, (10px, null, null, 14px));
+}
+
+// Block: text-block (title + description)
+#{$name} {
+  display: flex;
+  flex-direction: column;
+  gap: var(--text-block-gap);
+
+  &__description {
+    line-height: var(--text-block-line-height);
+    @include text-description;
+  }
+}

@@ -1,0 +1,21 @@
+@use "@styles/mixins" as *;
+
+$name: ".layout";
+
+// Block: layout (page shell)
+#{$name} {
+  // Space between the header and the first section (Mobile / Laptop / Desktop), same on every page.
+  // A first section that needs more (Home hero) adds its own padding-top.
+  &__main {
+    padding-bottom: var(--sections-gap);
+
+    @include responsive(padding-top, (30px, 50px, null, 53px));
+  }
+
+  // Page content: sections stacked with the design's vertical rhythm (--sections-gap)
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sections-gap);
+  }
+}

@@ -1,0 +1,51 @@
+@use "@styles/mixins" as *;
+
+$name: ".testimonial-card";
+
+// Block: testimonial-card (one customer quote in the Testimonials slider)
+#{$name} {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+
+  @include responsive(gap, (30px, null, null, 50px));
+  // Mobile: single card in a bordered frame
+  @include responsive(padding, (20px, 0));
+  @include responsive(border-radius, (12px, 0));
+  @include responsive(box-shadow, (inset 0 0 0 1px var(--color-border), none));
+
+  // Quote mark between two lines
+  &__header {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+
+    @include responsive(gap, (16px, null, null, 20px));
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: var(--color-border);
+    }
+  }
+
+  &__quote-icon {
+    @include responsive(--icon-size, (44px, null, null, 60px));
+  }
+
+  &__quote {
+    @include responsive(font-size, (14px, 16px, null, 18px));
+  }
+
+  &__author {
+    margin-top: auto;
+    color: var(--color-accent);
+    font-weight: 500;
+
+    @include responsive(font-size, (16px, null, null, 18px));
+  }
+}

@@ -1,0 +1,73 @@
+@use "sass:math";
+@use "../scale" as *;
+
+$name: ".money-exchange";
+
+// Block: money-exchange ("Money Exchange" in the hero widget)
+#{$name} {
+  display: flex;
+  flex-direction: column;
+  gap: em(17.34);
+
+  &__title {
+    @include widget-title;
+  }
+
+  // 2×2 table: 1px gaps over the border color draw the dividers
+  &__table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: em(0.87);
+    overflow: hidden;
+    margin-top: em(7.8);
+    border: em(0.87) solid var(--color-border);
+    border-radius: em(10.4);
+    background-color: var(--color-border);
+  }
+
+  &__currency {
+    display: flex;
+    flex-direction: column;
+    gap: em(8.67);
+    padding: em(17.34);
+    background-color: var(--color-surface);
+  }
+
+  &__code {
+    display: flex;
+    align-items: center;
+    gap: em(8.67);
+    font-size: em(15.6);
+  }
+
+  &__flag {
+    --size: #{em(math.div(34 * 17.34, 15.6))}; // flag is 34px at Desktop, inside 15.6px text
+
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+  }
+
+  &__name {
+    color: var(--color-text-soft);
+    font-size: em(13.87);
+    font-weight: 300;
+  }
+
+  &__amount {
+    padding: em(26) em(17.34);
+    background-color: var(--color-surface);
+    font-weight: 500;
+  }
+
+  // Mix with button (no color modifier): look via --button-* variables, sizes in em like the whole widget
+  &__button {
+    --button-padding: #{em(13.87) em(26)};
+    --button-radius: #{em(71)};
+    --button-bg: var(--color-surface-accent);
+    --button-color: #d1ff4d;
+    --button-font-size: #{em(15.6)};
+
+    margin-top: em(7.8);
+  }
+}

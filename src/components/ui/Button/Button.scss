@@ -1,0 +1,87 @@
+@use "@styles/mixins" as *;
+
+$name: ".button";
+
+// Look of the button is driven by --button-* variables: modifiers set them on the button,
+// a parent's element (e.g. money-exchange__button) can set them too when no color modifier is used.
+:root {
+  --button-padding: 0;
+  --button-radius: var(--radius-pill);
+  --button-bg: transparent;
+  --button-shadow: none;
+  --button-color: currentColor;
+  --button-justify: center;
+  --button-content-gap: 4px;
+
+  @include responsive(--button-font-size, (14px, null, null, 18px));
+  @include responsive(--button-icon-size, (18px, null, null, 22px));
+}
+
+// Block: button (Figma "Button")
+#{$name} {
+  display: inline-flex;
+  align-items: center;
+  justify-content: var(--button-justify);
+  flex-shrink: 0;
+  padding: var(--button-padding);
+  border-radius: var(--button-radius);
+  background-color: var(--button-bg);
+  box-shadow: var(--button-shadow);
+  color: var(--button-color);
+  font-size: var(--button-font-size);
+  white-space: nowrap;
+  transition: opacity var(--transition), background-color var(--transition), color var(--transition);
+
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  &--primary {
+    --button-bg: var(--color-accent);
+    --button-color: var(--color-text-inverse);
+
+    @include responsive(--button-padding, (14px 24px, null, null, 18px 30px));
+  }
+
+  &--secondary {
+    --button-bg: var(--color-surface);
+    --button-shadow: inset 0 0 0 1px var(--color-border);
+    --button-color: var(--color-text);
+
+    @include responsive(--button-padding, (14px 20px, null, null, 18px 24px));
+  }
+
+  // Size after colors: overrides their paddings
+  &--sm {
+    @include responsive(--button-padding, (12px 24px, null, null, 14px 30px));
+  }
+
+  // Text-only: after sizes, so no paddings in any size
+  &--text {
+    --button-padding: 0;
+    --button-bg: transparent;
+    --button-color: var(--color-text);
+  }
+
+  // Icon-only round button (slider arrows): after colors and sizes, so its paddings win
+  &--icon {
+    --button-radius: 50%;
+
+    @include responsive(--button-padding, (12px, null, null, 14px));
+  }
+
+  &__content {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--button-content-gap);
+  }
+
+  &__icon {
+    --icon-size: var(--button-icon-size);
+  }
+}

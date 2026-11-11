@@ -1,0 +1,63 @@
+@use "@styles/mixins" as *;
+
+$name: ".not-found";
+
+// Block: not-found (404 page; not in the design, assembled from its visual language)
+#{$name} {
+  // Card frame: dark panel with a lime glow behind the code, dots in the top-left corner
+  &__panel {
+    --card-bg:
+      radial-gradient(50% 45% at 50% 30%, rgb(202 255 51 / 0.08) 0%, transparent 100%),
+      var(--color-surface);
+    --card-border: linear-gradient(135deg, rgb(202 255 51 / 0.3) 0%, var(--color-border) 25%);
+
+    overflow: hidden;
+    align-items: center;
+    text-align: center;
+
+    @include responsive(--card-radius, (16px, null, null, 20px));
+    @include responsive(--card-padding, (50px 24px, 80px 60px, null, 100px 80px));
+    @include responsive(--card-gap, (24px, 30px, null, 40px));
+  }
+
+  // Dots in the top-left corner (decor, CSS background; ::before of the card is its border)
+  &__panel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    aspect-ratio: #{283} / #{298};
+    background: url("@images/decor/cta-dots.webp") center / contain no-repeat;
+
+    @include responsive(width, (151px, 192px, null, 283px));
+  }
+
+  // Big error code: lime fading down into the panel
+  &__code {
+    position: relative;
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    background: linear-gradient(180deg, var(--color-accent) 0%, rgb(202 255 51 / 0.05) 100%) text;
+    color: transparent;
+
+    @include responsive(font-size, (120px, 180px, null, 240px));
+  }
+
+  // Mix with text-block
+  &__text {
+    position: relative;
+    max-width: 680px;
+
+    @include responsive(--text-block-gap, (14px, null, null, 20px));
+  }
+
+  // Mix with ctas: column of equal-width buttons on mobile, row from tablet (the panel centers it)
+  &__ctas {
+    position: relative;
+
+    @include responsive(--ctas-align-items, (stretch, center));
+    @include responsive(--list-flex-direction, (column, row));
+  }
+}

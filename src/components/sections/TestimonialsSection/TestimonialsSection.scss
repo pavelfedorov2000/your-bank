@@ -1,0 +1,47 @@
+@use "@styles/mixins" as *;
+
+$name: ".testimonials";
+
+// Block: testimonials (Figma "Testimonials Section")
+#{$name} {
+  // Intro → content: bigger than the default --section-gap
+  @include responsive(--section-gap, (40px, null, 80px, 100px));
+
+  // Positioned parent of slider-controls; from sm the side paddings keep room for the arrows
+  // (arrow 52 / 62px + gap 30 / 50px)
+  &__slider {
+    position: relative;
+
+    @include responsive(padding-inline, (0, 82px, null, 112px));
+  }
+
+  // Side fades (Figma "Fade Out Left / Right")
+  &__viewport {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+      width: 25%;
+      pointer-events: none;
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--color-bg-fade) 0%, rgb(25 25 25 / 0) 100%);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(270deg, var(--color-bg-fade) 0%, rgb(25 25 25 / 0) 100%);
+    }
+  }
+
+  &__slide {
+    height: auto; // equal-height cards
+  }
+}

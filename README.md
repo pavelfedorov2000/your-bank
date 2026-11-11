@@ -1,49 +1,68 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+# YourBank — Gatsby
 
-## 🚀 Quick start
+Сайт по макету [YourBank – Bank Website Dark Theme (Figma)](https://www.figma.com/design/YUPVscHPBcWGIYfdrftEQs).
 
-1.  **Create a Gatsby site.**
+```shell
+npm install
+npm run develop   # http://localhost:8000, GraphiQL: http://localhost:8000/___graphql
+npm run build
+npm run typecheck # после develop/build (нужен сгенерированный src/gatsby-types.d.ts)
+```
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+## Роутинг
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+Файловый роутинг Gatsby (`src/pages`), страницы = фреймы макета:
 
-2.  **Start developing.**
+| Путь         | Файл                    | Секции (по порядку в макете)                                   |
+|--------------|-------------------------|----------------------------------------------------------------|
+| `/`          | `pages/index.tsx`       | Hero, Products, Use Cases, Features, FAQ, Testimonials, CTA    |
+| `/careers/`  | `pages/careers.tsx`     | Hero, Values, Benefits, Job Openings, FAQ, CTA                 |
+| `/about/`    | `pages/about.tsx`       | Hero, Mission & Vision, Press Releases                         |
+| `/security/` | `pages/security.tsx`    | Hero, How We Protect You, FAQ                                  |
+| `/login/`    | `pages/login.tsx`       | Login form, Testimonials                                       |
+| `/sign-up/`  | `pages/sign-up.tsx`     | Sign Up form, Testimonials                                     |
+| `/404/`      | `pages/404.tsx`         | —                                                              |
 
-    Navigate into your new site’s directory and start it up.
+Navbar и Footer общие, они в `components/layout/Layout.tsx`.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+## Данные
 
-3.  **Open the code and start customizing!**
+Все тексты с макета лежат в `src/data/content.json`:
 
-    Your site is now running at http://localhost:8000!
+```
+layout   — бренд, навигация, кнопки Sign Up / Login, футер (используется через useStaticQuery)
+shared   — блоки, повторяющиеся на нескольких страницах: faq, testimonials
+pages    — home / careers / about / security / login / signUp / notFound
+```
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+`gatsby-source-filesystem` + `gatsby-transformer-json` создают из файла узел `ContentJson`.
+Схема описана явно в `gatsby-node.ts` (`createSchemaCustomization`), чтобы у переиспользуемых блоков
+(`Heading`, `Cta`, `Faq`, `IntroWithCards`…) были стабильные GraphQL-типы. **При изменении структуры JSON обновляйте схему.**
 
-4.  **Learn more**
+`Heading.highlight` — это часть заголовка, которая в макете выделена акцентным цветом. `Heading` рендерит её в `<mark>`.
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+## Структура
 
-## 🚀 Quick start (Netlify)
+```
+src/
+  data/content.json        — контент
+  pages/                   — роуты + page queries (собираются из фрагментов секций)
+  components/
+    layout/                — каркас: Layout, Header, Footer, Container…
+    ui/                    — примитивы без GraphQL: Button, Tabs, List, Icon, Badge…
+    content/               — блоки, привязанные к фрагментам контента: Heading, SectionIntro; fragments.graphql.ts — общие фрагменты LinkItem/Card/Stat/MetaItem
+    sections/              — секции страниц, плоско (не привязаны к страницам); части секции лежат внутри её папки
+    Seo/                   — используется в `export const Head` страниц
+  box/                     — constants, hooks, utils, types (импорт через барелы: `@box/utils` и т.д.)
+```
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+Фрагмент компонента лежит рядом с ним в `X.graphql.ts` (например, `FaqSection.graphql.ts` → `...FaqSection`). Страница собирает из них page query, а данные
+передаются в компонент через проп `data`. Тип пропа (`Queries.FaqSectionFragment`) генерирует `graphqlTypegen`.
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+Стилей пока нет, только семантическая разметка.
+
+## Алиасы импортов
+
+`@components/*` (`@components/ui`, `@components/sections`…), `@box/*` (`@box/constants`, `@box/hooks`, `@box/utils`, `@box/types`), `@data/*`, `@images/*`, `@styles/*`.
+Заданы в двух местах — `tsconfig.json` (`paths`, для TS/IDE) и `gatsby-node.ts` (`onCreateWebpackConfig`, для сборки) — держите их синхронными.
+Импорты соседних файлов из той же папки остаются относительными (`./Heading`).

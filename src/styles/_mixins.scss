@@ -1,0 +1,92 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@forward "breakpoints";
+@use "breakpoints" as *;
+
+// Sets a property per breakpoint (mobile-first, min-width).
+// Values by position follow $breakpoints: (default, sm, lg, xxl); `null` skips a breakpoint.
+//
+// @example
+// .test {
+//   @include responsive(font-size, (10px, 20px));
+//   @include responsive(font-size, (10px, null, null, 30px));
+// }
+@mixin responsive($propName, $values, $customConfig: ()) {
+  $defaultConfig: (
+    skipFirst: false,
+    skipLast: false,
+    hideEmpty: false,
+  );
+
+  $config: $defaultConfig;
+
+  @if meta.type-of($customConfig) == "map" {
+    $config: map.merge($defaultConfig, $customConfig);
+  }
+
+  $isValuesByKeys: false;
+
+  @if meta.type-of($values) == "map" {
+    $isValuesByKeys: true;
+  }
+
+  $className: "&";
+  $isSkipFirst: map.get($config, "skipFirst");
+  $isSkipLast: map.get($config, "skipLast");
+
+  @if $isSkipFirst or $isSkipLast {
+    $className: $className + ":not(";
+
+    @if $isSkipFirst {
+      $className: $className + "&:first-child";
+    }
+
+    @if $isSkipLast {
+      @if ($isSkipFirst) {
+        $className: $className + ", ";
+      }
+
+      $className: $className + "&:last-child";
+    }
+
+    $className: $className + ")";
+  }
+
+  #{$className} {
+    @if ($isValuesByKeys) {
+      #{$propName}: map.get($values, default);
+
+      @each $bpKey, $valueByKey in $values {
+        $bpByKey: map.get($breakpointsByKeys, $bpKey);
+
+        @if $bpByKey and $valueByKey {
+          @media (min-width: $bpByKey) {
+            #{$propName}: $valueByKey;
+          }
+        }
+      }
+    } @else {
+      #{$propName}: list.nth($values, 1);
+
+      @for $idx from 2 through list.length($values) {
+        @if ($idx <= list.length($breakpoints)) {
+          $bp: list.nth($breakpoints, $idx);
+          $value: list.nth($values, $idx);
+
+          @if ($value) {
+            @media (min-width: $bp) {
+              #{$propName}: $value;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @if (map.get($config, "hideEmpty")) {
+    &:empty {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+// Breakpoints (mobile-first, min-width). Figma frames: Mobile 390, Laptop 1440, Desktop 1920.
+$screen-sm: 768px;  // no frame in Figma: layout switches from Mobile to Laptop
+$screen-lg: 1440px;  // "… - Laptop"
+$screen-xxl: 1920px; // "… - Desktop"
+
+// Positional order for `responsive(prop, (default, sm, lg, xxl))`.
+$breakpoints: (default, $screen-sm, $screen-lg, $screen-xxl);
+
+$breakpointsByKeys: (
+  sm: $screen-sm,
+  lg: $screen-lg,
+  xxl: $screen-xxl,
+);

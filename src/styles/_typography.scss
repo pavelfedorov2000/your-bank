@@ -1,0 +1,38 @@
+@use "mixins" as *;
+
+// Line-height is 1.5 globally.
+
+// "Our Products", "Use Cases" — section titles
+@mixin text-title {
+  font-weight: 500;
+
+  @include responsive(font-size, (28px, 38px, null, 48px));
+}
+
+// Hero h1 uses the same scale as section titles
+@mixin text-hero {
+  @include text-title;
+}
+
+// "For Individuals" (use cases), CTA title
+@mixin text-subtitle {
+  font-weight: 500;
+  @include responsive(font-size, (20px, 26px, null, 30px));
+}
+
+// Card titles: "Checking Accounts"
+@mixin text-card-title {
+  @include responsive(font-size, (20px, null, null, 24px));
+}
+
+// Paragraphs under titles and in cards
+@mixin text-body {
+  font-weight: 300;
+  @include responsive(font-size, (14px, 16px, null, 18px));
+}
+
+// Descriptions / paragraphs next to a title: muted body text
+@mixin text-description {
+  color: var(--color-text-muted);
+  @include text-body;
+}

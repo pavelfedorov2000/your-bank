@@ -1,0 +1,11 @@
+$name: ".logo";
+
+// Block: logo. The image fills the height set on the logo by the parent mix (header__logo, footer__logo).
+#{$name} {
+  display: flex;
+
+  &__image {
+    width: auto;
+    height: 100%;
+  }
+}

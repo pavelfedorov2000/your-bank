@@ -1,0 +1,1203 @@
+{
+  "layout": {
+    "brand": "YourBank",
+    "navigation": [
+      {
+        "label": "Home",
+        "path": "/"
+      },
+      {
+        "label": "Careers",
+        "path": "/careers/"
+      },
+      {
+        "label": "About",
+        "path": "/about/"
+      },
+      {
+        "label": "Security",
+        "path": "/security/"
+      }
+    ],
+    "auth": {
+      "signUp": {
+        "label": "Sign Up",
+        "path": "/sign-up/"
+      },
+      "login": {
+        "label": "Login",
+        "path": "/login/"
+      },
+      "logoutLabel": "Logout"
+    },
+    "footer": {
+      "contacts": [
+        {
+          "type": "email",
+          "label": "hello@skillbirdge.com",
+          "href": "mailto:hello@skillbirdge.com",
+          "icon": "mail"
+        },
+        {
+          "type": "phone",
+          "label": "+91 91813 23 2309",
+          "href": "tel:+9191813232309",
+          "icon": "phone"
+        },
+        {
+          "type": "location",
+          "label": "Somewhere in the World",
+          "href": "",
+          "icon": "location"
+        }
+      ],
+      "socials": [
+        {
+          "label": "Facebook",
+          "href": "#",
+          "icon": "facebook"
+        },
+        {
+          "label": "Twitter",
+          "href": "#",
+          "icon": "twitter"
+        },
+        {
+          "label": "LinkedIn",
+          "href": "#",
+          "icon": "linkedin"
+        }
+      ],
+      "copyright": "YourBank All Rights Reserved",
+      "legalLinks": [
+        {
+          "label": "Privacy Policy",
+          "path": "#"
+        },
+        {
+          "label": "Terms of Service",
+          "path": "#"
+        }
+      ]
+    }
+  },
+  "shared": {
+    "faq": {
+      "intro": {
+        "title": {
+          "text": "Frequently Asked Questions",
+          "highlight": "Frequently"
+        },
+        "description": "Still you have any questions? Contact our Team via support@yourbank.com"
+      },
+      "items": [
+        {
+          "question": "How do I open an account with YourBank?",
+          "answer": "Opening an account with YourBank is easy. Simply visit our website and click on the \"Open an Account\" button. Follow the prompts, provide the required information, and complete the application process. If you have any questions or need assistance, our customer support team is available to help."
+        },
+        {
+          "question": "What documents do I need to provide to apply for a loan?",
+          "answer": "The documents required for a loan application may vary depending on the type of loan you are applying for. Generally, you will need to provide identification documents (such as a passport or driver's license), proof of income (such as pay stubs or tax returns), and information about the collateral (if applicable). Our loan officers will guide you through the specific requirements during the application process."
+        },
+        {
+          "question": "How can I access my accounts online?",
+          "answer": "Accessing your accounts online is simple and secure. Visit our website and click on the \"Login\" button. Enter your username and password to access your accounts. If you haven't registered for online banking, click on the \"Enroll Now\" button and follow the registration process. If you need assistance, our customer support team is available to guide you."
+        },
+        {
+          "question": "Are my transactions and personal information secure?",
+          "answer": "At YourBank, we prioritize the security of your transactions and personal information. We employ industry-leading encryption and multi-factor authentication to ensure that your data is protected. Additionally, we regularly update our security measures to stay ahead of emerging threats. You can bank with confidence knowing that we have robust security systems in place."
+        },
+        {
+          "question": "Can I open a joint account with YourBank?",
+          "answer": "Lorem ipsum dolor sit amet consectetur. Blandit odio semper risus pellentesque elit. Pellentesque eget ut imperdiet nulla penatibus. Nascetur viverra arcu sed amet cursus purus. Faucibus amet vitae tellus dignissim quis eget morbi."
+        },
+        {
+          "question": "How do I reset my online banking password?",
+          "answer": "Lorem ipsum dolor sit amet consectetur. Sit vel tellus at sed aliquam et. Mauris in nisl ut amet feugiat ut. Egestas morbi pellentesque a sed nisl lectus. Mi id sed consequat proin ac sed rhoncus id ullamcorper."
+        },
+        {
+          "question": "What are the fees for international transfers?",
+          "answer": "Lorem ipsum dolor sit amet consectetur. Aliquet tellus morbi in vulputate amet lorem. Volutpat suspendisse sapien proin nunc ut lacus. Ultricies sit ac a id eget gravida. Massa orci non feugiat aliquet quis tellus."
+        },
+        {
+          "question": "How can I contact customer support?",
+          "answer": "Lorem ipsum dolor sit amet consectetur. Turpis nulla diam euismod id lectus. Est turpis facilisis porttitor non facilisi eu. Nunc nisl sit in egestas libero aenean. Viverra amet vulputate ut sed elementum."
+        }
+      ],
+      "loadMoreButtonText": "Load All FAQ’s"
+    },
+    "testimonials": {
+      "intro": {
+        "title": {
+          "text": "Our Testimonials",
+          "highlight": "Testimonials"
+        },
+        "description": "Discover how YourBank has transformed lives with innovative digital solutions and personalized customer service. See why our clients trust us for a secure and prosperous financial journey"
+      },
+      "tabs": [
+        {
+          "label": "For Individuals",
+          "items": [
+            {
+              "quote": "YourBank has been my trusted financial partner for years. Their personalized service and innovative digital banking solutions have made managing my finances a breeze.",
+              "author": "Sara T"
+            },
+            {
+              "quote": "I recently started my own business, and YourBank has been instrumental in helping me set up my business accounts and secure the financing I needed. Their expert guidance and tailored solutions have been invaluable.",
+              "author": "John D"
+            },
+            {
+              "quote": "I love the convenience of YourBank's mobile banking app. It allows me to stay on top of my finances and make transactions on the go. The app is user-friendly and secure, giving me peace of mind.",
+              "author": "Emily G"
+            },
+            {
+              "quote": "Opening an account took me ten minutes from my phone. The app is clear, transfers are instant and I always know where my money goes.",
+              "author": "Liam P"
+            },
+            {
+              "quote": "I got my first mortgage with YourBank. The loan officer explained every step and helped me find a rate that actually fits my budget.",
+              "author": "Olivia M"
+            },
+            {
+              "quote": "The savings goals feature changed my habits. Small automatic transfers added up, and I finally built an emergency fund.",
+              "author": "Noah K"
+            }
+          ]
+        },
+        {
+          "label": "For Businesses",
+          "items": [
+            {
+              "quote": "Switching our company accounts to YourBank cut the time we spend on payments in half. Payroll, invoices and transfers all live in one dashboard.",
+              "author": "Michael R"
+            },
+            {
+              "quote": "Their business loan team understood our seasonal cash flow and offered a credit line that fits it. We opened our second location thanks to them.",
+              "author": "Anna K"
+            },
+            {
+              "quote": "Merchant services were set up in a day, and settlements arrive faster than with our previous provider. Support always answers within minutes.",
+              "author": "David L"
+            },
+            {
+              "quote": "Managing accounts for three stores used to be a headache. Now our whole team works in one place with clear permissions for everyone.",
+              "author": "Sophia W"
+            },
+            {
+              "quote": "Their advisors helped us restructure our loans and lower monthly payments. That freed up cash to hire two more people this year.",
+              "author": "James T"
+            },
+            {
+              "quote": "International payments to our suppliers are fast and the fees are transparent. No more surprises at the end of the month.",
+              "author": "Isabella C"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "pages": {
+    "home": {
+      "seo": {
+        "title": "Home",
+        "description": "At YourBank, our mission is to provide comprehensive banking solutions that empower individuals and businesses to achieve their financial goals."
+      },
+      "hero": {
+        "badge": "No LLC Required, No Credit Check.",
+        "title": {
+          "text": "Welcome to YourBank\nEmpowering Your Financial Journey",
+          "highlight": "Financial Journey"
+        },
+        "description": "At YourBank, our mission is to provide comprehensive banking solutions that empower individuals and businesses to achieve their financial goals. We are committed to delivering personalized and innovative services that prioritize our customers' needs.",
+        "button": {
+          "label": "Open Account",
+          "path": "/sign-up/"
+        },
+        "widget": {
+          "income": {
+            "value": "+ $5000,00",
+            "label": "Monthly Income"
+          },
+          "transactions": {
+            "title": "Your Transactions",
+            "list": [
+              {
+                "label": "Transaction",
+                "name": "Joel Kenley",
+                "amount": "-$68.00"
+              },
+              {
+                "label": "Transaction",
+                "name": "Mark Smith",
+                "amount": "-$68.00"
+              },
+              {
+                "label": "Transaction",
+                "name": "Lenen Roy",
+                "amount": "-$68.00"
+              }
+            ]
+          },
+          "exchange": {
+            "title": "Money Exchange",
+            "from": {
+              "code": "INR",
+              "name": "Indian Rupees",
+              "amount": "5,0000"
+            },
+            "to": {
+              "code": "USD",
+              "name": "United States Dollar",
+              "amount": "12.00"
+            },
+            "buttonLabel": "Exchange"
+          },
+          "supportedCurrencies": {
+            "label": "Supported Currency",
+            "list": [
+              {
+                "code": "USD",
+                "icon": "currency-dollar"
+              },
+              {
+                "code": "EUR",
+                "icon": "currency-euro"
+              },
+              {
+                "code": "BTC",
+                "icon": "currency-bitcoin"
+              },
+              {
+                "code": "ETH",
+                "icon": "currency-ethereum"
+              }
+            ]
+          }
+        }
+      },
+      "products": {
+        "intro": {
+          "title": {
+            "text": "Our Products",
+            "highlight": "Products"
+          },
+          "description": "Discover a range of comprehensive and customizable banking products at YourBank, designed to suit your unique financial needs and aspirations"
+        },
+        "tabs": [
+          {
+            "label": "For Individuals",
+            "items": [
+              {
+                "title": "Checking Accounts",
+                "description": "Enjoy easy and convenient access to your funds with our range of checking account options. Benefit from features such as online and mobile banking, debit cards, and free ATM access.",
+                "icon": "briefcase"
+              },
+              {
+                "title": "Savings Accounts",
+                "description": "Build your savings with our competitive interest rates and flexible savings account options. Whether you're saving for a specific goal or want to grow your wealth over time, we have the right account for you.",
+                "icon": "archive"
+              },
+              {
+                "title": "Loans and Mortgages",
+                "description": "Realize your dreams with our flexible loan and mortgage options. From personal loans to home mortgages, our experienced loan officers are here to guide you through the application process and help you secure the funds you need.",
+                "icon": "cash"
+              }
+            ]
+          },
+          {
+            "label": "For Businesses",
+            "items": [
+              {
+                "title": "Business Checking",
+                "description": "Run day-to-day operations smoothly with checking accounts built for growing companies: unlimited transactions, payroll integrations and online access for your whole team.",
+                "icon": "building"
+              },
+              {
+                "title": "Merchant Services",
+                "description": "Accept payments in store and online with fast settlement, transparent fees and real-time reports that help you keep track of your cash flow.",
+                "icon": "presentation-chart"
+              },
+              {
+                "title": "Business Loans",
+                "description": "Fund expansion, new equipment or working capital with flexible business loans and credit lines, backed by advisors who know your industry.",
+                "icon": "hand-coin"
+              }
+            ]
+          }
+        ]
+      },
+      "useCases": {
+        "intro": {
+          "title": {
+            "text": "Use Cases",
+            "highlight": "Use Cases"
+          },
+          "description": "At YourBank, we cater to the diverse needs of individuals and businesses alike, offering a wide range of financial solutions"
+        },
+        "groups": [
+          {
+            "audience": "individuals",
+            "title": "For Individuals",
+            "description": "For individuals, our mortgage services pave the way to homeownership, and our flexible personal loans provide vital support during various life milestones. We also prioritize retirement planning, ensuring a financially secure future for our customers",
+            "cases": [
+              {
+                "title": "Managing Personal Finances",
+                "icon": "hand-coin"
+              },
+              {
+                "title": "Saving for the Future",
+                "icon": "hands-coin"
+              },
+              {
+                "title": "Homeownership",
+                "icon": "bank"
+              },
+              {
+                "title": "Education Funding",
+                "icon": "book-open"
+              }
+            ],
+            "stats": [
+              {
+                "value": "78%",
+                "label": "Secure Retirement Planning"
+              },
+              {
+                "value": "63%",
+                "label": "Manageable Debt Consolidation"
+              },
+              {
+                "value": "91%",
+                "label": "Reducing financial burdens"
+              }
+            ],
+            "button": {
+              "label": "Learn More",
+              "path": "#"
+            }
+          },
+          {
+            "audience": "business",
+            "title": "For Business",
+            "description": "For businesses, we empower growth with working capital solutions that optimize cash flow, and our tailored financing options fuel business expansion. Whatever your financial aspirations, YourBank is committed to providing the right tools and support to achieve them",
+            "cases": [
+              {
+                "title": "Startups and Entrepreneurs",
+                "icon": "building"
+              },
+              {
+                "title": "Cash Flow Management",
+                "icon": "cash"
+              },
+              {
+                "title": "Business Expansion",
+                "icon": "presentation-chart"
+              },
+              {
+                "title": "Payment Solutions",
+                "icon": "dollar-circle"
+              }
+            ],
+            "stats": [
+              {
+                "value": "65%",
+                "label": "Cash Flow Management"
+              },
+              {
+                "value": "70%",
+                "label": "Drive Business Expansion"
+              },
+              {
+                "value": "45%",
+                "label": "Streamline payroll processing"
+              }
+            ],
+            "button": {
+              "label": "Learn More",
+              "path": "#"
+            }
+          }
+        ]
+      },
+      "features": {
+        "intro": {
+          "title": {
+            "text": "Our Features",
+            "highlight": "Features"
+          },
+          "description": "Experience a host of powerful features at YourBank, including seamless online banking, secure transactions, and personalized financial insights, all designed to enhance your banking experience"
+        },
+        "tabs": [
+          {
+            "label": "Online Banking",
+            "items": [
+              {
+                "title": "24/7 Account Access",
+                "description": "Enjoy the convenience of accessing your accounts anytime, anywhere through our secure online banking platform. Check balances, transfer funds, and pay bills with ease.",
+                "icon": "arrow-up-right"
+              },
+              {
+                "title": "Mobile Banking App",
+                "description": "Stay connected to your finances on the go with our user-friendly mobile banking app. Easily manage your accounts, deposit checks, and make payments from your smartphone or tablet.",
+                "icon": "arrow-up-right"
+              },
+              {
+                "title": "Secure Transactions",
+                "description": "Rest assured knowing that your transactions are protected by industry-leading security measures. We employ encryption and multi-factor authentication to safeguard your financial information.",
+                "icon": "arrow-up-right"
+              },
+              {
+                "title": "Bill Pay and Transfers",
+                "description": "Save time and avoid late fees with our convenient bill pay service. Set up recurring payments or make one-time transfers between your accounts with just a few clicks.",
+                "icon": "arrow-up-right"
+              }
+            ]
+          },
+          {
+            "label": "Financial Tools",
+            "items": [
+              {
+                "title": "Budget Planner",
+                "description": "Set monthly budgets by category and get alerts before you overspend. Track your progress with clear charts that update in real time.",
+                "icon": "arrow-up-right"
+              },
+              {
+                "title": "Spending Insights",
+                "description": "See where your money goes with automatic categorization of every transaction and monthly reports on your spending habits.",
+                "icon": "arrow-up-right"
+              },
+              {
+                "title": "Savings Goals",
+                "description": "Create goals for a trip, a car or an emergency fund and let automatic transfers move money there on schedule.",
+                "icon": "arrow-up-right"
+              },
+              {
+                "title": "Investment Tracker",
+                "description": "Follow your portfolio performance in one place and get personalized suggestions to keep it aligned with your goals.",
+                "icon": "arrow-up-right"
+              }
+            ]
+          },
+          {
+            "label": "Customer Support",
+            "items": [
+              {
+                "title": "24/7 Live Chat",
+                "description": "Get answers from our support team any time of day right in the app or online banking, with an average response time under two minutes.",
+                "icon": "arrow-up-right"
+              },
+              {
+                "title": "Phone Support",
+                "description": "Prefer to talk? Call our dedicated line and speak to a banking specialist who can solve your issue on the first call.",
+                "icon": "arrow-up-right"
+              },
+              {
+                "title": "Personal Advisor",
+                "description": "Book a free session with a financial advisor to review your accounts, plan big purchases or discuss investments.",
+                "icon": "arrow-up-right"
+              },
+              {
+                "title": "Help Center",
+                "description": "Find step-by-step guides, video tutorials and answers to frequently asked questions in our searchable knowledge base.",
+                "icon": "arrow-up-right"
+              }
+            ]
+          }
+        ]
+      },
+      "cta": {
+        "title": {
+          "text": "Start your financial journey with YourBank today!",
+          "highlight": "YourBank today!"
+        },
+        "description": "Ready to take control of your finances? Join YourBank now, and let us help you achieve your financial goals with our tailored solutions and exceptional customer service",
+        "button": {
+          "label": "Open Account",
+          "path": "/sign-up/"
+        }
+      }
+    },
+    "careers": {
+      "seo": {
+        "title": "Careers",
+        "description": "Join our team and embark on a rewarding journey in the banking industry."
+      },
+      "hero": {
+        "title": {
+          "text": "Welcome to YourBank Careers!",
+          "highlight": "YourBank"
+        },
+        "description": "Join our team and embark on a rewarding journey in the banking industry. At YourBank, we are committed to fostering a culture of excellence and providing opportunities for professional growth. With a focus on innovation, customer service, and integrity, we strive to make a positive impact in the lives of our customers and communities. Join us today and be a part of our mission to shape the future of banking."
+      },
+      "values": {
+        "intro": {
+          "title": {
+            "text": "Our Values",
+            "highlight": "Values"
+          },
+          "description": "At YourBank, our values form the foundation of our organization and guide our actions. We believe in upholding the highest standards of integrity, delivering exceptional service, and embracing innovation. These values define our culture and shape the way we work together to achieve our goals."
+        },
+        "items": [
+          {
+            "title": "Integrity",
+            "description": "We conduct ourselves with utmost honesty, transparency, and ethical behavior. We believe in doing what is right for our customers, colleagues, and stakeholders, even when faced with difficult choices."
+          },
+          {
+            "title": "Customer Centricity",
+            "description": "Our customers are at the heart of everything we do. We are dedicated to understanding their needs, providing personalized solutions, and delivering exceptional service that exceeds expectations."
+          },
+          {
+            "title": "Collaboration",
+            "description": "We foster a collaborative and inclusive work environment, where teamwork and diversity are celebrated. By leveraging the unique strengths and perspectives of our employees, we drive innovation and achieve greater success together."
+          },
+          {
+            "title": "Innovation",
+            "description": "We embrace change and constantly seek innovative solutions to meet the evolving needs of our customers. We encourage our employees to think creatively, challenge conventions, and explore new ideas to drive the future of banking."
+          }
+        ]
+      },
+      "benefits": {
+        "intro": {
+          "title": {
+            "text": "Our Benefits",
+            "highlight": "Benefits"
+          },
+          "description": "At YourBank, we value our employees and are dedicated to their well-being and success. We offer a comprehensive range of benefits designed to support their personal and professional growth."
+        },
+        "items": [
+          {
+            "title": "Competitive Compensation",
+            "description": "We provide a competitive salary package that recognizes the skills and expertise of our employees. YourBank believes in rewarding exceptional performance and offering opportunities for financial growth.",
+            "icon": "presentation-chart"
+          },
+          {
+            "title": "Health and Wellness",
+            "description": "We prioritize the health and well-being of our employees by providing comprehensive medical, dental, and vision insurance plans. We also offer wellness programs, gym memberships, and resources to support a healthy lifestyle.",
+            "icon": "lightbulb"
+          },
+          {
+            "title": "Retirement Planning",
+            "description": "YourBank is committed to helping employees plan for their future. We offer a retirement savings plan with a generous employer match to help them build a secure financial foundation for the long term.",
+            "icon": "bag"
+          },
+          {
+            "title": "Work-Life Balance",
+            "description": "We understand the importance of maintaining a healthy work-life balance. YourBank offers flexible work arrangements, paid time off, parental leave, and other programs that support employees in managing their personal and professional commitments.",
+            "icon": "inbox"
+          }
+        ]
+      },
+      "jobs": {
+        "intro": {
+          "title": {
+            "text": "Job Openings",
+            "highlight": "Job Openings"
+          },
+          "description": "Explore exciting job openings at YourBank, where we value talent, innovation, and a passion for customer service. Join our team and be part of shaping a brighter future in the banking industry"
+        },
+        "aboutLabel": "About This Job",
+        "requirementsLabel": "Requirements & Qualifications",
+        "items": [
+          {
+            "title": "Relationship Manager",
+            "meta": [
+              {
+                "label": "Location",
+                "value": "India"
+              },
+              {
+                "label": "Department",
+                "value": "Retail Banking"
+              }
+            ],
+            "about": "As a Relationship Manager at YourBank, you will be responsible for developing and maintaining relationships with our valued customers. You will proactively identify their financial needs and offer tailored solutions to help them achieve their goals. We are seeking individuals with excellent communication skills, a strong sales acumen, and a passion for delivering exceptional customer service.",
+            "requirements": [
+              "Bachelor's degree in Business, Finance, or a related field",
+              "Minimum of 3 years of experience in sales or relationship management in the banking industry",
+              "Proven track record of meeting and exceeding sales targets",
+              "Excellent interpersonal and negotiation skills",
+              "Strong knowledge of banking products and services"
+            ],
+            "button": {
+              "label": "Apply Now",
+              "path": "#"
+            }
+          },
+          {
+            "title": "Risk Analyst",
+            "meta": [
+              {
+                "label": "Location",
+                "value": "India"
+              },
+              {
+                "label": "Department",
+                "value": "Risk Management"
+              }
+            ],
+            "about": "As a Risk Analyst at YourBank, you will play a vital role in identifying and assessing potential risks to our organization. You will analyze data, conduct risk assessments, and develop strategies to mitigate risks. We are looking for detail-oriented individuals with strong analytical skills and a solid understanding of risk management principles.",
+            "requirements": [
+              "Bachelor's degree in Finance, Economics, or a related field",
+              "Minimum of 2 years of experience in risk management or a similar role",
+              "Proficiency in risk analysis tools and techniques",
+              "Strong analytical and problem-solving skills",
+              "Knowledge of regulatory requirements and industry best practices"
+            ],
+            "button": {
+              "label": "Apply Now",
+              "path": "#"
+            }
+          },
+          {
+            "title": "IT Security Specialist",
+            "meta": [
+              {
+                "label": "Location",
+                "value": "India"
+              },
+              {
+                "label": "Department",
+                "value": "Information Technology"
+              }
+            ],
+            "about": "As an IT Security Specialist at YourBank, you will be responsible for ensuring the security and integrity of our information systems. You will develop and implement security protocols, conduct vulnerability assessments, and respond to security incidents. We are seeking individuals with a strong technical background, knowledge of cybersecurity best practices, and a commitment to maintaining the confidentiality of customer data.",
+            "requirements": [
+              "Bachelor's degree in Computer Science, Information Security, or a related field",
+              "Minimum of 5 years of experience in IT security or a similar role",
+              "In-depth knowledge of network security protocols and technologies",
+              "Familiarity with regulatory frameworks such as PCI DSS and GDPR",
+              "Professional certifications such as CISSP or CISM are preferred"
+            ],
+            "button": {
+              "label": "Apply Now",
+              "path": "#"
+            }
+          }
+        ]
+      },
+      "cta": {
+        "title": {
+          "text": "Start your Career with YourBank today!",
+          "highlight": "YourBank today!"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur. Blandit odio semper risus pellentesque elit. Pellentesque eget ut imperdiet nulla penatibus. Nascetur viverra arcu sed amet cursus purus.",
+        "button": {
+          "label": "Open Account",
+          "path": "/sign-up/"
+        }
+      }
+    },
+    "about": {
+      "seo": {
+        "title": "About",
+        "description": "At YourBank, we believe that banking should be more than just transactions."
+      },
+      "hero": {
+        "supTitle": "Welcome to YourBank",
+        "title": {
+          "text": "Where Banking Meets Excellence!",
+          "highlight": "Excellence!"
+        },
+        "description": "At YourBank, we believe that banking should be more than just transactions. It should be an experience that empowers individuals and businesses to thrive and reach their financial goals. As a trusted financial institution, we are committed to delivering exceptional banking services that go beyond expectations. With a focus on innovation, personalized solutions, and unwavering integrity, we strive to provide the best banking experience for our valued customers. Join us on this exciting journey and discover a new level of banking excellence."
+      },
+      "missionVision": {
+        "intro": {
+          "title": {
+            "text": "Mission & Vision",
+            "highlight": "Mission & Vision"
+          },
+          "description": "We envision being a leading force in the industry, driven by innovation, integrity, and inclusivity, creating a brighter financial future for individuals and businesses while maintaining a strong commitment to customer satisfaction and community development"
+        },
+        "items": [
+          {
+            "title": "Mission",
+            "description": "At YourBank, our mission is to empower our customers to achieve financial success. We are dedicated to delivering innovative banking solutions that cater to their unique needs. Through personalized services, expert guidance, and cutting-edge technology, we aim to build strong, lasting relationships with our customers. Our mission is to be their trusted partner, helping them navigate their financial journey and realize their dreams.",
+            "image": "/images/mission-vision/mission.webp"
+          },
+          {
+            "title": "Vision",
+            "description": "Our vision at YourBank is to redefine banking by creating a seamless and personalized experience for our customers. We envision a future where banking is accessible, transparent, and tailored to individual preferences. Through continuous innovation and collaboration, we strive to be at the forefront of the industry, setting new standards for customer-centric banking. Our vision is to be the preferred financial institution, known for our unwavering commitment to excellence, trust, and customer satisfaction.",
+            "image": "/images/mission-vision/vision.webp"
+          }
+        ]
+      },
+      "pressReleases": {
+        "intro": {
+          "title": {
+            "text": "Press Releases",
+            "highlight": "Press Releases"
+          },
+          "description": "Stay updated with the latest happenings and exciting developments at YourBank through our press releases."
+        },
+        "items": [
+          {
+            "title": "YourBank Launches New Rewards Program to Enhance Customer Loyalty and Satisfaction",
+            "image": "/images/press-releases/rewards-program.webp",
+            "meta": [
+              {
+                "label": "Location",
+                "value": "India"
+              },
+              {
+                "label": "Date",
+                "value": "06/11/2024"
+              }
+            ],
+            "description": "YourBank is pleased to announce the introduction of our new Rewards Program, aimed at rewarding our loyal customers and enhancing their banking experience. The program offers exclusive benefits, discounts, and personalized offers tailored to individual customer preferences. With this initiative, YourBank reaffirms its commitment to delivering exceptional value and building lasting relationships with our valued customers."
+          },
+          {
+            "title": "YourBank Expands Branch Network with Opening of New Location in Chennai",
+            "image": "/images/press-releases/branch-network.webp",
+            "meta": [
+              {
+                "label": "Location",
+                "value": "India"
+              },
+              {
+                "label": "Date",
+                "value": "12/11/2024"
+              }
+            ],
+            "description": "YourBank is excited to announce the grand opening of our newest branch in [City]. This expansion is a testament to our continued commitment to serving our customers and providing them with convenient access to our comprehensive range of banking services. The new branch will feature state-of-the-art facilities, a team of dedicated professionals, and a personalized approach to banking, further strengthening our presence in the local community."
+          },
+          {
+            "title": "YourBank Partners with Local Nonprofit to Support Financial Education Initiatives",
+            "image": "/images/press-releases/financial-literacy.webp",
+            "meta": [
+              {
+                "label": "Location",
+                "value": "India"
+              },
+              {
+                "label": "Date",
+                "value": "24/12/2024"
+              }
+            ],
+            "description": "YourBank is excited to unveil our new Sustainable Banking Initiative, demonstrating our commitment to environmental responsibility. This initiative includes a range of sustainable banking products and services, such as green loans, eco-friendly investment options, and paperless banking solutions. By incorporating sustainable practices into our operations, we aim to contribute to a greener future while providing innovative banking solutions to our customers."
+          },
+          {
+            "title": "YourBank Launches Sustainable Banking Initiative to Promote Environmental Responsibility",
+            "image": "/images/press-releases/sustainable-banking.webp",
+            "meta": [
+              {
+                "label": "Location",
+                "value": "India"
+              },
+              {
+                "label": "Date",
+                "value": "28/12/2024"
+              }
+            ],
+            "description": "YourBank is excited to unveil our new Sustainable Banking Initiative, demonstrating our commitment to environmental responsibility. This initiative includes a range of sustainable banking products and services, such as green loans, eco-friendly investment options, and paperless banking solutions. By incorporating sustainable practices into our operations, we aim to contribute to a greener future while providing innovative banking solutions to our customers."
+          }
+        ]
+      }
+    },
+    "security": {
+      "seo": {
+        "title": "Security",
+        "description": "At YourBank, we understand the importance of keeping your financial information secure."
+      },
+      "hero": {
+        "title": {
+          "text": "Your Security is Our Top Priority",
+          "highlight": "Top Priority"
+        },
+        "description": "At YourBank, we understand the importance of keeping your financial information secure. We employ robust security measures and advanced technologies to protect your personal and financial data. Rest assured that when you bank with us, your security is our utmost priority."
+      },
+      "protection": {
+        "intro": {
+          "title": {
+            "text": "How We Protect You",
+            "highlight": "Protect You"
+          },
+          "description": "At YourBank, we prioritize the security and confidentiality of your financial information. Our state-of-the-art encryption technology and stringent data protection measures ensure your assets and transactions are safeguarded at all times"
+        },
+        "items": [
+          {
+            "title": "Secure Online Banking Platform",
+            "description": "Our online banking platform is built with multiple layers of security to safeguard your information. We utilize industry-standard encryption protocols to ensure that your data remains confidential and protected during transmission.",
+            "icon": "apps-add"
+          },
+          {
+            "title": "Multi-Factor Authentication",
+            "description": "To enhance the security of your online banking experience, we employ multi-factor authentication. This additional layer of security requires you to provide multiple pieces of identification, such as a password and a one-time verification code, to access your account.",
+            "icon": "layers"
+          },
+          {
+            "title": "Fraud Monitoring",
+            "description": "We have sophisticated fraud detection systems in place to monitor your accounts for any suspicious activities. Our dedicated team works around the clock to detect and prevent unauthorized transactions, providing you with peace of mind.",
+            "icon": "sparkles"
+          },
+          {
+            "title": "Secure Mobile Banking",
+            "description": "Our mobile banking app is designed with the same level of security as our online banking platform. You can confidently access your accounts, make transactions, and manage your finances on the go, knowing that your information is protected.",
+            "icon": "rupee-circle"
+          }
+        ]
+      }
+    },
+    "login": {
+      "seo": {
+        "title": "Login",
+        "description": "Welcome back! Please log in to access your account."
+      },
+      "form": {
+        "title": {
+          "text": "Login",
+          "highlight": "Login"
+        },
+        "description": "Welcome back! Please log in to access your account.",
+        "fields": [
+          {
+            "name": "email",
+            "type": "email",
+            "placeholder": "Enter your Email",
+            "autoComplete": "email"
+          },
+          {
+            "name": "password",
+            "type": "password",
+            "placeholder": "Enter your Password",
+            "autoComplete": "current-password"
+          }
+        ],
+        "forgotPasswordLabel": "Forgot Password?",
+        "submitLabel": "Login",
+        "secondaryButton": {
+          "label": "Sign Up",
+          "path": "/sign-up/"
+        },
+        "socialLabel": "Or Continue with",
+        "socialProviders": [
+          {
+            "name": "Google",
+            "icon": "google"
+          },
+          {
+            "name": "Facebook",
+            "icon": "facebook-circle"
+          },
+          {
+            "name": "Apple",
+            "icon": "apple"
+          }
+        ]
+      }
+    },
+    "signUp": {
+      "seo": {
+        "title": "Sign Up",
+        "description": "Join our community today! Create an account to unlock exclusive features and personalized experiences."
+      },
+      "form": {
+        "title": {
+          "text": "Sign Up",
+          "highlight": "Sign Up"
+        },
+        "description": "Join our community today! Create an account to unlock exclusive features and personalized experiences.",
+        "fields": [
+          {
+            "name": "firstName",
+            "type": "text",
+            "placeholder": "Enter First Name",
+            "autoComplete": "given-name"
+          },
+          {
+            "name": "lastName",
+            "type": "text",
+            "placeholder": "Enter Last Name",
+            "autoComplete": "family-name"
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "placeholder": "Enter your Email",
+            "autoComplete": "email"
+          },
+          {
+            "name": "password",
+            "type": "password",
+            "placeholder": "Enter your Password",
+            "autoComplete": "new-password"
+          }
+        ],
+        "forgotPasswordLabel": "",
+        "submitLabel": "Sign Up",
+        "secondaryButton": {
+          "label": "Login",
+          "path": "/login/"
+        },
+        "socialLabel": "Or Continue with",
+        "socialProviders": [
+          {
+            "name": "Google",
+            "icon": "google"
+          },
+          {
+            "name": "Facebook",
+            "icon": "facebook-circle"
+          },
+          {
+            "name": "Apple",
+            "icon": "apple"
+          }
+        ]
+      }
+    },
+    "notFound": {
+      "seo": {
+        "title": "Page not found",
+        "description": "The page you are looking for does not exist."
+      },
+      "content": {
+        "code": "404",
+        "title": {
+          "text": "Oops! Page not found",
+          "highlight": "not found"
+        },
+        "description": "The page you’re looking for doesn’t exist or has been moved. Let’s get you back on track.",
+        "button": {
+          "label": "Go Home",
+          "path": "/"
+        },
+        "secondaryButton": {
+          "label": "About Us",
+          "path": "/about/"
+        }
+      }
+    },
+    "guide": {
+      "seo": {
+        "title": "Design Guide",
+        "description": "Colors, typography and assets of the YourBank template."
+      },
+      "hero": {
+        "title": "YourBank",
+        "description": "Bank Website Template for a Finance Brand",
+        "author": {
+          "label": "By Produce UI",
+          "path": "https://www.figma.com/design/YUPVscHPBcWGIYfdrftEQs"
+        }
+      },
+      "colors": {
+        "intro": {
+          "title": {
+            "text": "🎨 Color Styles"
+          },
+          "description": "These are the colors that shaped this template's design, selected with care and intention. Feel free to adjust them to give your design a fresh and harmonious update."
+        },
+        "groups": [
+          {
+            "title": "Absolute Colors",
+            "description": "This is a absolute white and black.",
+            "columns": 2,
+            "swatches": [
+              {
+                "name": "White",
+                "hex": "#FFFFFF"
+              },
+              {
+                "name": "Black",
+                "hex": "#000000"
+              }
+            ]
+          },
+          {
+            "title": "Green Shades",
+            "description": "Primary Colors - The foundational color representing brand identity in this template",
+            "columns": 4,
+            "swatches": [
+              {
+                "name": "60",
+                "hex": "#CAFF33"
+              },
+              {
+                "name": "65",
+                "hex": "#D1FF4C"
+              },
+              {
+                "name": "70",
+                "hex": "#D8FF66"
+              },
+              {
+                "name": "80",
+                "hex": "#E5FF99"
+              },
+              {
+                "name": "90",
+                "hex": "#F2FFCC"
+              },
+              {
+                "name": "95",
+                "hex": "#F8FFE5"
+              },
+              {
+                "name": "97",
+                "hex": "#FBFFF0"
+              },
+              {
+                "name": "99",
+                "hex": "#FEFFFA"
+              }
+            ]
+          },
+          {
+            "title": "White Shades",
+            "description": "Light Colors - Employed for creating inviting and readable text elements throughout the template",
+            "columns": 4,
+            "swatches": [
+              {
+                "name": "90",
+                "hex": "#E4E4E7"
+              },
+              {
+                "name": "95",
+                "hex": "#F1F1F3"
+              },
+              {
+                "name": "97",
+                "hex": "#F7F7F8"
+              },
+              {
+                "name": "99",
+                "hex": "#FCFCFD"
+              }
+            ]
+          },
+          {
+            "title": "Grey Shades",
+            "description": "Dark Colors - Setting the thematic tone and serving as the predominant background hues in this template",
+            "columns": 5,
+            "swatches": [
+              {
+                "name": "10",
+                "hex": "#191919"
+              },
+              {
+                "name": "11",
+                "hex": "#1C1C1C"
+              },
+              {
+                "name": "15",
+                "hex": "#262626"
+              },
+              {
+                "name": "20",
+                "hex": "#333333"
+              },
+              {
+                "name": "30",
+                "hex": "#4C4C4D"
+              },
+              {
+                "name": "35",
+                "hex": "#59595A"
+              },
+              {
+                "name": "40",
+                "hex": "#656567"
+              },
+              {
+                "name": "60",
+                "hex": "#98989A"
+              },
+              {
+                "name": "70",
+                "hex": "#B3B3B3"
+              },
+              {
+                "name": "75",
+                "hex": "#BFBFBF"
+              }
+            ]
+          }
+        ]
+      },
+      "typography": {
+        "intro": {
+          "title": {
+            "text": "🖍 Typography"
+          },
+          "description": "The font listed below is employed throughout this template, in line with our commitment to accessibility for all designers, using Google Fonts to ensure universal availability and readability across our designs."
+        },
+        "fontName": "Lexend",
+        "weightsTitle": "Used Font Weights",
+        "weights": [
+          {
+            "label": "Regular",
+            "value": 400
+          },
+          {
+            "label": "Medium",
+            "value": 500
+          },
+          {
+            "label": "Semi Bold",
+            "value": 600
+          },
+          {
+            "label": "Bold",
+            "value": 700
+          }
+        ],
+        "charsets": [
+          {
+            "title": "Capital Letters",
+            "characters": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+          },
+          {
+            "title": "Small Letters",
+            "characters": "abcdefghijklmnopqrstuvwxyz"
+          },
+          {
+            "title": "Others",
+            "characters": "0123456789!@#$%^&()"
+          }
+        ]
+      },
+      "assets": {
+        "intro": {
+          "title": {
+            "text": "🪄 Assets"
+          },
+          "description": "Below, you'll find a list of the assets utilized in this template."
+        },
+        "logoTitle": "Logo",
+        "logoVariants": [
+          {
+            "label": "For Desktop",
+            "width": 155
+          },
+          {
+            "label": "For Laptop",
+            "width": 116
+          },
+          {
+            "label": "For Mobile",
+            "width": 101
+          }
+        ],
+        "abstractTitle": "Abstract Designs",
+        "abstractDesigns": [
+          {
+            "image": "/images/guide/arrows.webp",
+            "alt": "Rising lime arrows"
+          },
+          {
+            "image": "/images/guide/dots-wave.webp",
+            "alt": "Wave of lime dots"
+          },
+          {
+            "image": "/images/guide/dots-square.webp",
+            "alt": "Square field of lime dots"
+          },
+          {
+            "image": "/images/guide/dots-diagonal.webp",
+            "alt": "Diagonal field of fading dots"
+          }
+        ]
+      }
+    }
+  }
+}

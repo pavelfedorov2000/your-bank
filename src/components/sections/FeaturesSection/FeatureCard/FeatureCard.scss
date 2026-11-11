@@ -1,0 +1,32 @@
+@use "@styles/mixins" as *;
+@use "@styles/typography" as *;
+
+$name: ".feature-card";
+
+// Block: feature-card (Home "Our Features")
+// Card (surface) with the default gap / paddings, smaller radius
+#{$name} {
+  @include responsive(--card-radius, (10px, null, null, 12px));
+
+  &__head {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  &__title {
+    flex: 1;
+
+    @include responsive(font-size, (18px, null, null, 22px));
+  }
+
+  &__icon {
+    color: var(--color-accent);
+
+    @include responsive(--icon-size, (24px, null, null, 34px));
+  }
+
+  &__description {
+    @include text-description;
+  }
+}

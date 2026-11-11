@@ -1,0 +1,51 @@
+@use "@styles/mixins" as *;
+
+$name: ".cta-section";
+
+// Block: cta-section (Figma "CTA Section")
+#{$name} {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 20px;
+
+  // dark card + border with a lime glint in the top-left corner
+  background:
+    linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+    linear-gradient(135deg, rgb(202 255 51 / 0.2) 0%, rgb(202 255 51 / 0) 10%) border-box,
+    linear-gradient(var(--color-border), var(--color-border)) border-box;
+
+  @include responsive(flex-direction, (column, null, row));
+  // Text fills the row, the button keeps 150px away (no max-width in the design)
+  @include responsive(gap, (24px, null, 150px));
+  @include responsive(padding, (30px, 60px, null, 80px));
+  @include responsive(text-align, (center, null, left));
+
+  // Dots in the top-left corner (decor, CSS background)
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    aspect-ratio: #{283} / #{298};
+    background: url("@images/decor/cta-dots.webp") center / contain no-repeat;
+
+    @include responsive(width, (151px, 192px, null, 283px));
+  }
+
+  // Mix with text-block
+  &__text {
+    position: relative;
+    flex: 1;
+
+    @include responsive(--text-block-gap, (14px, 10px, null, 14px));
+  }
+
+  &__title {
+    @include responsive(font-size, (24px, 30px, null, 40px));
+  }
+
+}

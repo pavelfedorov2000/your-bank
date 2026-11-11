@@ -1,0 +1,12 @@
+@use "@styles/mixins" as *;
+
+$name: ".meta-tags";
+
+// Block: meta-tags (wrapping row of tags). List block is configured through its --list-* variables.
+#{$name} {
+  --list-flex-direction: row;
+
+  flex-wrap: wrap;
+
+  @include responsive(--list-gap, (6px, null, null, 10px));
+}

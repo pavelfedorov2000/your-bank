@@ -1,0 +1,27 @@
+$name: ".zoom-image";
+
+:root {
+  --zoom-image-scale: 1.05;
+}
+
+// Block: zoom-image (content photo with hover zoom)
+#{$name} {
+  display: block;
+  overflow: hidden;
+  isolation: isolate; // Safari: keep the border radius clipping the scaled image
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition);
+  }
+
+  // Only for real pointers: no "stuck" zoom after a tap on touch screens
+  @media (hover: hover) {
+    &:hover #{$name}__img {
+      transform: scale(var(--zoom-image-scale));
+    }
+  }
+}

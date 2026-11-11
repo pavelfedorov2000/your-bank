@@ -1,0 +1,39 @@
+@use "@styles/mixins" as *;
+@use "@styles/typography" as *;
+
+$name: ".stats-list";
+
+// Block: stats-list (Figma "Stats" in Use Cases). Placement (width, side paddings) comes from the mixed-in element.
+#{$name} {
+  display: flex;
+
+  @include responsive(flex-direction, (column, row));
+  @include responsive(gap, (30px, null, null, 50px));
+
+  &__item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    @include responsive(gap, (2px, null, null, 5px));
+
+    // Divider between the items: horizontal on mobile, vertical from sm
+    & + & {
+      @include responsive(border-top, (1px solid var(--color-border), none));
+      @include responsive(border-left, (none, 1px solid var(--color-border)));
+      @include responsive(padding-top, (30px, 0));
+      @include responsive(padding-left, (0, 30px, null, 50px));
+    }
+  }
+
+  &__value {
+    color: var(--color-accent);
+    font-weight: 500;
+
+    @include responsive(font-size, (40px, null, null, 58px));
+  }
+
+  &__label {
+    @include text-description;
+  }
+}

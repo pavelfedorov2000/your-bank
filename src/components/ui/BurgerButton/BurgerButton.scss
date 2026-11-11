@@ -1,0 +1,16 @@
+$name: ".burger-button";
+
+#{$name} {
+  padding: 6px 14px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  color: var(--color-icon-inverse);
+  cursor: pointer;
+
+  &__icon {
+    --icon-size: 28px;
+
+    display: block;
+  }
+}

@@ -1,0 +1,39 @@
+@use "@styles/mixins" as *;
+@use "@styles/decor" as *;
+
+$name: ".protection";
+
+// Block: protection (Security "How We Protect You")
+#{$name} {
+  // The panel sticks out above the cards, so the intro is further away
+  @include responsive(--section-gap, (40px, 120px, null, 200px));
+
+  &__content {
+    position: relative;
+    isolation: isolate;
+
+    // Figma Laptop (1440) 80px / Desktop 100px; narrower screens get 40px, otherwise the 2 columns don't fit the cards
+    @include responsive(padding-inline, (0, 40px, 80px, 100px));
+
+    // Figma "Background Image": panel behind the upper part of the cards
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset-inline: 0;
+      border-radius: 50px 50px 20px 20px;
+
+      @include noise-surface;
+      @include responsive(display, (none, block));
+      @include responsive(top, (null, -62px, null, -82px));
+      @include responsive(bottom, (null, 125px, null, 141px));
+    }
+  }
+
+  &__grid {
+    --list-display: grid;
+
+    @include responsive(--list-gap, (20px, null, null, 30px));
+    @include responsive(grid-template-columns, (null, repeat(2, minmax(0, 1fr))));
+  }
+}

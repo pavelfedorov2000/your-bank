@@ -1,0 +1,22 @@
+@use "@styles/typography" as *;
+
+$name: ".title";
+
+// Block: title. Highlighted part of a title is <mark> (lime, see global.scss).
+#{$name} {
+  &--hero {
+    @include text-hero;
+  }
+
+  &--section {
+    @include text-title;
+  }
+
+  &--subtitle {
+    @include text-subtitle;
+  }
+
+  &--card {
+    @include text-card-title;
+  }
+}

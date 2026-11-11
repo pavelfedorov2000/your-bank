@@ -1,0 +1,23 @@
+@use "sass:math";
+
+// HeroWidget and its parts are designed as one scalable group: base font-size 17.34px on Desktop
+// (10.26 / 13.77 on Mobile / Laptop), all sizes are Desktop px converted to em.
+@function em($px) {
+  @return math.div($px, 17.34) * 1em;
+}
+
+// Lime circle behind a small icon (income, transactions)
+@mixin icon-circle {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: em(8.67);
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+// Card titles: "Your Transactions", "Money Exchange"
+@mixin widget-title {
+  font-size: 1em;
+  font-weight: 500;
+}

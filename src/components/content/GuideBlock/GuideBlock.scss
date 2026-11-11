@@ -1,0 +1,18 @@
+@use "@styles/mixins" as *;
+
+$name: ".guide-block";
+
+// Block: guide-block (design guide section: intro + panel)
+#{$name} {
+  --card-radius: 12px; // every card inside the guide (inherited)
+
+  @include responsive(--section-gap, (40px, 50px, 60px, 100px));
+
+  // Mix with card: thick frame of the guide panels (Figma: 3px #262626, radius 12)
+  &__panel {
+    --card-border-width: 3px;
+
+    @include responsive(--card-padding, (16px, 30px, 50px, 80px));
+    @include responsive(--card-gap, (16px, 20px, 24px, 30px));
+  }
+}
