@@ -2,8 +2,16 @@
 
 $name: ".header";
 
+// Sticky from the start of the scroll: the header keeps its place in the flow (no content jump),
+// its top padding slides above the viewport, and the bar stays --header-sticky-gap below the top edge.
 #{$name} {
-  @include responsive(padding-top, (40px, 30px, null, 50px));
+  position: sticky;
+  top: calc(var(--header-sticky-gap) - var(--header-padding-top));
+  z-index: var(--z-index-header);
+  padding-top: var(--header-padding-top);
+
+  @include responsive(--header-padding-top, (40px, 30px, null, 50px));
+  @include responsive(--header-sticky-gap, (12px, 16px, null, 20px));
 
   &__bar {
     display: flex;
