@@ -8,4 +8,6 @@ export const GENERAL_MODS = {
   reversed: "reversed",
   /** look: light background — dark content on top (color swatches) */
   light: "light",
+  /** state: shown after being hidden (scroll-to-top button) */
+  visible: "visible",
 } as const;

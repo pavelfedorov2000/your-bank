@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 
+import { getScrollBehavior } from "@box/utils";
 import type { TNullable } from "@box/types";
 
 const getCenter = (rect: DOMRect) => rect.left + rect.width / 2;
@@ -26,10 +27,8 @@ export const useScrollActiveIntoView = <T extends HTMLElement>(activeIndex: numb
     const itemCenter = getCenter(itemRect);
     const containerCenter = getCenter(containerRect);
     const offset = itemCenter - containerCenter;
-    
-    const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    container.scrollBy({ left: offset, behavior: isReducedMotion ? "auto" : "smooth" });
+    container.scrollBy({ left: offset, behavior: getScrollBehavior() });
   }, [activeIndex]);
 
   return containerRef;

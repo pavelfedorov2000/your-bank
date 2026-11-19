@@ -10,6 +10,7 @@ export const ICON_NAMES = {
   archive: "archive",
   arrowLeft: "arrow-left",
   arrowRight: "arrow-right",
+  arrowUp: "arrow-up",
   arrowUpRight: "arrow-up-right",
   badgeCheck: "badge-check",
   bag: "bag",

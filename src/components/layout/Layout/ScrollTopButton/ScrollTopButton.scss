@@ -1,0 +1,31 @@
+@use "@styles/mixins" as *;
+
+$name: ".scroll-top";
+
+// Block: scroll-top (floating "Back to top" button). Hidden: faded out and moved down, not clickable.
+#{$name} {
+  position: fixed;
+  z-index: var(--z-index-scroll-top);
+  transform: translateY(16px);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--transition),
+    transform var(--transition),
+    visibility var(--transition);
+  pointer-events: none;
+
+  @include responsive(right, (16px, 30px, null, 40px));
+  @include responsive(bottom, (16px, 30px, null, 40px));
+
+  &--visible {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

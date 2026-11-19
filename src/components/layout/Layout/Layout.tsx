@@ -1,6 +1,7 @@
 import React, { type FC } from "react";
 
 import { Container, Footer, Header } from "@components/layout";
+import ScrollTopButton from "./ScrollTopButton";
 
 import type { TWithChildren } from "@box/types";
 
@@ -8,7 +9,7 @@ import "./Layout.scss";
 
 const mainClass = "layout";
 
-/** Common page shell: Navbar + content + Footer (same on every page in the design). */
+/** Common page shell: Navbar + content + Footer (same on every page in the design) + floating "Back to top" button. */
 const Layout: FC<TWithChildren> = ({ children }) => (
   <div className={mainClass}>
     <Header />
@@ -18,6 +19,7 @@ const Layout: FC<TWithChildren> = ({ children }) => (
       </Container>
     </main>
     <Footer />
+    <ScrollTopButton />
   </div>
 );
 

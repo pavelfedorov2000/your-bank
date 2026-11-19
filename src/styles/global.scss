@@ -57,6 +57,7 @@
 
   // Global layers (local stacking inside a block uses plain -1 / 1 / 2…)
   --z-index-header: 10;
+  --z-index-scroll-top: 10;
 
   // Font size of controls: buttons, menu links, footer links and contacts
   @include responsive(--font-size-control, (14px, null, null, 18px));

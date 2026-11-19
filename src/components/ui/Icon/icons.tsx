@@ -55,6 +55,14 @@ export const ICONS = {
       </>
     ),
   },
+  [ICON_NAMES.arrowUp]: {
+    viewBox: "0 0 34 34",
+    body: (
+      <>
+        <path d="M17 26.2083V8.5M8.5 17L17 8.5L25.5 17" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" />
+      </>
+    ),
+  },
   [ICON_NAMES.arrowUpRight]: {
     viewBox: "0 0 34 34",
     body: (
