@@ -1,14 +1,19 @@
 /**
  * Fake auth without a backend: users and the session live in localStorage.
  * Demo only — passwords are stored as plain text, never do this with real data.
+ * Imported by gatsby-node.ts (AUTH_FIELDS → GraphQL enum): no path aliases here, they don't work there.
  */
+
+/** Namespace of the site's keys in localStorage and of its window events: other scripts on the domain don't clash with them. */
+const PREFIX = "yourbank:";
+
 export const AUTH_STORAGE_KEYS = {
-  users: "yourbank:users",
-  session: "yourbank:session",
+  users: `${PREFIX}users`,
+  session: `${PREFIX}session`,
 } as const;
 
 /** Window event fired on login / logout in this tab (the "storage" event covers other tabs). */
-export const AUTH_CHANGE_EVENT = "yourbank:auth-change";
+export const AUTH_CHANGE_EVENT = `${PREFIX}auth-change`;
 
 /** Which form AuthFormSection renders: <AuthFormSection mode={AUTH_MODES.signUp} /> */
 export const AUTH_MODES = {
@@ -24,10 +29,13 @@ export const AUTH_FIELDS = {
   password: "password",
 } as const;
 
-/** Where to go after a successful login / sign up. */
-export const AUTH_REDIRECT_PATH = "/";
+/** Minimal password length for a new account (login checks only that the password is filled in). */
+export const AUTH_PASSWORD_MIN_LENGTH = 8;
 
 export const AUTH_MESSAGES = {
+  required: "This field is required.",
+  invalidEmail: "Enter a valid email, e.g. name@example.com.",
+  shortPassword: `The password must be at least ${AUTH_PASSWORD_MIN_LENGTH} characters long.`,
   userExists: "An account with this email already exists. Try to log in.",
   invalidCredentials: "Wrong email or password.",
   storageUnavailable: "Your browser blocks local storage, so the demo login can't work here.",

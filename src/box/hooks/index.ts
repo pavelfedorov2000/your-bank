@@ -1,4 +1,5 @@
 export { useBooleanState } from "./useBooleanState";
+export { useClickOutside } from "./useClickOutside";
 export { useCollapsibleList } from "./useCollapsibleList";
 export { useInertOutside } from "./useInertOutside";
 export { useIsScrolledPast } from "./useIsScrolledPast";

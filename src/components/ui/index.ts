@@ -8,7 +8,6 @@ export { default as Button } from "./Button";
 export { default as BurgerButton } from "./BurgerButton";
 export { default as Card } from "./Card";
 export { default as Ctas } from "./Ctas";
-export { type TCta } from "./Ctas";
 export { default as Icon } from "./Icon";
 export { ICONS } from "./Icon";
 export { default as IconBadge } from "./IconBadge";

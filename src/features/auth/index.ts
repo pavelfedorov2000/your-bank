@@ -6,4 +6,4 @@ export * from "./constants";
 export * from "./types";
 export * from "./storage";
 export * from "./hooks";
-export { getAuthFormValues, getUserInitials } from "./utils";
+export { getAuthFormErrors, getAuthFormValues, getUserInitials } from "./utils";

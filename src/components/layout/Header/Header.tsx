@@ -5,7 +5,15 @@ import { BurgerButton, Ctas } from "@components/ui";
 import { Logo, NavMenu } from "@components/content";
 import UserMenu from "./UserMenu";
 
-import { useBooleanState, useInertOutside, useKeyDown, useLayoutContent, useMediaQuery, useScrollLock } from "@box/hooks";
+import {
+  useBooleanState,
+  useClickOutside,
+  useInertOutside,
+  useKeyDown,
+  useLayoutContent,
+  useMediaQuery,
+  useScrollLock,
+} from "@box/hooks";
 import { cn, focusById, focusFirstInside, getClassNameByMods } from "@box/utils";
 import { ARIA_LABELS, BREAKPOINTS, COMPONENT_MODS, ELEMENT_IDS, GENERAL_MODS, KEYS } from "@box/constants";
 import { useAuth } from "@features/auth";
@@ -16,7 +24,7 @@ const mainClass = "header";
 
 /**
  * Sticky site header. Mobile menu (burger) while open: page under it is locked (scroll) and inert (focus, screen readers),
- * focus moves to the first menu link; Escape closes it and returns focus to the burger.
+ * focus moves to the first menu link; Escape closes it and returns focus to the burger, a press outside the header closes it.
  */
 const Header: FC = () => {
   const { navigation, auth: { signUp, login, logoutBtnText } } = useLayoutContent();
@@ -36,6 +44,7 @@ const Header: FC = () => {
     if (isMenuOpen) focusFirstInside(ELEMENT_IDS.menu);
   }, [isMenuOpen]);
 
+  /** Keyboard: focus goes back to the burger (the menu is hidden, focus inside it would fall to <body>) */
   useKeyDown(
     KEYS.escape,
     () => {
@@ -44,6 +53,8 @@ const Header: FC = () => {
     },
     isMenuOpen,
   );
+  /** Pointer: focus follows the press itself, nothing to restore */
+  useClickOutside(headerRef, closeMenu, isMenuOpen);
 
   return (
     <header ref={headerRef} className={mainClass}>

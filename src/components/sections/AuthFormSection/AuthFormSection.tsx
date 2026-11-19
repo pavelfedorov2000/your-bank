@@ -4,10 +4,18 @@ import { Section } from "@components/layout";
 import { Button, Card, Ctas, IconBadge, Input, List } from "@components/ui";
 import { TextBlock } from "@components/content";
 
-import { getIconName } from "@box/utils";
+import { focusById, getAriaIdList, getIconName } from "@box/utils";
 import { COMPONENT_MODS, SPECIAL_CHARS, TitleVariants } from "@box/constants";
 import type { TNullable } from "@box/types";
-import { AUTH_MODES, getAuthFormValues, type TAuthMode, useAuth } from "@features/auth";
+import {
+  AUTH_MODES,
+  getAuthFormErrors,
+  getAuthFormValues,
+  type TAuthFieldName,
+  type TAuthFormErrors,
+  type TAuthMode,
+  useAuth,
+} from "@features/auth";
 
 import "./AuthFormSection.scss";
 
@@ -21,19 +29,38 @@ type Props = {
 /**
  * Login / Sign Up: panel with the title, fields, actions and social logins.
  * Fake auth (localStorage, see @features/auth): shows the error on failure; on success the page redirects.
+ * Validation on submit instead of the browser one (noValidate): a message under each invalid field, focus on the first of them.
+ * Errors are linked to the fields (aria-invalid + aria-describedby): a screen reader reads them with the field.
  */
 const AuthFormSection: FC<Props> = ({
   data: { title, description, fields, forgotPasswordLabel, submitLabel, secondaryButton, socialLabel, socialProviders },
   mode,
 }) => {
   const { login, register } = useAuth();
+  const [fieldErrors, setFieldErrors] = useState<TAuthFormErrors>({});
+  /** Error of the whole form from auth: wrong credentials, user exists… */
   const [error, setError] = useState<TNullable<string>>(null);
-  const errorId = useId();
+  const formId = useId();
+  const errorId = `${formId}-error`;
+  const getInputId = (name: TAuthFieldName) => `${formId}-${name}`;
+  const getFieldErrorId = (name: TAuthFieldName) => `${formId}-${name}-error`;
+
+  const clearFieldError = (name: TAuthFieldName) => setFieldErrors((errors) => ({ ...errors, [name]: undefined }));
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    
+
     const user = getAuthFormValues(event.currentTarget);
+    const errors = getAuthFormErrors(user, fields.map(({ name }) => name), mode);
+    const firstInvalidField = fields.find(({ name }) => errors[name]);
+
+    setFieldErrors(errors);
+
+    if (firstInvalidField) {
+      focusById(getInputId(firstInvalidField.name), { preventScroll: false });
+      return;
+    }
+
     const result = mode === AUTH_MODES.signUp ? register(user) : login(user.email, user.password);
 
     /** Success: the session changes and the page redirects (useRedirectIfAuthenticated) */
@@ -51,22 +78,34 @@ const AuthFormSection: FC<Props> = ({
           description={description}
         />
 
-        <form className={`${mainClass}__form`} onSubmit={handleSubmit} onInput={() => setError(null)}>
+        <form className={`${mainClass}__form`} noValidate onSubmit={handleSubmit} onInput={() => setError(null)}>
           <div className={`${mainClass}__fields`}>
-            {fields.map(({ name, type, placeholder, autoComplete }) => (
-              <Input
-                key={name}
-                className={`${mainClass}__field`}
-                name={name}
-                type={type}
-                placeholder={placeholder}
-                aria-label={placeholder}
-                autoComplete={autoComplete}
-                required
-                aria-invalid={Boolean(error)}
-                aria-describedby={error ? errorId : undefined}
-              />
-            ))}
+            {fields.map(({ name, type, placeholder, autoComplete }) => {
+              const fieldError = fieldErrors[name];
+
+              return (
+                <div key={name} className={`${mainClass}__field`}>
+                  <Input
+                    id={getInputId(name)}
+                    className={`${mainClass}__input`}
+                    name={name}
+                    type={type}
+                    placeholder={placeholder}
+                    aria-label={placeholder}
+                    autoComplete={autoComplete}
+                    required
+                    aria-invalid={Boolean(fieldError || error)}
+                    aria-describedby={getAriaIdList(fieldError && getFieldErrorId(name), error && errorId)}
+                    onInput={() => clearFieldError(name)}
+                  />
+                  {fieldError && (
+                    <p id={getFieldErrorId(name)} className={`${mainClass}__field-error`}>
+                      {fieldError}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           {error && (

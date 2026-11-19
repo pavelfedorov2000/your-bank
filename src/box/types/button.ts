@@ -19,3 +19,8 @@ export type TButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & Partial<{
   /** Icon after the label (e.g. chevron in "Load All FAQ's"). */
   icon: TIconName;
 }>;
+
+/** One call-to-action of Ctas: Button props + its text. */
+export type TCta = Omit<TButtonProps, "children" | "className"> & {
+  label: string;
+};

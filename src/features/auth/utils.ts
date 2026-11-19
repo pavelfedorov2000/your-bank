@@ -1,7 +1,8 @@
-import { AUTH_FIELDS } from "./constants";
-import type { TAuthFieldName, TAuthUser } from "./types";
+import { AUTH_FIELDS, AUTH_MESSAGES, AUTH_MODES, AUTH_PASSWORD_MIN_LENGTH } from "./constants";
+import type { TAuthFieldName, TAuthFormErrors, TAuthMode, TAuthUser } from "./types";
 
 import { mapValues } from "@box/utils";
+import { REG_EXP_PATTERNS } from "@box/constants";
 import type { TNullable } from "@box/types";
 
 /** localStorage can be missing (SSR) or throw (private mode, blocked site data): every access is guarded. */
@@ -44,3 +45,30 @@ export const getIsAuthUser = (value: unknown): value is TAuthUser =>
   typeof value === "object" &&
   value !== null &&
   Object.values(AUTH_FIELDS).every((field) => typeof Reflect.get(value, field) === "string");
+
+/** Error of one field or null: required → email shape → password length (sign up only). */
+const getFieldError = (name: TAuthFieldName, value: string, mode: TAuthMode): TNullable<string> => {
+  if (!value.trim()) return AUTH_MESSAGES.required;
+  if (name === AUTH_FIELDS.email && !REG_EXP_PATTERNS.email.test(value.trim())) return AUTH_MESSAGES.invalidEmail;
+  if (name === AUTH_FIELDS.password && mode === AUTH_MODES.signUp && value.length < AUTH_PASSWORD_MIN_LENGTH) {
+    return AUTH_MESSAGES.shortPassword;
+  }
+
+  return null;
+};
+
+/**
+ * Validates the fields present in the form (login has no names): { email: "Enter a valid email…" }, {} when all are valid.
+ * Runs on submit instead of the browser validation (the form has noValidate).
+ */
+export const getAuthFormErrors = (values: TAuthUser, fieldNames: readonly TAuthFieldName[], mode: TAuthMode) => {
+  const errors: TAuthFormErrors = {};
+
+  fieldNames.forEach((name) => {
+    const error = getFieldError(name, values[name], mode);
+
+    if (error) errors[name] = error;
+  });
+
+  return errors;
+};

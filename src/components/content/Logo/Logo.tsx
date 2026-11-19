@@ -6,7 +6,7 @@ import { AppLink, Image } from "@components/ui";
 
 import { useLayoutContent } from "@box/hooks";
 import { cn } from "@box/utils";
-import { LOGO_SIZE } from "@box/constants";
+import { LOGO_SIZE, ROUTES } from "@box/constants";
 import type { TWithClassName } from "@box/types";
 
 import "./Logo.scss";
@@ -23,7 +23,7 @@ const Logo: FC<Props> = ({ loading = "lazy", className }) => {
   const { brand } = useLayoutContent();
 
   return (
-    <AppLink className={cn(mainClass, className)} to="/">
+    <AppLink className={cn(mainClass, className)} to={ROUTES.home}>
       <Image className={`${mainClass}__image`} src={logo} alt={brand} width={LOGO_SIZE.width} height={LOGO_SIZE.height} loading={loading} />
     </AppLink>
   );

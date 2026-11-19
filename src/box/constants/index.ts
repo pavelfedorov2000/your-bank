@@ -1,6 +1,7 @@
 export { GENERAL_MODS } from "./mods";
 export { COMPONENT_MODS } from "./component-mods";
-export { ELEMENT_IDS, type TElementId } from "./element-ids";
+export { ELEMENT_IDS } from "./element-ids";
+export { ROUTES } from "./routes";
 export { CONTACT_HREF_PREFIXES, CONTACT_TYPES } from "./contacts";
 export { TitleVariants } from "./titles";
 export { BREAKPOINTS } from "./breakpoints";

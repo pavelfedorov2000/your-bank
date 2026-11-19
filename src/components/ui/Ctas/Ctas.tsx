@@ -3,16 +3,11 @@ import React, { type FC } from "react";
 import { Button, List } from "@components/ui";
 
 import { cn } from "@box/utils";
-import type { TButtonMods, TButtonProps, TWithClassName } from "@box/types";
+import type { TButtonMods, TCta, TWithClassName } from "@box/types";
 
 import "./Ctas.scss";
 
 const mainClass = "ctas";
-
-/** One call-to-action: Button props + its text. */
-export type TCta = Omit<TButtonProps, "children" | "className"> & {
-  label: string;
-};
 
 type Props = TWithClassName<{
   items: readonly TCta[];

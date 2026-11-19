@@ -160,6 +160,7 @@ pages    — home / careers / about / security / login / signUp / notFound / gui
 - Константы — `UPPER_SNAKE` с camelCase-ключами: `ARIA_LABELS.burgerBtn.open`, `ICON_NAMES.arrowLeft`.
   В коде никаких строковых литералов там, где есть константа (иконки, aria-label, модификаторы, регулярки).
 - Типы — с префиксом `T` и, где можно, выводятся из источника: `Queries.*` из GraphQL, `typeof COMPONENT_MODS.button`.
+  Общие типы — в `box/types` (у модулей и фич — свой `types.ts`), в файлах компонентов и констант — только локальные `Props`.
 - Все комментарии — JSDoc `/** */`, в JSX — `{/** */}`.
 - Пропсы, которые один в один уходят в атрибут элемента, берутся из нативных типов:
   `Pick<ButtonHTMLAttributes<HTMLButtonElement>, "onClick">`, `Pick<AriaAttributes, "aria-label">`. Доменные колбэки (`onLogout`) — свои.
@@ -185,9 +186,12 @@ pages    — home / careers / about / security / login / signUp / notFound / gui
   в Tab-порядке только активная вкладка, ←→↑↓ / Home / End переключают, Tab ведёт в панель.
   `role="tabpanel"` — на обёртке, список внутри остаётся списком.
 - **Мобильное меню:** `aria-expanded` / `aria-controls`; пока открыто — фокус на первой ссылке, остальная страница
-  `inert` (`useInertOutside`) и не прокручивается, Escape закрывает и возвращает фокус на бургер.
+  `inert` (`useInertOutside`) и не прокручивается; Escape закрывает и возвращает фокус на бургер, клик вне шапки — закрывает
+  (`useClickOutside`).
 - **«Load All» в FAQ** (`useCollapsibleList`): `aria-controls` на список, после раскрытия фокус — на первый новый вопрос.
-- **Формы:** ошибка с `role="alert"`, поля связаны с ней через `aria-invalid` / `aria-describedby`; переключатель пароля с `aria-pressed`.
+- **Формы:** своя проверка при отправке вместо браузерной (`noValidate`, `getAuthFormErrors` в `features/auth`):
+  сообщение под каждым неверным полем, фокус на первое из них, ошибка поля сбрасывается при вводе. Поля связаны с ошибками
+  через `aria-invalid` / `aria-describedby`, общая ошибка входа — `role="alert"`; переключатель пароля с `aria-pressed`.
 - **Фото контента:** `alt` обязателен (`TContentImageProps`); `imageAlt` в `content.json` — для фото со смыслом,
   без него `alt=""` (декоративное: смысл несёт текст рядом).
 - **`prefers-reduced-motion`:** `--transition` обнуляется (миксин `reduced-motion` в `global.scss`) — все переходы

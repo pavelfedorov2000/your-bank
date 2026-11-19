@@ -5,6 +5,8 @@
 export const REG_EXP_PATTERNS = {
   /** Absolute http(s) URL: "https://…", "http://…" */
   externalLink: /^https?:\/\//,
+  /** Email shape: something@domain.zone, no spaces (a sanity check, not full RFC 5322) */
+  email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   /** Every non-digit character: "+91 91813 23 2309" → "9191813232309" */
   nonDigits: /\D/g,
   /** Word separators in file names: "-", "_", whitespace ("site-content" → ["site", "content"]) */
