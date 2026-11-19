@@ -124,6 +124,8 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     type Layout {
       brand: String!
+      "First link in the Tab order: jumps over the header to <main>"
+      skipLinkText: String!
       navigation: [LinkItem!]!
       auth: Auth!
       footer: Footer!
@@ -188,6 +190,8 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       title: String!
       description: String!
       image: File! @fileByRelativePath
+      "Text alternative of a meaningful photo; without it the photo is decorative (empty alt)"
+      imageAlt: String
     }
 
     # ---------- home ----------
@@ -298,6 +302,8 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       title: String!
       description: String!
       image: File! @fileByRelativePath
+      "Text alternative of a meaningful photo; without it the photo is decorative (empty alt)"
+      imageAlt: String
     }
 
     type MissionVision {
@@ -308,6 +314,8 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     type PressRelease {
       title: String!
       image: File! @fileByRelativePath
+      "Text alternative of a meaningful photo; without it the photo is decorative (empty alt)"
+      imageAlt: String
       meta: [MetaItem!]!
       description: String!
     }

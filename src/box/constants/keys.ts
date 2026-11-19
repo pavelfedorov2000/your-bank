@@ -6,4 +6,5 @@ export const KEYS = {
   arrowDown: "ArrowDown",
   home: "Home",
   end: "End",
+  escape: "Escape",
 } as const;

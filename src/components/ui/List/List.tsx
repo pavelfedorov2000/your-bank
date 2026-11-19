@@ -15,13 +15,13 @@ type Props<T> = TWithClassName<TWithPropsMods<{
   getKey?: TItemCallback<T, Key>;
   as?: "ul" | "ol";
   itemClassName?: string;
-}> & Pick<HTMLAttributes<HTMLUListElement>, "role">>;
+}> & Pick<HTMLAttributes<HTMLUListElement>, "id" | "role">>;
 
 /** Typed <ul>/<ol>: maps items to <li> with keys and BEM classes. */
-const List = <T,>({ className, mods, items, renderItem, getKey, as: Tag = "ul", itemClassName, role }: Props<T>) => (
-  <Tag className={cn(mainClass, getClassNameByMods(mainClass, mods), className)} role={role}>
+const List = <T,>({ className, mods, items, renderItem, getKey, as: Tag = "ul", itemClassName, id, role }: Props<T>) => (
+  <Tag id={id} className={cn(mainClass, getClassNameByMods(mainClass, mods), className)} role={role}>
     {items.map((item, index) => (
-      <li className={cn(`${mainClass}__item`, itemClassName)} key={getKey ? getKey(item, index) : index}>
+      <li key={getKey ? getKey(item, index) : index} className={cn(`${mainClass}__item`, itemClassName)}>
         {renderItem(item, index)}
       </li>
     ))}

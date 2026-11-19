@@ -20,7 +20,7 @@ const VISIBLE_FAQS_COUNT = 4;
 
 /** "Frequently Asked Questions" — Home, Careers, Security. */
 const FaqSection: FC<Props> = ({ data: { intro, items, loadMoreButtonText } }) => {
-  const { visibleItems, isCollapsed, expand } = useCollapsibleList(items, VISIBLE_FAQS_COUNT);
+  const { visibleItems, isCollapsed, expand, listId, getItemProps } = useCollapsibleList(items, VISIBLE_FAQS_COUNT);
 
   return (
     <Section className={mainClass}>
@@ -28,12 +28,13 @@ const FaqSection: FC<Props> = ({ data: { intro, items, loadMoreButtonText } }) =
 
       <div className={cn(`${mainClass}__body`, getClassNameByMods(`${mainClass}__body`, [!isCollapsed && GENERAL_MODS.open]))}>
         <List
+          id={listId}
           className={`${mainClass}__list`}
           mods={[COMPONENT_MODS.list.twoColumns]}
           items={visibleItems}
           getKey={(item) => item.question}
-          renderItem={(item) => (
-            <Card className={`${mainClass}__item`}>
+          renderItem={(item, index) => (
+            <Card className={`${mainClass}__item`} {...getItemProps(index)}>
               <TextBlock
                 className={`${mainClass}__text`}
                 title={item.question}
@@ -45,7 +46,13 @@ const FaqSection: FC<Props> = ({ data: { intro, items, loadMoreButtonText } }) =
         />
 
         {isCollapsed && (
-          <Button className={`${mainClass}__more`} mods={[COMPONENT_MODS.button.secondary]} icon={ICON_NAMES.chevronDown} onClick={expand}>
+          <Button
+            className={`${mainClass}__more`}
+            mods={[COMPONENT_MODS.button.secondary]}
+            icon={ICON_NAMES.chevronDown}
+            aria-controls={listId}
+            onClick={expand}
+          >
             {loadMoreButtonText}
           </Button>
         )}

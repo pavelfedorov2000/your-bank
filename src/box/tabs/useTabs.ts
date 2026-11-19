@@ -3,6 +3,8 @@ import { type KeyboardEvent, useId, useState } from "react";
 import type { TTabPanelProps } from "./types";
 import { getNextTabIndex, getTabId, getTabPanelId } from "./utils";
 
+import { focusById } from "@box/utils";
+
 /**
  * Active tab of a tabbed section whose content comes as `tabs: [{ label, items }]`.
  * const { activeItems, tabsProps, panelProps } = useTabs(tabs); → <Tabs {...tabsProps} /> + <div {...panelProps}><List items={activeItems} /></div>
@@ -20,7 +22,7 @@ export const useTabs = <TItem>(tabs: readonly { label: string; items: readonly T
 
     event.preventDefault();
     setActiveIndex(nextIndex);
-    document.getElementById(getTabId(tabsId, nextIndex))?.focus({ preventScroll: true });
+    focusById(getTabId(tabsId, nextIndex));
   };
 
   const panelProps: TTabPanelProps = {

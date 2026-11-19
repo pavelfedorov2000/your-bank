@@ -1,4 +1,4 @@
-import React, { type FC, type FormEvent, useState } from "react";
+import React, { type FC, type FormEvent, useId, useState } from "react";
 
 import { Section } from "@components/layout";
 import { Button, Card, Ctas, IconBadge, Input, List } from "@components/ui";
@@ -28,6 +28,7 @@ const AuthFormSection: FC<Props> = ({
 }) => {
   const { login, register } = useAuth();
   const [error, setError] = useState<TNullable<string>>(null);
+  const errorId = useId();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -54,20 +55,22 @@ const AuthFormSection: FC<Props> = ({
           <div className={`${mainClass}__fields`}>
             {fields.map(({ name, type, placeholder, autoComplete }) => (
               <Input
-                className={`${mainClass}__field`}
                 key={name}
+                className={`${mainClass}__field`}
                 name={name}
                 type={type}
                 placeholder={placeholder}
                 aria-label={placeholder}
                 autoComplete={autoComplete}
                 required
+                aria-invalid={Boolean(error)}
+                aria-describedby={error ? errorId : undefined}
               />
             ))}
           </div>
 
           {error && (
-            <p className={`${mainClass}__error`} role="alert">
+            <p id={errorId} className={`${mainClass}__error`} role="alert">
               {error}
             </p>
           )}

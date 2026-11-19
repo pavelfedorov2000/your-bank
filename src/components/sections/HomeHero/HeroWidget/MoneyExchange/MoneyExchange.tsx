@@ -33,7 +33,7 @@ const MoneyExchange: FC<Props> = ({ data: { title, from, to, buttonLabel } }) =>
           const flag = FLAGS[currency.code];
 
           return (
-            <div className={`${mainClass}__currency`} key={currency.code}>
+            <div key={currency.code} className={`${mainClass}__currency`}>
               <div className={`${mainClass}__code`}>
                 {flag && <Image className={`${mainClass}__flag`} src={flag} isDecorative />}
                 <span className={`${mainClass}__code-text`}>{currency.code}</span>
@@ -43,7 +43,7 @@ const MoneyExchange: FC<Props> = ({ data: { title, from, to, buttonLabel } }) =>
           );
         })}
         {currencies.map((currency) => (
-          <div className={`${mainClass}__amount`} key={`${currency.code}-amount`}>
+          <div key={`${currency.code}-amount`} className={`${mainClass}__amount`}>
             {currency.amount}
           </div>
         ))}

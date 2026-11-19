@@ -4,6 +4,10 @@ $name: ".zoom-image";
 
 :root {
   --zoom-image-scale: 1.05;
+
+  @include reduced-motion {
+    --zoom-image-scale: 1;
+  }
 }
 
 // Block: zoom-image (content photo with hover zoom)

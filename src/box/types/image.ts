@@ -19,12 +19,12 @@ export type TContentImage = {
   readonly childImageSharp: { readonly gatsbyImageData: IGatsbyImageData } | null;
 } | null;
 
-/** Content photo processed by gatsby-plugin-image: alt / loading as in GatsbyImage, alt is optional for decorative images. */
+/**
+ * Content photo processed by gatsby-plugin-image: alt / loading as in GatsbyImage.
+ * alt is required: "" — decorative (the text next to it carries the meaning), otherwise — what the photo shows.
+ */
 export type TContentImageProps = TWithClassName<
-  Partial<Pick<GatsbyImageProps, "alt">> &
-    Pick<GatsbyImageProps, "loading"> & {
-      image: TContentImage;
-      /** Pure decoration: empty alt. */
-      isDecorative?: boolean;
-    }
+  Pick<GatsbyImageProps, "alt" | "loading"> & {
+    image: TContentImage;
+  }
 >;

@@ -7,6 +7,7 @@ export const useLayoutContent = () => {
       contentJson {
         layout {
           brand
+          skipLinkText
           navigation {
             ...LinkItem
           }

@@ -7,3 +7,4 @@ export type * from "./title";
 export type * from "./image";
 export type * from "./aria";
 export type * from "./contact";
+export type * from "./keys";

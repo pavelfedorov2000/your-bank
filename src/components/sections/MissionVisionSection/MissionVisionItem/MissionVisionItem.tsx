@@ -15,10 +15,10 @@ type Props = TWithPropsMods<{
 }>;
 
 /** Subsection of "Mission & Vision": decorated photo + title and text. Mod `reversed` puts the photo on the right. */
-const MissionVisionItem: FC<Props> = ({ data: { title, description, image }, mods }) => (
+const MissionVisionItem: FC<Props> = ({ data: { title, description, image, imageAlt }, mods }) => (
   <section className={cn(mainClass, getClassNameByMods(mainClass, mods))}>
     <div className={`${mainClass}__media`}>
-      <ZoomImage className={`${mainClass}__image`} image={image} isDecorative />
+      <ZoomImage className={`${mainClass}__image`} image={image} alt={imageAlt ?? ""} />
     </div>
 
     <TextBlock

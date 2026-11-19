@@ -108,3 +108,17 @@
     }
   }
 }
+
+// The user asked the system to minimize animations: drop motion (zoom, slides), keep the end state.
+//
+// @example
+// :root {
+//   @include reduced-motion {
+//     --zoom-image-scale: 1;
+//   }
+// }
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

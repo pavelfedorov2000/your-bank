@@ -156,7 +156,7 @@ pages    — home / careers / about / security / login / signUp / notFound / gui
 
 ### TypeScript / React
 
-- Порядок пропсов: `id`, затем `className`, затем остальное. Булевы пропсы — `is…`, булевы утилиты — `getIs…`.
+- Порядок пропсов: `key` (проверяет ESLint, локальное правило `eslint/jsx-key-first.mjs`), `id`, `className`, затем остальное. Булевы пропсы — `is…`, булевы утилиты — `getIs…`.
 - Константы — `UPPER_SNAKE` с camelCase-ключами: `ARIA_LABELS.burgerBtn.open`, `ICON_NAMES.arrowLeft`.
   В коде никаких строковых литералов там, где есть константа (иконки, aria-label, модификаторы, регулярки).
 - Типы — с префиксом `T` и, где можно, выводятся из источника: `Queries.*` из GraphQL, `typeof COMPONENT_MODS.button`.
@@ -177,10 +177,22 @@ pages    — home / careers / about / security / login / signUp / notFound / gui
 
 ## Доступность и UX
 
-- Семантика: `section` / `article` / `header` / `address` / `dl`, landmark-навигации с разными `aria-label`, `role="tablist"` / `tabpanel`.
-- Бургер-меню с `aria-expanded` / `aria-controls`, переключатель пароля с `aria-pressed`, ошибки формы с `role="alert"`.
-- Активный таб в горизонтально прокручиваемом ряду подкручивается в зону видимости (`useScrollActiveIntoView`),
-  с учётом `prefers-reduced-motion`.
+- Семантика: `section` / `article` / `header` / `address` / `dl`, landmark-навигации с разными `aria-label`.
+- **Клавиатура.** Фокус виден только с клавиатуры (`:focus-visible`, токены `--focus-ring` / `--focus-ring-offset`).
+  Первая ссылка — «Skip to content» (`SkipLink`) на `<main id="main-content" tabindex="-1">`.
+  `scroll-padding-top` (`--sticky-header-offset`) не даёт фокусу и якорям уходить под липкую шапку.
+- **Табы** (`@box/tabs`, паттерн WAI-ARIA): вкладки и панель связаны id из `useId()` (`aria-controls` / `aria-labelledby`),
+  в Tab-порядке только активная вкладка, ←→↑↓ / Home / End переключают, Tab ведёт в панель.
+  `role="tabpanel"` — на обёртке, список внутри остаётся списком.
+- **Мобильное меню:** `aria-expanded` / `aria-controls`; пока открыто — фокус на первой ссылке, остальная страница
+  `inert` (`useInertOutside`) и не прокручивается, Escape закрывает и возвращает фокус на бургер.
+- **«Load All» в FAQ** (`useCollapsibleList`): `aria-controls` на список, после раскрытия фокус — на первый новый вопрос.
+- **Формы:** ошибка с `role="alert"`, поля связаны с ней через `aria-invalid` / `aria-describedby`; переключатель пароля с `aria-pressed`.
+- **Фото контента:** `alt` обязателен (`TContentImageProps`); `imageAlt` в `content.json` — для фото со смыслом,
+  без него `alt=""` (декоративное: смысл несёт текст рядом).
+- **`prefers-reduced-motion`:** `--transition` обнуляется (миксин `reduced-motion` в `global.scss`) — все переходы
+  мгновенные, поэтому переходы пишутся только через `var(--transition)`. Без зума картинок, Swiper — `speed` 0
+  (`MEDIA_QUERIES.reducedMotion`), прокрутка из JS — без плавности (`getScrollBehavior`).
 - Внешние ссылки открываются в новой вкладке с `rel="noopener noreferrer"`.
 
 ## Деплой

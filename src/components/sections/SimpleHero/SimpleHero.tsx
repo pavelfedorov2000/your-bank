@@ -14,7 +14,7 @@ type Props = {
  * Hero of Careers / About / Security pages: content card overlapping the photo.
  * Grid: mobile — photo, then content pulled up over it; from sm — content (cols 1–2) over photo (cols 2–3).
  */
-const SimpleHero: FC<Props> = ({ data: { supTitle, title, description, image } }) => (
+const SimpleHero: FC<Props> = ({ data: { supTitle, title, description, image, imageAlt } }) => (
   <section className={mainClass}>
     <div className={`${mainClass}__content`}>
       <div className={`${mainClass}__heading`}>
@@ -24,7 +24,7 @@ const SimpleHero: FC<Props> = ({ data: { supTitle, title, description, image } }
       <p className={`${mainClass}__description`}>{description}</p>
     </div>
 
-    <ZoomImage className={`${mainClass}__image`} image={image} isDecorative loading="eager" />
+    <ZoomImage className={`${mainClass}__image`} image={image} alt={imageAlt ?? ""} loading="eager" />
   </section>
 );
 

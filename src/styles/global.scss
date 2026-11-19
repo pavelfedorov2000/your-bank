@@ -55,9 +55,19 @@
 
   --transition: 0.3s ease;
 
+  // Reduced motion: every transition goes through --transition, so zero here turns them all off (end state stays)
+  @include reduced-motion {
+    --transition: 0s;
+  }
+
+  // Keyboard focus (:focus-visible): lime ring with a gap, follows the element's border radius
+  --focus-ring: 2px solid var(--color-accent);
+  --focus-ring-offset: 3px;
+
   // Global layers (local stacking inside a block uses plain -1 / 1 / 2…)
   --z-index-header: 10;
   --z-index-scroll-top: 10;
+  --z-index-skip-link: 20;
 
   // Font size of controls: buttons, menu links, footer links and contacts
   @include responsive(--font-size-control, (14px, null, null, 18px));
@@ -66,6 +76,14 @@
 
   // Gap between cards in grids / lists and between CTA buttons (Mobile / Desktop)
   @include responsive(--cards-gap, (20px, null, null, 30px));
+
+  // Area covered by the sticky header (bottom edge of its bar) + a gap: keyboard focus and anchors
+  // scroll the element below it, not under it (WCAG 2.4.11 "Focus Not Obscured")
+  @include responsive(--sticky-header-offset, (96px, 105px, null, 135px));
+}
+
+html {
+  scroll-padding-top: var(--sticky-header-offset);
 }
 
 *,
@@ -133,3 +151,10 @@ mark {
   color: var(--color-accent);
   background: none;
 }
+
+// Visible only for keyboard focus (not for mouse clicks). Elements with their own focus style set outline: none.
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+

@@ -17,6 +17,7 @@ type Props = TWithClassName<{
 /** Toggle button of a collapsible menu: burger when closed, cross when open. Visibility by breakpoint comes from the parent's element class. */
 const BurgerButton: FC<Props> = ({ className, isOpen, onClick }) => (
   <button
+    id={ELEMENT_IDS.burger}
     className={cn(mainClass, className)}
     aria-label={isOpen ? ARIA_LABELS.burgerBtn.close : ARIA_LABELS.burgerBtn.open}
     aria-expanded={isOpen}

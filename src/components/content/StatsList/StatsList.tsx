@@ -15,7 +15,7 @@ type Props = TWithClassName<{
 const StatsList: FC<Props> = ({ className, items }) => (
   <dl className={cn(mainClass, className)}>
     {items.map((stat) => (
-      <div className={`${mainClass}__item`} key={stat.label}>
+      <div key={stat.label} className={`${mainClass}__item`}>
         <dt className={`${mainClass}__value`}>{stat.value}</dt>
         <dd className={`${mainClass}__label`}>{stat.label}</dd>
       </div>

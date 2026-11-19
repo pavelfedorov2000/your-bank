@@ -8,7 +8,8 @@ import { SliderControls, Tabs } from "@components/ui";
 import { SectionIntro } from "@components/content";
 import TestimonialCard from "./TestimonialCard";
 
-import { ARIA_LABELS, SLIDER_BREAKPOINTS } from "@box/constants";
+import { useMediaQuery } from "@box/hooks";
+import { ARIA_LABELS, MEDIA_QUERIES, SLIDER_BREAKPOINTS, SLIDER_SPEED } from "@box/constants";
 import type { TNullable } from "@box/types";
 import { useTabs } from "@box/tabs";
 
@@ -24,6 +25,8 @@ type Props = {
 /** "Our Testimonials" — Home, Login, Sign Up. */
 const TestimonialsSection: FC<Props> = ({ data: { intro, tabs } }) => {
   const { activeIndex, activeItems: items, tabsProps, panelProps } = useTabs(tabs);
+  /** Reduced motion: slides switch instantly */
+  const isReducedMotion = useMediaQuery(MEDIA_QUERIES.reducedMotion);
   const [swiper, setSwiper] = useState<TNullable<TSwiperInstance>>(null);
   const [edges, setEdges] = useState({ isBeginning: true, isEnd: false });
 
@@ -40,6 +43,7 @@ const TestimonialsSection: FC<Props> = ({ data: { intro, tabs } }) => {
           <Swiper
             key={activeIndex}
             modules={[A11y]}
+            speed={isReducedMotion ? 0 : SLIDER_SPEED}
             breakpoints={SLIDER_BREAKPOINTS.testimonials}
             onSwiper={(instance) => {
               setSwiper(instance);
@@ -49,7 +53,7 @@ const TestimonialsSection: FC<Props> = ({ data: { intro, tabs } }) => {
             onBreakpoint={updateEdges}
           >
             {items.map((item) => (
-              <SwiperSlide className={`${mainClass}__slide`} key={item.author}>
+              <SwiperSlide key={item.author} className={`${mainClass}__slide`}>
                 <TestimonialCard data={item} />
               </SwiperSlide>
             ))}

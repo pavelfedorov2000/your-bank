@@ -14,9 +14,9 @@ type Props = {
 };
 
 /** About "Press Releases" card: photo, title, meta tags (location, date), description. */
-const PressReleaseCard: FC<Props> = ({ data: { title, image, meta, description } }) => (
+const PressReleaseCard: FC<Props> = ({ data: { title, image, imageAlt, meta, description } }) => (
   <Card className={mainClass} as="article" mods={[COMPONENT_MODS.card.surface]}>
-    <ZoomImage className={`${mainClass}__image`} image={image} isDecorative />
+    <ZoomImage className={`${mainClass}__image`} image={image} alt={imageAlt ?? ""} />
 
     <div className={`${mainClass}__body`}>
       <div className={`${mainClass}__head`}>

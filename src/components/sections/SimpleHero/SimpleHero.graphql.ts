@@ -5,6 +5,7 @@ export const fragment = graphql`
     supTitle
     title
     description
+    imageAlt
     image {
       childImageSharp {
         # Width in the layout (Desktop / Laptop / Mobile): the browser picks the file for it × screen density

@@ -4,6 +4,7 @@ export const fragment = graphql`
   fragment MissionVisionItem on MissionVisionItem {
     title
     description
+    imageAlt
     image {
       childImageSharp {
         # Width in the layout (Desktop / Laptop / Mobile): the browser picks the file for it × screen density

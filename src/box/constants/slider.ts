@@ -1,5 +1,8 @@
 import type { SwiperOptions } from "swiper/types";
 
+/** Slide transition, ms (Swiper default); 0 with prefers-reduced-motion. */
+export const SLIDER_SPEED = 300;
+
 /**
  * Swiper `breakpoints` per slider (key = slider name, min-width in px → options).
  * New slider: add a key and use it as <Swiper breakpoints={SLIDER_BREAKPOINTS.name} />.

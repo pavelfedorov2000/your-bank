@@ -2,8 +2,13 @@ import tsParser from "@typescript-eslint/parser";
 import stylistic from "@stylistic/eslint-plugin";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 
+import jsxKeyFirst from "./eslint/jsx-key-first.mjs";
+
+/** Project rules (eslint/): local/<rule> */
+const localPlugin = { rules: { "jsx-key-first": jsxKeyFirst } };
+
 /**
- * Code lint: only the import order for now (`npm run lint:fix` sorts them, also runs before `develop`).
+ * Code lint: import order, `key` first in JSX (`npm run lint:fix` sorts them, also runs before `develop`).
  *
  * Groups (blank line between them), each group in the order of its patterns:
  * 1. React, Gatsby, other packages
@@ -31,12 +36,14 @@ export default [
       parser: tsParser,
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
-    plugins: { "simple-import-sort": simpleImportSort, "@stylistic": stylistic },
+    plugins: { "simple-import-sort": simpleImportSort, "@stylistic": stylistic, local: localPlugin },
     rules: {
       "simple-import-sort/imports": ["error", { groups: IMPORT_GROUPS }],
       "simple-import-sort/exports": "off",
       /** Sorting names inside { } keeps the original spacing: restore "a, b" after a move */
       "@stylistic/comma-spacing": ["error", { before: false, after: true }],
+      /** key first in JSX (easy to miss it in a long prop list); the rest keeps its order (props convention: id, className…) */
+      "local/jsx-key-first": "error",
     },
   },
 ];

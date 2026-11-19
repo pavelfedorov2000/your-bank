@@ -1,0 +1,16 @@
+@use "@styles/mixins" as *;
+
+$name: ".skip-link";
+
+// Block: skip-link. Off-screen above the viewport until it gets keyboard focus.
+#{$name} {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: var(--z-index-skip-link);
+  transform: translateY(calc(-100% - 32px));
+
+  &:focus-visible {
+    transform: none;
+  }
+}

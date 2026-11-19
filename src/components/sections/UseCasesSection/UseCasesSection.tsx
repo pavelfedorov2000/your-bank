@@ -21,7 +21,7 @@ const UseCasesSection: FC<Props> = ({ data: { intro, groups } }) => (
 
     <div className={`${mainClass}__groups`}>
       {groups.map((group) => (
-        <section className={`${mainClass}__group`} key={group.audience}>
+        <section key={group.audience} className={`${mainClass}__group`}>
           <div className={`${mainClass}__panel`}>
             <List
               className={`${mainClass}__cases`}

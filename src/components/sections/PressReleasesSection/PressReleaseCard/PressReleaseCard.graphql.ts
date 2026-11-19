@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 export const fragment = graphql`
   fragment PressReleaseCard on PressRelease {
     title
+    imageAlt
     image {
       childImageSharp {
         # Width in the layout (Desktop / Laptop / Mobile): the browser picks the file for it × screen density
