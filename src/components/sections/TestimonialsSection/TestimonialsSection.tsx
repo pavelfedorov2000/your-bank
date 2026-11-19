@@ -23,7 +23,7 @@ type Props = {
 
 /** "Our Testimonials" — Home, Login, Sign Up. */
 const TestimonialsSection: FC<Props> = ({ data: { intro, tabs } }) => {
-  const { activeIndex, activeItems: items, tabsProps } = useTabs(tabs);
+  const { activeIndex, activeItems: items, tabsProps, panelProps } = useTabs(tabs);
   const [swiper, setSwiper] = useState<TNullable<TSwiperInstance>>(null);
   const [edges, setEdges] = useState({ isBeginning: true, isEnd: false });
 
@@ -35,7 +35,7 @@ const TestimonialsSection: FC<Props> = ({ data: { intro, tabs } }) => {
       <SectionIntro data={intro} actions={<Tabs {...tabsProps} />} />
 
       <div className={`${mainClass}__slider`}>
-        <div className={`${mainClass}__viewport`} role="tabpanel">
+        <div className={`${mainClass}__viewport`} {...panelProps}>
           {/** key: new tab → new Swiper instance (starts from the first slide, fresh prev/next state) */}
           <Swiper
             key={activeIndex}

@@ -18,7 +18,7 @@ type Props = {
 
 /** Home "Our Features": vertical tab menu (horizontal on mobile) + 2×2 cards. */
 const FeaturesSection: FC<Props> = ({ data: { intro, tabs } }) => {
-  const { activeItems: items, tabsProps } = useTabs(tabs);
+  const { activeItems: items, tabsProps, panelProps } = useTabs(tabs);
 
   return (
     <Section className={mainClass}>
@@ -27,14 +27,15 @@ const FeaturesSection: FC<Props> = ({ data: { intro, tabs } }) => {
       <div className={`${mainClass}__body`}>
         <Tabs mods={[COMPONENT_MODS.tabs.vertical]} {...tabsProps} />
 
-        <List
-          className={`${mainClass}__list`}
-          mods={[COMPONENT_MODS.list.twoColumns]}
-          role="tabpanel"
-          items={items}
-          getKey={(card) => card.title}
-          renderItem={(card) => <FeatureCard data={card} />}
-        />
+        <div className={`${mainClass}__panel`} {...panelProps}>
+          <List
+            className={`${mainClass}__list`}
+            mods={[COMPONENT_MODS.list.twoColumns]}
+            items={items}
+            getKey={(card) => card.title}
+            renderItem={(card) => <FeatureCard data={card} />}
+          />
+        </div>
       </div>
     </Section>
   );

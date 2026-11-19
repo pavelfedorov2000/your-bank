@@ -11,3 +11,4 @@ export { REG_EXP_PATTERNS } from "./reg-exp";
 export { SPECIAL_CHARS } from "./special-chars";
 export { EXTERNAL_LINK_ATTRS } from "./link";
 export { ARIA_LABELS } from "./aria-labels";
+export { KEYS } from "./keys";

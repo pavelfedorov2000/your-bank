@@ -12,9 +12,11 @@ $name: ".features";
     @include responsive(align-items, (null, null, flex-start));
   }
 
+  &__panel {
+    flex: 1;
+  }
+
   &__list {
     --list-gap: var(--cards-gap);
-
-    flex: 1;
   }
 }
