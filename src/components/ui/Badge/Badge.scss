@@ -6,9 +6,9 @@ $name: ".badge";
 #{$name} {
   display: inline-flex;
   align-items: center;
-  font-weight: 300;
+  font-weight: var(--font-weight-light);
   background-color: var(--color-surface-alt);
-  border-radius: 61px;
+  border-radius: var(--radius-pill);
 
   @include responsive(gap, (4px, null, null, 6px));
   @include responsive(padding, (8px 16px 8px 8px, null, null, 10px 20px 10px 12px));

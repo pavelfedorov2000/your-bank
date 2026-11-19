@@ -38,7 +38,7 @@ $name: ".faq";
   &__question {
     padding-bottom: var(--text-block-gap);
     border-bottom: 1px solid var(--color-border);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     line-height: 1.25;
 
     @include responsive(font-size, (18px, null, null, 20px));

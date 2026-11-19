@@ -4,7 +4,7 @@
 $name: ".job-card";
 
 #{$name} {
-  --card-radius: 16px;
+  --card-radius: var(--radius-md);
 
   @include responsive(--card-gap, (30px, 40px, null, 50px));
   @include responsive(--card-padding, (24px, 40px, null, 50px));
@@ -20,8 +20,7 @@ $name: ".job-card";
   }
 
   &__title {
-    font-weight: 600;
-    line-height: 1.5;
+    font-weight: var(--font-weight-semibold);
 
     @include responsive(font-size, (20px, 24px, null, 30px));
   }
@@ -35,10 +34,9 @@ $name: ".job-card";
   }
 
   &__subtitle {
-    font-weight: 600;
-    line-height: 1.5;
+    font-weight: var(--font-weight-semibold);
 
-    @include responsive(font-size, (18px, 20px, null, 24px));
+    @include text-card-subtitle;
   }
 
   &__requirements {

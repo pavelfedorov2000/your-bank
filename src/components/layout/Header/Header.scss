@@ -30,7 +30,7 @@ $name: ".header";
     top: calc(100% + 8px);
     right: 0;
     left: 0;
-    z-index: 10;
+    z-index: var(--z-index-header);
     padding: 24px;
     border: 1px solid var(--color-border);
     background-color: var(--color-surface);

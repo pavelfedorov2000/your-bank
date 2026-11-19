@@ -4,7 +4,7 @@
 
 // "Our Products", "Use Cases" — section titles
 @mixin text-title {
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 
   @include responsive(font-size, (28px, 38px, null, 48px));
 }
@@ -16,7 +16,7 @@
 
 // "For Individuals" (use cases), CTA title
 @mixin text-subtitle {
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   @include responsive(font-size, (20px, 26px, null, 30px));
 }
 
@@ -25,9 +25,14 @@
   @include responsive(font-size, (20px, null, null, 24px));
 }
 
+// Smaller card titles: press releases, benefit cards, job card subtitles
+@mixin text-card-subtitle {
+  @include responsive(font-size, (18px, 20px, null, 24px));
+}
+
 // Paragraphs under titles and in cards
 @mixin text-body {
-  font-weight: 300;
+  font-weight: var(--font-weight-light);
   @include responsive(font-size, (14px, 16px, null, 18px));
 }
 

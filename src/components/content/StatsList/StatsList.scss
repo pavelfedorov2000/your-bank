@@ -27,7 +27,7 @@ $name: ".stats-list";
 
   &__value {
     color: var(--color-accent);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
 
     @include responsive(font-size, (40px, null, null, 58px));
   }

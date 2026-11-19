@@ -21,7 +21,7 @@ $name: ".typography";
   &__specimen {
     position: relative;
     padding: 0.52em 0.49em;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     line-height: 0.7;
 
     @include responsive(font-size, (56px, 80px, null, 100px));
@@ -106,9 +106,9 @@ $name: ".typography";
     display: grid;
     place-items: center;
     color: var(--color-text-muted);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     background-color: var(--color-surface);
-    border-radius: 10px;
+    border-radius: var(--radius-sm);
     box-shadow: var(--shadow);
 
     @include responsive(min-width, (40px, 48px, null, 54px));

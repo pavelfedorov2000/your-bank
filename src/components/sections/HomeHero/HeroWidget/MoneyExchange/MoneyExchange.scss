@@ -51,12 +51,12 @@ $name: ".money-exchange";
   &__name {
     color: var(--color-text-soft);
     font-size: em(13.87);
-    font-weight: 300;
+    font-weight: var(--font-weight-light);
   }
 
   &__amount {
     padding: em(26) em(17.34);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     background-color: var(--color-surface);
   }
 
@@ -64,7 +64,7 @@ $name: ".money-exchange";
     --button-padding: #{em(13.87) em(26)};
     --button-radius: #{em(71)};
     --button-bg: var(--color-surface-accent);
-    --button-color: #d1ff4d;
+    --button-color: var(--color-green-65);
     --button-font-size: #{em(15.6)};
 
     margin-top: em(7.8);

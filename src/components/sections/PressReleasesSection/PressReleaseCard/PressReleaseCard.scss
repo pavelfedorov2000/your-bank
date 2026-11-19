@@ -34,10 +34,9 @@ $name: ".press-release-card";
   }
 
   &__title {
-    font-weight: 400;
-    line-height: 1.5;
+    font-weight: var(--font-weight-regular);
 
-    @include responsive(font-size, (18px, 20px, null, 24px));
+    @include text-card-subtitle;
   }
 
   &__description {

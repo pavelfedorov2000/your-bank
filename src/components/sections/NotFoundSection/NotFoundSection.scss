@@ -34,7 +34,7 @@ $name: ".not-found";
   &__code {
     position: relative;
     color: transparent;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     line-height: 0.9;
     letter-spacing: -0.04em;
     background: linear-gradient(180deg, var(--color-accent) 0%, rgb(var(--color-accent-rgb) / 0.05) 100%) text;

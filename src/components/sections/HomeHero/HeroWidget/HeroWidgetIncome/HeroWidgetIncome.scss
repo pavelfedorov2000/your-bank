@@ -26,12 +26,12 @@ $name: ".hero-widget-income";
 
   &__value {
     font-size: 1em;
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
   }
 
   &__label {
     color: var(--color-text-soft);
     font-size: em(13.87);
-    font-weight: 300;
+    font-weight: var(--font-weight-light);
   }
 }

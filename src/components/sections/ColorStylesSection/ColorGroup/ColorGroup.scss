@@ -34,14 +34,14 @@ $name: ".color-group";
     color: var(--color-text);
     text-align: left;
     background-color: var(--color-group-swatch);
-    border-radius: 10px;
+    border-radius: var(--radius-sm);
     box-shadow: inset 0 0 0 3px var(--color-grey-20);
 
     @include responsive(min-height, (80px, 90px, 100px, 107px));
     @include responsive(padding, (10px 12px, null, null, 12px 15px));
 
     &--light {
-      color: #000000;
+      color: var(--color-black);
     }
   }
 

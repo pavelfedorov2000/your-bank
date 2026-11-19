@@ -17,13 +17,13 @@ $name: ".user-menu";
     width: var(--size);
     height: var(--size);
     color: var(--color-accent);
-    font-weight: 500;
+    font-size: var(--font-size-control);
+    font-weight: var(--font-weight-medium);
     background-color: var(--color-bg);
     border-radius: 50%;
     box-shadow: var(--shadow);
     user-select: none;
 
     @include responsive(--size, (45px, null, null, 55px));
-    @include responsive(font-size, (14px, null, null, 18px));
   }
 }

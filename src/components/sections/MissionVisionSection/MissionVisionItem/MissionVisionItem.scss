@@ -69,8 +69,7 @@ $name: ".mission-vision-item";
   }
 
   &__title {
-    font-weight: 500;
-    line-height: 1.5;
+    font-weight: var(--font-weight-medium);
 
     @include responsive(font-size, (26px, 32px, null, 38px));
   }

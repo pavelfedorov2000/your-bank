@@ -11,8 +11,13 @@
   --color-grey-30: #4c4c4d;
   --color-grey-40: #656567;
 
+  // Palette colors used as they are (design guide)
+  --color-green-65: #d1ff4c;
+  --color-black: #000000;
+
   // RGB channels of the colors used with transparency: rgb(var(--color-accent-rgb) / 0.2)
   --color-accent-rgb: 202 255 51;
+  --color-surface-rgb: 28 28 28;
   --color-border-rgb: 38 38 38;
   --color-bg-fade-rgb: 25 25 25;
 
@@ -33,12 +38,28 @@
   --color-icon-inverse: var(--color-grey-20); // icons on accent background
 
   --font-family: "Lexend", sans-serif;
+
+  // Lexend weights used in the design (guide "Used Font Weights")
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --radius-sm: 10px; // tiles: color swatches, glyphs
+  --radius-md: 16px; // job cards, hero photo
   --radius-pill: 100px;
   --radius-lg: 20px; // big panels: heroes, CTA, use cases panel, benefit cards
 
   --shadow: inset 0 0 0 1px var(--color-border);
 
   --transition: 0.3s ease;
+
+  // Global layers (local stacking inside a block uses plain -1 / 1 / 2…)
+  --z-index-header: 10;
+
+  // Font size of controls: buttons, menu links, footer links and contacts
+  @include responsive(--font-size-control, (14px, null, null, 18px));
 
   @include responsive(--sections-gap, (80px, null, 120px, 150px));
 
@@ -63,7 +84,7 @@ body {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-family);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: 1.5;
   background-color: var(--color-bg);
 }

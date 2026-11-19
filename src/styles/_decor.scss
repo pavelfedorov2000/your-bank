@@ -7,7 +7,7 @@
 @mixin noise-surface {
   background:
     linear-gradient(123deg, rgb(var(--color-accent-rgb) / 5%) -29%, rgb(var(--color-accent-rgb) / 0%) 28%),
-    linear-gradient(264deg, var(--color-surface) 41%, rgb(28 28 28 / 0%) 100%),
+    linear-gradient(264deg, var(--color-surface) 41%, rgb(var(--color-surface-rgb) / 0%) 100%),
     url("@images/decor/noise.webp") 0 0 / 291px 218px;
 }
 

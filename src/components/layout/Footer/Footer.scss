@@ -38,7 +38,8 @@ $name: ".footer";
     align-items: center;
     position: relative;
     color: var(--color-text-muted);
-    font-weight: 300;
+    font-size: var(--font-size-control);
+    font-weight: var(--font-weight-light);
     background-color: var(--color-bg);
     box-shadow: var(--shadow);
 
@@ -47,7 +48,6 @@ $name: ".footer";
     @include responsive(gap, (20px, 30px));
     @include responsive(margin-top, (20px, 0));
     @include responsive(padding, (50px 24px 30px, 12px 24px 12px 12px, null, 16px 30px 16px 16px));
-    @include responsive(font-size, (14px, null, null, 18px));
     @include responsive(border-radius, (12px, var(--radius-pill)));
   }
 

@@ -28,13 +28,13 @@ $name: ".benefits";
     position: relative;
 
     @include responsive(--card-gap, (20px, 24px, null, 30px));
-    @include responsive(--radius-lg, (40px, null, null, 50px));
-    @include responsive(--radius-sm, (14px, null, null, 20px));
+    @include responsive(--benefits-radius-large, (40px, null, null, 50px));
+    @include responsive(--benefits-radius-small, (14px, null, null, 20px));
     @include responsive(
       --benefit-card-radius,
       (
-        var(--radius-lg) var(--radius-lg) var(--radius-sm) var(--radius-sm),
-        var(--radius-lg) var(--radius-sm)
+        var(--benefits-radius-large) var(--benefits-radius-large) var(--benefits-radius-small) var(--benefits-radius-small),
+        var(--benefits-radius-large) var(--benefits-radius-small)
       )
     );
 
@@ -77,7 +77,7 @@ $name: ".benefits";
       // Second diagonal: items 2, 3, 6, 7…
       &:nth-child(4n + 2),
       &:nth-child(4n + 3) {
-        --benefit-card-radius: var(--radius-sm) var(--radius-lg);
+        --benefit-card-radius: var(--benefits-radius-small) var(--benefits-radius-large);
       }
 
       // Row divider is drawn once, by the left item, across both columns and the gap

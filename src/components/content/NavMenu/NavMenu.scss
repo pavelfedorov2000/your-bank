@@ -10,21 +10,20 @@ $name: ".nav-menu";
 
   &__link {
     color: var(--color-text);
-    line-height: 1.5;
+    font-size: var(--font-size-control);
     text-decoration: none;
     white-space: nowrap;
     border-radius: var(--radius-pill);
     transition: background-color var(--transition);
 
     @include responsive(padding, (10px 18px, null, null, 12px 24px));
-    @include responsive(font-size, (14px, null, null, 18px));
-
-    @include hover-fine-pointer {
-      background-color: var(--color-surface-alt);
-    }
 
     // Current page: Gatsby <Link> sets aria-current="page"
     &[aria-current="page"] {
+      background-color: var(--color-surface-alt);
+    }
+
+    @include hover-fine-pointer {
       background-color: var(--color-surface-alt);
     }
   }

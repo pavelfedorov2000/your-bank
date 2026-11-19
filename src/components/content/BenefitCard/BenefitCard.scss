@@ -21,8 +21,8 @@ $name: ".benefit-card";
 
   &__title {
     flex: 1;
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
 
-    @include responsive(font-size, (18px, 20px, null, 24px));
+    @include text-card-subtitle;
   }
 }

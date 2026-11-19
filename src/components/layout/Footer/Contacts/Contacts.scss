@@ -19,9 +19,9 @@ $name: ".contacts";
     align-items: center;
     gap: 6px;
     color: var(--color-text-soft);
-    transition: color var(--transition);
 
-    @include responsive(font-size, (14px, null, null, 18px));
+    font-size: var(--font-size-control);
+    transition: color var(--transition);
 
     @include hover-fine-pointer {
       color: var(--color-text);

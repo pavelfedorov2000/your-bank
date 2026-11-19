@@ -33,7 +33,7 @@ $name: ".transaction-card";
 
   &__label {
     font-size: em(15.6);
-    font-weight: 300;
+    font-weight: var(--font-weight-light);
   }
 
   &__name {
@@ -42,6 +42,6 @@ $name: ".transaction-card";
 
   &__amount {
     font-size: em(20.81);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
   }
 }

@@ -4,7 +4,7 @@ $name: ".guide-hero";
 
 // Over the collage: mobile — darkened from the bottom up (the collage fills the banner), tablet+ — olive glow on the left
 $overlay-mobile: linear-gradient(0deg, rgb(30 35 18 / 0.92) 25%, rgb(30 35 18 / 0.45) 100%);
-$overlay-desktop: linear-gradient(90deg, #232d07 0%, rgb(30 33 20 / 0.9) 45%, rgb(28 28 28 / 0) 75%);
+$overlay-desktop: linear-gradient(90deg, #232d07 0%, rgb(30 33 20 / 0.9) 45%, rgb(var(--color-surface-rgb) / 0) 75%);
 
 // Block: guide-hero (Figma "Template Guide" banner)
 // The screens collage sits on the right (decor, CSS background), the text over the overlay.
@@ -33,7 +33,7 @@ $overlay-desktop: linear-gradient(90deg, #232d07 0%, rgb(30 33 20 / 0.9) 45%, rg
   }
 
   &__title {
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     line-height: 1.1;
     letter-spacing: -0.02em;
 

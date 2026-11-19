@@ -88,10 +88,10 @@ $name: ".auth-form";
     display: flex;
     align-items: center;
     color: var(--color-text-muted);
+    font-size: var(--font-size-control);
     white-space: nowrap;
 
     @include responsive(gap, (16px, null, null, 20px));
-    @include responsive(font-size, (14px, null, null, 18px));
 
     &::before,
     &::after {

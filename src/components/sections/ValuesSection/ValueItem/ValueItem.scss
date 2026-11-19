@@ -12,7 +12,7 @@ $name: ".value-item";
 
   &__title {
     color: var(--color-text-faded);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
 
     @include responsive(font-size, (30px, 40px, null, 58px));
   }

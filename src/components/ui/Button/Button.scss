@@ -19,7 +19,7 @@ $name: ".button";
   --button-opacity--hover: 0.85;
   --button-opacity--disabled: 0.4;
 
-  @include responsive(--button-font-size, (14px, null, null, 18px));
+  --button-font-size: var(--font-size-control);
   @include responsive(--button-icon-size, (18px, null, null, 22px));
 }
 
