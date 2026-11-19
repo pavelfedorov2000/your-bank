@@ -12,11 +12,13 @@
     "*.scss"
   ],
   "scripts": {
-    "predevelop": "npm run lint:fix",
+    "predevelop": "npm run icons && npm run lint:fix",
     "develop": "gatsby develop",
-    "prestart": "npm run lint:fix",
+    "prestart": "npm run icons && npm run lint:fix",
     "start": "gatsby develop",
+    "prebuild": "npm run icons",
     "build": "gatsby build",
+    "prebuild:gh-pages": "npm run icons",
     "build:gh-pages": "gatsby build --prefix-paths",
     "serve": "gatsby serve",
     "serve:gh-pages": "gatsby serve --prefix-paths",
@@ -25,7 +27,8 @@
     "lint:styles": "stylelint \"src/**/*.scss\"",
     "lint:styles:fix": "stylelint \"src/**/*.scss\" --fix",
     "lint": "eslint src",
-    "lint:fix": "eslint src --fix"
+    "lint:fix": "eslint src --fix",
+    "icons": "node scripts/generate-icons.mjs"
   },
   "dependencies": {
     "gatsby": "^5.14.6",

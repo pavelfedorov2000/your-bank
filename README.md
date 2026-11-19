@@ -19,6 +19,7 @@ npm run serve            # раздать public/ локально
 npm run build:gh-pages   # сборка с префиксом /your-bank (как на GitHub Pages)
 npm run serve:gh-pages   # проверить её локально: http://localhost:9000/your-bank/
 
+npm run icons            # пересобрать набор иконок из src/images/icons (запускается и перед develop / build)
 npm run typecheck        # tsc (нужен сгенерированный src/gatsby-types.d.ts — создаётся при develop)
 npm run lint             # ESLint (порядок импортов);  lint:fix — исправить
 npm run lint:styles      # Stylelint (порядок свойств); lint:styles:fix — исправить
@@ -95,6 +96,11 @@ pages    — home / careers / about / security / login / signUp / notFound / gui
   `Title` выводит его через проп `html` (`dangerouslySetInnerHTML`) — только для своего контента, не для пользовательского ввода.
 - Иконки в данных — строки (`"icon": "mail"`). При старте `develop` / `build` они сверяются с `ICON_NAMES`
   (`onPreBootstrap` в `gatsby-node.ts`): опечатка останавливает сборку. В компонентах — `getIconName(icon)`.
+- Иконки — по одному `.svg` на иконку в `src/images/icons/` (имя файла в kebab-case = имя иконки).
+  `scripts/generate-icons.mjs` собирает из них `ICON_NAMES` (`box/constants/icons.ts`) и `ICONS`
+  (`components/ui/Icon/icons.tsx`) — эти два файла генерируются, руками не правятся. Скрипт переводит атрибуты в JSX
+  (`fill-rule` → `fillRule`), добавляет к `id` префикс с именем иконки, запускается перед `develop` / `start` / `build`.
+  **Новая иконка = положить `.svg` в папку и перезапустить проект.** Основной цвет в SVG — `currentColor`.
 - Ссылки контактов не хранятся: `mailto:` / `tel:` строятся из текста (`getContactHref`).
 
 ## Конвенции
