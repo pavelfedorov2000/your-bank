@@ -11,7 +11,6 @@ import "./SliderControls.scss";
 const mainClass = "slider-controls";
 
 type Props = TWithClassName<{
-  /** aria-labels of the arrows, e.g. ARIA_LABELS.sliderControls.testimonials */
   ariaLabels: TSliderControlsAriaLabels;
   isPrevDisabled?: boolean;
   isNextDisabled?: boolean;

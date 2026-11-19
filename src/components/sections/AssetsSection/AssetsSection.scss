@@ -4,14 +4,12 @@ $name: ".assets";
 
 // Block: assets (design guide "🪄 Assets")
 #{$name} {
-  // Mix with card: "Logo" / "Abstract Designs" group
   &__group {
     @include responsive(--card-padding, (24px 16px, 40px, 60px, 80px));
     @include responsive(--card-gap, (16px, 20px, null, 30px));
     @include responsive(text-align, (center, null, left));
   }
 
-  // Mix with card: framed area with the assets
   &__showcase {
     @include responsive(--card-padding, (30px 16px, 50px 30px, 60px 40px, 50px));
   }
@@ -56,13 +54,14 @@ $name: ".assets";
     }
   }
 
-  // 2 per row, 4 in a row from laptop with dashed dividers (Figma: 10px, 6/6 dashes)
   &__designs {
     --list-display: grid;
     --list-gap: var(--assets-designs-gap);
 
+    grid-template-columns: repeat(var(--assets-designs-columns), minmax(0, 1fr));
+
     @include responsive(--assets-designs-gap, (24px, 30px, 50px, 100px));
-    @include responsive(grid-template-columns, (repeat(2, minmax(0, 1fr)), null, repeat(4, minmax(0, 1fr))));
+    @include responsive(--assets-designs-columns, (2, null, 4));
   }
 
   &__design {
@@ -76,7 +75,7 @@ $name: ".assets";
       position: absolute;
       top: 0;
       bottom: 0;
-      left: calc(var(--assets-designs-gap) / -2 - 5px); // middle of the gap
+      left: calc(var(--assets-designs-gap) / -2 - 5px);
       width: 10px;
       background: repeating-linear-gradient(180deg, var(--color-border) 0 6px, transparent 6px 12px);
 

@@ -1,9 +1,7 @@
 import type * as React from "react";
 
-/** Adds a required `children` prop to the given props type. */
-export type TWithChildren<T = {}> = T & {
-  children?: React.ReactNode;
-};
+/** Adds a optional `children` prop to the given props type. */
+export type TWithChildren<T = {}> = T & React.PropsWithChildren<{}>;
 
 /** Adds an optional `className` prop (BEM mix from the parent, e.g. "header__logo-image"). */
 export type TWithClassName<T = {}> = T & {

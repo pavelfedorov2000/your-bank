@@ -19,7 +19,6 @@ $name: ".icon-badge";
   background: linear-gradient(180deg, rgb(var(--color-accent-rgb) / 0.05) 0%, rgb(var(--color-accent-rgb) / 0) 100%);
   border-radius: 50%;
 
-  // Outer circle = padding; inner circle = --icon-badge-size, the icon fills it minus its padding
   &__inner {
     display: inline-flex;
     width: var(--icon-badge-size);
@@ -34,14 +33,12 @@ $name: ".icon-badge";
     --icon-size: 100%;
   }
 
-  // Products (98px on desktop)
   &--lg {
     @include responsive(--icon-badge-padding, (8px, null, null, 12px));
     @include responsive(--icon-badge-size, (56px, null, null, 74px));
     @include responsive(--icon-badge-inner-padding, (14px, null, null, 20px));
   }
 
-  // Use Cases cards (78px on desktop)
   &--md {
     @include responsive(--icon-badge-padding, (8px, null, null, 10px));
     @include responsive(--icon-badge-size, (48px, null, null, 58px));

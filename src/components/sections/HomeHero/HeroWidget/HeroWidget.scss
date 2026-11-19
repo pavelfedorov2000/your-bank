@@ -45,14 +45,12 @@ $name: ".hero-widget";
     @include responsive(width, (em(372), em(378), null, em(417)));
   }
 
-  // Mix with hero-widget-income: floats over the top-left corner of the card
   &__income {
     position: absolute;
     top: em(-43.4);
     left: em(-60.7);
   }
 
-  // Mix with currencies-bar: hangs below the card
   &__currencies {
     position: absolute;
     top: em(637);

@@ -10,10 +10,8 @@ $name: ".hero-section";
 
   @include responsive(flex-direction, (column, null, row));
   @include responsive(align-items, (center, null, flex-start));
-  // content is capped (max-width below), the widget stays on the right
   @include responsive(justify-content, (null, null, space-between));
   @include responsive(gap, (80px, null, 100px, 120px));
-  // Added to the layout offset (30 / 50 / 53): header → hero content is 50 / 90 / 153 as in the design
   @include responsive(padding-top, (20px, 40px, null, 100px));
 
   // Big dotted pattern in the top-left corner of the page (behind the header).
@@ -42,12 +40,10 @@ $name: ".hero-section";
 
     @include responsive(--content-gap, (8px, 10px, null, 14px));
     @include responsive(align-items, (center, flex-start));
-    // Figma: text column is 650px on Laptop, 826px on Desktop
     @include responsive(max-width, (none, 650px, null, 826px));
     @include responsive(text-align, (center, left));
   }
 
-  // Mix with badge
   &__badge {
     margin-bottom: calc(var(--space-after) - var(--content-gap));
 

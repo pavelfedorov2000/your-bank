@@ -8,7 +8,6 @@ $name: ".mission-vision";
     @include responsive(--list-gap, (50px, null, 0));
   }
 
-  // From sm the rows overlap vertically (negative spacing in Figma: −84 / −100px)
   &__item + &__item {
     @include responsive(margin-top, (null, null, -84px, -100px));
   }

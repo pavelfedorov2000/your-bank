@@ -40,7 +40,6 @@ $overlay-desktop: linear-gradient(90deg, #232d07 0%, rgb(30 33 20 / 0.9) 45%, rg
     @include responsive(font-size, (56px, 96px, 110px, 140px));
   }
 
-  // Pill with a leading line (Figma "By Produce UI")
   &__author {
     display: inline-flex;
     align-items: center;

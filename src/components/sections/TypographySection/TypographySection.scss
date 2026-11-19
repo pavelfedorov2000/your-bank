@@ -4,7 +4,6 @@ $name: ".typography";
 
 // Block: typography (design guide "🖍 Typography")
 #{$name} {
-  // Specimen card + weights card: one column, side by side from laptop (Figma 557 / 933)
   &__top {
     display: grid;
 
@@ -12,7 +11,6 @@ $name: ".typography";
     @include responsive(gap, (16px, 20px, 24px, 30px));
   }
 
-  // Mix with card
   &__specimen-card {
     align-items: center;
     justify-content: center;
@@ -20,7 +18,6 @@ $name: ".typography";
     @include responsive(--card-padding, (24px 16px, 40px, null, 50px));
   }
 
-  // "Lexend" between guide lines: ::before — top/bottom lines, ::after — left/right lines (em: scale with the font)
   &__specimen {
     position: relative;
     padding: 0.52em 0.49em;
@@ -48,7 +45,6 @@ $name: ".typography";
     }
   }
 
-  // Mix with card
   &__weights-card {
     justify-content: center;
 
@@ -78,12 +74,10 @@ $name: ".typography";
     @include responsive(font-size, (14px, 16px, 18px, 20px));
   }
 
-  // Mix with card
   &__charsets-card {
     @include responsive(--card-padding, (24px 16px, 40px, 60px, 80px));
   }
 
-  // Groups divided by a dashed bar (Figma: 10px line, 6/6 dashes)
   &__charsets {
     --list-gap: var(--typography-charsets-gap);
 
@@ -108,7 +102,6 @@ $name: ".typography";
     --list-gap: 10px;
   }
 
-  // One glyph tile (Figma: 54x56, radius 10)
   &__char {
     display: grid;
     place-items: center;

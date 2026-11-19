@@ -4,7 +4,6 @@ $name: ".not-found";
 
 // Block: not-found (404 page; not in the design, assembled from its visual language)
 #{$name} {
-  // Card frame: dark panel with a lime glow behind the code, dots in the top-left corner
   &__panel {
     --card-bg:
       radial-gradient(50% 45% at 50% 30%, rgb(var(--color-accent-rgb) / 0.08) 0%, transparent 100%),

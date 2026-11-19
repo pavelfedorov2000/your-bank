@@ -6,7 +6,6 @@ $name: ".contacts";
 #{$name} {
   font-style: normal;
 
-  // Mix with list: centered wrapping row
   &__list {
     --list-flex-direction: row;
     --list-flex-wrap: wrap;

@@ -8,7 +8,6 @@ const mainClass = "simple-hero";
 
 type Props = {
   data: Queries.SimpleHeroFragment;
-  /** Photo on the right (on top on mobile). Corners are rounded in CSS, the file has none. */
   image: string;
 };
 

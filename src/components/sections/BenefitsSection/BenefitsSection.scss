@@ -17,7 +17,6 @@ $name: ".benefits";
   }
 
   &__item {
-    // Corners alternate diagonally: big / small (mobile: big on top)
     --benefit-card-border: linear-gradient(
       to top left,
       rgb(var(--color-accent-rgb) / 10%) 0%,

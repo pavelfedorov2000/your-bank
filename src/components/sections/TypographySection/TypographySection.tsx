@@ -18,7 +18,6 @@ const TypographySection: FC<Props> = ({ data: { intro, fontName, weightsTitle, w
   <GuideBlock className={mainClass} intro={intro}>
     <div className={`${mainClass}__top`}>
       <Card className={`${mainClass}__specimen-card`} mods={[COMPONENT_MODS.card.inset]}>
-        {/** Font name inside the type-design guide lines (baseline / cap height / side bearings) */}
         <p className={`${mainClass}__specimen`}>{fontName}</p>
       </Card>
 

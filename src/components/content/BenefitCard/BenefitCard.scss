@@ -16,7 +16,6 @@ $name: ".benefit-card";
   --card-border: var(--benefit-card-border);
 
   @include responsive(--card-padding, (24px, 40px, null, 50px));
-  // Content (icon-text-block, row): icon ↔ title, head ↔ text
   @include responsive(--icon-text-block-head-gap, (10px, 14px, null, 20px));
   @include responsive(--icon-text-block-gap, (18px, 20px, null, 24px));
 

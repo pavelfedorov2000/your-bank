@@ -5,7 +5,7 @@ import type { TWithChildren, TWithPropsMods } from "@box/types";
 
 import "./Container.scss";
 
-type Props = TWithChildren<TWithPropsMods>;
+type Props = TWithChildren & TWithPropsMods;
 
 const mainClass = "container";
 

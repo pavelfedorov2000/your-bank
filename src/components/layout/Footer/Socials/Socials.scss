@@ -4,6 +4,7 @@ $name: ".socials";
 
 #{$name} {
   --list-flex-direction: row;
+  --list-flex-wrap: wrap;
 
   @include responsive(--list-gap, (8px, null, null, 14px));
 

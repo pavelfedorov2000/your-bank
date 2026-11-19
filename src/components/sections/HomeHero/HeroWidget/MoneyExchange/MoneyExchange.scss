@@ -60,7 +60,6 @@ $name: ".money-exchange";
     background-color: var(--color-surface);
   }
 
-  // Mix with button (no color modifier): look via --button-* variables, sizes in em like the whole widget
   &__button {
     --button-padding: #{em(13.87) em(26)};
     --button-radius: #{em(71)};

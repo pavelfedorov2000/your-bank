@@ -4,7 +4,6 @@ $name: ".auth-form";
 
 // Block: auth-form (Login / Sign Up)
 #{$name} {
-  // Card frame: panel over a dark geometric picture, dots in the top-right corner
   &__panel {
     --card-bg: url("@images/decor/auth-bg.webp") center / cover, var(--color-surface);
 

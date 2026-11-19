@@ -5,7 +5,6 @@ $name: ".protection";
 
 // Block: protection (Security "How We Protect You")
 #{$name} {
-  // The panel sticks out above the cards, so the intro is further away
   @include responsive(--section-gap, (40px, 120px, null, 200px));
 
   &__content {

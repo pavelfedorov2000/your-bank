@@ -12,7 +12,6 @@ $name: ".features";
     @include responsive(align-items, (null, null, flex-start));
   }
 
-  // List block is configured through its --list-* variables
   &__list {
     --list-gap: var(--cards-gap);
 

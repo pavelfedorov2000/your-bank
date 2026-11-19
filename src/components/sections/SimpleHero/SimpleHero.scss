@@ -56,7 +56,6 @@ $name: ".simple-hero";
     @include text-description;
   }
 
-  // Row height = max(photo by its ratio, content); the photo stretches to it and is cropped by object-fit
   &__image {
     grid-row: 1;
     position: relative;
@@ -69,8 +68,6 @@ $name: ".simple-hero";
     @include responsive(aspect-ratio, (#{329} / #{253}, null, #{715} / #{568}, #{968} / #{716}));
   }
 
-  // Behind the photo: visible only around it, as in the design
-  // Dots: decor as a CSS background (no markup)
   &::before {
     content: "";
     position: absolute;

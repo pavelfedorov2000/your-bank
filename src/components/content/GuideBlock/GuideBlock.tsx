@@ -14,7 +14,6 @@ const mainClass = "guide-block";
 
 type Props = TWithClassName<TWithChildren<{
   intro: Queries.SectionIntroFragment;
-  /** Element class of the section for the panel (paddings / gap through --card-* vars). */
   panelClassName?: string;
 }>>;
 

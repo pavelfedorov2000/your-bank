@@ -14,7 +14,6 @@ const mainClass = "section-intro";
 type Props = TWithClassName<{
   data: Queries.SectionIntroFragment;
   headingLevel?: "h1" | "h2";
-  /** Right side on desktop / below text on mobile (e.g. Tabs). */
   actions?: ReactNode;
 }>;
 
