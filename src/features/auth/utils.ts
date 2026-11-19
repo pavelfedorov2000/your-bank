@@ -1,6 +1,7 @@
 import { AUTH_FIELDS } from "./constants";
 import type { TAuthFieldName, TAuthUser } from "./types";
 
+import { mapValues } from "@box/utils";
 import type { TNullable } from "@box/types";
 
 /** localStorage can be missing (SSR) or throw (private mode, blocked site data): every access is guarded. */
@@ -35,12 +36,7 @@ export const getAuthFormValues = (form: HTMLFormElement): TAuthUser => {
   const formData = new FormData(form);
   const getValue = (name: TAuthFieldName) => String(formData.get(name) ?? "");
 
-  return {
-    firstName: getValue(AUTH_FIELDS.firstName),
-    lastName: getValue(AUTH_FIELDS.lastName),
-    email: getValue(AUTH_FIELDS.email),
-    password: getValue(AUTH_FIELDS.password),
-  };
+  return mapValues(AUTH_FIELDS, getValue);
 };
 
 /** Data parsed from localStorage is untrusted: a user must have every field as a string. */
