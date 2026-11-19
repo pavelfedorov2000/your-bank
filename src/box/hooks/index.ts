@@ -6,6 +6,7 @@ export { useIsScrolledPast } from "./useIsScrolledPast";
 export { useKeyDown } from "./useKeyDown";
 export { useLayoutContent } from "./useLayoutContent";
 export { useMediaQuery } from "./useMediaQuery";
+export { useMobileMenu } from "./useMobileMenu";
 export { useScrollActiveIntoView } from "./useScrollActiveIntoView";
 export { useScrollLock } from "./useScrollLock";
 export { useScrollToTop } from "./useScrollToTop";

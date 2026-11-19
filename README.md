@@ -185,7 +185,7 @@ pages    — home / careers / about / security / login / signUp / notFound / gui
 - **Табы** (`@box/tabs`, паттерн WAI-ARIA): вкладки и панель связаны id из `useId()` (`aria-controls` / `aria-labelledby`),
   в Tab-порядке только активная вкладка, ←→↑↓ / Home / End переключают, Tab ведёт в панель.
   `role="tabpanel"` — на обёртке, список внутри остаётся списком.
-- **Мобильное меню:** `aria-expanded` / `aria-controls`; пока открыто — фокус на первой ссылке, остальная страница
+- **Мобильное меню** (`useMobileMenu`): `aria-expanded` / `aria-controls`; пока открыто — фокус на первой ссылке, остальная страница
   `inert` (`useInertOutside`) и не прокручивается; Escape закрывает и возвращает фокус на бургер, клик вне шапки — закрывает
   (`useClickOutside`).
 - **«Load All» в FAQ** (`useCollapsibleList`): `aria-controls` на список, после раскрытия фокус — на первый новый вопрос.
