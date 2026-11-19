@@ -1,6 +1,5 @@
 import React, { type FC } from "react";
 
-import { Title } from "@components/ui";
 import { TextBlock } from "@components/content";
 
 import "./ValueItem.scss";
@@ -15,11 +14,8 @@ type Props = {
 const ValueItem: FC<Props> = ({ data: { title, description } }) => (
   <TextBlock
     className={mainClass}
-    title={
-      <Title className={`${mainClass}__title`} as="h3">
-        {title}
-      </Title>
-    }
+    title={title}
+    titleProps={{ as: "h3", className: `${mainClass}__title` }}
     description={description}
   />
 );

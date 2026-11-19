@@ -1,6 +1,5 @@
 import React, { type FC, type ReactNode } from "react";
 
-import { Title } from "@components/ui";
 import { TextBlock } from "@components/content";
 
 import { cn } from "@box/utils";
@@ -22,7 +21,8 @@ const SectionIntro: FC<Props> = ({ data, headingLevel = "h2", actions, className
   <header className={cn(mainClass, className)}>
     <TextBlock
       className={`${mainClass}__text`}
-      title={<Title as={headingLevel} variant={TitleVariants.Section} html={data.title} />}
+      title={data.title}
+      titleProps={{ as: headingLevel, variant: TitleVariants.Section }}
       description={data.description}
     />
     {actions && <div className={`${mainClass}__actions`}>{actions}</div>}

@@ -1,7 +1,7 @@
 import React, { type FC } from "react";
 
 import { Section } from "@components/layout";
-import { Card, Ctas, Title } from "@components/ui";
+import { Card, Ctas } from "@components/ui";
 import { TextBlock } from "@components/content";
 
 import { COMPONENT_MODS, TitleVariants } from "@box/constants";
@@ -28,7 +28,8 @@ const NotFoundSection: FC<Props> = ({ data: { code, title, description, button, 
 
       <TextBlock
         className={`${mainClass}__text`}
-        title={<Title className={`${mainClass}__title`} as="h1" variant={TitleVariants.Section} html={title} />}
+        title={title}
+        titleProps={{ as: "h1", variant: TitleVariants.Section, className: `${mainClass}__title` }}
         description={description}
       />
 

@@ -1,7 +1,7 @@
 import React, { type FC, type FormEvent, useState } from "react";
 
 import { Section } from "@components/layout";
-import { Button, Card, Ctas, IconBadge, Input, List, Title } from "@components/ui";
+import { Button, Card, Ctas, IconBadge, Input, List } from "@components/ui";
 import { TextBlock } from "@components/content";
 
 import { getIconName } from "@box/utils";
@@ -46,7 +46,8 @@ const AuthFormSection: FC<Props> = ({
         <TextBlock
           className={`${mainClass}__head`}
           as="header"
-          title={<Title className={`${mainClass}__title`} as="h1" variant={TitleVariants.Section} html={title} />}
+          title={title}
+          titleProps={{ as: "h1", variant: TitleVariants.Section, className: `${mainClass}__title` }}
           description={description}
         />
 

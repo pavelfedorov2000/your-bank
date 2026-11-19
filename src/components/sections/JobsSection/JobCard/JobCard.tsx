@@ -29,22 +29,16 @@ const JobCard: FC<Props> = ({ data: { title, meta, about, requirements, button }
       <TextBlock
         className={`${mainClass}__group`}
         as="section"
-        title={
-          <Title className={`${mainClass}__subtitle`} as="h4">
-            {aboutLabel}
-          </Title>
-        }
+        title={aboutLabel}
+        titleProps={{ as: "h4", className: `${mainClass}__subtitle` }}
         description={about}
       />
 
       <TextBlock
         className={`${mainClass}__group`}
         as="section"
-        title={
-          <Title className={`${mainClass}__subtitle`} as="h4">
-            {requirementsLabel}
-          </Title>
-        }
+        title={requirementsLabel}
+        titleProps={{ as: "h4", className: `${mainClass}__subtitle` }}
       >
         <List
           className={`${mainClass}__requirements`}

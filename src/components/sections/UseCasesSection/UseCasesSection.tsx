@@ -1,7 +1,7 @@
 import React, { type FC } from "react";
 
 import { Section } from "@components/layout";
-import { Button, List, Title } from "@components/ui";
+import { Button, List } from "@components/ui";
 import { IconTextBlock, SectionIntro, StatsList, TextBlock } from "@components/content";
 
 import { COMPONENT_MODS, TitleVariants } from "@box/constants";
@@ -40,11 +40,8 @@ const UseCasesSection: FC<Props> = ({ data: { intro, groups } }) => (
 
           <div className={`${mainClass}__content`}>
             <TextBlock
-              title={
-                <Title as="h3" variant={TitleVariants.Subtitle}>
-                  {group.title}
-                </Title>
-              }
+              title={group.title}
+              titleProps={{ as: "h3", variant: TitleVariants.Subtitle }}
               description={group.description}
             />
 

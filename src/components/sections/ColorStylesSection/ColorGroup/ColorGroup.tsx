@@ -1,6 +1,6 @@
 import React, { type CSSProperties, type FC } from "react";
 
-import { Card, List, Title } from "@components/ui";
+import { Card, List } from "@components/ui";
 import { TextBlock } from "@components/content";
 
 import { cn, getClassNameByMods, getIsLightColor } from "@box/utils";
@@ -19,7 +19,8 @@ const ColorGroup: FC<Props> = ({ data: { title, description, columns, swatches }
   <section className={mainClass} style={{ "--color-group-columns": columns } as CSSProperties}>
     <TextBlock
       className={`${mainClass}__text`}
-      title={<Title as="h3" variant={TitleVariants.Subtitle}>{title}</Title>}
+      title={title}
+      titleProps={{ as: "h3", variant: TitleVariants.Subtitle }}
       description={description}
     />
 

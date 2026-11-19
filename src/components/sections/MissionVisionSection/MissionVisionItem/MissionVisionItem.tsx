@@ -1,7 +1,7 @@
 import React, { type FC } from "react";
 import { withPrefix } from "gatsby";
 
-import { Title, ZoomImage } from "@components/ui";
+import { ZoomImage } from "@components/ui";
 import { TextBlock } from "@components/content";
 
 import { cn, getClassNameByMods } from "@box/utils";
@@ -24,11 +24,8 @@ const MissionVisionItem: FC<Props> = ({ data: { title, description, image }, mod
 
     <TextBlock
       className={`${mainClass}__content`}
-      title={
-        <Title className={`${mainClass}__title`} as="h3">
-          {title}
-        </Title>
-      }
+      title={title}
+      titleProps={{ as: "h3", className: `${mainClass}__title` }}
       description={description}
     />
   </section>

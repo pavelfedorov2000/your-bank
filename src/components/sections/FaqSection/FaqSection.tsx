@@ -1,7 +1,7 @@
 import React, { type FC } from "react";
 
 import { Section } from "@components/layout";
-import { Button, Card, List, Title } from "@components/ui";
+import { Button, Card, List } from "@components/ui";
 import { SectionIntro, TextBlock } from "@components/content";
 
 import { useCollapsibleList } from "@box/hooks";
@@ -36,11 +36,8 @@ const FaqSection: FC<Props> = ({ data: { intro, items, loadMoreButtonText } }) =
             <Card className={`${mainClass}__item`}>
               <TextBlock
                 className={`${mainClass}__text`}
-                title={
-                  <Title className={`${mainClass}__question`} as="h3">
-                    {item.question}
-                  </Title>
-                }
+                title={item.question}
+                titleProps={{ as: "h3", className: `${mainClass}__question` }}
                 description={item.answer}
               />
             </Card>
