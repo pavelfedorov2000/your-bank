@@ -5,5 +5,11 @@ export const fragment = graphql`
     supTitle
     title
     description
+    image {
+      childImageSharp {
+        # Width in the layout (Desktop / Laptop / Mobile): the browser picks the file for it × screen density
+        gatsbyImageData(sizes: "(min-width: 1920px) 966px, (min-width: 1440px) 792px, 100vw")
+      }
+    }
   }
 `;

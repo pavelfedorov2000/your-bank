@@ -1,8 +1,6 @@
 import React, { type FC } from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 
-import heroImage from "@images/heroes/about.webp";
-
 import { Layout } from "@components/layout";
 import { Seo } from "@components/content";
 import { MissionVisionSection, PressReleasesSection, SimpleHero } from "@components/sections";
@@ -13,7 +11,7 @@ const AboutPage: FC<PageProps<Queries.AboutPageQuery>> = ({ data: { contentJson 
 
   return (
     <Layout>
-      <SimpleHero data={hero} image={heroImage} />
+      <SimpleHero data={hero} />
       <MissionVisionSection data={missionVision} />
       <PressReleasesSection data={pressReleases} />
     </Layout>

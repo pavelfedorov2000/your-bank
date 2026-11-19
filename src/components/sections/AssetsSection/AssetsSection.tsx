@@ -1,5 +1,5 @@
 import React, { type FC } from "react";
-import { withPrefix } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import logo from "@images/logo.svg";
 
@@ -52,8 +52,14 @@ const AssetsSection: FC<Props> = ({ data: { intro, logoTitle, logoVariants, abst
             className={`${mainClass}__designs`}
             itemClassName={`${mainClass}__design`}
             items={abstractDesigns}
-            getKey={(design) => design.image}
-            renderItem={({ image, alt }) => <Image className={`${mainClass}__design-image`} src={withPrefix(image)} alt={alt} />}
+            getKey={(design) => design.alt}
+            renderItem={({ image, alt }) => {
+              const imageData = image.childImageSharp?.gatsbyImageData;
+
+              return imageData && (
+                <GatsbyImage className={`${mainClass}__design-image`} image={imageData} alt={alt} objectFit="contain" />
+              );
+            }}
           />
         </Card>
       </Card>

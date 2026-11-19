@@ -20,6 +20,31 @@ const config: GatsbyConfig = {
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-sitemap",
+    /**
+     * Content photos: <GatsbyImage> + gatsbyImageData in fragments. Sharp makes several widths (srcset for 1x / 2x / 3x screens),
+     * modern formats and a dominant-color placeholder at build time.
+     */
+    "gatsby-plugin-image",
+    {
+      resolve: "gatsby-plugin-sharp",
+      options: {
+        defaults: {
+          formats: ["auto", "webp", "avif"],
+          /** Dark photos and gradients band at the default 50 */
+          quality: 80,
+          placeholder: "dominantColor"
+        }
+      }
+    },
+    "gatsby-transformer-sharp",
+    {
+      /** Content images referenced from content.json (`image` fields → File nodes) */
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: "./src/images/content/"
+      }
+    },
     {
       /** All site texts live in src/data/content.json -> node type `ContentJson` */
       resolve: "gatsby-source-filesystem",

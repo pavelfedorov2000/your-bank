@@ -69,6 +69,7 @@ $name: ".assets";
     align-items: center;
     justify-content: center;
     position: relative;
+    width: 100%;
 
     &:not(:first-child)::before {
       content: "";
@@ -83,8 +84,9 @@ $name: ".assets";
     }
   }
 
+  // GatsbyImage wrapper: fixed height, the picture is contained inside
   &__design-image {
-    width: auto;
+    width: 100%;
 
     @include responsive(height, (110px, 160px, 150px, 200px));
   }

@@ -1,8 +1,6 @@
 import React, { type FC } from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 
-import heroImage from "@images/heroes/security.webp";
-
 import { Layout } from "@components/layout";
 import { Seo } from "@components/content";
 import { FaqSection, ProtectionSection, SimpleHero } from "@components/sections";
@@ -13,7 +11,7 @@ const SecurityPage: FC<PageProps<Queries.SecurityPageQuery>> = ({ data: { conten
 
   return (
     <Layout>
-      <SimpleHero data={hero} image={heroImage} />
+      <SimpleHero data={hero} />
       <ProtectionSection data={protection} />
       <FaqSection data={faq} />
     </Layout>

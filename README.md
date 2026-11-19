@@ -62,8 +62,8 @@ src/
     utils/                 — cn, getClassNameByMods, getContactHref, getIsExternalLink, getIconName…
     types/                 — общие типы (TWithClassName, TWithPropsMods, TMaybe…)
   styles/                  — глобальные стили, токены, миксины, типографика, декор
-  images/                  — картинки, импортируемые в код / SCSS (decor/ — декоративные фоны)
-static/                    — файлы «как есть»: favicon, картинки контента из content.json
+  images/                  — content/ — картинки контента (через gatsby-plugin-image), decor/ — фоны для SCSS, icons/
+static/                    — файлы «как есть»: favicon
 ```
 
 ### Компонент
@@ -101,6 +101,10 @@ pages    — home / careers / about / security / login / signUp / notFound / gui
   (`components/ui/Icon/icons.tsx`) — эти два файла генерируются, руками не правятся. Скрипт переводит атрибуты в JSX
   (`fill-rule` → `fillRule`), добавляет к `id` префикс с именем иконки, запускается перед `develop` / `start` / `build`.
   **Новая иконка = положить `.svg` в папку и перезапустить проект.** Основной цвет в SVG — `currentColor`.
+- Картинки контента — в `src/images/content/`, в `content.json` путь относительно него: `"image": "../images/content/heroes/about.webp"`.
+  В схеме поле объявлено как `File! @fileByRelativePath`, во фрагменте — `childImageSharp { gatsbyImageData(sizes: …) }`:
+  `sizes` = ширина картинки в макете, по ней браузер выбирает файл из `srcset` с учётом плотности экрана.
+  Sharp на сборке делает варианты по ширине в webp / avif. Тип пропа — `TContentImage`, вывод — `ZoomImage` / `GatsbyImage`.
 - Ссылки контактов не хранятся: `mailto:` / `tel:` строятся из текста (`getContactHref`).
 
 ## Конвенции
@@ -141,7 +145,7 @@ pages    — home / careers / about / security / login / signUp / notFound / gui
 - Типографика — миксины `styles/_typography.scss` (`text-title`, `text-subtitle`, `text-card-title`, `text-body`, `text-description`).
 - Декоративные картинки — фоном в `::before` / `::after` с `aspect-ratio`, не `<img>`.
   Общие поверхности — `styles/_decor.scss`: `noise-surface` (зерно + градиенты из Figma), `image-border` (градиентная рамка).
-  Контентные фото — `ZoomImage`.
+  Контентные фото — `ZoomImage` (обёртка над `GatsbyImage`).
 
 ### TypeScript / React
 

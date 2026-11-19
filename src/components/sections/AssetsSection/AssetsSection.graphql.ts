@@ -12,7 +12,11 @@ export const fragment = graphql`
     }
     abstractTitle
     abstractDesigns {
-      image
+      image {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
       alt
     }
   }

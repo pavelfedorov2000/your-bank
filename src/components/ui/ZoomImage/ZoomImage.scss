@@ -12,11 +12,11 @@ $name: ".zoom-image";
   overflow: hidden;
   isolation: isolate; // Safari: keep the border radius clipping the scaled image
 
+  // GatsbyImage wrapper: fills the block, the <img> inside covers it (objectFit "cover" by default)
   &__img {
-    display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    vertical-align: top;
     transition: transform var(--transition);
   }
 

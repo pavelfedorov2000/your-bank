@@ -1,5 +1,4 @@
 import React, { type FC } from "react";
-import { withPrefix } from "gatsby";
 
 import { Card, Title, ZoomImage } from "@components/ui";
 import { MetaTags } from "@components/content";
@@ -17,7 +16,7 @@ type Props = {
 /** About "Press Releases" card: photo, title, meta tags (location, date), description. */
 const PressReleaseCard: FC<Props> = ({ data: { title, image, meta, description } }) => (
   <Card className={mainClass} as="article" mods={[COMPONENT_MODS.card.surface]}>
-    <ZoomImage className={`${mainClass}__image`} src={withPrefix(image)} isDecorative />
+    <ZoomImage className={`${mainClass}__image`} image={image} isDecorative />
 
     <div className={`${mainClass}__body`}>
       <div className={`${mainClass}__head`}>

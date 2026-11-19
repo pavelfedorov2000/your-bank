@@ -75,6 +75,7 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ act
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
   actions.createTypes(`
     # ---------- primitives ----------
+    # Images: path relative to content.json ("../images/content/…"), resolved to a File for gatsby-plugin-image.
     # Titles are plain strings; the accented part (lime in the design) is wrapped in <mark>: "Our <mark>Products</mark>"
 
     type LinkItem {
@@ -201,6 +202,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       supTitle: String
       title: String!
       description: String!
+      image: File! @fileByRelativePath
     }
 
     # ---------- home ----------
@@ -310,7 +312,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     type MissionVisionItem {
       title: String!
       description: String!
-      image: String!
+      image: File! @fileByRelativePath
     }
 
     type MissionVision {
@@ -320,7 +322,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     type PressRelease {
       title: String!
-      image: String!
+      image: File! @fileByRelativePath
       meta: [MetaItem!]!
       description: String!
     }
@@ -436,7 +438,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     }
 
     type AbstractDesign {
-      image: String!
+      image: File! @fileByRelativePath
       alt: String!
     }
 

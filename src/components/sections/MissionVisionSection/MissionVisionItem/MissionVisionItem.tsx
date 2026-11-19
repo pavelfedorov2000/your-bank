@@ -1,5 +1,4 @@
 import React, { type FC } from "react";
-import { withPrefix } from "gatsby";
 
 import { ZoomImage } from "@components/ui";
 import { TextBlock } from "@components/content";
@@ -19,7 +18,7 @@ type Props = TWithPropsMods<{
 const MissionVisionItem: FC<Props> = ({ data: { title, description, image }, mods }) => (
   <section className={cn(mainClass, getClassNameByMods(mainClass, mods))}>
     <div className={`${mainClass}__media`}>
-      <ZoomImage className={`${mainClass}__image`} src={withPrefix(image)} isDecorative />
+      <ZoomImage className={`${mainClass}__image`} image={image} isDecorative />
     </div>
 
     <TextBlock
