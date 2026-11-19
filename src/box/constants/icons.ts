@@ -20,6 +20,7 @@ export const ICON_NAMES = {
   building: "building",
   cash: "cash",
   chevronDown: "chevron-down",
+  close: "close",
   currencyBitcoin: "currency-bitcoin",
   currencyDollar: "currency-dollar",
   currencyEthereum: "currency-ethereum",

@@ -142,6 +142,14 @@ export const ICONS = {
       </>
     ),
   },
+  [ICON_NAMES.close]: {
+    viewBox: "0 0 28 28",
+    body: (
+      <>
+        <path d="M7 7L21 21M21 7L7 21" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+      </>
+    ),
+  },
   [ICON_NAMES.currencyBitcoin]: {
     viewBox: "0 0 35 35",
     body: (

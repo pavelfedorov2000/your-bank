@@ -15,7 +15,7 @@ type Props = TWithClassName<{
   onClick: () => void;
 }>;
 
-/** Toggle button of a collapsible menu. Visibility by breakpoint comes from the parent's element class. */
+/** Toggle button of a collapsible menu: burger when closed, cross when open. Visibility by breakpoint comes from the parent's element class. */
 const BurgerButton: FC<Props> = ({ className, isOpen, onClick }) => (
   <button
     className={cn(mainClass, className)}
@@ -24,7 +24,7 @@ const BurgerButton: FC<Props> = ({ className, isOpen, onClick }) => (
     aria-controls={ELEMENT_IDS.menu}
     onClick={onClick}
   >
-    <Icon className={`${mainClass}__icon`} name={ICON_NAMES.menu} />
+    <Icon className={`${mainClass}__icon`} name={isOpen ? ICON_NAMES.close : ICON_NAMES.menu} />
   </button>
 );
 

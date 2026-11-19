@@ -3,6 +3,7 @@ export { COMPONENT_MODS } from "./component-mods";
 export { ELEMENT_IDS, type TElementId } from "./element-ids";
 export { CONTACT_TYPES } from "./contacts";
 export { TitleVariants } from "./titles";
+export { BREAKPOINTS } from "./breakpoints";
 export { SLIDER_BREAKPOINTS } from "./slider";
 export { ICON_NAMES } from "./icons";
 export { LOGO_SIZE } from "./logo";

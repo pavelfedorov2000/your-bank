@@ -9,7 +9,7 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({ setHeadComponents }) =
     <link
       key="gf-lexend"
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap"
     />,
   ]);
 };

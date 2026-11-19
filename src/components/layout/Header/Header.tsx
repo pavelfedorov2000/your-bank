@@ -1,13 +1,13 @@
-import React, { type FC } from "react";
+import React, { type FC, useEffect } from "react";
 
 import { Container } from "@components/layout";
 import { BurgerButton, Ctas } from "@components/ui";
 import { Logo, NavMenu } from "@components/content";
 import UserMenu from "./UserMenu";
 
-import { useBooleanState, useLayoutContent } from "@box/hooks";
+import { useBooleanState, useLayoutContent, useMediaQuery, useScrollLock } from "@box/hooks";
 import { cn, getClassNameByMods } from "@box/utils";
-import { ARIA_LABELS, COMPONENT_MODS, ELEMENT_IDS, GENERAL_MODS } from "@box/constants";
+import { ARIA_LABELS, BREAKPOINTS, COMPONENT_MODS, ELEMENT_IDS, GENERAL_MODS } from "@box/constants";
 import { useAuth } from "@features/auth";
 
 import "./Header.scss";
@@ -17,7 +17,15 @@ const mainClass = "header";
 const Header: FC = () => {
   const { navigation, auth: { signUp, login, logoutBtnText } } = useLayoutContent();
   const { user, logout } = useAuth();
-  const [isMenuOpen, { toggleState: toggleMenu }] = useBooleanState();
+  const [isMenuOpen, { toggleState: toggleMenu, setIsFalse: closeMenu }] = useBooleanState();
+  /** From sm the menu is inline in the bar (no burger): an open mobile menu must not stay open / lock the page */
+  const isMenuInline = useMediaQuery(`(min-width: ${BREAKPOINTS.sm}px)`);
+
+  useEffect(() => {
+    if (isMenuInline) closeMenu();
+  }, [isMenuInline, closeMenu]);
+
+  useScrollLock(isMenuOpen);
 
   return (
     <header className={mainClass}>
