@@ -4,8 +4,8 @@ import { Section } from "@components/layout";
 import { List, Tabs, Title } from "@components/ui";
 import { IconTextBlock, SectionIntro } from "@components/content";
 
-import { useTabs } from "@box/hooks";
 import { COMPONENT_MODS, TitleVariants } from "@box/constants";
+import { useTabs } from "@box/tabs";
 
 import "./TabbedCardsSection.scss";
 

@@ -9,14 +9,14 @@ import simpleImportSort from "eslint-plugin-simple-import-sort";
  * 1. React, Gatsby, other packages
  * 2. Images (@images/…)
  * 3. Components: layout → ui → content → sections → sibling components (./X)
- * 4. Project code: @box hooks → utils → constants → types, then @features, @data
+ * 4. Project code: @box hooks → utils → constants → types → modules (@box/tabs), then @features, @data
  * 5. Styles: packages first (swiper/css), then own (./X.scss) — own rules must come later to override
  */
 const IMPORT_GROUPS = [
   ["^react$", "^gatsby", "^@?\\w"],
   ["^@images/"],
   ["^@components/layout", "^@components/ui", "^@components/content", "^@components/sections", "^\\.\\.?/(?!.*\\.s?css$)"],
-  ["^@box/hooks", "^@box/utils", "^@box/constants", "^@box/types", "^@features/", "^@data/"],
+  ["^@box/hooks", "^@box/utils", "^@box/constants", "^@box/types", "^@box/", "^@features/", "^@data/"],
   ["^\\u0000(?!\\.)", "^\\u0000.*\\.s?css$"],
 ];
 

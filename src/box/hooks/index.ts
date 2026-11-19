@@ -7,4 +7,3 @@ export { useScrollActiveIntoView } from "./useScrollActiveIntoView";
 export { useScrollLock } from "./useScrollLock";
 export { useScrollToTop } from "./useScrollToTop";
 export { useSiteMetadata } from "./useSiteMetadata";
-export { useTabs } from "./useTabs";

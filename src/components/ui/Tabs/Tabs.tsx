@@ -1,10 +1,11 @@
-import React, { type FC, type KeyboardEvent } from "react";
+import React, { type FC, type HTMLAttributes } from "react";
 
 import { Button } from "@components/ui";
 
 import { useScrollActiveIntoView } from "@box/hooks";
-import { cn, getClassNameByMods, getNextTabIndex, getTabId, getTabPanelId } from "@box/utils";
+import { cn, getClassNameByMods } from "@box/utils";
 import type { TWithClassName, TWithPropsMods } from "@box/types";
+import { getTabId, getTabPanelId } from "@box/tabs";
 
 import "./Tabs.scss";
 
@@ -16,29 +17,18 @@ type Props = TWithClassName<TWithPropsMods<{
   items: readonly string[];
   activeIndex: number;
   onChange: (index: number) => void;
-}>>;
+}> & Required<Pick<HTMLAttributes<HTMLDivElement>, "onKeyDown">>>;
 
 /**
  * Tab switcher: pills "For Individuals / For Businesses" by default, panel menu with COMPONENT_MODS.tabs.vertical.
  * When the row scrolls (vertical tabs on mobile), the active tab is scrolled into view.
- * Keyboard (WAI-ARIA tabs): only the active tab is in the Tab order, arrows / Home / End switch tabs.
+ * Keyboard (WAI-ARIA tabs): only the active tab is in the Tab order, arrows / Home / End switch tabs (handler from useTabs).
  */
-const Tabs: FC<Props> = ({ className, mods, tabsId, items, activeIndex, onChange }) => {
+const Tabs: FC<Props> = ({ className, mods, tabsId, items, activeIndex, onChange, onKeyDown }) => {
   const listRef = useScrollActiveIntoView<HTMLDivElement>(activeIndex);
 
-  /** Arrows / Home / End switch the tab and move focus to it (the row scrolls to it via useScrollActiveIntoView) */
-  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    const nextIndex = getNextTabIndex(event.key, activeIndex, items.length);
-
-    if (nextIndex === null) return;
-
-    event.preventDefault();
-    onChange(nextIndex);
-    document.getElementById(getTabId(tabsId, nextIndex))?.focus({ preventScroll: true });
-  };
-
   return (
-    <div ref={listRef} className={cn(mainClass, getClassNameByMods(mainClass, mods), className)} role="tablist" onKeyDown={handleKeyDown}>
+    <div ref={listRef} className={cn(mainClass, getClassNameByMods(mainClass, mods), className)} role="tablist" onKeyDown={onKeyDown}>
       {items.map((item, index) => (
         <Button
           key={item}

@@ -8,9 +8,9 @@ import { SliderControls, Tabs } from "@components/ui";
 import { SectionIntro } from "@components/content";
 import TestimonialCard from "./TestimonialCard";
 
-import { useTabs } from "@box/hooks";
 import { ARIA_LABELS, SLIDER_BREAKPOINTS } from "@box/constants";
 import type { TNullable } from "@box/types";
+import { useTabs } from "@box/tabs";
 
 import "swiper/css";
 import "./TestimonialsSection.scss";

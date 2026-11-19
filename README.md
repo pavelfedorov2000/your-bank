@@ -58,9 +58,10 @@ src/
   features/auth/           — фейковая авторизация (localStorage): хранилище, хуки, утилиты, публичный API в index.ts
   box/
     constants/             — COMPONENT_MODS, GENERAL_MODS, ICON_NAMES, ARIA_LABELS, REG_EXP_PATTERNS…
-    hooks/                 — useTabs, useCollapsibleList, useScrollActiveIntoView, useBooleanState…
-    utils/                 — cn, getClassNameByMods, getContactHref, getIsExternalLink, getIconName…
+    hooks/                 — useCollapsibleList, useScrollActiveIntoView, useBooleanState…
+    utils/                 — cn, getClassNameByMods, getContactHref, getIsExternalLink, getIconName, mapValues…
     types/                 — общие типы (TWithClassName, TWithPropsMods, TMaybe…)
+    tabs/                  — модуль: хук + утилиты + типы одного виджета вместе (useTabs, getTabId…), API в index.ts
   styles/                  — глобальные стили, токены, миксины, типографика, декор
   images/                  — content/ — картинки контента (через gatsby-plugin-image), decor/ — фоны для SCSS, icons/
 static/                    — файлы «как есть»: favicon
@@ -75,6 +76,10 @@ static/                    — файлы «как есть»: favicon
 ### Алиасы импортов
 
 `@components/*`, `@box/*`, `@features/*`, `@data/*`, `@images/*`, `@styles/*`.
+
+В `box` код разложен по типу (`hooks`, `utils`, `constants`, `types`). Исключение — модуль: если у UI-виджета набирается
+своя связка хук + утилиты + типы, она живёт в `box/<имя>/` с публичным API в `index.ts` (`@box/tabs`).
+Предметная логика (пользователи, сессия) — не в `box`, а в `features`.
 Заданы в двух местах — `tsconfig.json` (`paths`) и `gatsby-node.ts` (`ALIASES`), держите их синхронными.
 В `gatsby-config.ts` / `gatsby-node.ts` алиасы не работают — там относительные импорты (`./src/box/constants/…`).
 
@@ -161,7 +166,7 @@ pages    — home / careers / about / security / login / signUp / notFound / gui
 - Без `as` поверх чужих данных: `localStorage` — через type guard (`getIsAuthUser`). Включён `noUncheckedIndexedAccess`
   (`arr[i]` — `T | undefined`). CSS-переменные в `style` — без каста (`box/types/css.d.ts`).
 - Импорты группируются автоматически (ESLint, `eslint.config.mjs`), пустая строка между группами:
-  пакеты → `@images` → компоненты (layout → ui → content → sections → `./X`) → `@box` (hooks → utils → constants → types),
+  пакеты → `@images` → компоненты (layout → ui → content → sections → `./X`) → `@box` (hooks → utils → constants → types → модули),
   `@features` → стили (сначала пакетов, потом свои `./X.scss`).
 
 ## Авторизация (демо)

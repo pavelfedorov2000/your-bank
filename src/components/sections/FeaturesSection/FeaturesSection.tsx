@@ -5,8 +5,8 @@ import { List, Tabs } from "@components/ui";
 import { SectionIntro } from "@components/content";
 import FeatureCard from "./FeatureCard";
 
-import { useTabs } from "@box/hooks";
 import { COMPONENT_MODS } from "@box/constants";
+import { useTabs } from "@box/tabs";
 
 import "./FeaturesSection.scss";
 
