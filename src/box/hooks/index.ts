@@ -4,6 +4,7 @@ export { useCollapsibleList } from "./useCollapsibleList";
 export { useInertOutside } from "./useInertOutside";
 export { useIsScrolledPast } from "./useIsScrolledPast";
 export { useKeyDown } from "./useKeyDown";
+export { useLatestRef } from "./useLatestRef";
 export { useLayoutContent } from "./useLayoutContent";
 export { useMediaQuery } from "./useMediaQuery";
 export { useMobileMenu } from "./useMobileMenu";

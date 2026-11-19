@@ -4,7 +4,7 @@ import { useBooleanState } from "./useBooleanState";
 
 /**
  * Whether a media query matches, kept in sync on change (resize, rotation, system settings).
- * false on the server and on the first render. const isLaptop = useMediaQuery(`(min-width: ${BREAKPOINTS.lg}px)`);
+ * false on the server and on the first render. const isLaptop = useMediaQuery(getMediaQuery(BREAKPOINTS.lg));
  */
 export const useMediaQuery = (query: string) => {
   const [isMatching, { setState: setIsMatching }] = useBooleanState();

@@ -6,7 +6,7 @@ import { Logo, NavMenu } from "@components/content";
 import UserMenu from "./UserMenu";
 
 import { useLayoutContent, useMobileMenu } from "@box/hooks";
-import { cn, getClassNameByMods } from "@box/utils";
+import { cn, getClassNameByMods, getMediaQuery } from "@box/utils";
 import { ARIA_LABELS, BREAKPOINTS, COMPONENT_MODS, ELEMENT_IDS, GENERAL_MODS } from "@box/constants";
 import { useAuth } from "@features/auth";
 
@@ -24,7 +24,7 @@ const Header: FC = () => {
     menuId: ELEMENT_IDS.menu,
     triggerId: ELEMENT_IDS.burger,
     /** From sm the menu is inline in the bar (no burger) */
-    inlineQuery: `(min-width: ${BREAKPOINTS.sm}px)`,
+    inlineQuery: getMediaQuery(BREAKPOINTS.sm),
   });
 
   return (

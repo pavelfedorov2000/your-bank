@@ -5,7 +5,7 @@ export { ROUTES } from "./routes";
 export { CONTACT_HREF_PREFIXES, CONTACT_TYPES } from "./contacts";
 export { TitleVariants } from "./titles";
 export { BREAKPOINTS } from "./breakpoints";
-export { MEDIA_QUERIES } from "./media-queries";
+export { MEDIA_DIRECTIONS, MEDIA_QUERIES } from "./media-queries";
 export { SLIDER_BREAKPOINTS, SLIDER_SPEED } from "./slider";
 export { ICON_NAMES } from "./icons";
 export { LOGO_SIZE } from "./logo";

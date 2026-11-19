@@ -1,4 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+
+import { useLatestRef } from "./useLatestRef";
 
 import type { TKey } from "@box/types";
 
@@ -8,8 +10,7 @@ import type { TKey } from "@box/types";
  */
 export const useKeyDown = (key: TKey, onKeyDown: () => void, isActive = true) => {
   /** Latest handler without re-subscribing on every render */
-  const handlerRef = useRef(onKeyDown);
-  handlerRef.current = onKeyDown;
+  const handlerRef = useLatestRef(onKeyDown);
 
   useEffect(() => {
     if (!isActive) return;
@@ -21,5 +22,5 @@ export const useKeyDown = (key: TKey, onKeyDown: () => void, isActive = true) =>
     document.addEventListener("keydown", handleKeyDown);
 
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [key, isActive]);
+  }, [key, isActive, handlerRef]);
 };

@@ -1,4 +1,6 @@
-import { type RefObject, useEffect, useRef } from "react";
+import { type RefObject, useEffect } from "react";
+
+import { useLatestRef } from "./useLatestRef";
 
 import type { TNullable } from "@box/types";
 
@@ -13,8 +15,7 @@ export const useClickOutside = <T extends HTMLElement>(
   isActive = true,
 ) => {
   /** Latest handler without re-subscribing on every render */
-  const handlerRef = useRef(onClickOutside);
-  handlerRef.current = onClickOutside;
+  const handlerRef = useLatestRef(onClickOutside);
 
   useEffect(() => {
     if (!isActive) return;
@@ -26,5 +27,5 @@ export const useClickOutside = <T extends HTMLElement>(
     document.addEventListener("pointerdown", handlePointerDown);
 
     return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [elementRef, isActive]);
+  }, [elementRef, isActive, handlerRef]);
 };
