@@ -1,6 +1,6 @@
-import type { TNullable } from "@box/types";
-
 import type { TAuthUser } from "./types";
+
+import type { TNullable } from "@box/types";
 
 /** localStorage can be missing (SSR) or throw (private mode, blocked site data): every access is guarded. */
 export const readStorage = (key: string): TNullable<string> => {

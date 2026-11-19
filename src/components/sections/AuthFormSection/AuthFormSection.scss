@@ -16,22 +16,20 @@ $name: ".auth-form";
     @include responsive(--card-padding, (30px, null, 80px 200px, 100px 150px));
     @include responsive(--card-gap, (40px, 60px, null, 80px));
     @include responsive(max-width, (null, 1064px, null, 1326px));
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      aspect-ratio: #{650} / #{684};
+      background: url("@images/decor/auth-dots.webp") center / contain no-repeat;
+      pointer-events: none;
+  
+      @include responsive(width, (159px, 243px, null, 325px));
+    }
   }
 
-  // Dots in the top-right corner (decor, CSS background; ::before of the card is its border)
-  &__panel::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    aspect-ratio: #{650} / #{684};
-    background: url("@images/decor/auth-dots.webp") center / contain no-repeat;
-    pointer-events: none;
-
-    @include responsive(width, (159px, 243px, null, 325px));
-  }
-
-  // Mix with text-block
   &__head {
     --text-block-line-height: 1.25;
 
@@ -60,7 +58,6 @@ $name: ".auth-form";
     @include responsive(gap, (20px, 24px, null, 30px));
   }
 
-  // Login / sign up failure (not in the design)
   &__error {
     color: var(--color-error);
     text-align: center;
@@ -85,11 +82,9 @@ $name: ".auth-form";
 
   &__ctas {
     --ctas-align-items: stretch;
-
     --list-gap: 24px;
   }
 
-  // "Or Continue with" between two lines
   &__divider {
     display: flex;
     align-items: center;
@@ -110,13 +105,11 @@ $name: ".auth-form";
 
   &__socials {
     --list-flex-direction: row;
-
-    justify-content: center;
+    --list-justify-content: center;
 
     @include responsive(--list-gap, (20px, null, null, 24px));
   }
 
-  // Social login button: icon badge 68 / 94px, icon 24 / 30px (sizes of the badge via its vars)
   &__social {
     @include responsive(--icon-badge-padding, (8px, null, null, 12px));
     @include responsive(--icon-badge-size, (52px, null, null, 70px));

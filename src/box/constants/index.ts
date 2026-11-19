@@ -1,11 +1,11 @@
 export { GENERAL_MODS } from "./mods";
+export { COMPONENT_MODS } from "./component-mods";
 export { ELEMENT_IDS, type TElementId } from "./element-ids";
-export { ButtonMods } from "./buttons";
-export { CardMods } from "./card";
-export { SectionMods } from "./section";
+export { CONTACT_TYPES } from "./contacts";
 export { TitleVariants } from "./titles";
-export { NavMenuMods } from "./nav-menu";
-export { SLIDER_BREAKPOINTS, SWIPER_CONTROLS_ARIA_LABELS } from "./slider";
-export { TabsMods } from "./tabs";
+export { SLIDER_BREAKPOINTS } from "./slider";
 export { ICON_NAMES } from "./icons";
-export { PASSWORD_TOGGLE_ARIA_LABELS } from "./input";
+export { LOGO_SIZE } from "./logo";
+export { REG_EXP_PATTERNS } from "./reg-exp";
+export { EXTERNAL_LINK_ATTRS } from "./link";
+export { ARIA_LABELS } from "./aria-labels";

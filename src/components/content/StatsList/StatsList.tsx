@@ -1,7 +1,7 @@
 import React, { type FC } from "react";
 
-import type { TWithClassName } from "@box/types";
 import { cn } from "@box/utils";
+import type { TWithClassName } from "@box/types";
 
 import "./StatsList.scss";
 

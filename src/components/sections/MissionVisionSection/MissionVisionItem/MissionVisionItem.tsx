@@ -4,8 +4,8 @@ import { withPrefix } from "gatsby";
 import { Title, ZoomImage } from "@components/ui";
 import { TextBlock } from "@components/content";
 
-import type { TWithPropsMods } from "@box/types";
 import { cn, getClassNameByMods } from "@box/utils";
+import type { TWithPropsMods } from "@box/types";
 
 import "./MissionVisionItem.scss";
 

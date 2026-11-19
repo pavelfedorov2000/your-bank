@@ -12,10 +12,8 @@ $name: ".protection";
     position: relative;
     isolation: isolate;
 
-    // Figma Laptop (1440) 80px / Desktop 100px; narrower screens get 40px, otherwise the 2 columns don't fit the cards
     @include responsive(padding-inline, (0, 40px, 80px, 100px));
 
-    // Figma "Background Image": panel behind the upper part of the cards
     &::before {
       content: "";
       position: absolute;
@@ -30,10 +28,7 @@ $name: ".protection";
     }
   }
 
-  &__grid {
-    --list-display: grid;
-
-    @include responsive(--list-gap, (20px, null, null, 30px));
-    @include responsive(grid-template-columns, (null, repeat(2, minmax(0, 1fr))));
+  &__list {
+    --list-gap: var(--cards-gap);
   }
 }

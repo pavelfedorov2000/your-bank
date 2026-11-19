@@ -2,8 +2,9 @@ import React, { type FC } from "react";
 
 import { Button } from "@components/ui";
 
-import type { TWithClassName, TWithPropsMods } from "@box/types";
+import { useScrollActiveIntoView } from "@box/hooks";
 import { cn, getClassNameByMods } from "@box/utils";
+import type { TWithClassName, TWithPropsMods } from "@box/types";
 
 import "./Tabs.scss";
 
@@ -15,21 +16,28 @@ type Props = TWithClassName<TWithPropsMods<{
   onChange: (index: number) => void;
 }>>;
 
-/** Tab switcher: pills "For Individuals / For Businesses" by default, panel menu with TabsMods.Vertical. */
-const Tabs: FC<Props> = ({ className, mods, items, activeIndex, onChange }) => (
-  <div className={cn(mainClass, getClassNameByMods(mainClass, mods), className)} role="tablist">
-    {items.map((item, index) => (
-      <Button
-        className={`${mainClass}__item`}
-        key={item}
-        role="tab"
-        aria-selected={index === activeIndex}
-        onClick={() => onChange(index)}
-      >
-        {item}
-      </Button>
-    ))}
-  </div>
-);
+/**
+ * Tab switcher: pills "For Individuals / For Businesses" by default, panel menu with COMPONENT_MODS.tabs.vertical.
+ * When the row scrolls (vertical tabs on mobile), the active tab is scrolled into view.
+ */
+const Tabs: FC<Props> = ({ className, mods, items, activeIndex, onChange }) => {
+  const listRef = useScrollActiveIntoView<HTMLDivElement>(activeIndex);
+
+  return (
+    <div ref={listRef} className={cn(mainClass, getClassNameByMods(mainClass, mods), className)} role="tablist">
+      {items.map((item, index) => (
+        <Button
+          className={`${mainClass}__item`}
+          key={item}
+          role="tab"
+          aria-selected={index === activeIndex}
+          onClick={() => onChange(index)}
+        >
+          {item}
+        </Button>
+      ))}
+    </div>
+  );
+};
 
 export default Tabs;

@@ -5,6 +5,8 @@ import { List } from "@components/ui";
 import { SectionIntro } from "@components/content";
 import PressReleaseCard from "./PressReleaseCard";
 
+import { COMPONENT_MODS } from "@box/constants";
+
 import "./PressReleasesSection.scss";
 
 const mainClass = "press-release-cards";
@@ -19,7 +21,8 @@ const PressReleasesSection: FC<Props> = ({ data: { intro, items } }) => (
     <SectionIntro data={intro} />
 
     <List
-      className={`${mainClass}__grid`}
+      className={`${mainClass}__list`}
+      mods={[COMPONENT_MODS.list.twoColumns]}
       items={items}
       getKey={(item) => item.title}
       renderItem={(item) => <PressReleaseCard data={item} />}

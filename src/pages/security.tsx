@@ -1,11 +1,11 @@
 import React, { type FC } from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 
-import { Layout } from "@components/layout";
-import Seo from "@components/Seo";
-import { SimpleHero, ProtectionSection, FaqSection } from "@components/sections";
-
 import heroImage from "@images/heroes/security.webp";
+
+import { Layout } from "@components/layout";
+import { Seo } from "@components/content";
+import { FaqSection, ProtectionSection, SimpleHero } from "@components/sections";
 
 const SecurityPage: FC<PageProps<Queries.SecurityPageQuery>> = ({ data: { contentJson } }) => {
   if (!contentJson) return null;

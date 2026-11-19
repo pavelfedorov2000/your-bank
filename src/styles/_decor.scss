@@ -1,11 +1,13 @@
 // Decorative surfaces from the design, shared by several blocks.
 
-// Figma "noise" surface (mission & vision photo frame, benefits cards, "How We Protect You" panel):
-// grain tile + dark fade towards the bottom-left + faint lime glow from the top-left.
+// Figma "noise" surface (mission & vision photo frame, benefits cards, "How We Protect You" panel), 3 fills:
+// faint lime glow from the top-left → surface that fades out to the left (the grain shows there) → grain tile.
+// Angles / stops are the Figma gradient handles converted for a ~2.2:1 card (Careers benefit card, 748×336);
+// the fade must go along the width (~264deg), not to the bottom-left corner.
 @mixin noise-surface {
   background:
-    linear-gradient(148deg, rgb(202 255 51 / 5%) 0%, transparent 81%),
-    linear-gradient(229deg, var(--color-surface) 41%, transparent 100%),
+    linear-gradient(123deg, rgb(var(--color-accent-rgb) / 5%) -29%, rgb(var(--color-accent-rgb) / 0%) 28%),
+    linear-gradient(264deg, var(--color-surface) 41%, rgb(28 28 28 / 0%) 100%),
     url("@images/decor/noise.webp") 0 0 / 291px 218px;
 }
 

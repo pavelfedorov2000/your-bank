@@ -4,7 +4,6 @@ export const fragment = graphql`
   fragment Contact on Contact {
     type
     label
-    href
     icon
   }
 `;

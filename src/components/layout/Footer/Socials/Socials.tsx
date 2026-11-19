@@ -2,8 +2,8 @@ import React, { type FC } from "react";
 
 import { Icon, List } from "@components/ui";
 
+import { cn, getIconName } from "@box/utils";
 import type { TWithClassName } from "@box/types";
-import { cn } from "@box/utils";
 
 import "./Socials.scss";
 
@@ -21,7 +21,7 @@ const Socials: FC<Props> = ({ items, className }) => (
     getKey={(social) => social.label}
     renderItem={(social) => (
       <a className={`${mainClass}__link`} href={social.href} aria-label={social.label}>
-        <Icon className={`${mainClass}__icon`} name={social.icon} />
+        <Icon className={`${mainClass}__icon`} name={getIconName(social.icon)} />
       </a>
     )}
   />

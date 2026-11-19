@@ -33,7 +33,7 @@ $name: ".typography";
     &::after {
       content: "";
       position: absolute;
-      border: 0 solid #4c4c4c;
+      border: 0 solid var(--color-grey-30);
       pointer-events: none;
     }
 
@@ -59,11 +59,10 @@ $name: ".typography";
 
   &__weights {
     --list-flex-direction: row;
+    --list-flex-wrap: wrap;
     --list-gap: 10px;
 
-    flex-wrap: wrap;
-
-    @include responsive(justify-content, (center, null, flex-start));
+    @include responsive(--list-justify-content, (center, null, flex-start));
   }
 
   // Pill written in its own weight (--typography-weight from content.json)
@@ -73,7 +72,7 @@ $name: ".typography";
     font-weight: var(--typography-weight);
     background-color: var(--color-surface);
     border-radius: var(--radius-pill);
-    box-shadow: inset 0 0 0 1px var(--color-border);
+    box-shadow: var(--shadow);
 
     @include responsive(padding, (8px 16px, 10px 20px, null, 14px 24px));
     @include responsive(font-size, (14px, 16px, 18px, 20px));
@@ -105,9 +104,8 @@ $name: ".typography";
 
   &__chars {
     --list-flex-direction: row;
+    --list-flex-wrap: wrap;
     --list-gap: 10px;
-
-    flex-wrap: wrap;
   }
 
   // One glyph tile (Figma: 54x56, radius 10)
@@ -118,7 +116,7 @@ $name: ".typography";
     font-weight: 500;
     background-color: var(--color-surface);
     border-radius: 10px;
-    box-shadow: inset 0 0 0 1px var(--color-border);
+    box-shadow: var(--shadow);
 
     @include responsive(min-width, (40px, 48px, null, 54px));
     @include responsive(height, (42px, 50px, null, 56px));

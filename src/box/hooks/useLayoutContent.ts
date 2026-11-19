@@ -17,7 +17,7 @@ export const useLayoutContent = () => {
             login {
               ...LinkItem
             }
-            logoutLabel
+            logoutBtnText
           }
           footer {
             contacts {

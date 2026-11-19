@@ -1,8 +1,12 @@
 import React, { type FC, type ReactNode } from "react";
+
+import { Title } from "@components/ui";
+import { TextBlock } from "@components/content";
+
 import { cn } from "@box/utils";
-import { Heading, TextBlock } from "@components/content";
-import type { TWithClassName } from "@box/types";
 import { TitleVariants } from "@box/constants";
+import type { TWithClassName } from "@box/types";
+
 import "./SectionIntro.scss";
 
 const mainClass = "section-intro";
@@ -19,7 +23,7 @@ const SectionIntro: FC<Props> = ({ data, headingLevel = "h2", actions, className
   <header className={cn(mainClass, className)}>
     <TextBlock
       className={`${mainClass}__text`}
-      title={<Heading data={data.title} as={headingLevel} variant={TitleVariants.Section} />}
+      title={<Title as={headingLevel} variant={TitleVariants.Section} html={data.title} />}
       description={data.description}
     />
     {actions && <div className={`${mainClass}__actions`}>{actions}</div>}

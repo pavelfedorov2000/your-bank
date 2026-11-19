@@ -2,9 +2,7 @@ import { graphql } from "gatsby";
 
 export const fragment = graphql`
   fragment AuthFormSection on AuthForm {
-    title {
-      ...Heading
-    }
+    title
     description
     fields {
       name

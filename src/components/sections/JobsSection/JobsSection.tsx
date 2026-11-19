@@ -5,7 +5,7 @@ import { List } from "@components/ui";
 import { SectionIntro } from "@components/content";
 import JobCard from "./JobCard";
 
-import { SectionMods } from "@box/constants";
+import { COMPONENT_MODS } from "@box/constants";
 
 import "./JobsSection.scss";
 
@@ -17,14 +17,15 @@ type Props = {
 
 /** Careers "Job Openings". */
 const JobsSection: FC<Props> = ({ data: { intro, aboutLabel, requirementsLabel, items } }) => (
-  <Section className={mainClass} mods={[SectionMods.Large]}>
+  <Section className={mainClass} mods={[COMPONENT_MODS.section.large]}>
     <SectionIntro data={intro} />
 
     <List
-      className={`${mainClass}__grid`}
+      className={`${mainClass}__list`}
+      mods={[COMPONENT_MODS.list.twoColumns]}
       items={items}
       getKey={(job) => job.title}
-      renderItem={(job) => <JobCard data={job} labels={{ about: aboutLabel, requirements: requirementsLabel }} />}
+      renderItem={(job) => <JobCard data={job} labels={{ aboutLabel, requirementsLabel }} />}
     />
   </Section>
 );

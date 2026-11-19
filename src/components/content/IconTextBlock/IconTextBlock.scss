@@ -1,0 +1,38 @@
+@use "@styles/mixins" as *;
+@use "@styles/typography" as *;
+
+$name: ".icon-text-block";
+
+:root {
+  @include responsive(--icon-text-block-head-gap, (20px, null, null, 30px));
+  @include responsive(--icon-text-block-gap, (12px, null, null, 20px));
+}
+
+// Block: icon-text-block (icon badge + title + text)
+#{$name} {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--icon-text-block-gap);
+  text-align: center;
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--icon-text-block-head-gap);
+  }
+
+  &__description {
+    @include text-description;
+  }
+
+  &--row {
+    align-items: stretch;
+    text-align: left;
+
+    #{$name}__head {
+      flex-direction: row;
+    }
+  }
+}

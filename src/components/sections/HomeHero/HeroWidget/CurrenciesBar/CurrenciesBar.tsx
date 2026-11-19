@@ -2,8 +2,8 @@ import React, { type FC } from "react";
 
 import { Icon, List } from "@components/ui";
 
+import { cn, getIconName } from "@box/utils";
 import type { TWithClassName } from "@box/types";
-import { cn } from "@box/utils";
 
 import "./CurrenciesBar.scss";
 
@@ -21,7 +21,7 @@ const CurrenciesBar: FC<Props> = ({ data: { label, list }, className }) => (
       className={`${mainClass}__list`}
       items={list}
       getKey={(currency) => currency.code}
-      renderItem={(currency) => <Icon className={`${mainClass}__icon`} name={currency.icon} title={currency.code} />}
+      renderItem={(currency) => <Icon className={`${mainClass}__icon`} name={getIconName(currency.icon)} title={currency.code} />}
     />
   </div>
 );

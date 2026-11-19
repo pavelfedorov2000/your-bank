@@ -1,18 +1,20 @@
 import type { ButtonHTMLAttributes } from "react";
+
 import type { TIconName } from "./icon";
-import type { ButtonMods } from "@box/constants";
 
-export type TButtonMod = (typeof ButtonMods)[keyof typeof ButtonMods];
+import type { COMPONENT_MODS } from "@box/constants";
 
-/** Button modifiers; falsy values are skipped (`isCompact && ButtonMods.Small`). */
-export type TButtonMods = Array<TButtonMod | false | null | undefined>;
+export type TButtonMod = (typeof COMPONENT_MODS.button)[keyof typeof COMPONENT_MODS.button];
+
+/** Button modifiers; falsy values are skipped (`isCompact && COMPONENT_MODS.button.small`). */
+export type TButtonMods = Array<TButtonMod>;
 
 /** Native <button> attributes (type, onClick, disabled, aria-*, className, children...) + design props. */
-export type TButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+export type TButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & Partial<{
   /** Renders a link when set, otherwise a <button> (native attributes apply to the <button> only). */
-  to?: string;
-  /** Look of the button: color, type, size... from ButtonMods. */
-  mods?: TButtonMods;
+  to: string;
+  /** Look of the button: color, type, size... from COMPONENT_MODS.button. */
+  mods: TButtonMods;
   /** Icon after the label (e.g. chevron in "Load All FAQ's"). */
-  icon?: TIconName;
-};
+  icon: TIconName;
+}>;

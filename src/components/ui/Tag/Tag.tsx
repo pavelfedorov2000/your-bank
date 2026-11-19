@@ -1,7 +1,7 @@
 import React, { type FC } from "react";
 
-import type { TWithChildren, TWithClassName } from "@box/types";
 import { cn } from "@box/utils";
+import type { TWithChildren, TWithClassName } from "@box/types";
 
 import "./Tag.scss";
 

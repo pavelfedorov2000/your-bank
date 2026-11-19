@@ -2,17 +2,17 @@ import React, { type FC } from "react";
 
 import { Button } from "@components/ui";
 
-import { ButtonMods, GENERAL_MODS } from "@box/constants";
-import type { TWithClassName } from "@box/types";
 import { cn, getClassNameByMods } from "@box/utils";
+import { COMPONENT_MODS, GENERAL_MODS, ICON_NAMES } from "@box/constants";
+import type { TSliderControlsAriaLabels, TWithClassName } from "@box/types";
 
 import "./SliderControls.scss";
 
 const mainClass = "slider-controls";
 
 type Props = TWithClassName<{
-  /** aria-labels of the arrows, e.g. SWIPER_CONTROLS_ARIA_LABELS.testimonials */
-  ariaLabels: { prev: string; next: string };
+  /** aria-labels of the arrows, e.g. ARIA_LABELS.sliderControls.testimonials */
+  ariaLabels: TSliderControlsAriaLabels;
   isPrevDisabled?: boolean;
   isNextDisabled?: boolean;
   onPrev: () => void;
@@ -27,8 +27,8 @@ const SliderControls: FC<Props> = ({ className, ariaLabels, isPrevDisabled, isNe
   <div className={cn(mainClass, className)}>
     <Button
       className={cn(`${mainClass}__button`, getClassNameByMods(`${mainClass}__button`, [GENERAL_MODS.prev]))}
-      mods={[ButtonMods.Icon]}
-      icon="arrow-left"
+      mods={[COMPONENT_MODS.button.icon]}
+      icon={ICON_NAMES.arrowLeft}
       aria-label={ariaLabels.prev}
       disabled={isPrevDisabled}
       onClick={onPrev}
@@ -36,8 +36,8 @@ const SliderControls: FC<Props> = ({ className, ariaLabels, isPrevDisabled, isNe
 
     <Button
       className={cn(`${mainClass}__button`, getClassNameByMods(`${mainClass}__button`, [GENERAL_MODS.next]))}
-      mods={[ButtonMods.Icon]}
-      icon="arrow-right"
+      mods={[COMPONENT_MODS.button.icon]}
+      icon={ICON_NAMES.arrowRight}
       aria-label={ariaLabels.next}
       disabled={isNextDisabled}
       onClick={onNext}

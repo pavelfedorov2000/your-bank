@@ -4,11 +4,12 @@ import { PROPERTY_GROUPS } from "./stylelint/property-groups.mjs";
  * Style lint: only the project order rules (no stylistic presets).
  * Inside a rule: CSS variables → SCSS variables → declarations (by property groups) →
  * other mixins (anywhere) → `@include responsive(…)` always at the bottom (same order) → nested rules.
+ * Percentages and angles are whole numbers (local/integer-units).
  */
 /** @type {import("stylelint").Config} */
 export default {
   customSyntax: "postcss-scss",
-  plugins: ["stylelint-order", "./stylelint/responsive-order.mjs"],
+  plugins: ["stylelint-order", "./stylelint/responsive-order.mjs", "./stylelint/integer-units.mjs"],
   rules: {
     "order/order": [
       [
@@ -25,5 +26,6 @@ export default {
       { unspecified: "bottomAlphabetical" },
     ],
     "local/responsive-order": true,
+    "local/integer-units": true,
   },
 };

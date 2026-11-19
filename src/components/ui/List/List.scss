@@ -1,3 +1,5 @@
+@use "@styles/mixins" as *;
+
 $name: ".list";
 
 // --list-* are registered as non-inherited: a list nested in another list (meta-tags inside a card grid)
@@ -5,6 +7,9 @@ $name: ".list";
 $list-defaults: (
   display: flex,
   flex-direction: column,
+  flex-wrap: nowrap,
+  justify-content: normal,
+  align-items: normal,
   gap: 0,
   style: none,
   margin: 0,
@@ -22,6 +27,9 @@ $list-defaults: (
 :root {
   --list-display: flex;
   --list-flex-direction: column;
+  --list-flex-wrap: nowrap;
+  --list-justify-content: normal;
+  --list-align-items: normal;
   --list-gap: 0;
   --list-style: none;
   --list-margin: 0;
@@ -31,8 +39,17 @@ $list-defaults: (
 #{$name} {
   display: var(--list-display);
   flex-direction: var(--list-flex-direction);
+  flex-wrap: var(--list-flex-wrap);
+  align-items: var(--list-align-items);
+  justify-content: var(--list-justify-content);
   gap: var(--list-gap);
   margin: var(--list-margin);
   padding: var(--list-padding);
   list-style: var(--list-style);
+
+  &--two-columns {
+    --list-display: grid;
+
+    @include responsive(grid-template-columns, (null, null, repeat(2, 1fr)));
+  }
 }

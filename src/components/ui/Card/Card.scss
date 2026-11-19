@@ -22,7 +22,7 @@ $name: ".card";
   flex-direction: column;
   gap: var(--card-gap);
   position: relative;
-  height: 100%; // fills its grid cell: cards in a row are equal
+  height: 100%;
   padding: var(--card-padding);
   background: var(--card-bg);
   border-radius: var(--card-radius);

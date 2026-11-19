@@ -2,6 +2,8 @@ import React, { type FC } from "react";
 
 import { Icon } from "@components/ui";
 
+import { ICON_NAMES } from "@box/constants";
+
 import "./TransactionCard.scss";
 
 const mainClass = "transaction-card";
@@ -15,7 +17,7 @@ const TransactionCard: FC<Props> = ({ data: { label, name, amount } }) => (
   <div className={mainClass}>
     <span className={`${mainClass}__info`}>
       <span className={`${mainClass}__icon-circle`}>
-        <Icon className={`${mainClass}__icon`} name="swap" />
+        <Icon className={`${mainClass}__icon`} name={ICON_NAMES.swap} />
       </span>
       <span className={`${mainClass}__text`}>
         <span className={`${mainClass}__label`}>{label}</span>

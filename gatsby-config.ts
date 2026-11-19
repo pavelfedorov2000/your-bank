@@ -1,5 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
 
+import { REG_EXP_PATTERNS } from "./src/box/constants/reg-exp";
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `YourBank`,
@@ -35,7 +37,7 @@ const config: GatsbyConfig = {
       options: {
         typeName: ({ node }: { node: { name: string } }) =>
           `${node.name
-            .split(/[-_\s]+/)
+            .split(REG_EXP_PATTERNS.wordSeparators)
             .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
             .join("")}Json`
       }

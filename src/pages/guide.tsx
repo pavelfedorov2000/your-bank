@@ -2,7 +2,7 @@ import React, { type FC } from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 
 import { Layout } from "@components/layout";
-import Seo from "@components/Seo";
+import { Seo } from "@components/content";
 import { AssetsSection, ColorStylesSection, GuideHero, TypographySection } from "@components/sections";
 
 /** Design guide of the template (Figma "🚀 Guide"): colors, typography, assets. */

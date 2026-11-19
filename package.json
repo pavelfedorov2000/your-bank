@@ -12,7 +12,9 @@
     "*.scss"
   ],
   "scripts": {
+    "predevelop": "npm run lint:fix",
     "develop": "gatsby develop",
+    "prestart": "npm run lint:fix",
     "start": "gatsby develop",
     "build": "gatsby build",
     "build:gh-pages": "gatsby build --prefix-paths",
@@ -21,7 +23,9 @@
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
     "lint:styles": "stylelint \"src/**/*.scss\"",
-    "lint:styles:fix": "stylelint \"src/**/*.scss\" --fix"
+    "lint:styles:fix": "stylelint \"src/**/*.scss\" --fix",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
   },
   "dependencies": {
     "gatsby": "^5.14.6",
@@ -35,9 +39,13 @@
     "swiper": "^14.3.0"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin": "^6.0.1",
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
+    "@typescript-eslint/parser": "^8.73.0",
+    "eslint": "^10.15.0",
+    "eslint-plugin-simple-import-sort": "^14.0.0",
     "postcss-scss": "^4.0.9",
     "stylelint": "^18.0.0",
     "stylelint-order": "^8.1.3",

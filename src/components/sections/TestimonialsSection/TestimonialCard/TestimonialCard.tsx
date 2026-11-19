@@ -2,6 +2,8 @@ import React, { type FC } from "react";
 
 import { Icon } from "@components/ui";
 
+import { ICON_NAMES } from "@box/constants";
+
 import "./TestimonialCard.scss";
 
 const mainClass = "testimonial-card";
@@ -14,7 +16,7 @@ type Props = {
 const TestimonialCard: FC<Props> = ({ data: { quote, author } }) => (
   <figure className={mainClass}>
     <div className={`${mainClass}__header`}>
-      <Icon className={`${mainClass}__quote-icon`} name="quote" />
+      <Icon className={`${mainClass}__quote-icon`} name={ICON_NAMES.quote} />
     </div>
     <blockquote className={`${mainClass}__quote`}>{quote}</blockquote>
     <figcaption className={`${mainClass}__author`}>{author}</figcaption>

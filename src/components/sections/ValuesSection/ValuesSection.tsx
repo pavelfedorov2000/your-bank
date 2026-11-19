@@ -5,6 +5,8 @@ import { List } from "@components/ui";
 import { SectionIntro } from "@components/content";
 import ValueItem from "./ValueItem";
 
+import { COMPONENT_MODS } from "@box/constants";
+
 import "./ValuesSection.scss";
 
 const mainClass = "values";
@@ -19,7 +21,8 @@ const ValuesSection: FC<Props> = ({ data: { intro, items } }) => (
     <SectionIntro data={intro} />
 
     <List
-      className={`${mainClass}__grid`}
+      className={`${mainClass}__list`}
+      mods={[COMPONENT_MODS.list.twoColumns]}
       items={items}
       getKey={(item) => item.title}
       renderItem={(item) => <ValueItem data={item} />}

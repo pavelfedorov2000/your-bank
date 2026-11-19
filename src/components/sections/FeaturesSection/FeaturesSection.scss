@@ -6,19 +6,16 @@ $name: ".features";
 #{$name} {
   &__body {
     display: flex;
+    gap: var(--cards-gap);
 
     @include responsive(flex-direction, (column, null, row));
     @include responsive(align-items, (null, null, flex-start));
-    @include responsive(gap, (20px, null, null, 30px));
   }
 
   // List block is configured through its --list-* variables
   &__list {
-    --list-display: grid;
+    --list-gap: var(--cards-gap);
 
     flex: 1;
-
-    @include responsive(--list-gap, (20px, null, null, 30px));
-    @include responsive(grid-template-columns, (null, repeat(2, 1fr)));
   }
 }

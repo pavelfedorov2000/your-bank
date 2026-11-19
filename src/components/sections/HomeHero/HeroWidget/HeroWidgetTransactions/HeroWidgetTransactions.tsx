@@ -1,7 +1,6 @@
 import React, { type FC } from "react";
 
 import { List, Title } from "@components/ui";
-
 import TransactionCard from "../TransactionCard";
 
 import "./HeroWidgetTransactions.scss";
@@ -22,8 +21,8 @@ const HeroWidgetTransactions: FC<Props> = ({ data: { title, list } }) => (
       className={`${mainClass}__list`}
       itemClassName={`${mainClass}__item`}
       items={list}
-      getKey={(tx) => tx.name}
-      renderItem={(tx) => <TransactionCard data={tx} />}
+      getKey={(transaction) => transaction.name}
+      renderItem={(transaction) => <TransactionCard data={transaction} />}
     />
   </section>
 );

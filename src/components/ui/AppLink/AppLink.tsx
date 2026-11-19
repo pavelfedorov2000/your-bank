@@ -1,5 +1,8 @@
 import React, { type FC } from "react";
 import { Link } from "gatsby";
+
+import { getIsExternalLink, getIsInternalLink } from "@box/utils";
+import { EXTERNAL_LINK_ATTRS } from "@box/constants";
 import type { TWithChildren, TWithClassName } from "@box/types";
 
 type Props = TWithClassName<TWithChildren<{
@@ -12,9 +15,7 @@ type Props = TWithClassName<TWithChildren<{
  * External http(s) links open in a new tab.
  */
 const AppLink: FC<Props> = ({ to, children, className }) => {
-  const isInternal = to.startsWith("/");
-
-  if (isInternal) {
+  if (getIsInternalLink(to)) {
     return (
       <Link className={className} to={to}>
         {children}
@@ -22,10 +23,8 @@ const AppLink: FC<Props> = ({ to, children, className }) => {
     );
   }
 
-  const isExternal = /^https?:\/\//.test(to);
-
   return (
-    <a className={className} href={to} {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}>
+    <a className={className} href={to} {...(getIsExternalLink(to) && EXTERNAL_LINK_ATTRS)}>
       {children}
     </a>
   );

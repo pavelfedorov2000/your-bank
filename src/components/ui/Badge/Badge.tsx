@@ -2,15 +2,14 @@ import React, { type FC } from "react";
 
 import { Icon } from "@components/ui";
 
-import type { TIconName, TWithChildren, TWithClassName } from "@box/types";
 import { cn } from "@box/utils";
+import type { TIconName, TWithChildren, TWithClassName } from "@box/types";
 
 import "./Badge.scss";
 
 const mainClass = "badge";
 
 type Props = TWithClassName<TWithChildren<{
-  /** Accent icon before the text (e.g. "badge-check"). */
   icon?: TIconName;
 }>>;
 
@@ -18,7 +17,7 @@ type Props = TWithClassName<TWithChildren<{
 const Badge: FC<Props> = ({ icon, className, children }) => (
   <span className={cn(mainClass, className)}>
     {icon && <Icon className={`${mainClass}__icon`} name={icon} />}
-    {children}
+    <span className={`${mainClass}__text`}>{children}</span>
   </span>
 );
 

@@ -3,9 +3,7 @@ import { graphql } from "gatsby";
 export const fragment = graphql`
   fragment HomeHero on HomeHero {
     badge
-    title {
-      ...Heading
-    }
+    title
     description
     button {
       ...LinkItem

@@ -4,12 +4,16 @@ $name: ".contacts";
 
 // Block: contacts (email / phone / address with accent icons)
 #{$name} {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
   font-style: normal;
+
+  // Mix with list: centered wrapping row
+  &__list {
+    --list-flex-direction: row;
+    --list-flex-wrap: wrap;
+    --list-justify-content: center;
+    --list-align-items: center;
+    --list-gap: 20px;
+  }
 
   &__item {
     display: inline-flex;
@@ -20,7 +24,7 @@ $name: ".contacts";
 
     @include responsive(font-size, (14px, null, null, 18px));
 
-    &:hover {
+    @include hover-fine-pointer {
       color: var(--color-text);
     }
   }

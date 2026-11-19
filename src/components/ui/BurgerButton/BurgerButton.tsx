@@ -2,37 +2,29 @@ import React, { type FC } from "react";
 
 import { Icon } from "@components/ui";
 
-import type { TWithClassName } from "@box/types";
 import { cn } from "@box/utils";
+import { ARIA_LABELS, ELEMENT_IDS, ICON_NAMES } from "@box/constants";
+import type { TWithClassName } from "@box/types";
 
 import "./BurgerButton.scss";
 
 const mainClass = "burger-button";
 
-/** aria-label depending on the menu state. */
-const ARIA_LABELS = {
-  open: "Open menu",
-  close: "Close menu",
-} as const;
-
 type Props = TWithClassName<{
   isOpen: boolean;
-  /** id of the menu it toggles (aria-controls), e.g. ELEMENT_IDS.menu. */
-  controls: string;
   onClick: () => void;
 }>;
 
 /** Toggle button of a collapsible menu. Visibility by breakpoint comes from the parent's element class. */
-const BurgerButton: FC<Props> = ({ className, isOpen, controls, onClick }) => (
+const BurgerButton: FC<Props> = ({ className, isOpen, onClick }) => (
   <button
     className={cn(mainClass, className)}
-    type="button"
-    aria-label={isOpen ? ARIA_LABELS.close : ARIA_LABELS.open}
+    aria-label={isOpen ? ARIA_LABELS.burgerBtn.close : ARIA_LABELS.burgerBtn.open}
     aria-expanded={isOpen}
-    aria-controls={controls}
+    aria-controls={ELEMENT_IDS.menu}
     onClick={onClick}
   >
-    <Icon className={`${mainClass}__icon`} name="menu" />
+    <Icon className={`${mainClass}__icon`} name={ICON_NAMES.menu} />
   </button>
 );
 

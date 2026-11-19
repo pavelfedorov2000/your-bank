@@ -12,12 +12,17 @@ $name: ".button";
   --button-color: currentColor;
   --button-justify: center;
   --button-content-gap: 4px;
+  --button-content-direction: row;
+  --button-content-justify: center;
+
+  --button-opacity: 1;
+  --button-opacity--hover: 0.85;
+  --button-opacity--disabled: 0.4;
 
   @include responsive(--button-font-size, (14px, null, null, 18px));
   @include responsive(--button-icon-size, (18px, null, null, 22px));
 }
 
-// Block: button (Figma "Button")
 #{$name} {
   display: inline-flex;
   flex-shrink: 0;
@@ -32,12 +37,25 @@ $name: ".button";
   box-shadow: var(--button-shadow);
   transition: opacity var(--transition), background-color var(--transition), color var(--transition);
 
-  &:hover:not(:disabled) {
-    opacity: 0.85;
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: var(--button-content-direction);
+    align-items: center;
+    justify-content: var(--button-content-justify);
+    gap: var(--button-content-gap);
+  }
+
+  &__icon {
+    --icon-size: var(--button-icon-size);
+  }
+
+  @include hover-fine-pointer(":not(:disabled)") {
+    opacity: var(--button-opacity--hover);
   }
 
   &:disabled {
-    opacity: 0.4;
+    opacity: var(--button-opacity--disabled);
     cursor: default;
   }
 
@@ -50,7 +68,7 @@ $name: ".button";
 
   &--secondary {
     --button-bg: var(--color-surface);
-    --button-shadow: inset 0 0 0 1px var(--color-border);
+    --button-shadow: var(--shadow);
     --button-color: var(--color-text);
 
     @include responsive(--button-padding, (14px 20px, null, null, 18px 24px));
@@ -73,15 +91,5 @@ $name: ".button";
     --button-radius: 50%;
 
     @include responsive(--button-padding, (12px, null, null, 14px));
-  }
-
-  &__content {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--button-content-gap);
-  }
-
-  &__icon {
-    --icon-size: var(--button-icon-size);
   }
 }

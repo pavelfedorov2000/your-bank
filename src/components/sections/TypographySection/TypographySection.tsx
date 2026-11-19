@@ -3,7 +3,7 @@ import React, { type CSSProperties, type FC } from "react";
 import { Card, List, Title } from "@components/ui";
 import { GuideBlock } from "@components/content";
 
-import { CardMods, TitleVariants } from "@box/constants";
+import { COMPONENT_MODS, TitleVariants } from "@box/constants";
 
 import "./TypographySection.scss";
 
@@ -17,12 +17,12 @@ type Props = {
 const TypographySection: FC<Props> = ({ data: { intro, fontName, weightsTitle, weights, charsets } }) => (
   <GuideBlock className={mainClass} intro={intro}>
     <div className={`${mainClass}__top`}>
-      <Card className={`${mainClass}__specimen-card`} mods={[CardMods.Inset]}>
+      <Card className={`${mainClass}__specimen-card`} mods={[COMPONENT_MODS.card.inset]}>
         {/** Font name inside the type-design guide lines (baseline / cap height / side bearings) */}
         <p className={`${mainClass}__specimen`}>{fontName}</p>
       </Card>
 
-      <Card className={`${mainClass}__weights-card`} mods={[CardMods.Inset]}>
+      <Card className={`${mainClass}__weights-card`} mods={[COMPONENT_MODS.card.inset]}>
         <Title as="h3" variant={TitleVariants.Card}>
           {weightsTitle}
         </Title>
@@ -39,7 +39,7 @@ const TypographySection: FC<Props> = ({ data: { intro, fontName, weightsTitle, w
       </Card>
     </div>
 
-    <Card className={`${mainClass}__charsets-card`} mods={[CardMods.Inset]}>
+    <Card className={`${mainClass}__charsets-card`} mods={[COMPONENT_MODS.card.inset]}>
       <List
         className={`${mainClass}__charsets`}
         items={charsets}

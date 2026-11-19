@@ -4,3 +4,4 @@ export type * from "./button";
 export type * from "./icon";
 export type * from "./title";
 export type * from "./image";
+export type * from "./aria";

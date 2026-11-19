@@ -23,20 +23,16 @@ $name: ".footer";
     @include responsive(gap, (24px, 40px, null, 50px));
   }
 
-  // Mix with logo
   &__logo {
     @include responsive(height, (34px, null, null, 40px));
   }
 
-  // Mix with contacts: between two 1px lines
   &__contacts {
     border-block: 1px solid var(--color-border);
 
     @include responsive(padding-block, (30px, 40px, null, 50px));
   }
 
-  // Figma: from sm one pill — socials | copyright | legal links (space-between).
-  // Mobile: a card with copyright and legal links, the socials overlap its top edge.
   &__bottom {
     display: flex;
     align-items: center;
@@ -44,19 +40,17 @@ $name: ".footer";
     color: var(--color-text-muted);
     font-weight: 300;
     background-color: var(--color-bg);
-    box-shadow: inset 0 0 0 1px var(--color-border);
+    box-shadow: var(--shadow);
 
     @include responsive(flex-direction, (column, row));
     @include responsive(justify-content, (null, space-between));
     @include responsive(gap, (20px, 30px));
-    // mobile: room for the socials sticking out 20px above the card
     @include responsive(margin-top, (20px, 0));
     @include responsive(padding, (50px 24px 30px, 12px 24px 12px 12px, null, 16px 30px 16px 16px));
     @include responsive(font-size, (14px, null, null, 18px));
     @include responsive(border-radius, (12px, var(--radius-pill)));
   }
 
-  // Mix with socials: mobile — centered on the top edge of the card (44px buttons: 20px above, 24px over it)
   &__socials {
     @include responsive(position, (absolute, static));
     @include responsive(top, (-20px, auto));
@@ -68,11 +62,9 @@ $name: ".footer";
     text-align: center;
   }
 
-  // List block is configured through its --list-* variables
   &__legal {
     --list-flex-direction: row;
-
-    align-items: center;
+    --list-align-items: center;
 
     @include responsive(--list-gap, (8px, null, null, 12px));
   }
@@ -91,7 +83,9 @@ $name: ".footer";
     }
   }
 
-  &__legal-link:hover {
-    color: var(--color-text);
+  &__legal-link {
+    @include hover-fine-pointer {
+      color: var(--color-text);
+    }
   }
 }

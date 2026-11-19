@@ -19,10 +19,10 @@ $name: ".hero-widget";
     linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
     linear-gradient(
         to bottom left,
-        rgb(202 255 51 / 0.2) 0%,
-        rgb(202 255 51 / 0) 11%,
-        rgb(202 255 51 / 0) 92%,
-        rgb(202 255 51 / 0.2) 100%
+        rgb(var(--color-accent-rgb) / 0.2) 0%,
+        rgb(var(--color-accent-rgb) / 0) 11%,
+        rgb(var(--color-accent-rgb) / 0) 92%,
+        rgb(var(--color-accent-rgb) / 0.2) 100%
       )
       border-box,
     linear-gradient(var(--color-border), var(--color-border)) border-box;

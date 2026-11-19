@@ -2,8 +2,8 @@ import React, { type FC } from "react";
 
 import { List, Tag } from "@components/ui";
 
-import type { TWithClassName } from "@box/types";
 import { cn } from "@box/utils";
+import type { TWithClassName } from "@box/types";
 
 import "./MetaTags.scss";
 

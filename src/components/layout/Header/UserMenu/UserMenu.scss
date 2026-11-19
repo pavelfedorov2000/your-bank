@@ -20,7 +20,7 @@ $name: ".user-menu";
     font-weight: 500;
     background-color: var(--color-bg);
     border-radius: 50%;
-    box-shadow: inset 0 0 0 1px var(--color-border);
+    box-shadow: var(--shadow);
     user-select: none;
 
     @include responsive(--size, (45px, null, null, 55px));

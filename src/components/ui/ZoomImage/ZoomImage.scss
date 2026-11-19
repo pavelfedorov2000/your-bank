@@ -1,3 +1,5 @@
+@use "@styles/mixins" as *;
+
 $name: ".zoom-image";
 
 :root {
@@ -18,9 +20,8 @@ $name: ".zoom-image";
     transition: transform var(--transition);
   }
 
-  // Only for real pointers: no "stuck" zoom after a tap on touch screens
-  @media (hover: hover) {
-    &:hover #{$name}__img {
+  @include hover-fine-pointer {
+    #{$name}__img {
       transform: scale(var(--zoom-image-scale));
     }
   }

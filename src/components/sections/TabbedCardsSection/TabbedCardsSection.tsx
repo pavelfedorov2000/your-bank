@@ -1,11 +1,11 @@
 import React, { type FC } from "react";
 
 import { Section } from "@components/layout";
-import { Tabs, IconBadge, Title, List } from "@components/ui";
-import { SectionIntro, TextBlock } from "@components/content";
+import { List, Tabs, Title } from "@components/ui";
+import { IconTextBlock, SectionIntro } from "@components/content";
 
-import { TitleVariants } from "@box/constants";
 import { useTabs } from "@box/hooks";
+import { COMPONENT_MODS, TitleVariants } from "@box/constants";
 
 import "./TabbedCardsSection.scss";
 
@@ -30,18 +30,16 @@ const TabbedCardsSection: FC<Props> = ({ data: { intro, tabs } }) => {
         items={items}
         getKey={(card) => card.title}
         renderItem={(card) => (
-          <>
-            {card.icon && <IconBadge name={card.icon} size="lg" />}
-            <TextBlock
-              className={`${mainClass}__text`}
-              title={
-                <Title as="h3" variant={TitleVariants.Card}>
-                  {card.title}
-                </Title>
-              }
-              description={card.description}
-            />
-          </>
+          <IconTextBlock
+            icon={card.icon}
+            iconMods={[COMPONENT_MODS.iconBadge.large]}
+            title={
+              <Title as="h3" variant={TitleVariants.Card}>
+                {card.title}
+              </Title>
+            }
+            description={card.description}
+          />
         )}
       />
     </Section>

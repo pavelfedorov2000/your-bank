@@ -1,13 +1,13 @@
 import React, { type FC } from "react";
 
 import { Container } from "@components/layout";
+import { AppLink, List } from "@components/ui";
 import { Logo, NavMenu } from "@components/content";
 import Contacts from "./Contacts";
 import Socials from "./Socials";
-import { NavMenuMods } from "@box/constants";
-import { AppLink, List } from "@components/ui";
 
 import { useLayoutContent } from "@box/hooks";
+import { ARIA_LABELS, COMPONENT_MODS } from "@box/constants";
 
 import "./Footer.scss";
 
@@ -23,7 +23,7 @@ const Footer: FC = () => {
           <div className={`${mainClass}__top`}>
             <Logo className={`${mainClass}__logo`} />
 
-            <NavMenu items={navigation} ariaLabel="Footer" mods={[NavMenuMods.Text]} />
+            <NavMenu items={navigation} ariaLabel={ARIA_LABELS.nav.footer} mods={[COMPONENT_MODS.navMenu.text]} />
           </div>
 
           <Contacts className={`${mainClass}__contacts`} items={contacts} />

@@ -1,4 +1,5 @@
 import React from "react";
+
 import { ICON_NAMES } from "@box/constants";
 import type { TIconDefinition } from "@box/types";
 

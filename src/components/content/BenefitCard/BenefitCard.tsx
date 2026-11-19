@@ -1,8 +1,9 @@
 import React, { type FC } from "react";
 
-import { Card, IconBadge, Title } from "@components/ui";
+import { Card, Title } from "@components/ui";
+import { IconTextBlock } from "@components/content";
 
-import { CardMods } from "@box/constants";
+import { COMPONENT_MODS } from "@box/constants";
 
 import "./BenefitCard.scss";
 
@@ -17,15 +18,18 @@ type Props = {
  * Used by: Careers "Our Benefits", Security "How We Protect You". Radius / border / gap come from --benefit-card-* vars.
  */
 const BenefitCard: FC<Props> = ({ data: { title, description, icon } }) => (
-  <Card className={mainClass} mods={[CardMods.Noise]}>
-    <div className={`${mainClass}__head`}>
-      {icon && <IconBadge className={`${mainClass}__icon`} name={icon} size="lg" />}
-      <Title className={`${mainClass}__title`} as="h3">
-        {title}
-      </Title>
-    </div>
-
-    <p className={`${mainClass}__description`}>{description}</p>
+  <Card className={mainClass} mods={[COMPONENT_MODS.card.noise]}>
+    <IconTextBlock
+      mods={[COMPONENT_MODS.iconTextBlock.row]}
+      icon={icon}
+      iconMods={[COMPONENT_MODS.iconBadge.large]}
+      title={
+        <Title className={`${mainClass}__title`} as="h3">
+          {title}
+        </Title>
+      }
+      description={description}
+    />
   </Card>
 );
 

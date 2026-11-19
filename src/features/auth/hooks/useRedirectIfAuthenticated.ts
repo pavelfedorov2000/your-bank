@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { navigate } from "gatsby";
 
 import { AUTH_REDIRECT_PATH } from "../constants";
-
 import { useAuth } from "./useAuth";
 
 /**

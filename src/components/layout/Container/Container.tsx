@@ -1,7 +1,7 @@
 import React, { type FC } from "react";
 
-import type { TWithChildren, TWithPropsMods } from "@box/types";
 import { cn, getClassNameByMods } from "@box/utils";
+import type { TWithChildren, TWithPropsMods } from "@box/types";
 
 import "./Container.scss";
 

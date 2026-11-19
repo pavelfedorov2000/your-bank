@@ -41,7 +41,7 @@ $name: ".assets";
     align-self: stretch;
     gap: 6px;
     height: 22px;
-    border-inline: 1px solid #333333;
+    border-inline: 1px solid var(--color-grey-20);
     color: var(--color-text-muted);
     white-space: nowrap;
 
@@ -52,7 +52,7 @@ $name: ".assets";
       content: "";
       flex: 1;
       height: 1px;
-      background-color: #333333;
+      background-color: var(--color-grey-20);
     }
   }
 

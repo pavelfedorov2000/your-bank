@@ -1,10 +1,10 @@
 import React, { type FC } from "react";
 
 import { Section } from "@components/layout";
-import { Card, Ctas } from "@components/ui";
-import { Heading, TextBlock } from "@components/content";
+import { Card, Ctas, Title } from "@components/ui";
+import { TextBlock } from "@components/content";
 
-import { ButtonMods, TitleVariants } from "@box/constants";
+import { COMPONENT_MODS, TitleVariants } from "@box/constants";
 
 import "./NotFoundSection.scss";
 
@@ -28,15 +28,15 @@ const NotFoundSection: FC<Props> = ({ data: { code, title, description, button, 
 
       <TextBlock
         className={`${mainClass}__text`}
-        title={<Heading className={`${mainClass}__title`} data={title} as="h1" variant={TitleVariants.Section} />}
+        title={<Title className={`${mainClass}__title`} as="h1" variant={TitleVariants.Section} html={title} />}
         description={description}
       />
 
       <Ctas
         className={`${mainClass}__ctas`}
         items={[
-          { label: button.label, to: button.path, mods: [ButtonMods.Primary] },
-          { label: secondaryButton.label, to: secondaryButton.path, mods: [ButtonMods.Secondary] },
+          { label: button.label, to: button.path, mods: [COMPONENT_MODS.button.primary] },
+          { label: secondaryButton.label, to: secondaryButton.path, mods: [COMPONENT_MODS.button.secondary] },
         ]}
       />
     </Card>

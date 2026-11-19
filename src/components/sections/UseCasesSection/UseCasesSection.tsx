@@ -1,10 +1,10 @@
 import React, { type FC } from "react";
 
 import { Section } from "@components/layout";
-import { IconBadge, Button, Title, List } from "@components/ui";
-import { SectionIntro, StatsList, TextBlock } from "@components/content";
+import { Button, List, Title } from "@components/ui";
+import { IconTextBlock, SectionIntro, StatsList, TextBlock } from "@components/content";
 
-import { ButtonMods, TitleVariants, SectionMods } from "@box/constants";
+import { COMPONENT_MODS, TitleVariants } from "@box/constants";
 
 import "./UseCasesSection.scss";
 
@@ -16,7 +16,7 @@ type Props = {
 
 /** "Use Cases" — two groups (individuals / business): panel with case cards + text with stats. */
 const UseCasesSection: FC<Props> = ({ data: { intro, groups } }) => (
-  <Section className={mainClass} mods={[SectionMods.Large]}>
+  <Section className={mainClass} mods={[COMPONENT_MODS.section.large]}>
     <SectionIntro data={intro} />
 
     <div className={`${mainClass}__groups`}>
@@ -29,10 +29,11 @@ const UseCasesSection: FC<Props> = ({ data: { intro, groups } }) => (
               items={group.cases}
               getKey={(item) => item.title}
               renderItem={(item) => (
-                <>
-                  <IconBadge name={item.icon} size="md" />
-                  <span className={`${mainClass}__case-title`}>{item.title}</span>
-                </>
+                <IconTextBlock
+                  icon={item.icon}
+                  iconMods={[COMPONENT_MODS.iconBadge.medium]}
+                  title={<span className={`${mainClass}__case-title`}>{item.title}</span>}
+                />
               )}
             />
           </div>
@@ -49,7 +50,7 @@ const UseCasesSection: FC<Props> = ({ data: { intro, groups } }) => (
 
             <StatsList className={`${mainClass}__stats`} items={group.stats} />
 
-            <Button to={group.button.path} mods={[ButtonMods.Secondary]}>
+            <Button to={group.button.path} mods={[COMPONENT_MODS.button.secondary]}>
               {group.button.label}
             </Button>
           </div>

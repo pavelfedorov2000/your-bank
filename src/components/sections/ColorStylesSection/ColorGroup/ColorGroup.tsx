@@ -3,8 +3,8 @@ import React, { type CSSProperties, type FC } from "react";
 import { Card, List, Title } from "@components/ui";
 import { TextBlock } from "@components/content";
 
-import { CardMods, GENERAL_MODS, TitleVariants } from "@box/constants";
 import { cn, getClassNameByMods, getIsLightColor } from "@box/utils";
+import { COMPONENT_MODS, GENERAL_MODS, TitleVariants } from "@box/constants";
 
 import "./ColorGroup.scss";
 
@@ -23,7 +23,7 @@ const ColorGroup: FC<Props> = ({ data: { title, description, columns, swatches }
       description={description}
     />
 
-    <Card className={`${mainClass}__panel`} mods={[CardMods.Inset]}>
+    <Card className={`${mainClass}__panel`} mods={[COMPONENT_MODS.card.inset]}>
       <List
         className={`${mainClass}__swatches`}
         itemClassName={`${mainClass}__item`}

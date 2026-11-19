@@ -15,7 +15,6 @@ $name: ".currencies-bar";
     font-size: em(15.6);
   }
 
-  // List block is configured through its --list-* variables
   &__list {
     --list-flex-direction: row;
     --list-gap: #{em(6.94)};

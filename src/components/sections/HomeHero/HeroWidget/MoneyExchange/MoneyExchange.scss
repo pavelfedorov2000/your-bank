@@ -16,7 +16,7 @@ $name: ".money-exchange";
   // 2×2 table: 1px gaps over the border color draw the dividers
   &__table {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: em(0.87);
     overflow: hidden;
     margin-top: em(7.8);

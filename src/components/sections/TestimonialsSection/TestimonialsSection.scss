@@ -32,12 +32,12 @@ $name: ".testimonials";
 
     &::before {
       left: 0;
-      background: linear-gradient(90deg, var(--color-bg-fade) 0%, rgb(25 25 25 / 0) 100%);
+      background: linear-gradient(90deg, var(--color-bg-fade) 0%, rgb(var(--color-bg-fade-rgb) / 0) 100%);
     }
 
     &::after {
       right: 0;
-      background: linear-gradient(270deg, var(--color-bg-fade) 0%, rgb(25 25 25 / 0) 100%);
+      background: linear-gradient(270deg, var(--color-bg-fade) 0%, rgb(var(--color-bg-fade-rgb) / 0) 100%);
     }
   }
 

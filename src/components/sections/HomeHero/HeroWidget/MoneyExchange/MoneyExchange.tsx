@@ -29,15 +29,19 @@ const MoneyExchange: FC<Props> = ({ data: { title, from, to, buttonLabel } }) =>
         {title}
       </Title>
       <div className={`${mainClass}__table`}>
-        {currencies.map((currency) => (
-          <div className={`${mainClass}__currency`} key={currency.code}>
-            <span className={`${mainClass}__code`}>
-              {FLAGS[currency.code] && <Image className={`${mainClass}__flag`} src={FLAGS[currency.code]} isDecorative />}
-              {currency.code}
-            </span>
-            <span className={`${mainClass}__name`}>{currency.name}</span>
-          </div>
-        ))}
+        {currencies.map((currency) => {
+          const flag = FLAGS[currency.code];
+
+          return (
+            <div className={`${mainClass}__currency`} key={currency.code}>
+              <div className={`${mainClass}__code`}>
+                {flag && <Image className={`${mainClass}__flag`} src={flag} isDecorative />}
+                <span className={`${mainClass}__code-text`}>{currency.code}</span>
+              </div>
+              <span className={`${mainClass}__name`}>{currency.name}</span>
+            </div>
+          );
+        })}
         {currencies.map((currency) => (
           <div className={`${mainClass}__amount`} key={`${currency.code}-amount`}>
             {currency.amount}

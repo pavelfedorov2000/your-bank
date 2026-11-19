@@ -2,8 +2,9 @@ import React, { type FC } from "react";
 
 import { Icon } from "@components/ui";
 
-import type { TWithClassName } from "@box/types";
 import { cn } from "@box/utils";
+import { ICON_NAMES } from "@box/constants";
+import type { TWithClassName } from "@box/types";
 
 import "./HeroWidgetIncome.scss";
 
@@ -17,7 +18,7 @@ type Props = TWithClassName<{
 const HeroWidgetIncome: FC<Props> = ({ className, data: { value, label } }) => (
   <div className={cn(mainClass, className)}>
     <span className={`${mainClass}__icon-circle`}>
-      <Icon className={`${mainClass}__icon`} name="plus" />
+      <Icon className={`${mainClass}__icon`} name={ICON_NAMES.plus} />
     </span>
     <span className={`${mainClass}__text`}>
       <strong className={`${mainClass}__value`}>{value}</strong>

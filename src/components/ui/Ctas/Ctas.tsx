@@ -2,8 +2,8 @@ import React, { type FC } from "react";
 
 import { Button, List } from "@components/ui";
 
-import type { TButtonMods, TButtonProps, TWithClassName } from "@box/types";
 import { cn } from "@box/utils";
+import type { TButtonMods, TButtonProps, TWithClassName } from "@box/types";
 
 import "./Ctas.scss";
 
@@ -16,7 +16,7 @@ export type TCta = Omit<TButtonProps, "children" | "className"> & {
 
 type Props = TWithClassName<{
   items: readonly TCta[];
-  /** Added to every button of the group (e.g. ButtonMods.Small). */
+  /** Added to every button of the group (e.g. COMPONENT_MODS.button.small). */
   mods?: TButtonMods;
 }>;
 

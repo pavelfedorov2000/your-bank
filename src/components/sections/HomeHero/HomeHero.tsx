@@ -1,8 +1,10 @@
 import React, { type FC } from "react";
-import { Badge, Button } from "@components/ui";
-import { Heading } from "@components/content";
+
+import { Badge, Button, Title } from "@components/ui";
 import HeroWidget from "./HeroWidget";
-import { ButtonMods, TitleVariants } from "@box/constants";
+
+import { COMPONENT_MODS, ICON_NAMES, TitleVariants } from "@box/constants";
+
 import "./HomeHero.scss";
 
 const mainClass = "hero-section";
@@ -15,12 +17,12 @@ const HomeHero: FC<Props> = ({ data: { badge, title, description, button, widget
   <section className={mainClass}>
 
     <div className={`${mainClass}__content`}>
-      <Badge className={`${mainClass}__badge`} icon="badge-check">
+      <Badge className={`${mainClass}__badge`} icon={ICON_NAMES.badgeCheck}>
         {badge}
       </Badge>
-      <Heading className={`${mainClass}__title`} data={title} as="h1" variant={TitleVariants.Hero} />
+      <Title className={`${mainClass}__title`} as="h1" variant={TitleVariants.Hero} html={title} />
       <p className={`${mainClass}__description`}>{description}</p>
-      <Button to={button.path} mods={[ButtonMods.Primary]}>
+      <Button to={button.path} mods={[COMPONENT_MODS.button.primary]}>
         {button.label}
       </Button>
     </div>

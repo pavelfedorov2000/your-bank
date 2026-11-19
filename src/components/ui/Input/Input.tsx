@@ -2,16 +2,15 @@ import React, { type FC, type InputHTMLAttributes } from "react";
 
 import { Button } from "@components/ui";
 
-import { ICON_NAMES, PASSWORD_TOGGLE_ARIA_LABELS } from "@box/constants";
 import { useBooleanState } from "@box/hooks";
-import type { TWithClassName } from "@box/types";
 import { cn } from "@box/utils";
+import { ARIA_LABELS, ICON_NAMES } from "@box/constants";
 
 import "./Input.scss";
 
 const mainClass = "input";
 
-type Props = TWithClassName<Omit<InputHTMLAttributes<HTMLInputElement>, "className">>;
+type Props = InputHTMLAttributes<HTMLInputElement>;
 
 /** Pill text field (Figma "Input Field"). type="password" gets a show / hide toggle. Placement via className. */
 const Input: FC<Props> = ({ className, type = "text", ...inputProps }) => {
@@ -25,7 +24,7 @@ const Input: FC<Props> = ({ className, type = "text", ...inputProps }) => {
         <Button
           className={`${mainClass}__toggle`}
           icon={ICON_NAMES.eye}
-          aria-label={isPasswordVisible ? PASSWORD_TOGGLE_ARIA_LABELS.hide : PASSWORD_TOGGLE_ARIA_LABELS.show}
+          aria-label={isPasswordVisible ? ARIA_LABELS.passwordToggle.hide : ARIA_LABELS.passwordToggle.show}
           aria-pressed={isPasswordVisible}
           onClick={togglePassword}
         />

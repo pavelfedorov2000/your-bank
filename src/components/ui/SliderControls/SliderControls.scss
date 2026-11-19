@@ -20,7 +20,7 @@ $name: ".slider-controls";
   // Mix with button (ButtonMods.Icon, no color modifier): look via --button-* variables
   &__button {
     --button-bg: var(--color-surface);
-    --button-shadow: inset 0 0 0 1px var(--color-border);
+    --button-shadow: var(--shadow);
     --button-color: var(--color-accent);
 
     pointer-events: auto;

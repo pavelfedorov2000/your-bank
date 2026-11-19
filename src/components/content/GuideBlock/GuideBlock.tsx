@@ -4,9 +4,9 @@ import { Section } from "@components/layout";
 import { Card } from "@components/ui";
 import { SectionIntro } from "@components/content";
 
-import { CardMods } from "@box/constants";
-import type { TWithChildren, TWithClassName } from "@box/types";
 import { cn } from "@box/utils";
+import { COMPONENT_MODS } from "@box/constants";
+import type { TWithChildren, TWithClassName } from "@box/types";
 
 import "./GuideBlock.scss";
 
@@ -22,7 +22,7 @@ type Props = TWithClassName<TWithChildren<{
 const GuideBlock: FC<Props> = ({ className, panelClassName, intro, children }) => (
   <Section className={cn(mainClass, className)}>
     <SectionIntro data={intro} />
-    <Card className={cn(`${mainClass}__panel`, panelClassName)} mods={[CardMods.Surface]}>
+    <Card className={cn(`${mainClass}__panel`, panelClassName)} mods={[COMPONENT_MODS.card.surface]}>
       {children}
     </Card>
   </Section>

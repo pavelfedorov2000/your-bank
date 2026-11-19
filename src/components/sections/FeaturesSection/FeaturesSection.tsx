@@ -1,10 +1,13 @@
 import React, { type FC } from "react";
+
 import { Section } from "@components/layout";
 import { List, Tabs } from "@components/ui";
 import { SectionIntro } from "@components/content";
 import FeatureCard from "./FeatureCard";
-import { TabsMods } from "@box/constants";
+
 import { useTabs } from "@box/hooks";
+import { COMPONENT_MODS } from "@box/constants";
+
 import "./FeaturesSection.scss";
 
 const mainClass = "features";
@@ -22,10 +25,11 @@ const FeaturesSection: FC<Props> = ({ data: { intro, tabs } }) => {
       <SectionIntro data={intro} />
 
       <div className={`${mainClass}__body`}>
-        <Tabs mods={[TabsMods.Vertical]} {...tabsProps} />
+        <Tabs mods={[COMPONENT_MODS.tabs.vertical]} {...tabsProps} />
 
         <List
           className={`${mainClass}__list`}
+          mods={[COMPONENT_MODS.list.twoColumns]}
           role="tabpanel"
           items={items}
           getKey={(card) => card.title}

@@ -1,10 +1,13 @@
 import React, { type FC } from "react";
+
 import { Section } from "@components/layout";
-import { Button, Card, Title, List } from "@components/ui";
-import { SectionIntro } from "@components/content";
-import { useBooleanState } from "@box/hooks";
+import { Button, Card, List, Title } from "@components/ui";
+import { SectionIntro, TextBlock } from "@components/content";
+
+import { useCollapsibleList } from "@box/hooks";
 import { cn, getClassNameByMods } from "@box/utils";
-import { GENERAL_MODS, ButtonMods } from "@box/constants";
+import { COMPONENT_MODS, GENERAL_MODS, ICON_NAMES } from "@box/constants";
+
 import "./FaqSection.scss";
 
 const mainClass = "faq";
@@ -13,15 +16,11 @@ type Props = {
   data: Queries.FaqSectionFragment;
 };
 
-/** How many questions are shown before "Load All FAQ's" (the last row fades out). */
-const VISIBLE_COUNT = 4;
+const VISIBLE_FAQS_COUNT = 4;
 
 /** "Frequently Asked Questions" — Home, Careers, Security. */
 const FaqSection: FC<Props> = ({ data: { intro, items, loadMoreButtonText } }) => {
-  const [isExpanded, { setIsTrue: expand }] = useBooleanState();
-  /** Collapsed state (fade + "Load All") only makes sense when some questions are hidden. */
-  const isCollapsed = !isExpanded && items.length > VISIBLE_COUNT;
-  const visibleItems = isCollapsed ? items.slice(0, VISIBLE_COUNT) : items;
+  const { visibleItems, isCollapsed, expand } = useCollapsibleList(items, VISIBLE_FAQS_COUNT);
 
   return (
     <Section className={mainClass}>
@@ -30,20 +29,26 @@ const FaqSection: FC<Props> = ({ data: { intro, items, loadMoreButtonText } }) =
       <div className={cn(`${mainClass}__body`, getClassNameByMods(`${mainClass}__body`, [!isCollapsed && GENERAL_MODS.open]))}>
         <List
           className={`${mainClass}__list`}
+          mods={[COMPONENT_MODS.list.twoColumns]}
           items={visibleItems}
           getKey={(item) => item.question}
           renderItem={(item) => (
             <Card className={`${mainClass}__item`}>
-              <Title className={`${mainClass}__question`} as="h3">
-                {item.question}
-              </Title>
-              <p className={`${mainClass}__answer`}>{item.answer}</p>
+              <TextBlock
+                className={`${mainClass}__text`}
+                title={
+                  <Title className={`${mainClass}__question`} as="h3">
+                    {item.question}
+                  </Title>
+                }
+                description={item.answer}
+              />
             </Card>
           )}
         />
 
         {isCollapsed && (
-          <Button className={`${mainClass}__more`} mods={[ButtonMods.Secondary]} icon="chevron-down" onClick={expand}>
+          <Button className={`${mainClass}__more`} mods={[COMPONENT_MODS.button.secondary]} icon={ICON_NAMES.chevronDown} onClick={expand}>
             {loadMoreButtonText}
           </Button>
         )}

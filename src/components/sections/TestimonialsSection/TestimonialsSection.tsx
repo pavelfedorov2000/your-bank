@@ -1,19 +1,18 @@
-import React, { useState, type FC } from "react";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { A11y } from "swiper/modules";
+import React, { type FC, useState } from "react";
 import type { Swiper as TSwiperInstance } from "swiper";
-import "swiper/css";
+import { A11y } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Section } from "@components/layout";
 import { SliderControls, Tabs } from "@components/ui";
 import { SectionIntro } from "@components/content";
 import TestimonialCard from "./TestimonialCard";
 
-import { SLIDER_BREAKPOINTS, SWIPER_CONTROLS_ARIA_LABELS } from "@box/constants";
-import type { TNullable } from "@box/types";
 import { useTabs } from "@box/hooks";
+import { ARIA_LABELS, SLIDER_BREAKPOINTS } from "@box/constants";
+import type { TNullable } from "@box/types";
 
+import "swiper/css";
 import "./TestimonialsSection.scss";
 
 const mainClass = "testimonials";
@@ -58,7 +57,7 @@ const TestimonialsSection: FC<Props> = ({ data: { intro, tabs } }) => {
         </div>
 
         <SliderControls
-          ariaLabels={SWIPER_CONTROLS_ARIA_LABELS.testimonials}
+          ariaLabels={ARIA_LABELS.sliderControls.testimonials}
           isPrevDisabled={edges.isBeginning}
           isNextDisabled={edges.isEnd}
           onPrev={() => swiper?.slidePrev()}

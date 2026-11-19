@@ -1,10 +1,11 @@
 import React, { type FC } from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
-import { Layout } from "@components/layout";
-import Seo from "@components/Seo";
-import { SimpleHero, MissionVisionSection, PressReleasesSection } from "@components/sections";
 
 import heroImage from "@images/heroes/about.webp";
+
+import { Layout } from "@components/layout";
+import { Seo } from "@components/content";
+import { MissionVisionSection, PressReleasesSection, SimpleHero } from "@components/sections";
 
 const AboutPage: FC<PageProps<Queries.AboutPageQuery>> = ({ data: { contentJson } }) => {
   if (!contentJson) return null;

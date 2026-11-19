@@ -90,3 +90,21 @@
     }
   }
 }
+
+// Hover styles only for devices with a precise pointer (mouse, trackpad):
+// on touch screens a tap would leave the :hover state "stuck" until the next tap elsewhere.
+// $modifier is appended to &:hover, e.g. ":not(:disabled)". Nested rules work: `.block:hover .block__img`.
+//
+// @example
+// .link {
+//   @include hover-fine-pointer {
+//     color: var(--color-accent);
+//   }
+// }
+@mixin hover-fine-pointer($modifier: "") {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover#{$modifier} {
+      @content;
+    }
+  }
+}

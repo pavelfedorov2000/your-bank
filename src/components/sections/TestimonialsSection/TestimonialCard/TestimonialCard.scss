@@ -11,12 +11,10 @@ $name: ".testimonial-card";
   text-align: center;
 
   @include responsive(gap, (30px, null, null, 50px));
-  // Mobile: single card in a bordered frame
   @include responsive(padding, (20px, 0));
   @include responsive(border-radius, (12px, 0));
-  @include responsive(box-shadow, (inset 0 0 0 1px var(--color-border), none));
+  @include responsive(box-shadow, (var(--shadow), none));
 
-  // Quote mark between two lines
   &__header {
     display: flex;
     align-items: center;

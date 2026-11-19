@@ -1,11 +1,11 @@
 import React, { type FC } from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 
-import { Layout } from "@components/layout";
-import Seo from "@components/Seo";
-import { SimpleHero, ValuesSection, BenefitsSection, JobsSection, FaqSection, CtaSection } from "@components/sections";
-
 import heroImage from "@images/heroes/careers.webp";
+
+import { Layout } from "@components/layout";
+import { Seo } from "@components/content";
+import { BenefitsSection, CtaSection, FaqSection, JobsSection, SimpleHero, ValuesSection } from "@components/sections";
 
 const CareersPage: FC<PageProps<Queries.CareersPageQuery>> = ({ data: { contentJson } }) => {
   if (!contentJson) return null;

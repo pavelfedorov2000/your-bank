@@ -3,8 +3,6 @@
 
 $name: ".job-card";
 
-// Block: job-card (Careers "Job Openings")
-// Card (surface)
 #{$name} {
   --card-radius: 16px;
 
@@ -12,8 +10,7 @@ $name: ".job-card";
   @include responsive(--card-padding, (24px, 40px, null, 50px));
 
   &__head,
-  &__details,
-  &__group {
+  &__details {
     display: flex;
     flex-direction: column;
   }
@@ -34,7 +31,7 @@ $name: ".job-card";
   }
 
   &__group {
-    @include responsive(gap, (10px, 16px, null, 20px));
+    @include responsive(--text-block-gap, (8px, 16px, null, 20px));
   }
 
   &__subtitle {
@@ -44,11 +41,6 @@ $name: ".job-card";
     @include responsive(font-size, (18px, 20px, null, 24px));
   }
 
-  &__about,
-  &__requirement {
-    @include text-description;
-  }
-
   &__requirements {
     @include responsive(--list-gap, (14px, null, null, 20px));
   }
@@ -56,12 +48,12 @@ $name: ".job-card";
   &__requirement {
     display: flex;
     align-items: center;
+    @include text-description;
 
     @include responsive(--icon-size, (20px, null, null, 24px));
     @include responsive(gap, (8px, null, null, 10px));
   }
 
-  // Pushed to the bottom when cards in a row are stretched
   &__button {
     align-self: flex-start;
     margin-top: auto;

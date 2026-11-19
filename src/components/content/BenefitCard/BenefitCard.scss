@@ -5,7 +5,7 @@ $name: ".benefit-card";
 
 // Defaults = "How We Protect You" cards; a parent overrides them (e.g. benefits__item)
 :root {
-  --benefit-card-radius: 20px;
+  --benefit-card-radius: var(--radius-lg);
   --benefit-card-border: linear-gradient(var(--color-border), var(--color-border));
 }
 
@@ -15,24 +15,15 @@ $name: ".benefit-card";
   --card-radius: var(--benefit-card-radius);
   --card-border: var(--benefit-card-border);
 
-  @include responsive(--card-gap, (18px, 20px, null, 24px));
   @include responsive(--card-padding, (24px, 40px, null, 50px));
-
-  &__head {
-    display: flex;
-    align-items: center;
-
-    @include responsive(gap, (10px, 14px, null, 20px));
-  }
+  // Content (icon-text-block, row): icon ↔ title, head ↔ text
+  @include responsive(--icon-text-block-head-gap, (10px, 14px, null, 20px));
+  @include responsive(--icon-text-block-gap, (18px, 20px, null, 24px));
 
   &__title {
     flex: 1;
     font-weight: 400;
 
     @include responsive(font-size, (18px, 20px, null, 24px));
-  }
-
-  &__description {
-    @include text-description;
   }
 }

@@ -1,13 +1,13 @@
-import React, { useState, type FC, type FormEvent } from "react";
+import React, { type FC, type FormEvent, useState } from "react";
 
 import { Section } from "@components/layout";
-import { Button, Card, Ctas, IconBadge, Input, List } from "@components/ui";
-import { Heading, TextBlock } from "@components/content";
+import { Button, Card, Ctas, IconBadge, Input, List, Title } from "@components/ui";
+import { TextBlock } from "@components/content";
 
-import { ButtonMods, TitleVariants } from "@box/constants";
+import { getIconName } from "@box/utils";
+import { COMPONENT_MODS, TitleVariants } from "@box/constants";
 import type { TNullable } from "@box/types";
-
-import { AUTH_MODES, getFormValues, useAuth, type TAuthMode } from "@features/auth";
+import { AUTH_MODES, getFormValues, type TAuthMode, useAuth } from "@features/auth";
 
 import "./AuthFormSection.scss";
 
@@ -46,7 +46,7 @@ const AuthFormSection: FC<Props> = ({
         <TextBlock
           className={`${mainClass}__head`}
           as="header"
-          title={<Heading className={`${mainClass}__title`} data={title} as="h1" variant={TitleVariants.Section} />}
+          title={<Title className={`${mainClass}__title`} as="h1" variant={TitleVariants.Section} html={title} />}
           description={description}
         />
 
@@ -82,8 +82,8 @@ const AuthFormSection: FC<Props> = ({
             <Ctas
               className={`${mainClass}__ctas`}
               items={[
-                { label: submitLabel, type: "submit", mods: [ButtonMods.Primary] },
-                { label: secondaryButton.label, to: secondaryButton.path, mods: [ButtonMods.Secondary] },
+                { label: submitLabel, type: "submit", mods: [COMPONENT_MODS.button.primary] },
+                { label: secondaryButton.label, to: secondaryButton.path, mods: [COMPONENT_MODS.button.secondary] },
               ]}
             />
 
@@ -95,7 +95,7 @@ const AuthFormSection: FC<Props> = ({
               getKey={(provider) => provider.name}
               renderItem={(provider) => (
                 <Button className={`${mainClass}__social`} aria-label={provider.name}>
-                  <IconBadge name={provider.icon} />
+                  <IconBadge name={getIconName(provider.icon)} />
                 </Button>
               )}
             />

@@ -1,5 +1,7 @@
-import { ICONS } from "@components/ui/Icon/icons";
 import type { TIconName } from "@box/types";
 
-/** Type guard: whether a string (e.g. an icon name from content.json) is an icon from icons.tsx. */
-export const getIsIconName = (name: string): name is TIconName => name in ICONS;
+/**
+ * Icon name from content.json as TIconName. Every "icon" in content.json is checked against ICON_NAMES
+ * at build / develop start (gatsby-node onPreBootstrap), so an unknown name never reaches the components.
+ */
+export const getIconName = (name: string) => name as TIconName;

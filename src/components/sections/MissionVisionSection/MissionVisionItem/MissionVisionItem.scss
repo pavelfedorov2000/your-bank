@@ -15,37 +15,35 @@ $name: ".mission-vision-item";
   @include responsive(flex-direction, (column, null, row));
   @include responsive(align-items, (null, null, center));
 
-  // Figma "Image Container": grain + dark fade to the left + lime glow, dots pattern, photo on top
-  // Top corners are shared by the frame and the photo inside it
   &__media {
     --media-radius: 50px;
+
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
 
     position: relative;
     overflow: hidden;
-    box-shadow: inset 0 0 0 1px var(--color-border);
+    box-shadow: var(--shadow);
     isolation: isolate;
 
     @include noise-surface;
-    @include responsive(width, (100%, null, 42.6%, 41.6%));
+    @include responsive(width, (100%, null, 43%, 42%));
     @include responsive(aspect-ratio, (#{358} / #{329}, #{545} / #{500}, null, #{664} / #{621}));
     @include responsive(padding, (20px 20px 0, 60px 60px 0));
     @include responsive(border-radius, (var(--media-radius) var(--media-radius) 0 0, var(--media-radius) var(--media-radius) 20px 20px));
-  }
 
-  // Dots behind the photo (decor, CSS background)
-  &__media::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    aspect-ratio: #{1204} / #{1268};
-    background: url("@images/decor/mission-vision-dots.webp") center / contain no-repeat;
-
-    @include responsive(top, (-42px, null, -14px, -7px));
-    @include responsive(left, (-4.7%, null, 4.2%, 4.7%));
-    @include responsive(width, (109.5%, null, 91.7%, 90.7%));
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      aspect-ratio: #{1204} / #{1268};
+      background: url("@images/decor/mission-vision-dots.webp") center / contain no-repeat;
+  
+      @include responsive(top, (-42px, null, -14px, -7px));
+      @include responsive(left, (-5%, null, 4%, 5%));
+      @include responsive(width, (110%, null, 92%, 91%));
+    }
   }
 
   &__image {
@@ -55,7 +53,6 @@ $name: ".mission-vision-item";
     border-radius: var(--media-radius) var(--media-radius) 0 0;
   }
 
-  // Mix with text-block (default gap)
   &__content {
     flex: 1;
     padding-top: var(--content-offset);

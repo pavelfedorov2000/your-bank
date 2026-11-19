@@ -1,7 +1,6 @@
 import React, { type FC } from "react";
 
-import { ZoomImage } from "@components/ui";
-import { Heading } from "@components/content";
+import { Title, ZoomImage } from "@components/ui";
 
 import "./SimpleHero.scss";
 
@@ -22,7 +21,7 @@ const SimpleHero: FC<Props> = ({ data: { supTitle, title, description }, image }
     <div className={`${mainClass}__content`}>
       <div className={`${mainClass}__heading`}>
         {supTitle && <p className={`${mainClass}__sup-title`}>{supTitle}</p>}
-        <Heading className={`${mainClass}__title`} as="h1" data={title} />
+        <Title className={`${mainClass}__title`} as="h1" html={title} />
       </div>
       <p className={`${mainClass}__description`}>{description}</p>
     </div>

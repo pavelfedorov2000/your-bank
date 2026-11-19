@@ -1,5 +1,6 @@
 import React, { type FC } from "react";
 import { withPrefix } from "gatsby";
+
 import { useSiteMetadata } from "@box/hooks";
 import type { TWithChildren } from "@box/types";
 
@@ -8,16 +9,14 @@ type Props = Partial<TWithChildren> & {
   pathname?: string;
 };
 
-const DEFAULT_TITLE = "YourBank";
-
-/** Used inside each page's `export const Head`. */
-const Seo: FC<Props> = ({ data: { title, description}, pathname = "", children }) => {
-  const { title: siteTitle = DEFAULT_TITLE, siteUrl } = useSiteMetadata() ?? {};
+/** Used inside each page's `export const Head`. Site name comes from siteMetadata.title (gatsby-config). */
+const Seo: FC<Props> = ({ data: { title, description }, pathname = "", children }) => {
+  const { title: siteTitle, siteUrl } = useSiteMetadata() ?? {};
 
   return (
     <>
       <html lang="en" />
-      <title>{`${title} | ${siteTitle}`}</title>
+      <title>{siteTitle ? `${title} | ${siteTitle}` : title}</title>
       {description && <meta name="description" content={description} />}
       <meta property="og:title" content={title} />
       {description && <meta property="og:description" content={description} />}

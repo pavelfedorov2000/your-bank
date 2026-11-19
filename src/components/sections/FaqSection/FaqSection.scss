@@ -1,5 +1,4 @@
 @use "@styles/mixins" as *;
-@use "@styles/typography" as *;
 
 $name: ".faq";
 
@@ -10,17 +9,12 @@ $name: ".faq";
     align-items: center;
   }
 
-  // List block is configured through its --list-* variables
   &__list {
-    --list-display: grid;
-    align-self: stretch;
+    --list-gap: var(--cards-gap);
 
+    align-self: stretch;
     position: relative;
 
-    @include responsive(--list-gap, (20px, null, null, 30px));
-    @include responsive(grid-template-columns, (null, null, repeat(2, 1fr)));
-
-    // Collapsed: the last row fades into the background (Figma "Linear")
     &::after {
       content: "";
       position: absolute;
@@ -28,7 +22,7 @@ $name: ".faq";
       bottom: 0;
       left: 0;
       height: 275px;
-      background: linear-gradient(180deg, rgb(25 25 25 / 0) 0%, var(--color-bg-fade) 100%);
+      background: linear-gradient(180deg, rgb(var(--color-bg-fade-rgb) / 0) 0%, var(--color-bg-fade) 100%);
       pointer-events: none;
     }
   }
@@ -37,18 +31,16 @@ $name: ".faq";
     content: none;
   }
 
-  // &__item is a Card with its default sizes (the defaults are taken from the FAQ item)
+  &__text {
+    @include responsive(--text-block-gap, (20px, null, null, 30px));
+  }
 
   &__question {
+    padding-bottom: var(--text-block-gap);
     border-bottom: 1px solid var(--color-border);
     font-weight: 500;
     line-height: 1.25;
 
-    @include responsive(padding-bottom, (20px, null, null, 30px));
     @include responsive(font-size, (18px, null, null, 20px));
-  }
-
-  &__answer {
-    @include text-description;
   }
 }

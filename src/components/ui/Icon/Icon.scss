@@ -4,7 +4,6 @@ $name: ".icon";
   --icon-size: 24px;
 }
 
-// Never squeezed by a flex row (long text next to it)
 #{$name} {
   flex-shrink: 0;
   width: var(--icon-size);

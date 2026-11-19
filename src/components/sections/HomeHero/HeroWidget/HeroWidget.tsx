@@ -14,14 +14,12 @@ type Props = {
 };
 
 /** Decorative dashboard card in the Home hero. Sizes are in em: the whole widget scales with its font-size. */
-const HeroWidget: FC<Props> = ({ data: { income, transactions, exchange, supportedCurrencies: currencies } }) => (
+const HeroWidget: FC<Props> = ({ data: { income, transactions, exchange, supportedCurrencies } }) => (
   <aside className={mainClass} aria-hidden="true">
-
     <HeroWidgetIncome className={`${mainClass}__income`} data={income} />
-
     <HeroWidgetTransactions data={transactions} />
     <MoneyExchange data={exchange} />
-    <CurrenciesBar className={`${mainClass}__currencies`} data={currencies} />
+    <CurrenciesBar className={`${mainClass}__currencies`} data={supportedCurrencies} />
   </aside>
 );
 

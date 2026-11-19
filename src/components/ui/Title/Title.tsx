@@ -1,22 +1,26 @@
 import React, { type FC } from "react";
 
-import type { TTitleVariant, TWithChildren, TWithClassName } from "@box/types";
 import { cn, getClassNameByMods } from "@box/utils";
+import type { TTitleVariant, TWithChildren, TWithClassName } from "@box/types";
 
 import "./Title.scss";
 
 type Props = TWithClassName<TWithChildren<Partial<{
-  /** Semantic level — independent from the text style. */
   as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  /** Text style from the design (TitleVariants, see styles/_typography.scss). Without it only the className styles apply. */
+  /** Text style from the design (TitleVariants, see styles/_typography.scss). */
   variant: TTitleVariant;
+  /** Trusted HTML from content.json instead of children (accents in <mark>). Only our own data — never user input. */
+  html: string;
 }>>>;
 
 const mainClass = "title";
 
-/** Heading element: semantic level (`as`) + text style (`variant`). */
-const Title: FC<Props> = ({ as: Tag = "h2", variant, className, children }) => (
-  <Tag className={cn(mainClass, getClassNameByMods(mainClass, [variant]), className)}>{children}</Tag>
+/** Heading element: semantic level (`as`) + text style (`variant`). Content: children or `html`. */
+const Title: FC<Props> = ({ as: Tag = "h2", variant, html, className, children }) => (
+  <Tag
+    className={cn(mainClass, getClassNameByMods(mainClass, [variant]), className)}
+    {...(html ? { dangerouslySetInnerHTML: { __html: html } } : { children })}
+  />
 );
 
 export default Title;

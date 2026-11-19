@@ -4,7 +4,7 @@ import { withPrefix } from "gatsby";
 import { Card, Title, ZoomImage } from "@components/ui";
 import { MetaTags } from "@components/content";
 
-import { CardMods } from "@box/constants";
+import { COMPONENT_MODS } from "@box/constants";
 
 import "./PressReleaseCard.scss";
 
@@ -16,7 +16,7 @@ type Props = {
 
 /** About "Press Releases" card: photo, title, meta tags (location, date), description. */
 const PressReleaseCard: FC<Props> = ({ data: { title, image, meta, description } }) => (
-  <Card className={mainClass} as="article" mods={[CardMods.Surface]}>
+  <Card className={mainClass} as="article" mods={[COMPONENT_MODS.card.surface]}>
     <ZoomImage className={`${mainClass}__image`} src={withPrefix(image)} isDecorative />
 
     <div className={`${mainClass}__body`}>

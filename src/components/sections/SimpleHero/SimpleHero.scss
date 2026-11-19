@@ -11,7 +11,7 @@ $name: ".simple-hero";
   position: relative;
   overflow: hidden; // clips the dots in the top-right corner
   background-color: var(--color-surface);
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
 
   @include responsive(grid-template-columns, (null, null, 484fr 174fr 541fr, 531fr 260fr 708fr));
   @include responsive(padding, (14px, null, 40px, 50px));

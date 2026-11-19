@@ -2,19 +2,20 @@ import React, { type FC } from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 
 import { Layout } from "@components/layout";
-import Seo from "@components/Seo";
+import { Seo } from "@components/content";
 import {
+  CtaSection,
+  FaqSection,
+  FeaturesSection,
   HomeHero,
   TabbedCardsSection,
-  UseCasesSection,
-  FeaturesSection,
-  FaqSection,
   TestimonialsSection,
-  CtaSection,
+  UseCasesSection,
 } from "@components/sections";
 
 const IndexPage: FC<PageProps<Queries.HomePageQuery>> = ({ data: { contentJson } }) => {
   if (!contentJson) return null;
+  
   const {
     pages: {
       home: { hero, products, useCases, features, cta }

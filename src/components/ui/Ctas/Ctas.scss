@@ -10,12 +10,10 @@ $name: ".ctas";
 }
 
 #{$name} {
-  flex-wrap: wrap;
-  align-items: var(--ctas-align-items);
+  --list-gap: var(--cards-gap);
+  --list-flex-wrap: wrap;
+  --list-align-items: var(--ctas-align-items);
 
-  @include responsive(--list-gap, (20px, null, null, 30px));
-
-  // Column: a stretched item stretches its button too
   &__item {
     display: flex;
     flex-direction: column;

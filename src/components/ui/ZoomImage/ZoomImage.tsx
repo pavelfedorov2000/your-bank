@@ -2,8 +2,8 @@ import React, { type FC } from "react";
 
 import { Image } from "@components/ui";
 
-import type { TImageProps } from "@box/types";
 import { cn } from "@box/utils";
+import type { TImageProps } from "@box/types";
 
 import "./ZoomImage.scss";
 

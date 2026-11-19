@@ -1,5 +1,8 @@
 import path from "path";
+import fs from "fs";
 import type { GatsbyNode } from "gatsby";
+
+import { ICON_NAMES } from "./src/box/constants/icons";
 
 /** Import aliases (`@components/ui`, `@box/utils`). Keep in sync with "paths" in tsconfig.json. */
 const ALIASES: Record<string, string> = {
@@ -11,6 +14,33 @@ const ALIASES: Record<string, string> = {
   "@box": "src/box",
   /** Self-contained features (logic + hooks + types): import from "@features/auth" */
   "@features": "src/features"
+};
+
+/** Every "icon" value anywhere in content.json. */
+const collectIcons = (value: unknown, found: string[] = []): string[] => {
+  if (Array.isArray(value)) value.forEach((item) => collectIcons(item, found));
+  else if (value && typeof value === "object") {
+    Object.entries(value).forEach(([key, item]) => {
+      if (key === "icon" && typeof item === "string") found.push(item);
+      else collectIcons(item, found);
+    });
+  }
+
+  return found;
+};
+
+/**
+ * Icon names in content.json must exist in ICON_NAMES (src/box/constants/icons.ts):
+ * a typo stops `develop` / `build` here instead of rendering an empty place. Components then trust them (getIconName).
+ */
+export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = ({ reporter }) => {
+  const content = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), "src/data/content.json"), "utf8"));
+  const knownIcons = new Set<string>(Object.values(ICON_NAMES));
+  const unknownIcons = [...new Set(collectIcons(content))].filter((icon) => !knownIcons.has(icon));
+
+  if (unknownIcons.length) {
+    reporter.panic(`content.json: unknown icon(s) ${unknownIcons.join(", ")}. Add them to ICON_NAMES / ICONS or fix the name.`);
+  }
 };
 
 export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ actions, getConfig }) => {
@@ -38,18 +68,14 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ act
 /**
  * Explicit GraphQL schema for src/data/content.json.
  *
- * Why not rely on inference: reusable blocks (Heading, Cta, Faq, Card...) get
+ * Why not rely on inference: reusable blocks (SectionIntro, Cta, Faq, Card...) get
  * one stable type name, so components can declare GraphQL fragments on them
  * and typegen produces predictable TS types. Keep in sync with content.json.
  */
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
   actions.createTypes(`
     # ---------- primitives ----------
-    type Heading {
-      text: String!
-      "Part of the text that is visually accented in the design (may be empty)"
-      highlight: String
-    }
+    # Titles are plain strings; the accented part (lime in the design) is wrapped in <mark>: "Our <mark>Products</mark>"
 
     type LinkItem {
       label: String!
@@ -62,7 +88,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     }
 
     type SectionIntro {
-      title: Heading!
+      title: String!
       description: String
     }
 
@@ -85,9 +111,9 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     # ---------- layout ----------
     type Contact {
+      "email | phone | location (CONTACT_TYPES): the link (mailto: / tel:) is built from the label"
       type: String!
       label: String!
-      href: String
       icon: String!
     }
 
@@ -107,7 +133,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     type Auth {
       signUp: LinkItem!
       login: LinkItem!
-      logoutLabel: String!
+      logoutBtnText: String!
     }
 
     type Layout {
@@ -145,7 +171,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     }
 
     type Cta {
-      title: Heading!
+      title: String!
       description: String!
       button: LinkItem!
     }
@@ -173,7 +199,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     type SimpleHero {
       supTitle: String
-      title: Heading!
+      title: String!
       description: String!
     }
 
@@ -221,7 +247,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     type HomeHero {
       badge: String!
-      title: Heading!
+      title: String!
       description: String!
       button: LinkItem!
       widget: HeroWidget!
@@ -327,7 +353,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     }
 
     type AuthForm {
-      title: Heading!
+      title: String!
       description: String!
       fields: [FormField!]!
       forgotPasswordLabel: String
@@ -350,7 +376,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     # ---------- 404 ----------
     type NotFound {
       code: String!
-      title: Heading!
+      title: String!
       description: String!
       button: LinkItem!
       secondaryButton: LinkItem!

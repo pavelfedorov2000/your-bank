@@ -1,6 +1,6 @@
 import React, { type FC } from "react";
 
-import { Header, Footer, Container } from "@components/layout";
+import { Container, Footer, Header } from "@components/layout";
 
 import type { TWithChildren } from "@box/types";
 

@@ -11,14 +11,3 @@ export const SLIDER_BREAKPOINTS = {
     1920: { slidesPerView: 3, spaceBetween: 80 },
   },
 } as const;
-
-/**
- * aria-label of the prev / next arrows per slider (same keys as SLIDER_BREAKPOINTS).
- * <button aria-label={SWIPER_CONTROLS_ARIA_LABELS.testimonials.prev} />
- */
-export const SWIPER_CONTROLS_ARIA_LABELS = {
-  testimonials: {
-    prev: "Previous testimonial",
-    next: "Next testimonial",
-  },
-} as const;

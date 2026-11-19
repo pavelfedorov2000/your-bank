@@ -1,4 +1,5 @@
 import React, { type FC } from "react";
+
 import { cn } from "@box/utils";
 import type { TImageProps } from "@box/types";
 

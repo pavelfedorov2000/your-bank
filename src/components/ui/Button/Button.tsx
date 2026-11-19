@@ -1,8 +1,9 @@
 import React, { type FC } from "react";
+
 import { AppLink, Icon } from "@components/ui";
 
-import type { TButtonProps } from "@box/types";
 import { cn, getClassNameByMods } from "@box/utils";
+import type { TButtonProps } from "@box/types";
 
 import "./Button.scss";
 

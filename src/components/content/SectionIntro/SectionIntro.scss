@@ -12,9 +12,8 @@ $name: ".section-intro";
   @include responsive(gap, (20px, null, 100px, 300px));
   @include responsive(text-align, (center, null, left));
 
-  // Mix with text-block (default gap)
   &__text {
     flex: 1;
-    max-width: 1296px; // Figma: text container leaves 300px free on the right
+    max-width: 1296px;
   }
 }

@@ -1,9 +1,9 @@
 import React, { type FC } from "react";
 
 import { Button, Card, Icon, List, Title } from "@components/ui";
-import { MetaTags } from "@components/content";
+import { MetaTags, TextBlock } from "@components/content";
 
-import { ButtonMods, CardMods, ICON_NAMES } from "@box/constants";
+import { COMPONENT_MODS, ICON_NAMES } from "@box/constants";
 
 import "./JobCard.scss";
 
@@ -12,15 +12,12 @@ const mainClass = "job-card";
 type Props = {
   data: Queries.JobCardFragment;
   /** Subheadings shared by all cards ("About This Job", "Requirements & Qualifications") */
-  labels: {
-    about: string;
-    requirements: string;
-  };
+  labels: Pick<Queries.JobsSectionFragment, "aboutLabel" | "requirementsLabel">;
 };
 
 /** Careers "Job Openings" card: title, meta (location, department), about, requirements, apply link. */
-const JobCard: FC<Props> = ({ data: { title, meta, about, requirements, button }, labels }) => (
-  <Card className={mainClass} as="article" mods={[CardMods.Surface]}>
+const JobCard: FC<Props> = ({ data: { title, meta, about, requirements, button }, labels: { aboutLabel, requirementsLabel } }) => (
+  <Card className={mainClass} as="article" mods={[COMPONENT_MODS.card.surface]}>
     <header className={`${mainClass}__head`}>
       <Title className={`${mainClass}__title`} as="h3">
         {title}
@@ -29,17 +26,26 @@ const JobCard: FC<Props> = ({ data: { title, meta, about, requirements, button }
     </header>
 
     <div className={`${mainClass}__details`}>
-      <section className={`${mainClass}__group`}>
-        <Title className={`${mainClass}__subtitle`} as="h4">
-          {labels.about}
-        </Title>
-        <p className={`${mainClass}__about`}>{about}</p>
-      </section>
+      <TextBlock
+        className={`${mainClass}__group`}
+        as="section"
+        title={
+          <Title className={`${mainClass}__subtitle`} as="h4">
+            {aboutLabel}
+          </Title>
+        }
+        description={about}
+      />
 
-      <section className={`${mainClass}__group`}>
-        <Title className={`${mainClass}__subtitle`} as="h4">
-          {labels.requirements}
-        </Title>
+      <TextBlock
+        className={`${mainClass}__group`}
+        as="section"
+        title={
+          <Title className={`${mainClass}__subtitle`} as="h4">
+            {requirementsLabel}
+          </Title>
+        }
+      >
         <List
           className={`${mainClass}__requirements`}
           itemClassName={`${mainClass}__requirement`}
@@ -48,14 +54,14 @@ const JobCard: FC<Props> = ({ data: { title, meta, about, requirements, button }
           renderItem={(requirement) => (
             <>
               <Icon name={ICON_NAMES.briefcase} />
-              {requirement}
+              <span className={`${mainClass}__requirement-text`}>{requirement}</span>
             </>
           )}
         />
-      </section>
+      </TextBlock>
     </div>
 
-    <Button className={`${mainClass}__button`} to={button.path} mods={[ButtonMods.Primary, ButtonMods.Small]}>
+    <Button className={`${mainClass}__button`} to={button.path} mods={[COMPONENT_MODS.button.primary, COMPONENT_MODS.button.small]}>
       {button.label}
     </Button>
   </Card>
