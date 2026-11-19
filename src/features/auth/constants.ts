@@ -16,6 +16,14 @@ export const AUTH_MODES = {
   signUp: "signUp",
 } as const;
 
+/** Field names of the auth forms: `fields[].name` in content.json (GraphQL enum AuthFieldName). */
+export const AUTH_FIELDS = {
+  firstName: "firstName",
+  lastName: "lastName",
+  email: "email",
+  password: "password",
+} as const;
+
 /** Where to go after a successful login / sign up. */
 export const AUTH_REDIRECT_PATH = "/";
 

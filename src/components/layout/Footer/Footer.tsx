@@ -23,7 +23,7 @@ const Footer: FC = () => {
           <div className={`${mainClass}__top`}>
             <Logo className={`${mainClass}__logo`} />
 
-            <NavMenu items={navigation} ariaLabel={ARIA_LABELS.nav.footer} mods={[COMPONENT_MODS.navMenu.text]} />
+            <NavMenu items={navigation} aria-label={ARIA_LABELS.nav.footer} mods={[COMPONENT_MODS.navMenu.text]} />
           </div>
 
           <Contacts className={`${mainClass}__contacts`} items={contacts} />

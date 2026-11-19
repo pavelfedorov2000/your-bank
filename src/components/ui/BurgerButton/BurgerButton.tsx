@@ -1,4 +1,4 @@
-import React, { type FC } from "react";
+import React, { type ButtonHTMLAttributes, type FC } from "react";
 
 import { Icon } from "@components/ui";
 
@@ -12,8 +12,7 @@ const mainClass = "burger-button";
 
 type Props = TWithClassName<{
   isOpen: boolean;
-  onClick: () => void;
-}>;
+} & Required<Pick<ButtonHTMLAttributes<HTMLButtonElement>, "onClick">>>;
 
 /** Toggle button of a collapsible menu: burger when closed, cross when open. Visibility by breakpoint comes from the parent's element class. */
 const BurgerButton: FC<Props> = ({ className, isOpen, onClick }) => (

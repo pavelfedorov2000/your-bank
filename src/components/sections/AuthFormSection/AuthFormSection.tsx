@@ -5,9 +5,9 @@ import { Button, Card, Ctas, IconBadge, Input, List } from "@components/ui";
 import { TextBlock } from "@components/content";
 
 import { getIconName } from "@box/utils";
-import { COMPONENT_MODS, TitleVariants } from "@box/constants";
+import { COMPONENT_MODS, SPECIAL_CHARS, TitleVariants } from "@box/constants";
 import type { TNullable } from "@box/types";
-import { AUTH_MODES, getFormValues, type TAuthMode, useAuth } from "@features/auth";
+import { AUTH_MODES, getAuthFormValues, type TAuthMode, useAuth } from "@features/auth";
 
 import "./AuthFormSection.scss";
 
@@ -32,9 +32,8 @@ const AuthFormSection: FC<Props> = ({
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     
-    const { firstName = "", lastName = "", email = "", password = "" } = getFormValues(event.currentTarget);
-    const result =
-      mode === AUTH_MODES.signUp ? register({ firstName, lastName, email, password }) : login(email, password);
+    const user = getAuthFormValues(event.currentTarget);
+    const result = mode === AUTH_MODES.signUp ? register(user) : login(user.email, user.password);
 
     /** Success: the session changes and the page redirects (useRedirectIfAuthenticated) */
     if (!result.ok) setError(result.error);
@@ -74,7 +73,7 @@ const AuthFormSection: FC<Props> = ({
           )}
 
           {forgotPasswordLabel && (
-            <Button className={`${mainClass}__forgot`} to="#">
+            <Button className={`${mainClass}__forgot`} to={SPECIAL_CHARS.hash}>
               {forgotPasswordLabel}
             </Button>
           )}

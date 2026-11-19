@@ -245,19 +245,19 @@
             "list": [
               {
                 "code": "USD",
-                "icon": "currency-dollar"
+                "icon": "currencyDollar"
               },
               {
                 "code": "EUR",
-                "icon": "currency-euro"
+                "icon": "currencyEuro"
               },
               {
                 "code": "BTC",
-                "icon": "currency-bitcoin"
+                "icon": "currencyBitcoin"
               },
               {
                 "code": "ETH",
-                "icon": "currency-ethereum"
+                "icon": "currencyEthereum"
               }
             ]
           }
@@ -300,12 +300,12 @@
               {
                 "title": "Merchant Services",
                 "description": "Accept payments in store and online with fast settlement, transparent fees and real-time reports that help you keep track of your cash flow.",
-                "icon": "presentation-chart"
+                "icon": "presentationChart"
               },
               {
                 "title": "Business Loans",
                 "description": "Fund expansion, new equipment or working capital with flexible business loans and credit lines, backed by advisors who know your industry.",
-                "icon": "hand-coin"
+                "icon": "handCoin"
               }
             ]
           }
@@ -324,11 +324,11 @@
             "cases": [
               {
                 "title": "Managing Personal Finances",
-                "icon": "hand-coin"
+                "icon": "handCoin"
               },
               {
                 "title": "Saving for the Future",
-                "icon": "hands-coin"
+                "icon": "handsCoin"
               },
               {
                 "title": "Homeownership",
@@ -336,7 +336,7 @@
               },
               {
                 "title": "Education Funding",
-                "icon": "book-open"
+                "icon": "bookOpen"
               }
             ],
             "stats": [
@@ -373,11 +373,11 @@
               },
               {
                 "title": "Business Expansion",
-                "icon": "presentation-chart"
+                "icon": "presentationChart"
               },
               {
                 "title": "Payment Solutions",
-                "icon": "dollar-circle"
+                "icon": "dollarCircle"
               }
             ],
             "stats": [
@@ -413,22 +413,22 @@
               {
                 "title": "24/7 Account Access",
                 "description": "Enjoy the convenience of accessing your accounts anytime, anywhere through our secure online banking platform. Check balances, transfer funds, and pay bills with ease.",
-                "icon": "arrow-up-right"
+                "icon": "arrowUpRight"
               },
               {
                 "title": "Mobile Banking App",
                 "description": "Stay connected to your finances on the go with our user-friendly mobile banking app. Easily manage your accounts, deposit checks, and make payments from your smartphone or tablet.",
-                "icon": "arrow-up-right"
+                "icon": "arrowUpRight"
               },
               {
                 "title": "Secure Transactions",
                 "description": "Rest assured knowing that your transactions are protected by industry-leading security measures. We employ encryption and multi-factor authentication to safeguard your financial information.",
-                "icon": "arrow-up-right"
+                "icon": "arrowUpRight"
               },
               {
                 "title": "Bill Pay and Transfers",
                 "description": "Save time and avoid late fees with our convenient bill pay service. Set up recurring payments or make one-time transfers between your accounts with just a few clicks.",
-                "icon": "arrow-up-right"
+                "icon": "arrowUpRight"
               }
             ]
           },
@@ -438,22 +438,22 @@
               {
                 "title": "Budget Planner",
                 "description": "Set monthly budgets by category and get alerts before you overspend. Track your progress with clear charts that update in real time.",
-                "icon": "arrow-up-right"
+                "icon": "arrowUpRight"
               },
               {
                 "title": "Spending Insights",
                 "description": "See where your money goes with automatic categorization of every transaction and monthly reports on your spending habits.",
-                "icon": "arrow-up-right"
+                "icon": "arrowUpRight"
               },
               {
                 "title": "Savings Goals",
                 "description": "Create goals for a trip, a car or an emergency fund and let automatic transfers move money there on schedule.",
-                "icon": "arrow-up-right"
+                "icon": "arrowUpRight"
               },
               {
                 "title": "Investment Tracker",
                 "description": "Follow your portfolio performance in one place and get personalized suggestions to keep it aligned with your goals.",
-                "icon": "arrow-up-right"
+                "icon": "arrowUpRight"
               }
             ]
           },
@@ -463,22 +463,22 @@
               {
                 "title": "24/7 Live Chat",
                 "description": "Get answers from our support team any time of day right in the app or online banking, with an average response time under two minutes.",
-                "icon": "arrow-up-right"
+                "icon": "arrowUpRight"
               },
               {
                 "title": "Phone Support",
                 "description": "Prefer to talk? Call our dedicated line and speak to a banking specialist who can solve your issue on the first call.",
-                "icon": "arrow-up-right"
+                "icon": "arrowUpRight"
               },
               {
                 "title": "Personal Advisor",
                 "description": "Book a free session with a financial advisor to review your accounts, plan big purchases or discuss investments.",
-                "icon": "arrow-up-right"
+                "icon": "arrowUpRight"
               },
               {
                 "title": "Help Center",
                 "description": "Find step-by-step guides, video tutorials and answers to frequently asked questions in our searchable knowledge base.",
-                "icon": "arrow-up-right"
+                "icon": "arrowUpRight"
               }
             ]
           }
@@ -536,7 +536,7 @@
           {
             "title": "Competitive Compensation",
             "description": "We provide a competitive salary package that recognizes the skills and expertise of our employees. YourBank believes in rewarding exceptional performance and offering opportunities for financial growth.",
-            "icon": "presentation-chart"
+            "icon": "presentationChart"
           },
           {
             "title": "Health and Wellness",
@@ -766,7 +766,7 @@
           {
             "title": "Secure Online Banking Platform",
             "description": "Our online banking platform is built with multiple layers of security to safeguard your information. We utilize industry-standard encryption protocols to ensure that your data remains confidential and protected during transmission.",
-            "icon": "apps-add"
+            "icon": "appsAdd"
           },
           {
             "title": "Multi-Factor Authentication",
@@ -781,7 +781,7 @@
           {
             "title": "Secure Mobile Banking",
             "description": "Our mobile banking app is designed with the same level of security as our online banking platform. You can confidently access your accounts, make transactions, and manage your finances on the go, knowing that your information is protected.",
-            "icon": "rupee-circle"
+            "icon": "rupeeCircle"
           }
         ]
       }
@@ -822,7 +822,7 @@
           },
           {
             "name": "Facebook",
-            "icon": "facebook-circle"
+            "icon": "facebookCircle"
           },
           {
             "name": "Apple",
@@ -879,7 +879,7 @@
           },
           {
             "name": "Facebook",
-            "icon": "facebook-circle"
+            "icon": "facebookCircle"
           },
           {
             "name": "Apple",

@@ -1,12 +1,13 @@
 export { GENERAL_MODS } from "./mods";
 export { COMPONENT_MODS } from "./component-mods";
 export { ELEMENT_IDS, type TElementId } from "./element-ids";
-export { CONTACT_TYPES } from "./contacts";
+export { CONTACT_HREF_PREFIXES, CONTACT_TYPES } from "./contacts";
 export { TitleVariants } from "./titles";
 export { BREAKPOINTS } from "./breakpoints";
 export { SLIDER_BREAKPOINTS } from "./slider";
 export { ICON_NAMES } from "./icons";
 export { LOGO_SIZE } from "./logo";
 export { REG_EXP_PATTERNS } from "./reg-exp";
+export { SPECIAL_CHARS } from "./special-chars";
 export { EXTERNAL_LINK_ATTRS } from "./link";
 export { ARIA_LABELS } from "./aria-labels";

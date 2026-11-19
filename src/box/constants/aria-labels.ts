@@ -21,6 +21,5 @@ export const ARIA_LABELS = {
     header: "Header",
     footer: "Footer",
   },
-  /** Floating button that scrolls the page back to the top. */
   scrollTop: "Back to top",
 } as const;

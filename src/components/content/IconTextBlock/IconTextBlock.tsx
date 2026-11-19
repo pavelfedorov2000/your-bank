@@ -3,14 +3,14 @@ import React, { type FC, type ReactNode } from "react";
 import { IconBadge } from "@components/ui";
 
 import { cn, getClassNameByMods, getIconName } from "@box/utils";
-import type { TMaybe, TPropsMods, TWithClassName, TWithPropsMods } from "@box/types";
+import type { TIconKey, TMaybe, TPropsMods, TWithClassName, TWithPropsMods } from "@box/types";
 
 import "./IconTextBlock.scss";
 
 const mainClass = "icon-text-block";
 
 type Props = TWithClassName<TWithPropsMods<{
-  icon?: TMaybe<string>;
+  icon?: TMaybe<TIconKey>;
   iconMods?: TPropsMods;
   title: ReactNode;
   description?: string;

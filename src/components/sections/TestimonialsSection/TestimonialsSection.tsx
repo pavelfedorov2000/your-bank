@@ -23,7 +23,7 @@ type Props = {
 
 /** "Our Testimonials" — Home, Login, Sign Up. */
 const TestimonialsSection: FC<Props> = ({ data: { intro, tabs } }) => {
-  const { activeIndex, activeTab: { items }, tabsProps } = useTabs(tabs);
+  const { activeIndex, activeItems: items, tabsProps } = useTabs(tabs);
   const [swiper, setSwiper] = useState<TNullable<TSwiperInstance>>(null);
   const [edges, setEdges] = useState({ isBeginning: true, isEnd: false });
 

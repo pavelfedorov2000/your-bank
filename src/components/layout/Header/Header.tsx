@@ -34,7 +34,7 @@ const Header: FC = () => {
           <Logo className={`${mainClass}__logo`} loading="eager" />
 
           <div id={ELEMENT_IDS.menu} className={cn(`${mainClass}__menu`, getClassNameByMods(`${mainClass}__menu`, [isMenuOpen && GENERAL_MODS.open]))}>
-            <NavMenu className={`${mainClass}__nav`} items={navigation} ariaLabel={ARIA_LABELS.nav.header} />
+            <NavMenu className={`${mainClass}__nav`} items={navigation} aria-label={ARIA_LABELS.nav.header} />
 
             {user ? (
               <UserMenu className={`${mainClass}__user`} user={user} logoutBtnText={logoutBtnText} onLogout={logout} />

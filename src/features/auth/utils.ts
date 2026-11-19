@@ -1,4 +1,5 @@
-import type { TAuthUser } from "./types";
+import { AUTH_FIELDS } from "./constants";
+import type { TAuthFieldName, TAuthUser } from "./types";
 
 import type { TNullable } from "@box/types";
 
@@ -29,11 +30,21 @@ export const normalizeEmail = (email: string) => email.trim().toLowerCase();
 export const getUserInitials = ({ firstName, lastName }: Pick<TAuthUser, "firstName" | "lastName">) =>
   `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase();
 
-/** Values of the form fields by their `name` (fields of the auth forms come from content.json). */
-export const getFormValues = (form: HTMLFormElement) => {
-  const values: Record<string, string> = {};
-  new FormData(form).forEach((value, name) => {
-    values[name] = String(value);
-  });
-  return values;
+/** Values of the auth form fields by AUTH_FIELDS; a field missing in the form (login has no names) gives "". */
+export const getAuthFormValues = (form: HTMLFormElement): TAuthUser => {
+  const formData = new FormData(form);
+  const getValue = (name: TAuthFieldName) => String(formData.get(name) ?? "");
+
+  return {
+    firstName: getValue(AUTH_FIELDS.firstName),
+    lastName: getValue(AUTH_FIELDS.lastName),
+    email: getValue(AUTH_FIELDS.email),
+    password: getValue(AUTH_FIELDS.password),
+  };
 };
+
+/** Data parsed from localStorage is untrusted: a user must have every field as a string. */
+export const getIsAuthUser = (value: unknown): value is TAuthUser =>
+  typeof value === "object" &&
+  value !== null &&
+  Object.values(AUTH_FIELDS).every((field) => typeof Reflect.get(value, field) === "string");

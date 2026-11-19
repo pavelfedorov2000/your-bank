@@ -18,7 +18,7 @@ type Props = {
 
 /** Home "Our Features": vertical tab menu (horizontal on mobile) + 2×2 cards. */
 const FeaturesSection: FC<Props> = ({ data: { intro, tabs } }) => {
-  const { activeTab: { items }, tabsProps } = useTabs(tabs);
+  const { activeItems: items, tabsProps } = useTabs(tabs);
 
   return (
     <Section className={mainClass}>

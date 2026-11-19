@@ -1,11 +1,11 @@
 import { AUTH_CHANGE_EVENT, AUTH_MESSAGES, AUTH_STORAGE_KEYS } from "./constants";
 import type { TAuthResult, TAuthUser } from "./types";
-import { normalizeEmail, readStorage, writeStorage } from "./utils";
+import { getIsAuthUser, normalizeEmail, readStorage, writeStorage } from "./utils";
 
 const getUsers = (): TAuthUser[] => {
   try {
     const users: unknown = JSON.parse(readStorage(AUTH_STORAGE_KEYS.users) ?? "[]");
-    return Array.isArray(users) ? (users as TAuthUser[]) : [];
+    return Array.isArray(users) ? users.filter(getIsAuthUser) : [];
   } catch {
     return [];
   }

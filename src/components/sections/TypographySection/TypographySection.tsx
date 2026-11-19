@@ -1,4 +1,4 @@
-import React, { type CSSProperties, type FC } from "react";
+import React, { type FC } from "react";
 
 import { Card, List, Title } from "@components/ui";
 import { GuideBlock } from "@components/content";
@@ -30,7 +30,7 @@ const TypographySection: FC<Props> = ({ data: { intro, fontName, weightsTitle, w
           items={weights}
           getKey={(weight) => weight.value}
           renderItem={({ label, value }) => (
-            <span className={`${mainClass}__weight`} style={{ "--typography-weight": value } as CSSProperties}>
+            <span className={`${mainClass}__weight`} style={{ "--typography-weight": value }}>
               {label}
             </span>
           )}

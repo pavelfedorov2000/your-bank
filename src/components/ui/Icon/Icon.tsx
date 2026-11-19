@@ -10,7 +10,7 @@ import "./Icon.scss";
 const mainClass = "icon";
 
 type Props = TWithClassName<{
-  /** Icon from ICONS (`icons.tsx`): ICON_NAMES.x; a string from content.json — via getIconName(). */
+  /** Icon from ICONS (`icons.tsx`): ICON_NAMES.x; from content.json — getIconName(icon). */
   name: TIconName;
   /** Accessible name. Without it the icon is decorative and hidden from screen readers. */
   title?: string;

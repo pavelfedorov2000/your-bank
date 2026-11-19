@@ -1,8 +1,9 @@
 import path from "path";
-import fs from "fs";
 import type { GatsbyNode } from "gatsby";
 
+import { CONTACT_TYPES } from "./src/box/constants/contacts";
 import { ICON_NAMES } from "./src/box/constants/icons";
+import { AUTH_FIELDS } from "./src/features/auth/constants";
 
 /** Import aliases (`@components/ui`, `@box/utils`). Keep in sync with "paths" in tsconfig.json. */
 const ALIASES: Record<string, string> = {
@@ -14,33 +15,6 @@ const ALIASES: Record<string, string> = {
   "@box": "src/box",
   /** Self-contained features (logic + hooks + types): import from "@features/auth" */
   "@features": "src/features"
-};
-
-/** Every "icon" value anywhere in content.json. */
-const collectIcons = (value: unknown, found: string[] = []): string[] => {
-  if (Array.isArray(value)) value.forEach((item) => collectIcons(item, found));
-  else if (value && typeof value === "object") {
-    Object.entries(value).forEach(([key, item]) => {
-      if (key === "icon" && typeof item === "string") found.push(item);
-      else collectIcons(item, found);
-    });
-  }
-
-  return found;
-};
-
-/**
- * Icon names in content.json must exist in ICON_NAMES (src/box/constants/icons.ts):
- * a typo stops `develop` / `build` here instead of rendering an empty place. Components then trust them (getIconName).
- */
-export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = ({ reporter }) => {
-  const content = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), "src/data/content.json"), "utf8"));
-  const knownIcons = new Set<string>(Object.values(ICON_NAMES));
-  const unknownIcons = [...new Set(collectIcons(content))].filter((icon) => !knownIcons.has(icon));
-
-  if (unknownIcons.length) {
-    reporter.panic(`content.json: unknown icon(s) ${unknownIcons.join(", ")}. Add them to ICON_NAMES / ICONS or fix the name.`);
-  }
 };
 
 export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ actions, getConfig }) => {
@@ -73,6 +47,18 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ act
  * and typegen produces predictable TS types. Keep in sync with content.json.
  */
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
+  /**
+   * GraphQL enums from the constants' keys: typegen turns them into unions (Queries.IconName…),
+   * and an unknown value in content.json fails the query, so `develop` / `build` stops on a typo.
+   */
+  const getEnumSdl = (name: string, constant: Record<string, string>) => `enum ${name} { ${Object.keys(constant).join(" ")} }`;
+
+  actions.createTypes([
+    getEnumSdl("IconName", ICON_NAMES),
+    getEnumSdl("ContactType", CONTACT_TYPES),
+    getEnumSdl("AuthFieldName", AUTH_FIELDS),
+  ]);
+
   actions.createTypes(`
     # ---------- primitives ----------
     # Images: path relative to content.json ("../images/content/…"), resolved to a File for gatsby-plugin-image.
@@ -96,8 +82,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     type Card {
       title: String!
       description: String!
-      "Icon name from src/components/ui/icons.tsx"
-      icon: String
+      icon: IconName
     }
 
     type Stat {
@@ -112,16 +97,16 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     # ---------- layout ----------
     type Contact {
-      "email | phone | location (CONTACT_TYPES): the link (mailto: / tel:) is built from the label"
-      type: String!
+      "The link (mailto: / tel:) is built from the label"
+      type: ContactType!
       label: String!
-      icon: String!
+      icon: IconName!
     }
 
     type SocialLink {
       label: String!
       href: String!
-      icon: String!
+      icon: IconName!
     }
 
     type Footer {
@@ -244,7 +229,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     type SupportedCurrency {
       code: String!
-      icon: String!
+      icon: IconName!
     }
 
     type HomeHero {
@@ -257,7 +242,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     type UseCase {
       title: String!
-      icon: String!
+      icon: IconName!
     }
 
     type UseCaseGroup {
@@ -348,7 +333,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     # ---------- auth pages ----------
     type FormField {
-      name: String!
+      name: AuthFieldName!
       type: String!
       placeholder: String!
       autoComplete: String!
@@ -367,7 +352,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     type SocialProvider {
       name: String!
-      icon: String!
+      icon: IconName!
     }
 
     type AuthPage {

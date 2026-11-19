@@ -4,9 +4,7 @@ import type * as React from "react";
 export type TWithChildren<T = {}> = T & React.PropsWithChildren<{}>;
 
 /** Adds an optional `className` prop (BEM mix from the parent, e.g. "header__logo-image"). */
-export type TWithClassName<T = {}> = T & {
-  className?: string;
-};
+export type TWithClassName<T = {}> = T & Pick<React.HTMLAttributes<HTMLElement>, "className">;
 
 /** Value that may be explicitly empty: `T | null`. */
 export type TNullable<T> = T | null;

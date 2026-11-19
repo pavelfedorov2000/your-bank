@@ -17,7 +17,7 @@ type Props = {
 
 /** Intro + tabs + centered cards with icons, divided by lines. Home "Our Products". */
 const TabbedCardsSection: FC<Props> = ({ data: { intro, tabs } }) => {
-  const { activeTab: { items }, tabsProps } = useTabs(tabs);
+  const { activeItems: items, tabsProps } = useTabs(tabs);
 
   return (
     <Section className={mainClass}>

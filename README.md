@@ -94,8 +94,10 @@ pages    — home / careers / about / security / login / signUp / notFound / gui
   компонент получает `data`, тип пропа (`Queries.FaqSectionFragment`) генерирует `graphqlTypegen`.
 - Выделение в заголовках — тег `<mark>` прямо в тексте: `"title": "Our <mark>Products</mark>"`.
   `Title` выводит его через проп `html` (`dangerouslySetInnerHTML`) — только для своего контента, не для пользовательского ввода.
-- Иконки в данных — строки (`"icon": "mail"`). При старте `develop` / `build` они сверяются с `ICON_NAMES`
-  (`onPreBootstrap` в `gatsby-node.ts`): опечатка останавливает сборку. В компонентах — `getIconName(icon)`.
+- Иконки в данных — ключи `ICON_NAMES` (`"icon": "arrowUpRight"`). Перечислимые значения из `content.json`
+  (иконки, `Contact.type`, `FormField.name`) объявлены в схеме как GraphQL-enum из констант (`ICON_NAMES`, `CONTACT_TYPES`,
+  `AUTH_FIELDS`): typegen даёт union-типы, а опечатка роняет запрос — `develop` / `build` останавливается.
+  В компонентах — `getIconName(icon)` (ключ → имя иконки в `ICONS`).
 - Иконки — по одному `.svg` на иконку в `src/images/icons/` (имя файла в kebab-case = имя иконки).
   `scripts/generate-icons.mjs` собирает из них `ICON_NAMES` (`box/constants/icons.ts`) и `ICONS`
   (`components/ui/Icon/icons.tsx`) — эти два файла генерируются, руками не правятся. Скрипт переводит атрибуты в JSX
@@ -154,6 +156,10 @@ pages    — home / careers / about / security / login / signUp / notFound / gui
   В коде никаких строковых литералов там, где есть константа (иконки, aria-label, модификаторы, регулярки).
 - Типы — с префиксом `T` и, где можно, выводятся из источника: `Queries.*` из GraphQL, `typeof COMPONENT_MODS.button`.
 - Все комментарии — JSDoc `/** */`, в JSX — `{/** */}`.
+- Пропсы, которые один в один уходят в атрибут элемента, берутся из нативных типов:
+  `Pick<ButtonHTMLAttributes<HTMLButtonElement>, "onClick">`, `Pick<AriaAttributes, "aria-label">`. Доменные колбэки (`onLogout`) — свои.
+- Без `as` поверх чужих данных: `localStorage` — через type guard (`getIsAuthUser`). Включён `noUncheckedIndexedAccess`
+  (`arr[i]` — `T | undefined`). CSS-переменные в `style` — без каста (`box/types/css.d.ts`).
 - Импорты группируются автоматически (ESLint, `eslint.config.mjs`), пустая строка между группами:
   пакеты → `@images` → компоненты (layout → ui → content → sections → `./X`) → `@box` (hooks → utils → constants → types),
   `@features` → стили (сначала пакетов, потом свои `./X.scss`).

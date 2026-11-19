@@ -4,3 +4,9 @@ export const CONTACT_TYPES = {
   phone: "phone",
   location: "location",
 } as const;
+
+/** URL schemes of the contact links: "mailto:hello@…", "tel:+91…". */
+export const CONTACT_HREF_PREFIXES = {
+  email: "mailto:",
+  phone: "tel:",
+} as const;

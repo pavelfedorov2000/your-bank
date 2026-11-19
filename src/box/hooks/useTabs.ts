@@ -1,15 +1,16 @@
 import { useState } from "react";
 
 /**
- * Active tab of a tabbed section whose content comes as `tabs: [{ label, ... }]`.
- * const { activeTab, tabsProps } = useTabs(tabs); → <Tabs {...tabsProps} /> + activeTab.items
+ * Active tab of a tabbed section whose content comes as `tabs: [{ label, items }]`.
+ * const { activeItems, tabsProps } = useTabs(tabs); → <Tabs {...tabsProps} /> + activeItems
  */
-export const useTabs = <T extends { label: string }>(tabs: readonly T[]) => {
+export const useTabs = <TItem>(tabs: readonly { label: string; items: readonly TItem[] }[]) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return {
     activeIndex,
-    activeTab: tabs[activeIndex],
+    /** Items of the active tab; empty when there are no tabs */
+    activeItems: tabs[activeIndex]?.items ?? [],
     /** Ready props for <Tabs />: labels, active index, change handler */
     tabsProps: {
       items: tabs.map((tab) => tab.label),

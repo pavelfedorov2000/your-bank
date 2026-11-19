@@ -1,7 +1,5 @@
-import type { TIconName } from "@box/types";
+import { ICON_NAMES } from "@box/constants";
+import type { TIconKey } from "@box/types";
 
-/**
- * Icon name from content.json as TIconName. Every "icon" in content.json is checked against ICON_NAMES
- * at build / develop start (gatsby-node onPreBootstrap), so an unknown name never reaches the components.
- */
-export const getIconName = (name: string) => name as TIconName;
+/** Icon from content.json ("arrowUpRight", GraphQL enum IconName) → its name in ICONS ("arrow-up-right"). */
+export const getIconName = (key: TIconKey) => ICON_NAMES[key];

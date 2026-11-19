@@ -1,4 +1,4 @@
-import React, { type CSSProperties, type FC } from "react";
+import React, { type FC } from "react";
 
 import { Card, List } from "@components/ui";
 import { TextBlock } from "@components/content";
@@ -16,7 +16,7 @@ type Props = {
 
 /** Palette group: title + description on the left, swatches (tone + hex) in a panel on the right. */
 const ColorGroup: FC<Props> = ({ data: { title, description, columns, swatches } }) => (
-  <section className={mainClass} style={{ "--color-group-columns": columns } as CSSProperties}>
+  <section className={mainClass} style={{ "--color-group-columns": columns }}>
     <TextBlock
       className={`${mainClass}__text`}
       title={title}
@@ -33,7 +33,7 @@ const ColorGroup: FC<Props> = ({ data: { title, description, columns, swatches }
         renderItem={({ name, hex }) => (
           <div
             className={cn(`${mainClass}__swatch`, getClassNameByMods(`${mainClass}__swatch`, [getIsLightColor(hex) && GENERAL_MODS.light]))}
-            style={{ "--color-group-swatch": hex } as CSSProperties}
+            style={{ "--color-group-swatch": hex }}
           >
             <span className={`${mainClass}__name`}>{name}</span>
             <code className={`${mainClass}__hex`}>{hex}</code>
