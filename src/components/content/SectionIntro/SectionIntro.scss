@@ -17,7 +17,7 @@ $name: ".section-intro";
     max-width: 1296px;
   }
 
-  &:has(.section-intro__actions) {
+  &:has(#{$name}__actions) {
     .text-block__description {
       @include responsive(max-width, (null, null, 831px, 910px));
       @include responsive(font-size, (14px, null, null, 18px));
