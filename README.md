@@ -1,5 +1,7 @@
 # YourBank — Gatsby
 
+![YourBank — Bank Website Template by Produce UI: 6 pages in 3 screen sizes](docs/preview.webp)
+
 Сайт банка по макету [YourBank – Bank Website Dark Theme (Figma)](https://www.figma.com/design/YUPVscHPBcWGIYfdrftEQs).
 
 **Демо:** https://pavelfedorov2000.github.io/your-bank/
