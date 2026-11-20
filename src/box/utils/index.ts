@@ -5,5 +5,6 @@ export { getContactHref, getEmailHref, getPhoneHref } from "./contacts";
 export { getIsExternalLink, getIsInternalLink } from "./link";
 export { getAriaIdList } from "./aria";
 export { focusById, focusFirstInside } from "./focus";
+export { getGoogleFontsUrl } from "./fonts";
 export { getMediaQuery } from "./media";
 export { getIsReducedMotion, getScrollBehavior } from "./motion";

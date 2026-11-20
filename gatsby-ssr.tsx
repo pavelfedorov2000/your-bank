@@ -1,19 +1,23 @@
 import React from "react";
 import type { GatsbySSR } from "gatsby";
 
-// Font from the design: Lexend (Google Fonts). Added once to <head> of every page.
-// Without JS the preloader (Layout/Preloader) would never hide: it's hidden right away.
+import { PRELOADER_CLASS } from "@components/layout/Layout/Preloader";
+
+import { getGoogleFontsUrl } from "@box/utils";
+import { GOOGLE_FONTS } from "@box/constants";
+
+/**
+ * Added once to <head> of every page:
+ * - the font of the design (GOOGLE_FONTS): preconnect to both origins + the stylesheet;
+ * - without JS the preloader would never hide: it's hidden right away.
+ */
 export const onRenderBody: GatsbySSR["onRenderBody"] = ({ setHeadComponents }) => {
   setHeadComponents([
-    <link key="gf-preconnect" rel="preconnect" href="https://fonts.googleapis.com" />,
-    <link key="gf-preconnect-static" rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />,
-    <link
-      key="gf-lexend"
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap"
-    />,
+    <link key="fonts-preconnect-css" rel="preconnect" href={GOOGLE_FONTS.origins.css} />,
+    <link key="fonts-preconnect-files" rel="preconnect" href={GOOGLE_FONTS.origins.files} crossOrigin="anonymous" />,
+    <link key="fonts-stylesheet" rel="stylesheet" href={getGoogleFontsUrl()} />,
     <noscript key="no-preloader">
-      <style>{".preloader { display: none; }"}</style>
+      <style>{`.${PRELOADER_CLASS} { display: none; }`}</style>
     </noscript>,
   ]);
 };

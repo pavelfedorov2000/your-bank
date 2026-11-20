@@ -8,7 +8,10 @@ import { GENERAL_MODS } from "@box/constants";
 
 import "./Preloader.scss";
 
-const mainClass = "preloader";
+/** Class of the preloader: also hidden by it in <noscript> (gatsby-ssr.tsx) */
+export const PRELOADER_CLASS = "preloader";
+
+const mainClass = PRELOADER_CLASS;
 
 /**
  * Full-screen template banner (GuideHero) over the page on a full page load (behavior: usePreloader).

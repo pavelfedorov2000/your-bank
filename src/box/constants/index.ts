@@ -15,3 +15,4 @@ export { EXTERNAL_LINK_ATTRS } from "./link";
 export { ARIA_LABELS } from "./aria-labels";
 export { KEYS } from "./keys";
 export { FOCUS_OPTIONS, FOCUSABLE_SELECTOR } from "./focus";
+export { GOOGLE_FONTS } from "./fonts";
