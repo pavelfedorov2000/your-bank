@@ -1,10 +1,8 @@
 import React from "react";
 import type { GatsbySSR } from "gatsby";
 
-import { PRELOADER_CLASS } from "@components/layout/Layout/Preloader";
-
 import { getGoogleFontsUrl } from "@box/utils";
-import { GOOGLE_FONTS } from "@box/constants";
+import { GOOGLE_FONTS, PRELOADER_CLASS } from "@box/constants";
 
 /**
  * Added once to <head> of every page:

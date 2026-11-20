@@ -4,12 +4,9 @@ import { GuideHero } from "@components/sections";
 
 import { usePreloader, useTemplateHero } from "@box/hooks";
 import { cn, getClassNameByMods } from "@box/utils";
-import { GENERAL_MODS } from "@box/constants";
+import { GENERAL_MODS, PRELOADER_CLASS } from "@box/constants";
 
 import "./Preloader.scss";
-
-/** Class of the preloader: also hidden by it in <noscript> (gatsby-ssr.tsx) */
-export const PRELOADER_CLASS = "preloader";
 
 const mainClass = PRELOADER_CLASS;
 
