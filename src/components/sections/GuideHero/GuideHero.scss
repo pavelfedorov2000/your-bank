@@ -6,6 +6,13 @@ $name: ".guide-hero";
 $overlay-mobile: linear-gradient(0deg, rgb(30 35 18 / 0.92) 25%, rgb(30 35 18 / 0.45) 100%);
 $overlay-desktop: linear-gradient(90deg, #232d07 0%, rgb(30 33 20 / 0.9) 45%, rgb(var(--color-surface-rgb) / 0) 75%);
 
+// Defaults: banner on the guide pages. A mixed block (preloader) overrides only these vars.
+:root {
+  --guide-hero-radius: var(--radius-lg);
+
+  @include responsive(--guide-hero-min-height, (320px, 380px, 440px, 547px));
+}
+
 // Block: guide-hero (Figma "Template Guide" banner)
 // The screens collage sits on the right (decor, CSS background), the text over the overlay.
 #{$name} {
@@ -13,15 +20,15 @@ $overlay-desktop: linear-gradient(90deg, #232d07 0%, rgb(30 33 20 / 0.9) 45%, rg
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
+  min-height: var(--guide-hero-min-height);
   background:
     var(--guide-hero-overlay),
     url("@images/decor/guide-hero.webp") right center / auto 100% no-repeat,
     var(--color-surface);
-  border-radius: var(--radius-lg);
+  border-radius: var(--guide-hero-radius);
 
   @include responsive(--guide-hero-overlay, ($overlay-mobile, $overlay-desktop));
   @include responsive(gap, (14px, 16px, null, 20px));
-  @include responsive(min-height, (320px, 380px, 440px, 547px));
   @include responsive(padding, (40px 24px, 60px 40px, 60px, 80px 120px));
 
   &__head {

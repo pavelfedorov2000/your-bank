@@ -1,0 +1,29 @@
+@use "@styles/mixins" as *;
+
+$name: ".preloader";
+
+// Block: preloader. Over the whole viewport until the window has loaded, then fades out.
+#{$name} {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-index-preloader);
+  background-color: var(--color-bg);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--transition),
+    visibility var(--transition);
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // The template banner stretched to the full screen, square corners
+  &__hero {
+    --guide-hero-radius: 0;
+    --guide-hero-min-height: 100%;
+
+    height: 100%;
+  }
+}

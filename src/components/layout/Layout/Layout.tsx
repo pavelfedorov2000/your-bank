@@ -1,6 +1,7 @@
 import React, { type FC } from "react";
 
 import { Container, Footer, Header } from "@components/layout";
+import Preloader from "./Preloader";
 import ScrollTopButton from "./ScrollTopButton";
 import SkipLink from "./SkipLink";
 
@@ -12,7 +13,8 @@ import "./Layout.scss";
 const mainClass = "layout";
 
 /**
- * Common page shell: skip link + Navbar + content + Footer (same on every page in the design) + floating "Back to top" button.
+ * Common page shell: skip link + Navbar + content + Footer (same on every page in the design) + floating "Back to top" button,
+ * preloader over it on the first page load.
  * <main> takes focus from the skip link (tabIndex -1: focusable from code / anchors, not in the Tab order).
  */
 const Layout: FC<TWithChildren> = ({ children }) => (
@@ -26,6 +28,7 @@ const Layout: FC<TWithChildren> = ({ children }) => (
     </main>
     <Footer />
     <ScrollTopButton />
+    <Preloader />
   </div>
 );
 
