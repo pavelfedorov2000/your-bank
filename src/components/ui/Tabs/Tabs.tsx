@@ -5,7 +5,7 @@ import { Button } from "@components/ui";
 import { useScrollActiveIntoView } from "@box/hooks";
 import { cn, getClassNameByMods } from "@box/utils";
 import type { TWithClassName, TWithPropsMods } from "@box/types";
-import { getTabId, getTabPanelId } from "@box/tabs";
+import { getTabProps } from "@box/tabs";
 
 import "./Tabs.scss";
 
@@ -33,11 +33,7 @@ const Tabs: FC<Props> = ({ className, mods, tabsId, items, activeIndex, onChange
         <Button
           key={item}
           className={`${mainClass}__item`}
-          id={getTabId(tabsId, index)}
-          role="tab"
-          aria-selected={index === activeIndex}
-          aria-controls={getTabPanelId(tabsId)}
-          tabIndex={index === activeIndex ? 0 : -1}
+          {...getTabProps(tabsId, index, activeIndex)}
           onClick={() => onChange(index)}
         >
           {item}

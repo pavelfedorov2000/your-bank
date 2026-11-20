@@ -40,6 +40,14 @@ $name: ".input";
       color: var(--color-text-placeholder);
       opacity: 1;
     }
+
+    // Browser autofill paints its own light background and dark text: cover it with the field's colors.
+    // The background can't be overridden directly, so a wide inset shadow is drawn over it.
+    &:is(:autofill, :-webkit-autofill) {
+      box-shadow: inset 0 0 0 100vmax var(--color-bg);
+      caret-color: var(--color-text);
+      -webkit-text-fill-color: var(--color-text);
+    }
   }
 
   &__toggle {

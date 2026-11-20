@@ -1,7 +1,6 @@
 import { type KeyboardEvent, useId, useState } from "react";
 
-import type { TTabPanelProps } from "./types";
-import { getNextTabIndex, getTabId, getTabPanelId } from "./utils";
+import { getNextTabIndex, getTabId, getTabPanelProps } from "./utils";
 
 import { focusById } from "@box/utils";
 
@@ -25,14 +24,6 @@ export const useTabs = <TItem>(tabs: readonly { label: string; items: readonly T
     focusById(getTabId(tabsId, nextIndex));
   };
 
-  const panelProps: TTabPanelProps = {
-    id: getTabPanelId(tabsId),
-    role: "tabpanel",
-    "aria-labelledby": getTabId(tabsId, activeIndex),
-    /** Tab from the active tab goes to the panel (WAI-ARIA tabs: the cards inside have nothing focusable) */
-    tabIndex: 0,
-  };
-
   return {
     activeIndex,
     /** Items of the active tab; empty when there are no tabs */
@@ -46,6 +37,6 @@ export const useTabs = <TItem>(tabs: readonly { label: string; items: readonly T
       onKeyDown: handleKeyDown,
     },
     /** Ready props for the element with the active tab's content */
-    panelProps,
+    panelProps: getTabPanelProps(tabsId, activeIndex),
   };
 };

@@ -10,8 +10,11 @@ export type TWithClassName<T = {}> = T & Pick<React.HTMLAttributes<HTMLElement>,
 export type TNullable<T> = T | null;
 export type TMaybe<T> = TNullable<T> | undefined;
 
+/** Value or a falsy placeholder from an inline condition (`isOpen && "open"`, optional prop): skipped when joined. */
+export type TSkippable<T> = T | false | undefined;
+
 /** BEM modifiers for getClassNameByMods: falsy values are skipped, so conditions can be inline (`isOpen && GENERAL_MODS.open`). */
-export type TPropsMods = Array<string | false | null | undefined>;
+export type TPropsMods = Array<TSkippable<string>>;
 
 /** Adds an optional `mods` prop (own BEM modifiers of the component's block). */
 export type TWithPropsMods<T = {}> = T & {
@@ -19,4 +22,4 @@ export type TWithPropsMods<T = {}> = T & {
 };
 
 /** Argument of cn(): a class name, a falsy value to skip, or a nested array of them. */
-export type TClassValue = string | false | null | undefined | TClassValue[];
+export type TClassValue = TSkippable<string> | TClassValue[];

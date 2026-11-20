@@ -7,3 +7,9 @@ export const FOCUSABLE_SELECTOR = [
   "textarea:not(:disabled)",
   '[tabindex]:not([tabindex="-1"])',
 ].join(", ");
+
+/** Options of element.focus(): keep the page where it is (the caller scrolls itself) or bring the element into view. */
+export const FOCUS_OPTIONS = {
+  noScroll: { preventScroll: true },
+  scrollIntoView: { preventScroll: false },
+} as const satisfies Record<string, FocusOptions>;

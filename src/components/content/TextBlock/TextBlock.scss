@@ -19,5 +19,7 @@ $name: ".text-block";
   &__description {
     line-height: var(--text-block-line-height);
     @include text-description;
+
+    @include responsive(max-width, (null, null, 1030px, 1296px));
   }
 }

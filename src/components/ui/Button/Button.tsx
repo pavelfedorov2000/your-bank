@@ -21,7 +21,7 @@ const Button: FC<TButtonProps> = ({ to, mods, icon, type = "button", className, 
 
   if (to) {
     return (
-      <AppLink className={classNames} to={to}>
+      <AppLink className={classNames} to={to} aria-label={buttonProps["aria-label"]}>
         {content}
       </AppLink>
     );

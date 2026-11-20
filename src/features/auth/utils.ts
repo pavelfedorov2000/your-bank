@@ -1,7 +1,7 @@
 import { AUTH_FIELDS, AUTH_MESSAGES, AUTH_MODES, AUTH_PASSWORD_MIN_LENGTH } from "./constants";
-import type { TAuthFieldName, TAuthFormErrors, TAuthMode, TAuthUser } from "./types";
+import type { TAuthError, TAuthFieldName, TAuthFieldProps, TAuthFormErrors, TAuthMode, TAuthUser } from "./types";
 
-import { mapValues } from "@box/utils";
+import { getAriaIdList } from "@box/utils";
 import { REG_EXP_PATTERNS } from "@box/constants";
 import type { TNullable } from "@box/types";
 
@@ -37,7 +37,12 @@ export const getAuthFormValues = (form: HTMLFormElement): TAuthUser => {
   const formData = new FormData(form);
   const getValue = (name: TAuthFieldName) => String(formData.get(name) ?? "");
 
-  return mapValues(AUTH_FIELDS, getValue);
+  return {
+    firstName: getValue(AUTH_FIELDS.firstName),
+    lastName: getValue(AUTH_FIELDS.lastName),
+    email: getValue(AUTH_FIELDS.email),
+    password: getValue(AUTH_FIELDS.password),
+  };
 };
 
 /** Data parsed from localStorage is untrusted: a user must have every field as a string. */
@@ -71,4 +76,45 @@ export const getAuthFormErrors = (values: TAuthUser, fieldNames: readonly TAuthF
   });
 
   return errors;
+};
+
+/** Id of a field's input in the auth form: `${formId}-email` (formId comes from useId() in useAuthForm). */
+export const getAuthInputId = (formId: string, name: TAuthFieldName) => `${formId}-${name}`;
+
+/** Id of a field's validation message: `${formId}-email-error`. */
+export const getAuthFieldErrorId = (formId: string, name: TAuthFieldName) => `${formId}-${name}-error`;
+
+/** Id of the form error (wrong credentials, user exists…): `${formId}-error`. */
+export const getAuthFormErrorId = (formId: string) => `${formId}-error`;
+
+type TGetAuthFieldParams = {
+  formId: string;
+  name: TAuthFieldName;
+  message: TNullable<string>;
+  formError: TNullable<TAuthError>;
+  onInput: () => void;
+};
+
+/**
+ * Props of one auth form field: input id, invalid state, link to its error and to the form error (aria-describedby),
+ * input handler; `error` — the field's message with its id, null when the field is valid.
+ */
+export const getAuthFieldProps = ({
+  formId,
+  name,
+  message,
+  formError,
+  onInput,
+}: TGetAuthFieldParams): TAuthFieldProps => {
+  const fieldError = message ? { id: getAuthFieldErrorId(formId, name), message } : null;
+
+  return {
+    inputProps: {
+      id: getAuthInputId(formId, name),
+      "aria-invalid": Boolean(fieldError || formError),
+      "aria-describedby": getAriaIdList(fieldError?.id, formError?.id),
+      onInput,
+    },
+    error: fieldError,
+  };
 };

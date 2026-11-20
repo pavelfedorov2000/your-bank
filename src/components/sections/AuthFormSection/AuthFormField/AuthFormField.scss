@@ -1,0 +1,18 @@
+@use "@styles/mixins" as *;
+
+$name: ".auth-form-field";
+
+// Block: auth-form-field (input + validation message)
+#{$name} {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  // Under the field, aligned with its text (the pill's inner padding)
+  &__error {
+    color: var(--color-error);
+
+    @include responsive(padding-inline, (16px, 20px, null, 24px));
+    @include responsive(font-size, (14px, null, null, 16px));
+  }
+}

@@ -8,5 +8,4 @@ export type * from "./image";
 export type * from "./aria";
 export type * from "./contact";
 export type * from "./keys";
-export type * from "./element-ids";
 export type * from "./media";

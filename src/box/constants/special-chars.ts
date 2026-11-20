@@ -1,7 +1,5 @@
-/** Single characters used in string logic (links, phone numbers, colors, class names). */
+/** Single characters with a meaning in string logic: "#" — anchors / hex colors, "+" — phone country code. */
 export const SPECIAL_CHARS = {
   hash: "#",
   plus: "+",
-  slash: "/",
-  space: " ",
 } as const;

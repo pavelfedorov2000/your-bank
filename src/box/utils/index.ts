@@ -7,4 +7,3 @@ export { getAriaIdList } from "./aria";
 export { focusById, focusFirstInside } from "./focus";
 export { getMediaQuery } from "./media";
 export { getIsReducedMotion, getScrollBehavior } from "./motion";
-export { mapValues } from "./object";
