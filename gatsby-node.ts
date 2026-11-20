@@ -167,6 +167,8 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     type Shared {
       faq: Faq!
       testimonials: Testimonials!
+      "Banner of the template pages (guide, sitemap)"
+      templateHero: GuideHero!
     }
 
     type IntroWithCards {
@@ -445,10 +447,26 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     type GuidePage {
       seo: Seo!
-      hero: GuideHero!
       colors: ColorStyles!
       typography: TypographyGuide!
       assets: AssetsGuide!
+    }
+
+    # ---------- sitemap ----------
+    "One page of the template: link to it + its sections from top to bottom"
+    type SitemapTree {
+      page: LinkItem!
+      sections: [String!]!
+    }
+
+    type Sitemap {
+      intro: SectionIntro!
+      trees: [SitemapTree!]!
+    }
+
+    type SitemapPage {
+      seo: Seo!
+      sitemap: Sitemap!
     }
 
     type Pages {
@@ -460,6 +478,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       signUp: AuthPage!
       notFound: NotFoundPage!
       guide: GuidePage!
+      sitemap: SitemapPage!
     }
 
     # ---------- root node (src/data/content.json) ----------

@@ -186,6 +186,14 @@
           ]
         }
       ]
+    },
+    "templateHero": {
+      "title": "YourBank",
+      "description": "Bank Website Template for a Finance Brand",
+      "author": {
+        "label": "By Produce UI",
+        "path": "https://www.figma.com/design/YUPVscHPBcWGIYfdrftEQs"
+      }
     }
   },
   "pages": {
@@ -920,14 +928,6 @@
         "title": "Design Guide",
         "description": "Colors, typography and assets of the YourBank template."
       },
-      "hero": {
-        "title": "YourBank",
-        "description": "Bank Website Template for a Finance Brand",
-        "author": {
-          "label": "By Produce UI",
-          "path": "https://www.figma.com/design/YUPVscHPBcWGIYfdrftEQs"
-        }
-      },
       "colors": {
         "intro": {
           "title": "🎨 Color Styles",
@@ -1137,6 +1137,103 @@
           {
             "image": "../images/content/guide/dots-diagonal.webp",
             "alt": "Diagonal field of fading dots"
+          }
+        ]
+      }
+    },
+    "sitemap": {
+      "seo": {
+        "title": "Sitemap",
+        "description": "How the pages of the YourBank template are built: every page and its sections."
+      },
+      "sitemap": {
+        "intro": {
+          "title": "Sitemap Of The Template",
+          "description": "A UI sitemap, or user experience (UX) sitemap, is a diagram that shows how the pages on a website are related to each other. It's also known as an information architecture (IA) diagram or content outline."
+        },
+        "trees": [
+          {
+            "page": {
+              "label": "Home",
+              "path": "/"
+            },
+            "sections": [
+              "Navigation Bar",
+              "Hero Section",
+              "Products",
+              "Use Cases",
+              "Features",
+              "FAQ's",
+              "Testimonials",
+              "CTA",
+              "Footer"
+            ]
+          },
+          {
+            "page": {
+              "label": "Careers",
+              "path": "/careers/"
+            },
+            "sections": [
+              "Navigation Bar",
+              "Overview",
+              "Our Values",
+              "Benefits",
+              "Jobs",
+              "FAQ",
+              "CTA",
+              "Footer"
+            ]
+          },
+          {
+            "page": {
+              "label": "About",
+              "path": "/about/"
+            },
+            "sections": [
+              "Navigation Bar",
+              "Overview",
+              "Mission & Vision",
+              "Press Releases",
+              "Footer"
+            ]
+          },
+          {
+            "page": {
+              "label": "Security",
+              "path": "/security/"
+            },
+            "sections": [
+              "Navigation Bar",
+              "Overview",
+              "How We Protect You?",
+              "FAQ's",
+              "Footer"
+            ]
+          },
+          {
+            "page": {
+              "label": "Login",
+              "path": "/login/"
+            },
+            "sections": [
+              "Navigation Bar",
+              "Login Form",
+              "Testimonials",
+              "Footer"
+            ]
+          },
+          {
+            "page": {
+              "label": "Sign Up",
+              "path": "/sign-up/"
+            },
+            "sections": [
+              "Navigation Bar",
+              "Sign Up Form",
+              "Testimonials",
+              "Footer"
+            ]
           }
         ]
       }

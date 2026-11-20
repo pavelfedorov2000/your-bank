@@ -8,11 +8,11 @@ import { AssetsSection, ColorStylesSection, GuideHero, TypographySection } from 
 /** Design guide of the template (Figma "🚀 Guide"): colors, typography, assets. */
 const GuidePage: FC<PageProps<Queries.GuidePageQuery>> = ({ data: { contentJson } }) => {
   if (!contentJson) return null;
-  const { pages: { guide: { hero, colors, typography, assets } } } = contentJson;
+  const { shared: { templateHero }, pages: { guide: { colors, typography, assets } } } = contentJson;
 
   return (
     <Layout>
-      <GuideHero data={hero} />
+      <GuideHero data={templateHero} />
       <ColorStylesSection data={colors} />
       <TypographySection data={typography} />
       <AssetsSection data={assets} />
@@ -29,13 +29,15 @@ export const Head: HeadFC<Queries.GuidePageQuery> = ({ data: { contentJson }, lo
 export const query = graphql`
   query GuidePage {
     contentJson {
+      shared {
+        templateHero {
+          ...GuideHero
+        }
+      }
       pages {
         guide {
           seo {
             ...Seo
-          }
-          hero {
-            ...GuideHero
           }
           colors {
             ...ColorStylesSection

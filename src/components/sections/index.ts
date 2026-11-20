@@ -17,6 +17,7 @@ export { default as NotFoundSection } from "./NotFoundSection";
 export { default as PressReleasesSection } from "./PressReleasesSection";
 export { default as ProtectionSection } from "./ProtectionSection";
 export { default as SimpleHero } from "./SimpleHero";
+export { default as SitemapSection } from "./SitemapSection";
 export { default as TabbedCardsSection } from "./TabbedCardsSection";
 export { default as TestimonialsSection } from "./TestimonialsSection";
 export { default as TypographySection } from "./TypographySection";

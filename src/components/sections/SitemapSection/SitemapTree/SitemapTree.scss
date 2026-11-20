@@ -1,0 +1,89 @@
+@use "@styles/mixins" as *;
+
+$name: ".sitemap-tree";
+
+// Block: sitemap-tree (Figma sitemap "Container": page → branches → sections)
+#{$name} {
+  --sitemap-tree-branch-gap: 10px;
+
+  @include responsive(--sitemap-tree-branch-height, (40px, 56px, null, 79px));
+  @include responsive(--sitemap-tree-branch-radius, (12px, null, null, 19px));
+  @include responsive(--sitemap-tree-link-height, (20px, 30px, null, 38px));
+
+  &__page {
+    display: block;
+    color: var(--color-text-inverse);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.2;
+    text-align: center;
+    background-color: var(--color-accent);
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition);
+
+    @include responsive(padding, (14px 12px, 16px, null, 20px 24px));
+    @include responsive(font-size, (16px, 18px, null, 20px));
+
+    @include hover-fine-pointer {
+      background-color: var(--color-green-65);
+    }
+  }
+
+  &__sections {
+    --list-gap: 0;
+
+    position: relative;
+    margin-top: calc(var(--sitemap-tree-branch-height) + 1px);
+    background-color: var(--color-surface);
+    border-radius: 0 0 12px 12px;
+
+    @include responsive(padding, (12px, 16px, null, 20px));
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      width: calc(50% - var(--sitemap-tree-branch-gap) / 2);
+      height: var(--sitemap-tree-branch-height);
+      border-bottom: 1px solid var(--color-accent);
+    }
+
+    &::before {
+      left: 0;
+      border-right: 1px solid var(--color-accent);
+      border-bottom-right-radius: var(--sitemap-tree-branch-radius);
+    }
+
+    &::after {
+      right: 0;
+      border-left: 1px solid var(--color-accent);
+      border-bottom-left-radius: var(--sitemap-tree-branch-radius);
+    }
+  }
+
+  &__section {
+    position: relative;
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+    background-color: var(--color-bg);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+
+    @include responsive(padding, (12px 8px, 16px 12px, null, 20px 16px));
+    @include responsive(font-size, (14px, null, null, 16px));
+
+    & + & {
+      margin-top: var(--sitemap-tree-link-height);
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        width: 1px;
+        height: var(--sitemap-tree-link-height);
+        background-color: var(--color-border);
+      }
+    }
+  }
+}

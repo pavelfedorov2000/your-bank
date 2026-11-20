@@ -1,0 +1,18 @@
+@use "@styles/mixins" as *;
+
+$name: ".sitemap";
+
+// Block: sitemap (Figma "⭐ Sitemap"). Trees in a row on desktop, wrap into 3 / 2 columns on smaller screens.
+#{$name} {
+  @include responsive(--section-gap, (40px, 50px, 60px, 80px));
+
+  &__list {
+    --list-display: grid;
+    --list-align-items: start;
+
+    grid-template-columns: repeat(var(--sitemap-columns), minmax(0, 1fr));
+
+    @include responsive(--sitemap-columns, (2, 3, 6));
+    @include responsive(--list-gap, (30px 12px, 40px 20px, 20px));
+  }
+}
